@@ -4,7 +4,6 @@
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
   <packagedElement xmi:type="uml:Package" xmi:id="_EXCpsESHEeiC87LiLS-S1w" name="SoHMS_Framework">
-    <packagedElement xmi:type="uml:Class" xmi:id="_7wTIQESEEeiC87LiLS-S1w" name="MService"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_QHE3UESJEeiC87LiLS-S1w" name="DF"/>
     <packagedElement xmi:type="uml:Package" xmi:id="_cRGw8ESZEeiC87LiLS-S1w" name="ResourcesManagement">
       <packagedElement xmi:type="uml:Class" xmi:id="_gu_RgESZEeiC87LiLS-S1w" name="Resource"/>
@@ -14,9 +13,19 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_ZB4r0EStEeifeaMtXknqlw" name="Product"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_bHaN4EStEeifeaMtXknqlw" name="ProductHolon"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_2F-t8EbuEei-I6XYtqsRTw" name="MService">
+      <packagedElement xmi:type="uml:Class" xmi:id="_7wTIQESEEeiC87LiLS-S1w" name="MService"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_PCzX4EbvEei-I6XYtqsRTw" name="MServiceProfile"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_rGRCoEbvEei-I6XYtqsRTw" name="ParametersProfile"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NP3oYEb0Eei-I6XYtqsRTw" name="Parameter"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_lGAvYEb6Eei-I6XYtqsRTw" name="Parametre Profile">
+        <generalization xmi:type="uml:Generalization" xmi:id="_psUMIEb6Eei-I6XYtqsRTw" general="_NP3oYEb0Eei-I6XYtqsRTw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_5FKLIEcKEei-I6XYtqsRTw" name="MServiceImplementation"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_-2nzcEcKEei-I6XYtqsRTw" name="ProcessMethod"/>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_3swdsEStEeifeaMtXknqlw" name="Package3">
     <packagedElement xmi:type="uml:Class" xmi:id="_7-JaYEStEeifeaMtXknqlw" name="Layout"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_KA3r8EYnEeiL1s-6KuDPNg" name="MService"/>
 </uml:Model>
