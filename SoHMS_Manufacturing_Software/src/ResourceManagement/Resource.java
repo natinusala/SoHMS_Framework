@@ -3,13 +3,13 @@ package ResourceManagement;
 public class Resource {
 	
 	//Attributes
-	private int resourceId;
-	private String name;
-	private String technology;
-	private String category;
-	private String textDescription;
-	private String [] inputPorts;
-	private String [] outputPorts;
+	protected int resourceId;
+	protected String name;
+	protected String technology;
+	protected String category;
+	protected String textDescription;
+	protected String [] inputPorts;
+	protected String [] outputPorts;
 	
 	public Resource() {
 	}

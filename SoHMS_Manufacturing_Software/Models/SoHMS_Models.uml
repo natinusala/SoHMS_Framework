@@ -10,5 +10,13 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_gu_RgESZEeiC87LiLS-S1w" name="Resource"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_iTBQEESZEeiC87LiLS-S1w" name="ResourceHolon"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Uc9vIEStEeifeaMtXknqlw" name="ProductsManagement">
+      <packagedElement xmi:type="uml:Class" xmi:id="_ZB4r0EStEeifeaMtXknqlw" name="Product"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_bHaN4EStEeifeaMtXknqlw" name="ProductHolon"/>
+    </packagedElement>
   </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_3swdsEStEeifeaMtXknqlw" name="Package3">
+    <packagedElement xmi:type="uml:Class" xmi:id="_7-JaYEStEeifeaMtXknqlw" name="Layout"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_KA3r8EYnEeiL1s-6KuDPNg" name="MService"/>
 </uml:Model>
