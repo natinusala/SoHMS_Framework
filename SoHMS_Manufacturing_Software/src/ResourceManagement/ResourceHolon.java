@@ -1,22 +1,35 @@
 package ResourceManagement;
 
 import java.io.File;
+import java.util.ArrayList;
+
+import MService.MServiceImplentation;
 
 public class ResourceHolon extends Resource{
 	
 	//attribute
 	protected static int rhCount= 0;
+	private ArrayList<MServiceImplentation> providedServices;
 	
-	
-	//Used to adding a ressource
+
+	//Constructors
 	public ResourceHolon(){}
 	
+	//Getters
+	public ArrayList<MServiceImplentation> getProvidedServices() {
+		return providedServices;
+	}
+
+    //Setters
+	public void setProvidedServices(ArrayList<MServiceImplentation> providedServices) {
+		this.providedServices = providedServices;
+	}	
 	
 	//methods
 	public void initializeRessources(File F) {
 		/*
-		  le traitement ici est spécificifique à l'ontology products.
-		  le déroulement de l'initialisation dépend de la structure de déclaration des produit.
+		  le traitement ici est spï¿½cificifique ï¿½ l'ontology products.
+		  le dï¿½roulement de l'initialisation dï¿½pend de la structure de dï¿½claration des produit.
 		*/
 	}
 	

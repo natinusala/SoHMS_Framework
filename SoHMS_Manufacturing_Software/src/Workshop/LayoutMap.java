@@ -1,4 +1,4 @@
-package Layout;
+package Workshop;
 
 public class LayoutMap {
 

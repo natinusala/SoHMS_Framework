@@ -3,11 +3,14 @@ package MService;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-
+enum RangeType{
+	Catalogue,
+	Interval;
+}
 public class ProfileParameter extends Parameter{
  
 	//Attributes
-	protected String rangeType;
+	protected RangeType rangeType;
 	protected ArrayList<String>  rangeValues;
 	
 	
@@ -15,14 +18,14 @@ public class ProfileParameter extends Parameter{
 	public ProfileParameter(){
 		this.rangeValues= new ArrayList<String>();
 	}
-	public ProfileParameter(Parameter param, String rangetype){
+	public ProfileParameter(Parameter param, RangeType rangetype){
 		super(param);
 		this.rangeType= rangetype;
 		this.rangeValues= new ArrayList<String>();
 	}
 	
 	//Getters 
-	public String getRangeType() {
+	public RangeType getRangeType() {
 		return rangeType;
 	}
 	public ArrayList<String> getRangeValues() {
@@ -30,7 +33,7 @@ public class ProfileParameter extends Parameter{
 	}
 	
 	//Setters
-	public void setRangeType(String rangeType) {
+	public void setRangeType(RangeType rangeType) {
 		this.rangeType = rangeType;
 	}
 	
