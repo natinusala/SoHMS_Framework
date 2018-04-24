@@ -12,6 +12,11 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_Uc9vIEStEeifeaMtXknqlw" name="ProductsManagement">
       <packagedElement xmi:type="uml:Class" xmi:id="_ZB4r0EStEeifeaMtXknqlw" name="Product"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_bHaN4EStEeifeaMtXknqlw" name="ProductHolon"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_n4aD0EfREeiwJOt0nyTXoQ" name="OrderManager"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_YhddEEfTEeiwJOt0nyTXoQ" name="Tools">
+        <packagedElement xmi:type="uml:Class" xmi:id="_tGZoIEfQEeiwJOt0nyTXoQ" name="ProductionPlan"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Us0CkEfaEeiwJOt0nyTXoQ" name="Transition"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_2F-t8EbuEei-I6XYtqsRTw" name="MService">
       <packagedElement xmi:type="uml:Class" xmi:id="_7wTIQESEEeiC87LiLS-S1w" name="MService"/>
@@ -23,6 +28,10 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_5FKLIEcKEei-I6XYtqsRTw" name="MServiceImplementation"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_-2nzcEcKEei-I6XYtqsRTw" name="ProcessMethod"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_zL_pMEfXEeiwJOt0nyTXoQ" name="OrdersManagement">
+      <packagedElement xmi:type="uml:Class" xmi:id="_BOWwsEfYEeiwJOt0nyTXoQ" name="POH"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_DJzJsEfYEeiwJOt0nyTXoQ" name="ROH"/>
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_3swdsEStEeifeaMtXknqlw" name="Package3">

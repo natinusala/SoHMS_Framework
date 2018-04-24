@@ -97,7 +97,7 @@ public class MServiceImplentation{
 	
 	public void getMatchingParamProfile() {}
 	
-    public boolean matchService() {
+    public boolean matchService(MService service) {
     	return false;
     }
     

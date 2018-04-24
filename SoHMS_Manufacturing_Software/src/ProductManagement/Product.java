@@ -9,16 +9,15 @@ public class Product {
 	//Attributes
 	private int id;
 	private String description;
-	private ArrayList<MService> services;
+	private ArrayList<MService> neededservices;
 	
 	//Constructors
 	public Product(int id, String description,ArrayList<MService> services) {
 		this.id = id;
 		this.description = description;
-		this.services = new ArrayList<MService>();
+		this.neededservices = new ArrayList<MService>();
 	}
 	
-	//methods
 	
 	//Getters
 	public int getId() {
@@ -28,7 +27,7 @@ public class Product {
 		return description;
 	}
 	public ArrayList<MService> getServices() {
-		return services;
+		return neededservices;
 	}
 	
 	//Setters
@@ -39,6 +38,6 @@ public class Product {
 		this.description = description;
 	}
 	public void setServices(ArrayList<MService> services) {
-		this.services = services;
+		this.neededservices = services;
 	}
 }

@@ -50,7 +50,7 @@ public class DirectoryFacilitator{
 		//for every resource
 		for (ResourceHolon rh : this.resourcesDirectory) {
 			//for every service of the resource
-			for (MServiceImplentation servImp : rh.getProvidedServices()) {
+			for (MServiceImplentation servImp : rh.getOfferedServices()) {
 				if (this.rsDirectory.containsKey(servImp.getmService())){
 					this.rsDirectory.get(servImp.getmService()).add(rh);
 				} 
@@ -85,7 +85,7 @@ public class DirectoryFacilitator{
 	}
 
 	public void updateResourceServiceDirectory(ResourceHolon rh) {
-		for (MServiceImplentation servImp : rh.getProvidedServices()) {
+		for (MServiceImplentation servImp : rh.getOfferedServices()) {
 			if (rsDirectory.containsKey(servImp.getmService())){
 				rsDirectory.get(servImp.getmService()).add(rh);
 			} 
@@ -119,5 +119,8 @@ public class DirectoryFacilitator{
 		return rsDirectory.get(service);
 	}
 	
-	
+	public ArrayList<ResourceHolon> getServiceProviders(MServiceImplentation service){
+		//a implémenter
+		return null;
+	}
 }
