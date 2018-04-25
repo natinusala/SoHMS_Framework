@@ -8,6 +8,7 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_cRGw8ESZEeiC87LiLS-S1w" name="ResourcesManagement">
       <packagedElement xmi:type="uml:Class" xmi:id="_gu_RgESZEeiC87LiLS-S1w" name="Resource"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_iTBQEESZEeiC87LiLS-S1w" name="ResourceHolon"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_1ly2EEhvEeioS-c18iBThg" name="RH_Profile"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_Uc9vIEStEeifeaMtXknqlw" name="ProductsManagement">
       <packagedElement xmi:type="uml:Class" xmi:id="_ZB4r0EStEeifeaMtXknqlw" name="Product"/>
@@ -17,6 +18,7 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_tGZoIEfQEeiwJOt0nyTXoQ" name="ProductionPlan"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_Us0CkEfaEeiwJOt0nyTXoQ" name="Transition"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_l7ijsEhvEeioS-c18iBThg" name="ProductionOrder"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_2F-t8EbuEei-I6XYtqsRTw" name="MService">
       <packagedElement xmi:type="uml:Class" xmi:id="_7wTIQESEEeiC87LiLS-S1w" name="MService"/>
