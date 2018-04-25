@@ -13,7 +13,7 @@ public class ProductHolon {
 	private static int phListSize= 1000;
 	
 	private int id;
-	private OrderManager ordermanager;
+	private ProductionOrderManager ordermanager;
 	private ProductionPlan productionPlan;
 	private  Object actionsPlan;
 
@@ -52,11 +52,11 @@ public class ProductHolon {
 		this.id = id;
 	}
 
-	public OrderManager getOrdermanager() {
+	public ProductionOrderManager getOrdermanager() {
 		return ordermanager;
 	}
 
-	public void setOrdermanager(OrderManager ordermanager) {
+	public void setProductionOrdermanager(ProductionOrderManager ordermanager) {
 		this.ordermanager = ordermanager;
 	}
 

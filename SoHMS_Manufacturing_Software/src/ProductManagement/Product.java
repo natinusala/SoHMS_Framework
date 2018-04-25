@@ -19,6 +19,7 @@ public class Product {
 	}
 	
 	
+	
 	//Getters
 	public int getId() {
 		return id;

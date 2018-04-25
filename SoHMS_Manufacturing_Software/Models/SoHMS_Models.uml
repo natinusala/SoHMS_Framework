@@ -13,7 +13,7 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_Uc9vIEStEeifeaMtXknqlw" name="ProductsManagement">
       <packagedElement xmi:type="uml:Class" xmi:id="_ZB4r0EStEeifeaMtXknqlw" name="Product"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_bHaN4EStEeifeaMtXknqlw" name="ProductHolon"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_n4aD0EfREeiwJOt0nyTXoQ" name="OrderManager"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_n4aD0EfREeiwJOt0nyTXoQ" name="ProductionOrderManager"/>
       <packagedElement xmi:type="uml:Package" xmi:id="_YhddEEfTEeiwJOt0nyTXoQ" name="Tools">
         <packagedElement xmi:type="uml:Class" xmi:id="_tGZoIEfQEeiwJOt0nyTXoQ" name="ProductionPlan"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_Us0CkEfaEeiwJOt0nyTXoQ" name="Transition"/>
