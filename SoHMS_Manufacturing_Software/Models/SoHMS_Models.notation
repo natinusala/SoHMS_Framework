@@ -27,7 +27,7 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QHKW80SJEeiC87LiLS-S1w"/>
         </children>
         <element xmi:type="uml:Class" href="SoHMS_Models.uml#_QHE3UESJEeiC87LiLS-S1w"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QHKW4USJEeiC87LiLS-S1w" x="494" y="512" width="140" height="21"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QHKW4USJEeiC87LiLS-S1w" x="474" y="532" width="140" height="21"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_cRM3kESZEeiC87LiLS-S1w" type="Package_Shape_CN">
         <children xmi:type="notation:DecorationNode" xmi:id="_cRM3kkSZEeiC87LiLS-S1w" type="Package_NameLabel_CN"/>
@@ -224,19 +224,19 @@
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UtQukUfaEeiwJOt0nyTXoQ"/>
                 </children>
                 <element xmi:type="uml:Class" href="SoHMS_Models.uml#_Us0CkEfaEeiwJOt0nyTXoQ"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UtPgYUfaEeiwJOt0nyTXoQ" x="14" y="44" height="21"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UtPgYUfaEeiwJOt0nyTXoQ" x="14" y="52" height="21"/>
               </children>
               <styles xmi:type="notation:TitleStyle" xmi:id="_Yhvw8kfTEeiwJOt0nyTXoQ"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Yhvw80fTEeiwJOt0nyTXoQ"/>
             </children>
             <element xmi:type="uml:Package" href="SoHMS_Models.uml#_YhddEEfTEeiwJOt0nyTXoQ"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YhvJ4UfTEeiwJOt0nyTXoQ" x="174" y="72" width="161"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YhvJ4UfTEeiwJOt0nyTXoQ" x="174" y="72" width="161" height="121"/>
           </children>
           <styles xmi:type="notation:TitleStyle" xmi:id="_UhxWoEStEeifeaMtXknqlw"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UhxWoUStEeifeaMtXknqlw"/>
         </children>
         <element xmi:type="uml:Package" href="SoHMS_Models.uml#_Uc9vIEStEeifeaMtXknqlw"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ug-FYUStEeifeaMtXknqlw" x="254" y="212" width="381" height="221"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ug-FYUStEeifeaMtXknqlw" x="254" y="212" width="381" height="241"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_2Gkj0EbuEei-I6XYtqsRTw" type="Package_Shape_CN">
         <children xmi:type="notation:DecorationNode" xmi:id="_2Glx8EbuEei-I6XYtqsRTw" type="Package_NameLabel_CN"/>

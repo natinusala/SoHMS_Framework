@@ -11,7 +11,6 @@ public class ResourceHolon extends Resource{
 	//attribute
 	protected static int rhCount= 0;
 	protected static int ListSize= 100;
-	
 	private ArrayList<MServiceImplentation> offeredServices;
 	
 

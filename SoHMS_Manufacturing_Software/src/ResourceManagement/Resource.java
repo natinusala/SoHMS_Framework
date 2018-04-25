@@ -25,6 +25,7 @@ public class Resource {
 		this.outputPorts = outputPorts;
 	}
 	
+
 	//Getters
 	public int getResourceId() {
 		return resourceId;
