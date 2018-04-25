@@ -53,6 +53,10 @@
         <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
       </profileApplication>
     </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_0e4H8EiIEeiIpKinj_r2hQ" name="SIL">
+      <packagedElement xmi:type="uml:Class" xmi:id="_38I5AEiIEeiIpKinj_r2hQ" name="ServiceInterfaceLayer"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Vg4o8EiMEeiIpKinj_r2hQ" name="RH_SIL"/>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_3swdsEStEeifeaMtXknqlw" name="Specefic">
     <packagedElement xmi:type="uml:Class" xmi:id="_7-JaYEStEeifeaMtXknqlw" name="Layout"/>
