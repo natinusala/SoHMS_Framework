@@ -67,5 +67,11 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_LAauIEh8EeiIpKinj_r2hQ" name="OnTheGo_Bhaviour"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_t1pAkEh8EeiIpKinj_r2hQ" name="ReactiveRouter_ROH_Behavior"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_vVUqoEh8EeiIpKinj_r2hQ" name="ReactiveBuffered_ROH_Behavior"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_n20TkEnuEeicrLibrEqSbg" name="Feeder1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_r5jJMEnuEeicrLibrEqSbg" name="Feeder2"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_vVV6oEnuEeicrLibrEqSbg" name="Feeder3"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_xzhNQEnuEeicrLibrEqSbg" name="Exchanger1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_zyvTAEnuEeicrLibrEqSbg" name="Exchanger2"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_5aABAEnvEeicrLibrEqSbg" client="_3swdsEStEeifeaMtXknqlw" supplier="_EXCpsESHEeiC87LiLS-S1w"/>
   </packagedElement>
 </uml:Model>
