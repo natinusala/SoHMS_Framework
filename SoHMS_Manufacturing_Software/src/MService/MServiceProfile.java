@@ -31,6 +31,12 @@ public class MServiceProfile {
 	}
 	
 	//Methods
-	
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((MService == null) ? 0 : MService.hashCode());
+		return result;
+	}
 	
 }

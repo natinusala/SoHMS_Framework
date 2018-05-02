@@ -11,15 +11,15 @@ public class MServiceImplentation{
 	private MService mService;
 	private ArrayList<ParametersProfile> parametersProfile;
 	private HashSet<ProcessMethod> processMethods;
-	private List inputs;
-	private List outputs;
+	private ArrayList<Parameter> inputs;
+	private ArrayList<Parameter> outputs;
 	private Double averageCost;
 	
 	//Constructors
 	public MServiceImplentation() {}
 	
 	public MServiceImplentation(MService mService, ArrayList<ParametersProfile> parametersProfile,
-		HashSet<ProcessMethod> processMethods, List inputs, List outputs, Double averageCost) {
+		HashSet<ProcessMethod> processMethods, ArrayList<Parameter> inputs, ArrayList<Parameter> outputs, Double averageCost) {
 		this.mService = mService;
 		this.parametersProfile = parametersProfile;
 		this.processMethods = processMethods;
@@ -47,16 +47,16 @@ public class MServiceImplentation{
 	public void setProcessMethods(HashSet<ProcessMethod> processMethods) {
 		this.processMethods = processMethods;
 	}
-	public List getInputs() {
+	public ArrayList<Parameter> getInputs() {
 		return inputs;
 	}
-	public void setInputs(List inputs) {
+	public void setInputs(ArrayList<Parameter> inputs) {
 		this.inputs = inputs;
 	}
-	public List getOutputs() {
+	public ArrayList<Parameter> getOutputs() {
 		return outputs;
 	}
-	public void setOutputs(List outputs) {
+	public void setOutputs(ArrayList<Parameter> outputs) {
 		this.outputs = outputs;
 	}
 	public Double getAverageCost() {

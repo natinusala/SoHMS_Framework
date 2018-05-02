@@ -2,6 +2,7 @@ package MService;
 
 import java.awt.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class MService {
@@ -13,12 +14,12 @@ public class MService {
 	private String taxonomy;
 	private String description;
 	private String contactInfo;
-	private List parameters;
-	private List attributes; 
+	private ArrayList<Parameter> parameters;
+	private ArrayList<Parameter> attributes; 
 
 	//Constructors
 	public MService(String name, String ontology, String category, String taxonomy, String description,
-			String contactInfo, List parameters, List attributes) {
+			String contactInfo, ArrayList<Parameter> parameters, ArrayList<Parameter> attributes) {
 		super();
 		this.name = name;
 		this.ontology = ontology;
@@ -49,14 +50,14 @@ public class MService {
 	public String getContactInfo() {
 		return contactInfo;
 	}
-	public List getParameters() {
+	public ArrayList<Parameter> getParameters() {
 		return parameters;
 	}
-	public List getAttributes() {
+	public ArrayList<Parameter> getAttributes() {
 		return attributes;
 	}
 	//Setters
-	public void setParameters(List parameters) {
+	public void setParameters(ArrayList<Parameter> parameters) {
 		this.parameters = parameters;
 	}
 	public void setDescription(String description) {
@@ -74,14 +75,26 @@ public class MService {
 	public void setOntology(String ontology) {
 		this.ontology = ontology;
 	}
-    public void setAttributes(List attributes) {
+    public void setAttributes(ArrayList<Parameter> attributes) {
 		this.attributes = attributes;
 	}
 	public void setContactInfo(String contactInfo) {
 		this.contactInfo = contactInfo;
 	}
-
-	//Methods
-	public void loadAntology() {
+   //methods
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((category == null) ? 0 : category.hashCode());
+		result = prime * result
+				+ ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((ontology == null) ? 0 : ontology.hashCode());
+		//result = prime * result + Arrays.hashCode(parameters);
+		result = prime * result
+				+ ((taxonomy == null) ? 0 : taxonomy.hashCode());
+		return result;
 	}
 }

@@ -10,7 +10,9 @@
     <importedPackage xmi:type="uml:Profile" href="pathmap://PAPYRUS_INTERNAL_PROFILES/PapyrusInternal.profile.uml#_dL4lkPXAEeGSQON-DQ-5eg"/>
   </packageImport>
   <packagedElement xmi:type="uml:Package" xmi:id="_EXCpsESHEeiC87LiLS-S1w" name="SoHMS_Framework">
-    <packagedElement xmi:type="uml:Class" xmi:id="_QHE3UESJEeiC87LiLS-S1w" name="DF"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_QHE3UESJEeiC87LiLS-S1w" name="DF">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_RzbJ0E2cEeiDV7YpGphMJA" name="getServiceProviders"/>
+    </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_cRGw8ESZEeiC87LiLS-S1w" name="ResourcesManagement">
       <packagedElement xmi:type="uml:Class" xmi:id="_gu_RgESZEeiC87LiLS-S1w" name="Resource"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_iTBQEESZEeiC87LiLS-S1w" name="ResourceHolon"/>
@@ -25,17 +27,6 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_Us0CkEfaEeiwJOt0nyTXoQ" name="Transition"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_l7ijsEhvEeioS-c18iBThg" name="ProductionOrder"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_2F-t8EbuEei-I6XYtqsRTw" name="MService">
-      <packagedElement xmi:type="uml:Class" xmi:id="_7wTIQESEEeiC87LiLS-S1w" name="MService"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_PCzX4EbvEei-I6XYtqsRTw" name="MServiceProfile"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_rGRCoEbvEei-I6XYtqsRTw" name="ParametersProfile"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_NP3oYEb0Eei-I6XYtqsRTw" name="Parameter"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_lGAvYEb6Eei-I6XYtqsRTw" name="Parametre Profile">
-        <generalization xmi:type="uml:Generalization" xmi:id="_psUMIEb6Eei-I6XYtqsRTw" general="_NP3oYEb0Eei-I6XYtqsRTw"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_5FKLIEcKEei-I6XYtqsRTw" name="MServiceImplementation"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_-2nzcEcKEei-I6XYtqsRTw" name="ProcessMethod"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_zL_pMEfXEeiwJOt0nyTXoQ" name="OrdersManagement">
       <packagedElement xmi:type="uml:Class" xmi:id="_BOWwsEfYEeiwJOt0nyTXoQ" name="POH">
@@ -73,5 +64,44 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_xzhNQEnuEeicrLibrEqSbg" name="Exchanger1"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_zyvTAEnuEeicrLibrEqSbg" name="Exchanger2"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_5aABAEnvEeicrLibrEqSbg" client="_3swdsEStEeifeaMtXknqlw" supplier="_EXCpsESHEeiC87LiLS-S1w"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Z7dtUE2vEeibVLO_0WDwNQ" memberEnd="_Z8OiUE2vEeibVLO_0WDwNQ _Z8Ta0U2vEeibVLO_0WDwNQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Z8LfAE2vEeibVLO_0WDwNQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Z8MGEE2vEeibVLO_0WDwNQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Z8Ta0U2vEeibVLO_0WDwNQ" type="_PCzX4EbvEei-I6XYtqsRTw" association="_Z7dtUE2vEeibVLO_0WDwNQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_gCMbAE2vEeibVLO_0WDwNQ" memberEnd="_gCQscE2vEeibVLO_0WDwNQ _gCR6kU2vEeibVLO_0WDwNQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gCQFYE2vEeibVLO_0WDwNQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gCQFYU2vEeibVLO_0WDwNQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_gCR6kU2vEeibVLO_0WDwNQ" name="mserviceimplementation" type="_K1-78E2vEeibVLO_0WDwNQ" association="_gCMbAE2vEeibVLO_0WDwNQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_kUeIgE2vEeibVLO_0WDwNQ" memberEnd="_kUf9sU2vEeibVLO_0WDwNQ _kUhL0U2vEeibVLO_0WDwNQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kUfWoE2vEeibVLO_0WDwNQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kUf9sE2vEeibVLO_0WDwNQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_kUhL0U2vEeibVLO_0WDwNQ" name="mservicespecificatio" type="_S7UrYE2vEeibVLO_0WDwNQ" association="_kUeIgE2vEeibVLO_0WDwNQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_2F-t8EbuEei-I6XYtqsRTw" name="MService">
+    <packagedElement xmi:type="uml:Class" xmi:id="_7wTIQESEEeiC87LiLS-S1w" name="MService"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_PCzX4EbvEei-I6XYtqsRTw" name="MServiceProfile">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Z8OiUE2vEeibVLO_0WDwNQ" name="mservice" type="_7wTIQESEEeiC87LiLS-S1w" association="_Z7dtUE2vEeibVLO_0WDwNQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Z8SzwE2vEeibVLO_0WDwNQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Z8Ta0E2vEeibVLO_0WDwNQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_K1-78E2vEeibVLO_0WDwNQ" name="MServiceImplementation">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_gCQscE2vEeibVLO_0WDwNQ" name="mservice" type="_7wTIQESEEeiC87LiLS-S1w" association="_gCMbAE2vEeibVLO_0WDwNQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gCRTgE2vEeibVLO_0WDwNQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gCR6kE2vEeibVLO_0WDwNQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_S7UrYE2vEeibVLO_0WDwNQ" name="MServiceSpecificatio">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_kUf9sU2vEeibVLO_0WDwNQ" name="mservice" type="_7wTIQESEEeiC87LiLS-S1w" association="_kUeIgE2vEeibVLO_0WDwNQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kUgkwE2vEeibVLO_0WDwNQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kUhL0E2vEeibVLO_0WDwNQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
   </packagedElement>
 </uml:Model>
