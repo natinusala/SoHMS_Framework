@@ -1,6 +1,6 @@
 package ResourceManagement;
 
-public class Resource {
+public abstract class Resource {
 	
 	//Attributes
 	protected int resourceId;

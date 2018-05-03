@@ -2,12 +2,12 @@ package SIL;
 
 import Crosscutting.Pair;
 import MService.MServiceImplentation;
+import MService.MServiceSpecification;
 import OrdersManagement.ROH;
 import ProductManagement.ProductHolon;
 
 public interface RH_SIL {
-	
-	public boolean sendServiceToField(MServiceImplentation service, ProductHolon client,int method);
+	public boolean sendServiceToField(MServiceSpecification service, ProductHolon client,int method);
 	public Pair<Integer, Long> getFastestMethod(MServiceImplentation serviceImp);
 	public long getMethodTime(Integer methodID);
 	public long getSetupTime(int currentSetup, int setup);
@@ -16,6 +16,6 @@ public interface RH_SIL {
 	public void start();
 	public void end();
 	public ROH getROH();
-	String getDefaultDestination();
+	public String getDefaultDestination();
 
 }

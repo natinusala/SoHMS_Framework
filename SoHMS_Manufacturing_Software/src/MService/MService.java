@@ -13,7 +13,6 @@ public class MService {
 	private String category;
 	private String taxonomy;
 	private String description;
-	private String contactInfo;
 	private ArrayList<Parameter> parameters;
 	private ArrayList<Parameter> attributes; 
 
@@ -26,7 +25,6 @@ public class MService {
 		this.category = category;
 		this.taxonomy = taxonomy;
 		this.description = description;
-		this.contactInfo = contactInfo;
 		this.parameters = parameters;
 		this.attributes = attributes;
 	}
@@ -46,9 +44,6 @@ public class MService {
 	}
 	public String getDescription() {
 		return description;
-	}
-	public String getContactInfo() {
-		return contactInfo;
 	}
 	public ArrayList<Parameter> getParameters() {
 		return parameters;
@@ -77,9 +72,6 @@ public class MService {
 	}
     public void setAttributes(ArrayList<Parameter> attributes) {
 		this.attributes = attributes;
-	}
-	public void setContactInfo(String contactInfo) {
-		this.contactInfo = contactInfo;
 	}
    //methods
 	public int hashCode() {

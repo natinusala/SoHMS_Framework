@@ -2,13 +2,13 @@ package SIL;
 
 import java.util.HashSet;
 
-public class ServiceInterfaceLayer {
+public class SIL {
 
 	//Attributes
 	private HashSet<RH_SIL> ressource_SILs;
 	
 	//Constructors
-	public ServiceInterfaceLayer(){
+	public SIL(){
 		this.ressource_SILs = new HashSet<RH_SIL>();
 	}
 	//Getters & Setters

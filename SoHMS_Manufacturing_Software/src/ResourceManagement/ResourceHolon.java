@@ -2,9 +2,12 @@ package ResourceManagement;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.concurrent.ConcurrentHashMap;
 
 import MService.MService;
 import MService.MServiceImplentation;
+import SIL.RH_SIL;
 
 public class ResourceHolon extends Resource{
 	
@@ -12,8 +15,9 @@ public class ResourceHolon extends Resource{
 	protected static int rhCount= 0;
 	protected static int ListSize= 100;
 	private ArrayList<MServiceImplentation> offeredServices;
-	
-
+	private ConcurrentHashMap<String,LinkedList<Task_RH>> portSchedules;
+    private RH_SIL sil;
+    
 	//Constructors
  	public ResourceHolon(){
 		super();
@@ -27,6 +31,7 @@ public class ResourceHolon extends Resource{
 		this.technology=technology;
 		this.category=category;
 		this.textDescription=textDescription;
+		initPortScheules();
 	}	
 	
 	//Getters
@@ -78,4 +83,10 @@ public class ResourceHolon extends Resource{
 			offeredServices.add(service); // Then simply add the new Service Imp	
 		}
 	}	
+	public void initPortScheules() {
+		//Create a schedule for every port
+		for (int i = 0; i < inputPorts.length; i++) {
+			portSchedules.put(inputPorts[i], new LinkedList<Task_RH>());
+		}
+	}
 }

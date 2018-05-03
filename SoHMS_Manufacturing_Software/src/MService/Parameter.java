@@ -4,9 +4,9 @@ package MService;
 public class Parameter {
 
 	//Attributes
-	protected String name;
-	protected ValueType type;
-	protected String value;
+	private String name;
+	private ValueType type;
+	private String value;
 	
 	//Constructors
 	public Parameter() {}

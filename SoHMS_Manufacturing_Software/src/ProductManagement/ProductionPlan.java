@@ -1,15 +1,7 @@
 package ProductManagement;
 
-import java.util.ArrayList;
+import Workshop.LayoutMap;
 
-
-
-public class ProductionPlan {
-
-	//Attributes
-	private  ArrayList<String> petriPlacesNames; 
-	private String fileInString;
-	private String initialStateName;
+public class ProductionPlan extends LayoutMap{
 
 }
-

@@ -13,31 +13,31 @@ public abstract class ServiceOntology{
 	protected ArrayList<MService> services;
 	
 	//Constructors
-	public ServiceOntology() {}
+	protected ServiceOntology() {}
 	
-	public ServiceOntology(String name, ArrayList<MService> services) {
+	protected ServiceOntology(String name, ArrayList<MService> services) {
 		this.name = name;
 		this.services = services;
 	}
 	
 	//Getters
-	public String getName() {
+	protected String getName() {
 		return name;
 	}
-	public ArrayList<MService> getServices() {
+	protected ArrayList<MService> getServices() {
 		return services;
 	}
 	
 	//Setters
-	public void setName(String name) {
+	protected void setName(String name) {
 		this.name = name;
 	}
-	public void setServices(ArrayList<MService> services) {
+	protected void setServices(ArrayList<MService> services) {
 		this.services = services;
 	}
  
 	//Methods
-    public MService getServiceByName(String serviceName){
+	protected MService getServiceByName(String serviceName){
 		
 		Iterator<MService> it= this.services.iterator();
 		MService type;
@@ -47,7 +47,7 @@ public abstract class ServiceOntology{
 		}
 		return null;
 	}
-    public boolean containsByName(String serviceName){
+	protected boolean containsByName(String serviceName){
 		Iterator<MService> it= this.services.iterator();
 		MService type;
 		while(it.hasNext()){

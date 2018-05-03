@@ -1,9 +1,7 @@
-/Crosscutting/
-/DirectoryFacilitator/
-/MService/
-/Ontology/
 /OrdersManagement/
 /ProductManagement/
-/ResourceManagement/
+/Crosscutting/
+/MService/
+/DirectoryFacilitator/
 /SIL/
-/Workshop/
+/ResourceManagement/
