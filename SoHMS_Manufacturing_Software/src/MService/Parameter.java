@@ -1,19 +1,21 @@
 package MService;
 
 
-public class Parameter {
+public abstract class Parameter {
 
 	//Attributes
-	private String name;
-	private ValueType type;
-	private String value;
+	protected String name;
+	protected ValueType type;
+	protected String value;
 	
 	//Constructors
 	public Parameter() {}
+	
 	public Parameter(String name, ValueType type) {
 		this.name = name;
 		this.type = type;
 	}
+	
 	public Parameter(String name, ValueType type,String value) {
 		this.name = name;
 		this.type = type;
@@ -29,6 +31,7 @@ public class Parameter {
 	public String getName() {
 		return name;
 	}
+	
 	public Object getType() {
 		return type;
 	}
@@ -37,9 +40,11 @@ public class Parameter {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public void setType(ValueType type) {
 		this.type = type;
 	}
+	
 	public boolean setValue(String val){
 		switch (type){ 
 		case Integer:
@@ -66,6 +71,10 @@ public class Parameter {
 		}
 		return true;
 	}
+	
+    public String getValue() {
+		return value;
+	}
 	//methods
 	public int hashCode() {
 		final int prime = 31;
@@ -75,7 +84,21 @@ public class Parameter {
 				+ ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
-	
+	public boolean isSameParamType(Parameter param) {
+		if (this == param)
+			return true;
+		if (param == null)
+			return false;
+		if (name == null) {
+			if (param.name != null)
+				return false;
+		} else if (!name.equalsIgnoreCase(param.name))
+			return false;
+		if (value != param.value)
+			return false;
+		return true;
+
+	}
     enum ValueType{
 	 String,
 	 Integer,

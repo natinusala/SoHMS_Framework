@@ -45,4 +45,19 @@ public class ProfileParameter extends Parameter{
 	public  void addValueToRange(String value) {
 		this.rangeValues.add(value);
 	}
+	
+	public boolean matchParam(Parameter p){ 
+	    if(isSameParamType(p)){ // check if both refer to the same Parameter Type
+						 
+				for (String obj : rangeValues) { // see if  there is an interval in which it fits
+					
+					// Check if the value fits (Interval and Unit)
+					if (p.getValue().matches(this.value))  
+						return true;
+				} 
+				// There is no range value that fits
+				return false; 
+	    }
+		return false; // Profile and Specification do not refer to the same Parameter
+	}
 }

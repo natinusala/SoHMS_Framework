@@ -10,11 +10,10 @@ import java.util.ArrayList;
    */
 import java.util.HashMap;
 import java.util.Hashtable;
-
 import Crosscutting.*;
 
 
-public class LayoutMap extends WorkshopLayout{
+public class LayoutMap{
 
 	//Attributes 
 	private  String[] petriPlacesNames; // To store the name of the place only once
@@ -56,7 +55,6 @@ public class LayoutMap extends WorkshopLayout{
 		this.initialStateName = initialStateName;
 	}
 	//Methods
-	@Override
 	public void loadLAyout(File f) {
 		this.edges= new HashMap<String,State>();//Create the hashtable with the states
 		String textLine=null;

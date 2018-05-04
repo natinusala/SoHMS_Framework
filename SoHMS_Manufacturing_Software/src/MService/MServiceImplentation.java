@@ -6,6 +6,7 @@ import java.util.HashSet;
 
 
 
+
 public class MServiceImplentation{
 	//Attributes
 	private MService mService;
@@ -66,7 +67,7 @@ public class MServiceImplentation{
 		this.averageCost = averageCost;
 	}
 	
-	//Methods
+    //Methods
 	public MServiceProfile generateMServiceProfile() {
 		MServiceProfile pofile = new MServiceProfile();
 		pofile.setmService(this.mService);
@@ -97,8 +98,31 @@ public class MServiceImplentation{
 	
 	public void getMatchingParamProfile() {}
 	
-    public boolean matchService(MService service) {
-    	return false;
+    public boolean matchService(MServiceSpecification MSSpec) {
+    	//Compare the description of the Services
+		 MService msType = MSSpec.getMServiceType();
+		 if(!this.mService.equals(msType)){
+			 return false;
+		 }
+		 //Compare if Parameter Values fit in a Parameter Profile Set 
+		 	if(parametersProfile== null) return true;
+		     // CHECK SET
+				for (ParametersProfile ppSet : parametersProfile) {
+			 		boolean match= true;
+			 		//PARAMETER check 						
+			 		for(ProfileParameter pp: ppSet.getParamProfiles()){
+			 			//Match Parameters
+			 			Parameter paramInst= MSSpec.getParameterbyType(pp); // get the parameter specification object that fits in name and data type
+			 			if(!pp.matchParam(paramInst)){ // match parameter instance and parameter profile
+			 				match= false; 
+			 				break;
+			 			}
+			 		}
+			 	//All parameters where evaluated as a match so there is a set that matches	
+				 if(match== true)
+					 return true;
+			 }
+			 return false; // no set returned a match
     }
     
     public void addParameterdProfile(ParametersProfile pp){
@@ -107,4 +131,6 @@ public class MServiceImplentation{
 		}
 		this.parametersProfile.add(pp);
 	}
+    
+ 
 }
