@@ -15,6 +15,7 @@ public class ResourceHolon extends Resource{
 	protected static int rhCount= 0;
 	protected static int ListSize= 100;
 	private ArrayList<MServiceImplentation> offeredServices;
+	private  LinkedList<Task_RH> resourceSchedule;
 	private ConcurrentHashMap<String,LinkedList<Task_RH>> portSchedules;
     private RH_SIL sil;
     
@@ -43,7 +44,13 @@ public class ResourceHolon extends Resource{
 	public void setOfferedServices(ArrayList<MServiceImplentation> providedServices) {
 		this.offeredServices = providedServices;
 	}	
-	
+	public LinkedList<Task_RH> getResourceSchedule() {
+		return resourceSchedule;
+	}
+
+	public void setResourceSchedule(LinkedList<Task_RH> resourceSchedule) {
+		this.resourceSchedule = resourceSchedule;
+	}
 	//methods
 	public MService getServiceByName(String service) {
 		for (MServiceImplentation sr : offeredServices) {
