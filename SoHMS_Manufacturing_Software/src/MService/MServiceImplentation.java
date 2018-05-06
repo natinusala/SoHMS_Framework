@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 
-
-
 public class MServiceImplentation{
 	//Attributes
 	private MService mService;
@@ -29,7 +27,7 @@ public class MServiceImplentation{
 		this.averageCost = averageCost;
 	}
 
-	//Getters ans Seterrs
+	//Getters and Seterrs
 	public MService getmService() {
 		return mService;
 	}
@@ -75,14 +73,22 @@ public class MServiceImplentation{
 		return pofile;
 	}
 	
-	public ProcessMethod getProcessMethodByMethodID(Integer methodID) {
+	public ProcessMethod getProcessMethod(Integer methodID) {
 		for(ProcessMethod method : processMethods) {
 			if(method.getId()==methodID) return method;
 		}
 		return null;
 	}
 	
-	public void getMatchingMethodsOfMService() {
+	public ArrayList<Integer> getMatchingMethodsOfMService(MServiceSpecification service) {
+		// Get the parameter profile set that fits with the service
+		if(parametersProfile!=null){
+			ParametersProfile paramSet = getMatchingParamProfile(service);
+			// get the methods of the parameter profile
+			return paramSet.getAssociatedMethods();
+		}else {
+			 return getProcessMethodsIDs();
+		}			
 	}
 	
 	public ArrayList<Integer> getProcessMethodsIDs() {
@@ -96,7 +102,24 @@ public class MServiceImplentation{
 	  return methodsIDs;
 	}
 	
-	public void getMatchingParamProfile() {}
+	public ParametersProfile getMatchingParamProfile(MServiceSpecification service) {
+		for (ParametersProfile ppSet : parametersProfile) {
+			boolean match= true;
+			//PARAMETER check 						
+			for(ProfileParameter pp: ppSet.getParamProfiles()){
+				//Match Parameters
+				Parameter paramInst= service.getParameterbyType(pp); // get the parameter specification object that fits in name and data type
+				if(!pp.matchParam(paramInst)){ // match parameter instance and parameter profile
+					match= false; 
+					break;
+				}
+			}
+			//All parameters where evaluated as a match so there is a set that matches	
+			if(match== true)
+				return ppSet;
+		}
+		return null; // no set returned a match
+	}
 	
     public boolean matchService(MServiceSpecification MSSpec) {
     	//Compare the description of the Services

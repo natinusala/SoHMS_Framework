@@ -84,7 +84,7 @@ public class MServiceSpecification{
 		this.attributeProfiles = attributeProfiles;
 	}
 	
-	//GETTERS -----------------------------------
+	//GETTERS
 	public int getId() {
 		return id;
 	}
@@ -112,7 +112,7 @@ public class MServiceSpecification{
 		}
 		return null;	
 	}
-	 public Parameter getParameterByName(String name) {
+	public Parameter getParameterByName(String name) {
 			
 			for (int i = 0; i < parameters.size(); i++) {
 				Parameter p= parameters.get(i); // Cast  to use equals @ Parameter class
