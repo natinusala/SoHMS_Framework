@@ -13,7 +13,12 @@ public abstract class Resource {
 	
 	public Resource() {
 	}
-	
+	public Resource(Resource r) {
+		this.name= r.getName();
+		this.technology=r.getTechnology();
+		this.category=r.getCategory();
+		this.textDescription=r.getTextDescription();
+	}
 	public Resource(int resourceId, String name, String technology, String category, String textDescription,
 			String[] inputPorts, String[] outputPorts) {
 		this.resourceId = resourceId;

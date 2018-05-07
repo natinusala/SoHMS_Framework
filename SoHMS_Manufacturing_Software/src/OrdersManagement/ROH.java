@@ -18,6 +18,7 @@ public class ROH {
 	private Integer numOfCurrentExecutions;
 
 	//Constructors
+	public ROH() {};
 	public ROH(ResourceHolon rh, ROH_Behavior behavior ) {
 		this.associatedRH= rh;
 		this.behavior= behavior;

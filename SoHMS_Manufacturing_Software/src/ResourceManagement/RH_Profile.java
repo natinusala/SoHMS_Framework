@@ -12,7 +12,9 @@ public class RH_Profile extends Resource {
 	
 	//Constructors
 	public RH_Profile() {}
-	
+	public RH_Profile(Resource resource){
+		super(resource);
+	}
     public RH_Profile (int resourceId, String name, String technology, String category, String textDescription,
 			String[] inputPorts, String[] outputPorts) {
 		 super(resourceId, name, technology, category, textDescription,

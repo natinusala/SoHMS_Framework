@@ -2,11 +2,12 @@ package SIL;
 
 import java.util.HashSet;
 
+import ResourceManagement.RH_SIL;
+
 public class SIL {
 
 	//Attributes
 	private HashSet<RH_SIL> ressource_SILs;
-	
 	//Constructors
 	public SIL(){
 		this.ressource_SILs = new HashSet<RH_SIL>();
@@ -30,7 +31,7 @@ public class SIL {
 		return null;
 	}
 	
-	public void AssociateSIL2Ressource(RH_SIL r) {
+	public void associateSIL2Ressource(RH_SIL r) {
     	this.ressource_SILs.add(r);
     }
 }

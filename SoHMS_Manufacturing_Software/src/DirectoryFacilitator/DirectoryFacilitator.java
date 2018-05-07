@@ -1,4 +1,5 @@
 package DirectoryFacilitator;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashSet;
@@ -12,6 +13,7 @@ import ProductManagement.ProductHolon;
 import ResourceManagement.ResourceHolon;
 import Workshop.LayoutMap;
 import Crosscutting.*;
+import Crosscutting.TerminalSequence;
 
 public abstract class DirectoryFacilitator{
 
@@ -49,12 +51,13 @@ public abstract class DirectoryFacilitator{
 	public ConcurrentHashMap<FromTo, HashSet<TerminalSequence>> getExploredRoutes() {
 		return exploredRoutes;
 	}
-
 	public void setExploredRoutes(ConcurrentHashMap<FromTo, HashSet<TerminalSequence>> exploredRoutes) {
 		this.exploredRoutes = exploredRoutes;
 	}
 	
 	//Methods
+	abstract void registerResource(File file);
+
 	protected synchronized void  generateServiceDirectory() { 
 		//Create directory
 		this.rsDirectory = new Hashtable <MService, ArrayList<ResourceHolon>>();
@@ -73,9 +76,8 @@ public abstract class DirectoryFacilitator{
 				}
 			}
 		}	 
-
 	}
-
+	
 	protected void addRessource(ResourceHolon newrh) {
 		//Create Directory if First Resource to add
 		if(this.resourcesDirectory.size()==0){
@@ -95,7 +97,7 @@ public abstract class DirectoryFacilitator{
 		}
 	}
 
-	protected void updateResourceServiceDirectory(ResourceHolon rh) {
+	private void updateResourceServiceDirectory(ResourceHolon rh) {
 		for (MServiceImplentation servImp : rh.getOfferedServices()) {
 			if (rsDirectory.containsKey(servImp.getmService())){
 				rsDirectory.get(servImp.getmService()).add(rh);
@@ -109,7 +111,7 @@ public abstract class DirectoryFacilitator{
 
 	}
 
-	protected void removeFromResourceServiceDirectory(ResourceHolon rh){
+	private void removeFromResourceServiceDirectory(ResourceHolon rh){
 		//Search every Service
 		Enumeration<MService> enumService= this.rsDirectory.keys();
 		while( enumService.hasMoreElements()){
@@ -130,7 +132,7 @@ public abstract class DirectoryFacilitator{
 		return rsDirectory.get(mService);
 	}
 	
-	protected HashSet<Pair<ResourceHolon, Double>>  getServiceProviders(MServiceSpecification service){
+	protected HashSet<Pair<ResourceHolon, Double>>  getProviders(MServiceSpecification service){
 		// Get Providers of Type
 				ArrayList<ResourceHolon> providersOfService = getProviders(service.getMServiceType());
 				//Evaluate Fitness of each resource
@@ -143,10 +145,11 @@ public abstract class DirectoryFacilitator{
 							break; // evaluate next resource
 						  }
 						}
-					}
+				}
 				}
 				return providers;
 	}
+	
 	public HashSet<ResourceHolon> getPortOwners(String port) {
 			HashSet<ResourceHolon> owners = new HashSet<ResourceHolon>();
 			for (ResourceHolon rh : resourcesDirectory) {
@@ -161,7 +164,6 @@ public abstract class DirectoryFacilitator{
 			 return owners;
 		  }
 	public TerminalSequence[] getRoutes_NoLoops(String startingPort, String endPort) {
-		//return this.workShopMap.getSequences_NoLoop(startingPort, endPort);
-		return null;
+		return this.workShopMap.getSequences_NoLoop(startingPort, endPort);
 	 }
 }
