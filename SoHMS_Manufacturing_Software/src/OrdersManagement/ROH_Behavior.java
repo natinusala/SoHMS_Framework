@@ -1,12 +1,16 @@
 package OrdersManagement;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import Crosscutting.PathState;
 import MService.MServiceImplentation;
+import MService.MServiceSpecification;
+import MService.ProcessMethod;
 import ProductManagement.ProductHolon;
 import ResourceManagement.ResourceHolon;
 import ResourceManagement.Task_RH;
+import Crosscutting.*;
 
 
 
@@ -26,18 +30,10 @@ public abstract class ROH_Behavior{
 	}
 	
 	//methods
-    public abstract MServiceImplentation requestServiceExe(ProductHolon client,PathState prodTask, ROH roh);
-	public abstract boolean requestPortPermit(ProductHolon client,String finalPort, long timeFromNow, ROH roh);
-	/**
-	 * returns
-	 *  the task TIME if yes in milliseconds
-	 *  -1 if no time to execute but can negotiate
-	 *  -2 if no time to negotiate;
-	 * @param task
-	 * @param associatedRH
-	 * @return
-	 */
-	 protected long haveTimeToDoIT(PathState prodTask, ROH roh) {
+    public abstract MServiceSpecification requestServiceExe(ProductHolon client,PathState prodTask, ROH roh);
+	public abstract boolean requestPortPermition(ProductHolon client,String finalPort, long timeFromNow, ROH roh);
+	
+	protected long haveTimeToDoIT(PathState prodTask, ROH roh) {
 		 
 		 ResourceHolon rh= roh.getAssociatedRH();
 		 int capacity=1;
@@ -82,9 +78,42 @@ public abstract class ROH_Behavior{
 				}	
 			}
 	 }
-	 public long getProcessTime(PathState prodTask){
-       return 0;		 
+	private  long getProcessTime(PathState prodTask){
+		//Get the Service Production Time
+				long processTime;
+				Pair<Integer,Long> method_time= new Pair<Integer, Long>(null, new Long(Long.MAX_VALUE));;
+				MServiceImplentation serviceImp = rh.getRoh().associatedRH.getServByType(prodTask.service.getMServiceType());
+				ArrayList<Integer> methods =serviceImp.getMatchingMethods(prodTask.service);
+				
+				ProcessMethod method;
+				
+				if(prodTask.methodID== null){ 	
+
+					// METHOD IS UNKNOWN
+					for (int i = 0; i < methods.size(); i++) { // get the fastest of the matching methods
+						Long time = rh.getSil().getMethodTime(methods.get(i));
+						if(time <= method_time.getSecond()){
+							method_time.setFirst(methods.get(i));
+							method_time.setSecond(time);
+						}
+					}
+					method= serviceImp.getProcessMethod(method_time.getFirst());
+					prodTask.methodID = method_time.getFirst(); // define a method to the task
+				}
+				else{ 
+					// METHOD KNOWN
+					processTime= rh.getSil().getMethodTime(prodTask.methodID);
+					method = serviceImp.getProcessMethod(prodTask.methodID);
+				 }
+				
+				// GET SETUP TIME, IF ANY
+				if(rh.getRoh().currentSetup!= method.getSetup()){
+					
+					// Compute Setup Time between setups
+					processTime = rh.getSil().getSetupTime(rh.getRoh().currentSetup, method.getSetup()) + rh.getSil().getMethodTime(method.getId());
+					return processTime;
+					
+				}else return method_time.getSecond();		 
 	 }
-	 public String requestDefaultTransfer() {return null;}
 	 
 }

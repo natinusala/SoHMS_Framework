@@ -80,7 +80,7 @@ public class MServiceImplentation{
 		return null;
 	}
 	
-	public ArrayList<Integer> getMatchingMethodsOfMService(MServiceSpecification service) {
+	public ArrayList<Integer> getMatchingMethods(MServiceSpecification service) {
 		// Get the parameter profile set that fits with the service
 		if(parametersProfile!=null){
 			ParametersProfile paramSet = getMatchingParamProfile(service);

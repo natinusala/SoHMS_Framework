@@ -3,6 +3,7 @@ package Crosscutting;
 import java.util.Date;
 
 import MService.MServiceImplentation;
+import MService.MServiceSpecification;
 import ResourceManagement.ResourceHolon;
 
 public class PathState {
@@ -12,7 +13,7 @@ public class PathState {
 	private int pathStateCount= 0;
 	private int pathStateListSize= 1000000;
 
-	public MServiceImplentation service;
+	public MServiceSpecification service;
 	public int processIndex;
 	public ResourceHolon provider;
 	public String inputPort;
@@ -38,7 +39,7 @@ public class PathState {
 		pathStateCount=this.id;
 	}
 	//-----------------------------------------------------------
-	public PathState(MServiceImplentation service, ResourceHolon provider, String inputPort,String outputPort, int processIndex, Double cost){
+	public PathState(MServiceSpecification service, ResourceHolon provider, String inputPort,String outputPort, int processIndex, Double cost){
 		this();
 		//just make reference to the objects. No need to create new ones
 		this.service= service;
@@ -62,7 +63,7 @@ public class PathState {
 	}
 	//---------------------------------------------------------------------------
 	public String toStringDisplay (){
-		String str= "("+service.getmService().getName() + "/"+provider.getResourceId()+"/"+inputPort+"/"+outputPort+")";
+		String str= "("+service.getMServiceType().getName() + "/"+provider.getResourceId()+"/"+inputPort+"/"+outputPort+")";
 		return str;
 
 	}

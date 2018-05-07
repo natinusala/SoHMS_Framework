@@ -2,20 +2,18 @@ package OrdersManagement;
 
 import Crosscutting.PathState;
 import MService.MServiceImplentation;
+import MService.MServiceSpecification;
 import ProductManagement.ProductHolon;
 import ResourceManagement.ResourceHolon;
-
-
-
 
 public class ROH {
 	
 	//Attributes
-	private ResourceHolon associatedRH;
-	private long negociationTime;
-	private int currentSetup;
-	private ROH_Behavior  behavior;	
-	private Integer numOfCurrentExecutions;
+	protected ResourceHolon associatedRH;
+	protected long negociationTime;
+	protected int currentSetup;
+	protected ROH_Behavior  behavior;	
+	protected Integer numOfCurrentExecutions;
 
 	//Constructors
 	public ROH() {};
@@ -61,28 +59,17 @@ public class ROH {
 	}
 
 	//Methods
-	/**
-	 * Calling this function specifically says that the service was not planed and that it is being requested at this moment.
-	 * Returns the service that was executed or null if rejected
-	 * All execution functions 
-	 */
-	public  MServiceImplentation requestServiceExe(ProductHolon client,PathState prodTask) {
+	public  MServiceSpecification requestServiceExe(ProductHolon client,PathState prodTask) {
 		return behavior.requestServiceExe(client, prodTask, this);
 	}
-	/**
-	 * Will indicate if the inport port of the resource will be available at the time requested
-	 * @param finalPort
-	 * @param timeFromNow
-	 * @param rohimport sohmsPlateform.resourceHolon.Transporter;
 
-	 * @return
-	 */
-	public boolean requestPortPermit(ProductHolon client, String finalPort, long timeFromNow) {
-		return behavior.requestPortPermit(client,finalPort, timeFromNow, this);
+	public MServiceSpecification requestServiceExe(ProductHolon client, PathState prodTask, ROH roh) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	/*
-	public String requestDefaultTransfer(Transporter transporter, String port) {
-		return behavior.requestDefaultTransfer(transporter, port);
+	
+	public boolean requestPortPermition(ProductHolon client, String finalPort, long timeFromNow, ROH roh) {
+	    return behavior.requestPortPermition(client,finalPort, timeFromNow, this);
 	}
-	*/
+	
 }

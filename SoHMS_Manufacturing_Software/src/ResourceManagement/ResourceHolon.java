@@ -20,7 +20,7 @@ public abstract class ResourceHolon extends Resource{
 	private ROH roh;
 	private  LinkedList<Task_RH> resourceSchedule;
 	private ConcurrentHashMap<String,LinkedList<Task_RH>> portSchedules;
-    private RH_SIL sil;
+	private RH_SIL sil;
     
 	//Constructors
  	public ResourceHolon(){
@@ -30,12 +30,17 @@ public abstract class ResourceHolon extends Resource{
 		this.roh = new ROH(); //will be changed
 	}
 		
-	//Getters
+	//Getters and setters
 	public ArrayList<MServiceImplentation> getOfferedServices() {
 		return offeredServices;
 	}
+	public ROH getRoh() {
+		return roh;
+	}
 
-    //Setters
+	public void setRoh(ROH roh) {
+		this.roh = roh;
+	}
 	public void setOfferedServices(ArrayList<MServiceImplentation> providedServices) {
 		this.offeredServices = providedServices;
 	}	
@@ -46,6 +51,12 @@ public abstract class ResourceHolon extends Resource{
 	public void setResourceSchedule(LinkedList<Task_RH> resourceSchedule) {
 		this.resourceSchedule = resourceSchedule;
 	}
+	public RH_SIL getSil() {
+		return sil;
+	}
+	public void setSil(RH_SIL sil) {
+		this.sil = sil;
+	}
 	//methods
 	protected MService getServiceByName(String service) {
 		for (MServiceImplentation sr : offeredServices) {
@@ -55,7 +66,7 @@ public abstract class ResourceHolon extends Resource{
 		}
 		return null;
 	}
-	protected MServiceImplentation getServByType(MService service){
+	public MServiceImplentation getServByType(MService service){
 		for (MServiceImplentation sr : offeredServices) {
 			if(sr.getmService().equals(service)){
 				return sr;
@@ -70,14 +81,14 @@ public abstract class ResourceHolon extends Resource{
 			this.offeredServices.add(service);
 		}
 		else{ 
-			
-		// Service already declared?	
+
+			// Service already declared?	
 			for (int i = 0; i < this.offeredServices.size(); i++) {
 				if(offeredServices.get(i).getmService().equals(service.getmService())){
 					//It exists, then substitute
-						offeredServices.set(i, service);
-						break;
-					}
+					offeredServices.set(i, service);
+					break;
+				}
 			}
 			// It does not exists
 			offeredServices.add(service); // Then simply add the new Service Imp	
