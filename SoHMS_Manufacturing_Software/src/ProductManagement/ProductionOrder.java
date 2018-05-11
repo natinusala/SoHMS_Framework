@@ -19,12 +19,8 @@ public class ProductionOrder{
 	private ProductionOrderReport prodReport;
 	private ProductionOrderState state ;
   
-	
-	
-	
 	//Enumeration
 	enum ProductionOrderState{
-		
 		FINISHED_FAIL,
 		FINISHED_SUCCESS,
 		WAITING,
@@ -45,8 +41,8 @@ public class ProductionOrder{
 			}
 		}
 	}
-	enum ProductionOrderPriority{
-		
+	
+	enum ProductionOrderPriority{	
 		MIN_PRIORITY,
 		NORMAL_PRIORITY,
 		MAX_PRIORITY;

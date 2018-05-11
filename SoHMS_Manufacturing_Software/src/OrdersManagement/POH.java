@@ -3,7 +3,7 @@ package OrdersManagement;
 import ProductManagement.ProductHolon;
 
 
-public class POH {
+public class POH{
 
 	//Attributes
 	public POH_Behavior behavior;

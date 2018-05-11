@@ -1,6 +1,6 @@
 package Crosscutting;
 
-import ProductManagement.ProductionPlan;
+import Workshop.LayoutMap;
 
 public class Arc{
 	//Attributes
@@ -26,7 +26,7 @@ public class Arc{
 		result = prime * result + ((t == null) ? 0 : t.hashCode());
 		return result;
 	}
-	private ProductionPlan getOuterType() {
+	private LayoutMap getOuterType() {
 		return null;
 	}
 }

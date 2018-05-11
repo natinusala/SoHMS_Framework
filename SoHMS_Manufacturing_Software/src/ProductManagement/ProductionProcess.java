@@ -10,10 +10,7 @@ import ProductManagement.ProductionOrder.MaxtermPrecondition;
  * this interface represent the production knowledge
  */
 public interface ProductionProcess{
-	/**
-	 * Returns an integer used as an internal id for determining  a state.
-	 * @return 
-	 */
+	
 	public int getProcessID();
 	/**
 	 * Returns the progress of the product's lifeCycle.

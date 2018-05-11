@@ -7,6 +7,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import Crosscutting.*;
 import MService.MService;
 import OrdersManagement.OrderManager;
+import Workshop.LayoutMap;
+
 
 
 public abstract class ProductHolon{
@@ -17,16 +19,16 @@ public abstract class ProductHolon{
 	
 	protected int id;
 	protected OrderManager ordermanager;
-	protected ProductionPlan productionPlan;
+	protected LayoutMap productionPlan;
 	protected ConcurrentHashMap<Integer,State> actionsPlan;
 	protected ProductionProcess recipe;
-	protected Behavior_PH_Planner exploreBehavior;
+	protected PH_Behavior_Planner exploreBehavior;
 
 	//Constructor
 	public ProductHolon(){
 		this.id= (phCount % phListSize) +1;
 		phCount=this.id;
-		productionPlan= new ProductionPlan();
+		productionPlan= new LayoutMap();
 		actionsPlan= new ConcurrentHashMap<>(); //A terminer
 	}
 	public ProductHolon(OrderManager orderManager, ProductionProcess recipe){
@@ -35,6 +37,7 @@ public abstract class ProductHolon{
 	}
 	//methods
 	abstract void launch();
+	abstract void addPathArcToExecutablePlans(ArrayList<PathArc> nextStepPlans);
 	public void productTerminated() {
 		ordermanager.phIsFinised(this);
 	}

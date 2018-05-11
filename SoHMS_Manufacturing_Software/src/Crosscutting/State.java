@@ -2,7 +2,7 @@ package Crosscutting;
 
 import java.util.ArrayList;
 
-import ProductManagement.ProductionPlan;
+import Workshop.LayoutMap;
 
 
 public class State{
@@ -47,7 +47,7 @@ public class State{
 		return true;
 	}
 
-	private ProductionPlan getOuterType() {
+	private LayoutMap getOuterType() {
 		return null;
 	}
 }
