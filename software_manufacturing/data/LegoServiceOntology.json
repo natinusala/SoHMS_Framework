@@ -1,0 +1,171 @@
+{
+    "name":"Lego ServiceOntology",
+    "services":[
+      {
+        "name": "ServiceC",
+        "ontology": "LegoBlocks", 
+        "category": "Assembly", 
+        "taxonomy": "sometax", 
+        "description": "Assembles a block of size 2x6",
+        "parameters":[
+          {
+           "datatype": "String",
+           "name": "color"
+          },
+          {
+           "datatype": "Integer",
+           "name": "X"
+          },
+          {
+           "datatype": "Integer",
+           "name": "Y"
+          },
+          {
+           "datatype": "Integer",
+           "name": "Z"
+          },
+          {
+           "datatype": "Integer",
+           "name": "W"
+          },
+          {
+           "datatype": "Integer",
+           "name": "Width"
+          }
+        ],
+        "attributes":[
+          {
+           "datatype": "Double",
+           "name": "Cmax"
+          },
+          {
+           "datatype": "String",
+           "name": "Quality"
+          }
+        ]
+      },
+      { 
+         "name": "DispatchProduct",
+         "ontology": "LegoBlocks", 
+         "category": "Dispatch", 
+         "taxonomy": "sometax", 
+         "description": "Dispatch the Finish Product to a Stock of Finished Products",
+         "parameters":[],
+         "attributes":[
+           {
+              "datatype": "Double",
+              "name": "Cmax"
+           },
+           {
+             "datatype": "String",
+             "name": "Quality"
+           }
+         ]
+      },
+      {
+        "name": "ServiceA",
+        "ontology": "LegoBlocks", 
+        "category": "Assembly", 
+        "taxonomy": "sometax", 
+        "description": "Assembles a block of size 2x2",
+        "parameters":[
+           {
+             "datatype": "String",
+             "name": "color"
+           },
+           {
+             "datatype": "Integer",
+             "name": "X"
+           },
+           {
+             "datatype": "Integer",
+             "name": "Y"
+           },
+           {
+             "datatype": "Integer",
+             "name": "Z"
+           },
+           {
+             "datatype": "Integer",
+             "name": "W"
+           },
+           {
+             "datatype": "Integer",
+             "name": "Width"
+           }
+        ],
+        "attributes":[
+           {
+              "datatype": "Double",
+              "name": "Cmax"
+           },
+           {
+             "datatype": "String",
+             "name": "Quality"
+           }
+         ]
+      },
+      {
+        "name": "ServiceB",
+        "ontology": "LegoBlocks", 
+        "category": "Assembly", 
+        "taxonomy": "sometax", 
+        "description": "Assembles a block of size 2x4",
+        "parameters":[
+           {
+             "datatype": "String",
+             "name": "color"
+           },
+           {
+             "datatype": "Integer",
+             "name": "X"
+           },
+           {
+             "datatype": "Integer",
+             "name": "Y"
+           },
+           {
+             "datatype": "Integer",
+             "name": "Z"
+           },
+           {
+             "datatype": "Integer",
+             "name": "W"
+           },
+           {
+             "datatype": "Integer",
+             "name": "Width"
+           }
+        ],
+        "attributes":[
+           {
+              "datatype": "Double",
+              "name": "Cmax"
+           },
+           {
+             "datatype": "String",
+             "name": "Quality"
+           }
+         ]
+      },
+      {
+        "name": "SupplyBase",
+        "ontology": "LegoBlocks", 
+        "category": "Supply", 
+        "taxonomy": "sometax", 
+        "description": "Assembles a block of size 2x6",
+        "parameters":[
+           {
+             "datatype": "String",
+             "name": "color"
+           }
+         ],
+         "attributes":[
+           {
+             "datatype": "String",
+             "name": "Quality"
+           }
+         ]
+      }
+    ]
+}
