@@ -7,7 +7,7 @@ enum RangeType{
 	Catalogue,
 	Interval;
 }
-public class ProfileParameter extends Parameter{
+public class ProfileParameter extends SParameter{
  
 	//Attributes
 	protected RangeType rangeType;
@@ -18,7 +18,7 @@ public class ProfileParameter extends Parameter{
 	public ProfileParameter(){
 		this.rangeValues= new ArrayList<String>();
 	}
-	public ProfileParameter(Parameter param, RangeType rangetype){
+	public ProfileParameter(SParameter param, RangeType rangetype){
 		super(param);
 		this.rangeType= rangetype;
 		this.rangeValues= new ArrayList<String>();
@@ -46,7 +46,7 @@ public class ProfileParameter extends Parameter{
 		this.rangeValues.add(value);
 	}
 	
-	public boolean matchParam(Parameter p){ 
+	public boolean matchParam(SParameter p){ 
 	    if(isSameParamType(p)){ // check if both refer to the same Parameter Type
 						 
 				for (String obj : rangeValues) { // see if  there is an interval in which it fits

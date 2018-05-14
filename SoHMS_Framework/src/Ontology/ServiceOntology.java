@@ -13,7 +13,9 @@ public class ServiceOntology{
 	private ArrayList<MService> services;
 	
 	//Constructors
-	public ServiceOntology() {}
+	public ServiceOntology() {
+		this.services = new ArrayList<MService>();
+	}
 	
 	public ServiceOntology(String name, ArrayList<MService> services) {
 		this.name = name;

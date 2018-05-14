@@ -10,15 +10,15 @@ public class MServiceImplentation{
 	private MService mService;
 	private ArrayList<ParametersProfile> parametersProfile;
 	private HashSet<ProcessMethod> processMethods;
-	private ArrayList<Parameter> inputs;
-	private ArrayList<Parameter> outputs;
+	private ArrayList<SParameter> inputs;
+	private ArrayList<SParameter> outputs;
 	private Double averageCost;
 	
 	//Constructors
 	public MServiceImplentation() {}
 	
 	public MServiceImplentation(MService mService, ArrayList<ParametersProfile> parametersProfile,
-		HashSet<ProcessMethod> processMethods, ArrayList<Parameter> inputs, ArrayList<Parameter> outputs, Double averageCost) {
+		HashSet<ProcessMethod> processMethods, ArrayList<SParameter> inputs, ArrayList<SParameter> outputs, Double averageCost) {
 		this.mService = mService;
 		this.parametersProfile = parametersProfile;
 		this.processMethods = processMethods;
@@ -46,16 +46,16 @@ public class MServiceImplentation{
 	public void setProcessMethods(HashSet<ProcessMethod> processMethods) {
 		this.processMethods = processMethods;
 	}
-	public ArrayList<Parameter> getInputs() {
+	public ArrayList<SParameter> getInputs() {
 		return inputs;
 	}
-	public void setInputs(ArrayList<Parameter> inputs) {
+	public void setInputs(ArrayList<SParameter> inputs) {
 		this.inputs = inputs;
 	}
-	public ArrayList<Parameter> getOutputs() {
+	public ArrayList<SParameter> getOutputs() {
 		return outputs;
 	}
-	public void setOutputs(ArrayList<Parameter> outputs) {
+	public void setOutputs(ArrayList<SParameter> outputs) {
 		this.outputs = outputs;
 	}
 	public Double getAverageCost() {
@@ -108,7 +108,7 @@ public class MServiceImplentation{
 			//PARAMETER check 						
 			for(ProfileParameter pp: ppSet.getParamProfiles()){
 				//Match Parameters
-				Parameter paramInst= service.getParameterbyType(pp); // get the parameter specification object that fits in name and data type
+				SParameter paramInst= service.getParameterbyType(pp); // get the parameter specification object that fits in name and data type
 				if(!pp.matchParam(paramInst)){ // match parameter instance and parameter profile
 					match= false; 
 					break;
@@ -135,7 +135,7 @@ public class MServiceImplentation{
 			 		//PARAMETER check 						
 			 		for(ProfileParameter pp: ppSet.getParamProfiles()){
 			 			//Match Parameters
-			 			Parameter paramInst= MSSpec.getParameterbyType(pp); // get the parameter specification object that fits in name and data type
+			 			SParameter paramInst= MSSpec.getParameterbyType(pp); // get the parameter specification object that fits in name and data type
 			 			if(!pp.matchParam(paramInst)){ // match parameter instance and parameter profile
 			 				match= false; 
 			 				break;

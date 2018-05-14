@@ -14,8 +14,8 @@ public class MService {
 	private String category;
 	private String taxonomy;
 	private String description;
-	private ArrayList<Parameter> parameters;
-	private ArrayList<Parameter> attributes; 
+	private ArrayList<SParameter> parameters;
+	private ArrayList<SParameter> attributes; 
 
 	//Constructors
 	public MService(String name, String ontology, String category, String taxonomy, String description) {
@@ -25,9 +25,11 @@ public class MService {
 		this.category = category;
 		this.taxonomy = taxonomy;
 		this.description = description;
+		this.parameters = new ArrayList<SParameter>();
+		this.attributes = new ArrayList<SParameter>();
 	}
 	public MService(String name, String ontology, String category, String taxonomy, String description,
-			ArrayList<Parameter> parameters, ArrayList<Parameter> attributes) {
+			ArrayList<SParameter> parameters, ArrayList<SParameter> attributes) {
 		super();
 		this.name = name;
 		this.ontology = ontology;
@@ -54,14 +56,14 @@ public class MService {
 	public String getDescription() {
 		return description;
 	}
-	public ArrayList<Parameter> getParameters() {
+	public ArrayList<SParameter> getParameters() {
 		return parameters;
 	}
-	public ArrayList<Parameter> getAttributes() {
+	public ArrayList<SParameter> getAttributes() {
 		return attributes;
 	}
 	//Setters
-	public void setParameters(ArrayList<Parameter> parameters) {
+	public void setParameters(ArrayList<SParameter> parameters) {
 		this.parameters = parameters;
 	}
 	public void setDescription(String description) {
@@ -79,7 +81,7 @@ public class MService {
 	public void setOntology(String ontology) {
 		this.ontology = ontology;
 	}
-    public void setAttributes(ArrayList<Parameter> attributes) {
+    public void setAttributes(ArrayList<SParameter> attributes) {
 		this.attributes = attributes;
 	}
    //methods
@@ -98,10 +100,10 @@ public class MService {
 				+ ((taxonomy == null) ? 0 : taxonomy.hashCode());
 		return result;
 	}
-	public void addParameter(Parameter p) {
+	public void addParameter(SParameter p) {
 		this.parameters.add(p);
 	}
-    public void addAttribute(Parameter a) {
+    public void addAttribute(SParameter a) {
     	this.attributes.add(a);
     }
 }

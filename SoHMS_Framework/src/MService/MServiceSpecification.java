@@ -13,7 +13,7 @@ public class MServiceSpecification{
 	
 	private int id;
 	private MService mService;
-    private ArrayList<Parameter> parameters;
+    private ArrayList<SParameter> parameters;
 	private ArrayList<ParametersProfile> attributeProfiles;
 	
 	
@@ -77,7 +77,7 @@ public class MServiceSpecification{
 	public void setMService(MService mServType) {
 		this.mService = mServType;
 	}
-	public void setParameters(ArrayList<Parameter> parameters) {
+	public void setParameters(ArrayList<SParameter> parameters) {
 		this.parameters = parameters;
 	}
 	public void setAttributeProfiles(ArrayList<ParametersProfile> attributeProfiles) {
@@ -97,25 +97,25 @@ public class MServiceSpecification{
 	public MService getMServiceType() {
 		return mService;
 	}
-	public ArrayList<Parameter> getParameters() {
+	public ArrayList<SParameter> getParameters() {
 		return parameters;
 	}
 	public ArrayList<ParametersProfile> getAttributeProfiles() {
 		return attributeProfiles;
 	}
-	public Parameter getParameterbyType(Parameter otherParam){ //TODO getParameter object
+	public SParameter getParameterbyType(SParameter otherParam){ //TODO getParameter object
 		for (int i = 0; i < parameters.size(); i++) {
-			Parameter p= parameters.get(i); // Cast  to use equals @ Parameter class
+			SParameter p= parameters.get(i); // Cast  to use equals @ Parameter class
 			if(p.isSameParamType(otherParam)){ 
 				return parameters.get(i);
 			}
 		}
 		return null;	
 	}
-	public Parameter getParameterByName(String name) {
+	public SParameter getParameterByName(String name) {
 			
 			for (int i = 0; i < parameters.size(); i++) {
-				Parameter p= parameters.get(i); // Cast  to use equals @ Parameter class
+				SParameter p= parameters.get(i); // Cast  to use equals @ Parameter class
 				if(p.getName().equalsIgnoreCase(name)){ 
 					return parameters.get(i);
 				}

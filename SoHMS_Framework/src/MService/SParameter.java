@@ -1,7 +1,7 @@
 package MService;
 
 
-public class Parameter {
+public class SParameter {
 
 	//Attributes
 	private String name;
@@ -9,20 +9,20 @@ public class Parameter {
 	private String value;
 	
 	//Constructors
-	public Parameter() {}
+	public SParameter() {}
 	
-	public Parameter(String name, String type) {
+	public SParameter(String name, String type) {
 		this.name = name;
 		this.type = type;
 	}
 	
-	public Parameter(String name, String type,String value) {
+	public SParameter(String name, String type,String value) {
 		this.name = name;
 		this.type = type;
 		this.value= value;
 	}
 	
-	public Parameter(Parameter param){
+	public SParameter(SParameter param){
 		this.name= new String(param.name);
 		this.type=  param.type;
 	}
@@ -84,7 +84,7 @@ public class Parameter {
 				+ ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
-	public boolean isSameParamType(Parameter param) {
+	public boolean isSameParamType(SParameter param) {
 		if (this == param)
 			return true;
 		if (param == null)
