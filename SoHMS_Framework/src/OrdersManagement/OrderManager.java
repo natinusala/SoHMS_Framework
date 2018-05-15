@@ -44,13 +44,24 @@ public abstract class OrderManager {
 	}
 	
 	//a method that launchs the execution of an order. each order is a psecific to targer domain
-	abstract void  launchOrder(
-	  /*1-Ask number of needed resources. (maximum unit specifié dans l'ordre !!!).
-	    2-Launch all resources
-	      2-1 Create a product Holon
-		  2-2 Associate a behavior to the PH.
+	public void  launchOrder() {
+	  //1-Ask number of needed resources. (maximum unit specifiÃ© dans l'ordre !!!).
+		int resource_num = this.order.getMaxParallelUnits();
+		
+      // 2-Launch all resources
+		//launcheResource(resource_num);
+		//   2-1 Create a product Holon
+		ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
+		while(activePHs.size()<resource_num && (activePHs.size()+finishedPHs.size())< order.getNumOfUnits()){
+			//launchPallet();
+		}
+		if(finishedPHs.size()>= order.getNumOfUnits()){
+			//Send back confirmation
+			System.out.println("Notification de la fin d'Ã©xecution de l'ordre");
+		}
+		/* 2-2 Associate a behavior to the PH.
 		  2-3 launch PH
-		      2-3-1 Select a free resource. (la première pallet que arrive au port initial et qui est libre)!!
+		      2-3-1 Select a free resource. (la premiÃ¨re pallet que arrive au port initial et qui est libre)!!
 		      2-3-2 Associate this resource to the PH
 		      2-3-3 launch the behavior
 		  2-4 Add the PH to the active PHs list.
@@ -62,7 +73,7 @@ public abstract class OrderManager {
 		  2-6 Product Finished     
 	  */
 			
-	);
+	}
 	
     public synchronized void  phIsFinised(ProductHolon ph){	
 		finishedPHs.add(ph);

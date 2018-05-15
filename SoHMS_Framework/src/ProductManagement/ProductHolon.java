@@ -7,11 +7,12 @@ import java.util.concurrent.ConcurrentHashMap;
 import Crosscutting.*;
 import MService.MService;
 import OrdersManagement.OrderManager;
+import ResourceManagement.Resource;
 import Workshop.LayoutMap;
 
 
 
-public abstract class ProductHolon{
+public  class ProductHolon{
   
 	//Attributes 
 	public  static int phCount= 0;
@@ -23,6 +24,7 @@ public abstract class ProductHolon{
 	protected ConcurrentHashMap<Integer,State> actionsPlan;
 	protected ProductionProcess recipe;
 	protected PH_Behavior_Planner exploreBehavior;
+	protected Resource associatedResource;
 
 	//Constructor
 	public ProductHolon(){
@@ -36,9 +38,27 @@ public abstract class ProductHolon{
 		this.recipe= recipe;
 	}
 	//methods
-	abstract void launch();
-	abstract void addPathArcToExecutablePlans(ArrayList<PathArc> nextStepPlans);
+	public void launch() {
+		/*
+		 *   1- associer une resource a un PH
+		 */
+		
+	}
+	public void associateResource(Resource s) {
+     //Associate PH to resource
+	  s.setAssociated_PH(this);
+	//Associate resource to PH
+	  this.associatedResource = s;
+	};
+	public void liberateResource() {
+	  //1-liberate Resource from PH
+	  this.associatedResource.liberateResource();
+	  //2- liberate PH from Resource
+	  this.associatedResource=null;
+	};
+	public void addPathArcToExecutablePlans(ArrayList<PathArc> nextStepPlans) {}
 	public void productTerminated() {
 		ordermanager.phIsFinised(this);
+		this.associatedResource=null;
 	}
 }
