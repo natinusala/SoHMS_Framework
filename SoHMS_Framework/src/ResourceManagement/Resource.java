@@ -1,5 +1,7 @@
 package ResourceManagement;
 
+import java.util.ArrayList;
+
 public abstract class Resource {
 	
 	//Attributes
@@ -8,8 +10,8 @@ public abstract class Resource {
 	protected String technology;
 	protected String category;
 	protected String textDescription;
-	protected String [] inputPorts;
-	protected String [] outputPorts;
+	protected ArrayList<String> inputPorts;
+	protected ArrayList<String> outputPorts;
 	
 	public Resource() {
 	}
@@ -20,8 +22,17 @@ public abstract class Resource {
 		this.textDescription=r.getTextDescription();
 	}
 	public Resource(int resourceId, String name, String technology, String category, String textDescription,
-			String[] inputPorts, String[] outputPorts) {
+			ArrayList<String> inputPorts, ArrayList<String> outputPorts) {
 		this.resourceId = resourceId;
+		this.name = name;
+		this.technology = technology;
+		this.category = category;
+		this.textDescription = textDescription;
+		this.inputPorts = inputPorts;
+		this.outputPorts = outputPorts;
+	}
+	public Resource(String name, String technology, String category, String textDescription,
+			ArrayList<String> inputPorts, ArrayList<String> outputPorts) {
 		this.name = name;
 		this.technology = technology;
 		this.category = category;
@@ -34,6 +45,9 @@ public abstract class Resource {
 	//Getters
 	public int getResourceId() {
 		return resourceId;
+	}
+	public void setResourceId(int resourceId) {
+		this.resourceId = resourceId;
 	}
 	public String getName() {
 		return name;
@@ -48,16 +62,14 @@ public abstract class Resource {
 	public String getTextDescription() {
 		return textDescription;
 	}
-	public String[] getInputPorts() {
+	public ArrayList<String> getInputPorts() {
 		return inputPorts;
 	}
-	public String[] getOutputPorts() {
+	public ArrayList<String> getOutputPorts() {
 		return outputPorts;
 	}
     //Setters
-	public void setResourceId(int resourceId) {
-		this.resourceId = resourceId;
-	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -70,10 +82,10 @@ public abstract class Resource {
 	public void setTextDescription(String textDescription) {
 		this.textDescription = textDescription;
 	}
-	public void setInputPorts(String[] inputPorts) {
+	public void setInputPorts(ArrayList<String> inputPorts) {
 		this.inputPorts = inputPorts;
 	}
-	public void setOutputPorts(String[] outputPorts) {
+	public void setOutputPorts(ArrayList<String> outputPorts) {
 		this.outputPorts = outputPorts;
 	}
 }

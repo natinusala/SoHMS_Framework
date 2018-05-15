@@ -16,7 +16,7 @@ public class RH_Profile extends Resource {
 		super(resource);
 	}
     public RH_Profile (int resourceId, String name, String technology, String category, String textDescription,
-			String[] inputPorts, String[] outputPorts) {
+    		ArrayList<String> inputPorts, ArrayList<String> outputPorts) {
 		 super(resourceId, name, technology, category, textDescription,
 					 inputPorts,  outputPorts);
 	}

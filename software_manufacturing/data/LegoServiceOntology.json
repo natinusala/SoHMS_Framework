@@ -2,6 +2,7 @@
     "name":"Lego ServiceOntology",
     "services":[
       {
+	    "ID" : 1,
         "name": "ServiceC",
         "ontology": "LegoBlocks", 
         "category": "Assembly", 
@@ -44,7 +45,8 @@
           }
         ]
       },
-      { 
+      {
+         "ID" : 2	  
          "name": "DispatchProduct",
          "ontology": "LegoBlocks", 
          "category": "Dispatch", 
@@ -63,6 +65,7 @@
          ]
       },
       {
+	    "ID" : 3
         "name": "ServiceA",
         "ontology": "LegoBlocks", 
         "category": "Assembly", 
@@ -106,6 +109,7 @@
          ]
       },
       {
+	    "ID" : 4,
         "name": "ServiceB",
         "ontology": "LegoBlocks", 
         "category": "Assembly", 
@@ -149,6 +153,7 @@
          ]
       },
       {
+	    "ID" : 5
         "name": "SupplyBase",
         "ontology": "LegoBlocks", 
         "category": "Supply", 

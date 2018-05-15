@@ -10,12 +10,12 @@ public class ProcessMethod {
 	//Attributes
 	private int id;
 	private int setup;
-	private ProcessType processType;
+	private String processType;
 	
 	
 	//Constructors
 	public ProcessMethod(){}
-	public ProcessMethod(ProcessType processType, int id, int setup){
+	public ProcessMethod(String processType, int id, int setup){
 		this.processType= processType;
 		this.id= id;
 		this.setup = setup;
@@ -28,12 +28,12 @@ public class ProcessMethod {
 	public int getSetup() {
 		return setup;
 	}
-	public ProcessType getProcessType() {
+	public String getProcessType() {
 		return processType;
 	}
 	
 	//Setters
-	public void setProcessType(ProcessType processType) {
+	public void setProcessType(String processType) {
 		this.processType = processType;
 	}
 	public void setId(int id) {

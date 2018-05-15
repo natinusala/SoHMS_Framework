@@ -10,7 +10,7 @@ enum RangeType{
 public class ProfileParameter extends SParameter{
  
 	//Attributes
-	protected RangeType rangeType;
+	protected String rangeType;
 	protected ArrayList<String>  rangeValues;
 	
 	
@@ -18,14 +18,19 @@ public class ProfileParameter extends SParameter{
 	public ProfileParameter(){
 		this.rangeValues= new ArrayList<String>();
 	}
-	public ProfileParameter(SParameter param, RangeType rangetype){
+	public ProfileParameter(SParameter param, String rangetype){
 		super(param);
 		this.rangeType= rangetype;
 		this.rangeValues= new ArrayList<String>();
 	}
+	public ProfileParameter(String name, String type,String rangetype,ArrayList<String>  rangeValues){
+		super(name, type);
+		this.rangeType = rangetype;
+		this.rangeValues = rangeValues;
+	}
 	
 	//Getters 
-	public RangeType getRangeType() {
+	public String getRangeType() {
 		return rangeType;
 	}
 	public ArrayList<String> getRangeValues() {
@@ -33,7 +38,7 @@ public class ProfileParameter extends SParameter{
 	}
 	
 	//Setters
-	public void setRangeType(RangeType rangeType) {
+	public void setRangeType(String rangeType) {
 		this.rangeType = rangeType;
 	}
 	

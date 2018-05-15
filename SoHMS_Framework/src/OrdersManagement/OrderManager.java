@@ -42,15 +42,33 @@ public abstract class OrderManager {
 		finishedPHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
 		activePHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
 	}
-	//generic Methods
 	
 	//a method that launchs the execution of an order. each order is a psecific to targer domain
-	abstract void  launchOrder();
+	abstract void  launchOrder(
+	  /*1-Ask number of needed resources. (maximum unit specifié dans l'ordre !!!).
+	    2-Launch all resources
+	      2-1 Create a product Holon
+		  2-2 Associate a behavior to the PH.
+		  2-3 launch PH
+		      2-3-1 Select a free resource. (la première pallet que arrive au port initial et qui est libre)!!
+		      2-3-2 Associate this resource to the PH
+		      2-3-3 launch the behavior
+		  2-4 Add the PH to the active PHs list.
+		  2-5 Once Finished 
+		      2-5-1 Send a notification
+		      2-5-2 Add the PH to the active PHs list.
+		      2-5-3 launch the next order
+		      ..
+		  2-6 Product Finished     
+	  */
+			
+	);
 	
     public synchronized void  phIsFinised(ProductHolon ph){	
 		finishedPHs.add(ph);
 		activePHs.remove(ph);	
 		//another speicific behavior can be added here
+	    //ph.liberateResource();
 		// Launch new Products
 		launchOrder();
      }

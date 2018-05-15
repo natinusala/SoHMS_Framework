@@ -11,6 +11,9 @@ public class SParameter {
 	//Constructors
 	public SParameter() {}
 	
+	public SParameter(String value) {
+		this.value = value;
+	}
 	public SParameter(String name, String type) {
 		this.name = name;
 		this.type = type;

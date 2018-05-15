@@ -11,7 +11,7 @@ import MService.MServiceProfile;
 import OrdersManagement.ROH;
 
 
-public abstract class ResourceHolon extends Resource{
+public class ResourceHolon extends Resource{
 	
 	//attribute
 	protected static int rhCount= 0;
@@ -28,8 +28,17 @@ public abstract class ResourceHolon extends Resource{
 		this.resourceId= (rhCount % ListSize) +1;
 		rhCount=this.resourceId;
 		this.roh = new ROH(); //will be changed
+		this.portSchedules= new ConcurrentHashMap<String, LinkedList<Task_RH>>();
 	}
-		
+ 	public ResourceHolon(String name, String technology, String category, String textDescription,
+ 			ArrayList<String> inputPorts, ArrayList<String> outputPorts, ArrayList<MServiceImplentation> mservices) {
+ 		super(name, technology, category, textDescription, inputPorts, outputPorts);
+ 		this.resourceId= (rhCount % ListSize) +1;
+		rhCount=this.resourceId;
+		this.roh = new ROH();
+		this.portSchedules= new ConcurrentHashMap<String, LinkedList<Task_RH>>();
+		this.offeredServices = mservices;
+ 	}
 	//Getters and setters
 	public ArrayList<MServiceImplentation> getOfferedServices() {
 		return offeredServices;
@@ -96,8 +105,8 @@ public abstract class ResourceHolon extends Resource{
 	}	
 	public void initPortScheules() {
 		//Create a schedule for every port
-		for (int i = 0; i < inputPorts.length; i++) {
-			portSchedules.put(inputPorts[i], new LinkedList<Task_RH>());
+		for (int i = 0; i < inputPorts.size(); i++) {
+			portSchedules.put(inputPorts.get(i), new LinkedList<Task_RH>());
 		}
 	}
     public RH_Profile generateResourceProfile(){

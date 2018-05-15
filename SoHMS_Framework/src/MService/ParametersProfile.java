@@ -10,7 +10,10 @@ public class ParametersProfile {
 	
 	//Construcors
 	public ParametersProfile() {}
-	
+	public ParametersProfile(ArrayList<ProfileParameter> paramProfiles, ArrayList<Integer> associatedMethods) {
+		this.paramProfiles= paramProfiles;
+		this.associatedMethods = associatedMethods;
+	}
 	
 	//Getters
 	public ArrayList<ProfileParameter> getParamProfiles() {
