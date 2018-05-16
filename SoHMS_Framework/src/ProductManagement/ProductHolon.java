@@ -86,11 +86,13 @@ public  class ProductHolon{
 	  //2- liberate PH from Resource
 	  this.associatedResource=null;
 	};
-	public void addPathArcToExecutablePlans(ArrayList<PathArc> nextStepPlans) {}
 	public void productTerminated() {
 		ordermanager.phIsFinised(this);
 		this.associatedResource=null;
 	}
+	
+	public void addPathArcToExecutablePlans(ArrayList<PathArc> nextStepPlans) {}
+
 
 	//Setters and Getters
 	public static int getPhCount() {
