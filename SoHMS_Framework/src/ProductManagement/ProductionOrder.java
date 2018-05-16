@@ -15,7 +15,7 @@ public class ProductionOrder{
 	private int numOfUnits;
 	private double progress;
 	private int maxParallelUnits;
-	private ProductionOrderPriority priority;
+	private String priority;
 	private ProductionOrderReport prodReport;
 	private ProductionOrderState state ;
 	private ProductionProcess productProcess;
@@ -92,10 +92,10 @@ public class ProductionOrder{
 	public void setMaxParallelUnits(int maxParallelUnits) {
 		this.maxParallelUnits = maxParallelUnits;
 	}
-	public ProductionOrderPriority getPriority() {
+	public String getPriority() {
 		return priority;
 	}
-	public void setPriority(ProductionOrderPriority priority) {
+	public void setPriority(String priority) {
 		this.priority = priority;
 	}
 	public ProductionOrderReport getProdReport() {

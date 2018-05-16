@@ -12,6 +12,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
 import Crosscutting.OutBoxSender;
+import ProductManagement.PH_Behavior_Planner;
 import ProductManagement.ProductHolon;
 import ProductManagement.ProductionOrder;
 
@@ -51,9 +52,8 @@ public abstract class OrderManager {
       // 2-Launch all resources
 		//launcheResource(resource_num);
 		//   2-1 Create a product Holon
-		ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
 		while(activePHs.size()<resource_num && (activePHs.size()+finishedPHs.size())< order.getNumOfUnits()){
-			//launchPallet();
+			launchResource();
 		}
 		if(finishedPHs.size()>= order.getNumOfUnits()){
 			//Send back confirmation
@@ -73,6 +73,17 @@ public abstract class OrderManager {
 		  2-6 Product Finished     
 	  */
 			
+	}
+	
+	public  void launchResource() {
+		ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
+        PH_Behavior_Planner exploreBehavior = new PH_Behavior_Planner(ph);
+        ph.setExploreBehavior(exploreBehavior);
+    	//Launch its Production
+		ph.launch();
+		synchronized (activePHs) {
+			activePHs.add(ph); 
+		}
 	}
 	
     public synchronized void  phIsFinised(ProductHolon ph){	

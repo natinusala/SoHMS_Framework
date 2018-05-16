@@ -149,7 +149,14 @@ public abstract class DirectoryFacilitator{
 				}
 				return providers;
 	}
-	
+    public ArrayList<ResourceHolon> getFreeResources() {
+		
+		ArrayList<ResourceHolon> freeResources= new ArrayList<ResourceHolon>();
+		for (ResourceHolon r : resourcesDirectory) {
+			if(r.getAssociated_PH()==null)freeResources.add(r);
+		}
+		return freeResources;
+	}
 	public HashSet<ResourceHolon> getPortOwners(String port) {
 			HashSet<ResourceHolon> owners = new HashSet<ResourceHolon>();
 			for (ResourceHolon rh : resourcesDirectory) {

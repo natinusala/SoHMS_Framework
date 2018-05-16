@@ -22,7 +22,11 @@ public class MServiceSpecification{
 		this.id= (counter % maxInst) +1; // rotational queue
 		counter= this.id;
 	}
-	
+	public MServiceSpecification(MService service){
+		this.id= (counter % maxInst) +1; // rotational queue
+		counter= this.id;
+		
+	}
 	
 //PUBLIC METHODS-------------------------------
 	
