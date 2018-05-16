@@ -18,8 +18,7 @@ import Crosscutting.*;
 public abstract class ROH_Behavior{
 
 	//Attributes
-	private ResourceHolon rh;
-
+	protected ResourceHolon rh;
 
 	//Getters and Setters
 	public ResourceHolon getRh() {
@@ -32,8 +31,8 @@ public abstract class ROH_Behavior{
 	//methods
     public abstract MServiceSpecification requestServiceExe(ProductHolon client,PathState prodTask, ROH roh);
 	public abstract boolean requestPortPermition(ProductHolon client,String finalPort, long timeFromNow, ROH roh);
+	
 	protected long haveTimeToDoIT(PathState prodTask, ROH roh) {
-		 
 		 ResourceHolon rh= roh.getAssociatedRH();
 		 int capacity=1;
 		 //BufferedRH brh = (BufferedRH)(roh.associatedRH);

@@ -17,12 +17,12 @@ public class ResourceHolon extends Resource{
 	//attribute
 	protected static int rhCount= 0;
 	protected static int ListSize= 100;
-	private ArrayList<MServiceImplentation> offeredServices;
-	private ROH roh;
-	private  LinkedList<Task_RH> resourceSchedule;
-	private ConcurrentHashMap<String,LinkedList<Task_RH>> portSchedules;
-	private RH_SIL sil;
-	private ProductHolon associated_PH;
+	protected ArrayList<MServiceImplentation> offeredServices;
+	protected ROH roh;
+	protected  LinkedList<Task_RH> resourceSchedule;
+	protected ConcurrentHashMap<String,LinkedList<Task_RH>> portSchedules;
+	protected RH_SIL sil;
+	protected ProductHolon associated_PH;
 
     
 	//Constructors

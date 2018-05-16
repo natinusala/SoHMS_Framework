@@ -27,17 +27,6 @@ public abstract class DirectoryFacilitator{
 	protected LayoutMap workShopMap; 
     protected ConcurrentHashMap<FromTo, HashSet<TerminalSequence>> exploredRoutes = new ConcurrentHashMap<FromTo, HashSet<TerminalSequence>>();  // (specific) Serves to register the connexions among ports that have been explored to fasten computation
 
-	//Constructors
-	public DirectoryFacilitator(){
-	}
-
-	public DirectoryFacilitator(Hashtable<MService, ArrayList<ResourceHolon>> rsDirectory,
-			ArrayList<ResourceHolon> resourcesDirectory, LayoutMap layout) {
-		this.rsDirectory = rsDirectory;
-		this.resourcesDirectory = resourcesDirectory;
-		if (layout.getClass().getTypeName().equals(LayoutMap.class.getTypeName())) this.workShopMap = new LayoutMap();
-	}
-
 	//Getters and Setters
 	public void setrsDirectory(Hashtable<MService, ArrayList<ResourceHolon>> rsDirectory) {
 		this.rsDirectory = rsDirectory;
@@ -97,7 +86,7 @@ public abstract class DirectoryFacilitator{
 		}
 	}
 
-	private void updateResourceServiceDirectory(ResourceHolon rh) {
+    protected void updateResourceServiceDirectory(ResourceHolon rh) {
 		for (MServiceImplentation servImp : rh.getOfferedServices()) {
 			if (rsDirectory.containsKey(servImp.getmService())){
 				rsDirectory.get(servImp.getmService()).add(rh);
@@ -111,7 +100,7 @@ public abstract class DirectoryFacilitator{
 
 	}
 
-	private void removeFromResourceServiceDirectory(ResourceHolon rh){
+	protected void removeFromResourceServiceDirectory(ResourceHolon rh){
 		//Search every Service
 		Enumeration<MService> enumService= this.rsDirectory.keys();
 		while( enumService.hasMoreElements()){
@@ -149,7 +138,8 @@ public abstract class DirectoryFacilitator{
 				}
 				return providers;
 	}
-    public ArrayList<ResourceHolon> getFreeResources() {
+  
+	public ArrayList<ResourceHolon> getFreeResources() {
 		
 		ArrayList<ResourceHolon> freeResources= new ArrayList<ResourceHolon>();
 		for (ResourceHolon r : resourcesDirectory) {
@@ -157,6 +147,7 @@ public abstract class DirectoryFacilitator{
 		}
 		return freeResources;
 	}
+	
 	public HashSet<ResourceHolon> getPortOwners(String port) {
 			HashSet<ResourceHolon> owners = new HashSet<ResourceHolon>();
 			for (ResourceHolon rh : resourcesDirectory) {
@@ -170,6 +161,7 @@ public abstract class DirectoryFacilitator{
 			}		
 			 return owners;
 		  }
+	
 	public TerminalSequence[] getRoutes_NoLoops(String startingPort, String endPort) {
 		return this.workShopMap.getSequences_NoLoop(startingPort, endPort);
 	 }

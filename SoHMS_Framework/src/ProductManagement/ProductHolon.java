@@ -143,7 +143,7 @@ public  class ProductHolon{
 	public void setExploreBehavior(PH_Behavior_Planner exploreBehavior) {
 		this.exploreBehavior = exploreBehavior;
 	}
-	public Resource getAssociatedResource() {
+	public ResourceHolon getAssociatedResource() {
 		return associatedResource;
 	}
 	public void setAssociatedResource(ResourceHolon associatedResource) {
