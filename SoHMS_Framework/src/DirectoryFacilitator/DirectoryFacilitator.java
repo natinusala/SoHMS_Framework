@@ -23,7 +23,7 @@ public abstract class DirectoryFacilitator{
 	 */
 	protected Hashtable<MService,ArrayList<ResourceHolon>> rsDirectory;
 	//share the set of resources
-	protected ArrayList<ResourceHolon> resourcesDirectory;
+	protected static ArrayList<ResourceHolon> resourcesDirectory;
 	protected LayoutMap workShopMap; 
     protected ConcurrentHashMap<FromTo, HashSet<TerminalSequence>> exploredRoutes = new ConcurrentHashMap<FromTo, HashSet<TerminalSequence>>();  // (specific) Serves to register the connexions among ports that have been explored to fasten computation
 
@@ -148,7 +148,7 @@ public abstract class DirectoryFacilitator{
 		return freeResources;
 	}
 	
-	public HashSet<ResourceHolon> getPortOwners(String port) {
+	public static HashSet<ResourceHolon> getPortOwners(String port) {
 			HashSet<ResourceHolon> owners = new HashSet<ResourceHolon>();
 			for (ResourceHolon rh : resourcesDirectory) {
 				for (String input : rh.getInputPorts()) { //all ports

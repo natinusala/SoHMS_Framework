@@ -11,6 +11,7 @@ public interface RH_SIL {
 	public Pair<Integer, Long> getFastestMethod(MServiceImplentation serviceImp);
 	public long getMethodTime(Integer methodID);
 	public long getSetupTime(int currentSetup, int setup);
+	public MServiceSpecification defaultAction(ResourceHolon resource, String inputPort);
 	public void changeSetup(int setup);
 	public void oK();
 	public void start();
