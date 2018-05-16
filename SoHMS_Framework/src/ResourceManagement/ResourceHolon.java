@@ -9,6 +9,7 @@ import MService.MService;
 import MService.MServiceImplentation;
 import MService.MServiceProfile;
 import OrdersManagement.ROH;
+import ProductManagement.ProductHolon;
 
 
 public class ResourceHolon extends Resource{
@@ -21,6 +22,8 @@ public class ResourceHolon extends Resource{
 	private  LinkedList<Task_RH> resourceSchedule;
 	private ConcurrentHashMap<String,LinkedList<Task_RH>> portSchedules;
 	private RH_SIL sil;
+	private ProductHolon associated_PH;
+
     
 	//Constructors
  	public ResourceHolon(){
@@ -39,33 +42,7 @@ public class ResourceHolon extends Resource{
 		this.portSchedules= new ConcurrentHashMap<String, LinkedList<Task_RH>>();
 		this.offeredServices = mservices;
  	}
-	//Getters and setters
-	public ArrayList<MServiceImplentation> getOfferedServices() {
-		return offeredServices;
-	}
-	public ROH getRoh() {
-		return roh;
-	}
-
-	public void setRoh(ROH roh) {
-		this.roh = roh;
-	}
-	public void setOfferedServices(ArrayList<MServiceImplentation> providedServices) {
-		this.offeredServices = providedServices;
-	}	
-	public LinkedList<Task_RH> getResourceSchedule() {
-		return resourceSchedule;
-	}
-
-	public void setResourceSchedule(LinkedList<Task_RH> resourceSchedule) {
-		this.resourceSchedule = resourceSchedule;
-	}
-	public RH_SIL getSil() {
-		return sil;
-	}
-	public void setSil(RH_SIL sil) {
-		this.sil = sil;
-	}
+	
 	//methods
 	protected MService getServiceByName(String service) {
 		for (MServiceImplentation sr : offeredServices) {
@@ -137,4 +114,42 @@ public class ResourceHolon extends Resource{
     		offeredServices.add(service); // Then simply add the new Service Imp	
     	}
     }	
+    public synchronized void liberateResource(){
+		 this.associated_PH = null;
+		 this.notifyAll();// notify changes
+	}
+  //Getters and setters
+  	public ArrayList<MServiceImplentation> getOfferedServices() {
+  		return offeredServices;
+  	}
+  	public ROH getRoh() {
+  		return roh;
+  	}
+
+  	public void setRoh(ROH roh) {
+  		this.roh = roh;
+  	}
+  	public void setOfferedServices(ArrayList<MServiceImplentation> providedServices) {
+  		this.offeredServices = providedServices;
+  	}	
+  	public LinkedList<Task_RH> getResourceSchedule() {
+  		return resourceSchedule;
+  	}
+
+  	public void setResourceSchedule(LinkedList<Task_RH> resourceSchedule) {
+  		this.resourceSchedule = resourceSchedule;
+  	}
+  	public RH_SIL getSil() {
+  		return sil;
+  	}
+  	public void setSil(RH_SIL sil) {
+  		this.sil = sil;
+  	}
+  	public ProductHolon getAssociated_PH() {
+  		return associated_PH;
+  	}
+  	public void setAssociated_PH(ProductHolon associated_PH) {
+  		this.associated_PH = associated_PH;
+  	}
+  	
 }

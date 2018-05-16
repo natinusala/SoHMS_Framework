@@ -14,7 +14,7 @@ public abstract class Resource {
 	protected String textDescription;
 	protected ArrayList<String> inputPorts;
 	protected ArrayList<String> outputPorts;
-	protected ProductHolon associated_PH;
+//	protected ProductHolon associated_PH;
 	
 	
 	public Resource() {
@@ -73,12 +73,7 @@ public abstract class Resource {
 		return outputPorts;
 	}
     //Setters
-	public ProductHolon getAssociated_PH() {
-		return associated_PH;
-	}
-	public void setAssociated_PH(ProductHolon associated_PH) {
-		this.associated_PH = associated_PH;
-	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -98,9 +93,6 @@ public abstract class Resource {
 		this.outputPorts = outputPorts;
 	}
 	
-	public synchronized void liberateResource(){
-		 this.associated_PH = null;
-		 this.notifyAll();// notify changes
-	}
+	
 	
 }

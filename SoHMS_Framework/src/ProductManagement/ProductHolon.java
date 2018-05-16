@@ -28,7 +28,7 @@ public  class ProductHolon{
 	protected ConcurrentHashMap<Integer,State> actionsPlan;
 	protected ProductionProcess recipe;
 	protected PH_Behavior_Planner exploreBehavior;
-	protected Resource associatedResource;
+	protected ResourceHolon associatedResource;
 
 	//Constructor
 	public ProductHolon(){
@@ -43,35 +43,38 @@ public  class ProductHolon{
 	}
 	
 	//methods
-	public void launch() {
-		/*
-		 *   1- associer une resource a un PH
-		 */
+	public void launch(DirectoryFacilitator df) {
+		//1-Associate this resource to the PH after selecting a free resource
+		associateResourceToPH(df);
+		//2-launch the behavior
 		Thread phExploreThread = new Thread(exploreBehavior);
 		phExploreThread.start();
 		
 	}
-	public void associateResourceToPH(ProductHolon ph, DirectoryFacilitator df) {
+	public void associateResourceToPH(DirectoryFacilitator df) {
 		/**
 		 * Selectioner la premire resource que arrive au port initial et qui est libre
 		 * Returns an associated Ressource to the PH.
 		 */
-		 Resource selectedResource= null;
-			// Do until succesful association
-			do{
-				// Update List of Free Transporters
-				ArrayList<ResourceHolon> listOFResources= null;
-				for (ResourceHolon r : listOFResources) {
-					//if(r.getp== PortPositionStatus.Blocked &&  // La Pallet est stable dans une position
-					  if(r.getAssociated_PH()==null){ // La Palette n'a pas de PH associé
-					   selectedResource= r;
-						break;
-					 }	
-			//	}
+		//1-Select a free resource.
+		ResourceHolon selectedResource= null;
+		// Do until succesful association
+		do{
+			// Update List of Free Transporters
+			ArrayList<ResourceHolon> listOFResources= null;
+			for (ResourceHolon r : listOFResources) {
+				//if(r.getp== PortPositionStatus.Blocked &&  // La Pallet est stable dans une position
+				if(r.getAssociated_PH()==null){ // La Palette n'a pas de PH associï¿½
+					selectedResource= r;
+					break;
+				}	
+				//	}
 			}
-	     }while(selectedResource==null);
+		}while(selectedResource==null);
+		//2-Associate this resource to the PH
+		this.associatedResource=selectedResource;
 	}
-	public void associateResource(Resource s) {
+	public void associateResource(ResourceHolon s) {
      //Associate PH to resource
 	  s.setAssociated_PH(this);
 	//Associate resource to PH
@@ -141,7 +144,7 @@ public  class ProductHolon{
 	public Resource getAssociatedResource() {
 		return associatedResource;
 	}
-	public void setAssociatedResource(Resource associatedResource) {
+	public void setAssociatedResource(ResourceHolon associatedResource) {
 		this.associatedResource = associatedResource;
 	}
 }
