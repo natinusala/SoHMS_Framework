@@ -2,6 +2,7 @@ package OrdersManagement;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.ListIterator;
 
 import Crosscutting.PathState;
 import MService.MServiceImplentation;
@@ -11,9 +12,6 @@ import ProductManagement.ProductHolon;
 import ResourceManagement.ResourceHolon;
 import ResourceManagement.Task_RH;
 import Crosscutting.*;
-
-
-
 
 public abstract class ROH_Behavior{
 
@@ -30,7 +28,28 @@ public abstract class ROH_Behavior{
 	
 	//methods
     public abstract MServiceSpecification requestServiceExe(ProductHolon client,PathState prodTask, ROH roh);
-	public abstract boolean requestPortPermition(ProductHolon client,String finalPort, long timeFromNow, ROH roh);
+	
+    public  boolean requestPortPermition(ProductHolon client,String finalPort, long timeFromNow, ROH roh) {
+            
+    	ResourceHolon rh = roh.getAssociatedRH();
+		
+		// Create a new iterator starting form present
+		ListIterator<Task_RH> exploreIterator= rh.getResourceSchedule().listIterator(); // Raw type
+		
+		while(exploreIterator.hasNext()){
+			Task_RH nextTask=exploreIterator.next();
+			//check if there is a service planed during that time
+			if(nextTask.finishTime.getTime()> System.currentTimeMillis()+timeFromNow){
+				if(nextTask.startTime.getTime()>= System.currentTimeMillis()+timeFromNow+ roh.negociationTime){
+					//Check if the service uses the Port
+					if(nextTask.inPort.equalsIgnoreCase(finalPort)){
+						return false; //there is one service occupying the port
+					} else return true; //The service does not ocuppy the port ( supposition that RH can only make one service at the time)
+				}else return true; // there is time to accept it and negotiate
+			}
+		}
+		return true; // there are no plans so go ahead!	
+    }
 	
 	protected long haveTimeToDoIT(PathState prodTask, ROH roh) {
 		 ResourceHolon rh= roh.getAssociatedRH();
