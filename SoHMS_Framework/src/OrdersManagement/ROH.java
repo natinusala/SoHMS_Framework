@@ -29,11 +29,9 @@ public class ROH {
 
 
 	//Methods
-	public  MServiceSpecification requestServiceExe(ProductHolon client,PathState prodTask) {
-		return behavior.requestServiceExe(client, prodTask, this);
+	public  MServiceSpecification requestServiceExe(ProductHolon client,PathState prodTask,String serviceName) {
+		return behavior.requestServiceExe(client, prodTask, this,serviceName);
 	}
-
-
 
 	public boolean requestPortPermition(ProductHolon client, String finalPort, long timeFromNow) {
 		return behavior.requestPortPermition(client,finalPort, timeFromNow, this);

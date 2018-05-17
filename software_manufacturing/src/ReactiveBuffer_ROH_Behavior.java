@@ -28,7 +28,7 @@ public class ReactiveBuffer_ROH_Behavior extends ROH_Behavior {
 	//PUBLIC METHODS-------------------------------
 
 	@Override
-	public  MServiceSpecification requestServiceExe(ProductHolon client, PathState prodTask, ROH roh) {
+	public  MServiceSpecification requestServiceExe(ProductHolon client, PathState prodTask, ROH roh,String s) {
 		
 		//This is a submisive resource so execution is imminent once it accepted the port permission
 	

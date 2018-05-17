@@ -3,7 +3,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="/SoHMS_Framework"/>
-	<classpathentry kind="lib" path="/home/stagiaire-aelos/Documents/SoHMS_Framework/software_manufacturing/SoHMS.jar"/>
-	<classpathentry kind="lib" path="/home/stagiaire-aelos/Documents/SoHMS_Framework/software_manufacturing/org.json.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tebmed/Documents/SoHMS_Framework/software_manufacturing/org.json.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tebmed/Documents/SoHMS_Framework/software_manufacturing/SoHMS.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

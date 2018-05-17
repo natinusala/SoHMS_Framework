@@ -33,7 +33,7 @@ public class ReactiveRouter_ROH_Behavior extends ROH_Behavior{
 
 	// PUBLIC METHODS------------------------------------------------------------
 	@Override
-	public MServiceSpecification requestServiceExe(ProductHolon client, PathState prodTask, ROH roh) {
+	public MServiceSpecification requestServiceExe(ProductHolon client, PathState prodTask, ROH roh,String s) {
 		
 		//Add the request to the inbox
 		synchronized (coordinator.requestInbox) {

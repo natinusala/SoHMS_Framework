@@ -1,0 +1,769 @@
+{
+"BufferedRH" :[
+{
+ "Name" : "Loop1S1",
+  "Category" : "Transport",
+  "Technology" : "Conveyor",
+  "Description" : "A Segmented Conveyor Loop with limited capacity"
+  "InputPorts" : [
+    {
+	  "value" : "Port1.4"
+	}
+   ],
+  "InputPorts" : [
+    {
+	  "value" : "Port1.OUT"
+	}
+   ],
+  "BufferCapacity": 8,
+  "MiliPerUnit" : 1000,
+  "OfferedServices":[
+      {
+        "name": "TransportPallet",
+        "ontology": "Transport", 
+        "category": "Transport", 
+        "taxonomy": "sometax", 
+        "description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+        "parameters":[
+          {
+		   "DataType" : "String",
+           "name": "StartPort"
+          },
+          {
+		   "DataType" : "String",
+           "name": "FinalPort"
+          }
+        ],
+        "attributes":[
+          {
+		   "DataType" : "Double",
+           "name": "Cmax"
+          },
+          {
+		   "DataType" : "String",
+           "name": "Quality"
+          }
+        ]
+        "ParametersProfile" :[
+		  {
+			"ProfileParameter":[
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "StartPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port1.4"
+			    }				 
+			  ]
+			 },
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "FinalPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port1.OUT"
+			    }				 
+			  ]
+			 }
+			],
+		    "methods" :[
+			  {
+			    "id" : 1
+			  }
+		    ]
+		  }
+		],
+		"Methods" :[
+		 {
+		  "ProcessType" : "Atomic",
+		  "ID" : 1,
+		  "SetupID" : 1		
+		 }
+	    ],
+  	  }
+    ]
+},
+{
+  "Name" : "Loop1S2",
+  "Category" : "Transport",
+  "Technology" : "Conveyor",
+  "Description" : "A Segmented Conveyor Loop with limited capacity"
+  "InputPorts" : [
+    {
+	  "value" : "Port1.6"
+	}
+   ],
+  "InputPorts" : [
+    {
+	  "value" : "Port1.3"
+	}
+   ],
+  "BufferCapacity": 8,
+  "MiliPerUnit" : 1000,
+  "OfferedServices":[
+      {
+        "name": "TransportPallet",
+        "ontology": "Transport", 
+        "category": "Transport", 
+        "taxonomy": "sometax", 
+        "description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+        "parameters":[
+          {
+		   "DataType" : "String",
+           "name": "StartPort"
+          },
+          {
+		   "DataType" : "String",
+           "name": "FinalPort"
+          }
+        ],
+        "attributes":[
+          {
+		   "DataType" : "Double",
+           "name": "Cmax"
+          },
+          {
+		   "DataType" : "String",
+           "name": "Quality"
+          }
+        ]
+        "ParametersProfile" :[
+		  {
+			"ProfileParameter":[
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "StartPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port1.6"
+			    }				 
+			  ]
+			 },
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "FinalPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port1.3"
+			    }				 
+			  ]
+			 }
+			],
+		    "methods" :[
+			  {
+			    "id" : 1
+			  }
+		    ]
+		  }
+		],
+		"Methods" :[
+		 {
+		  "ProcessType" : "Atomic",
+		  "ID" : 1,
+		  "SetupID" : 1		
+		 }
+	    ],
+  	  }
+    ]
+},
+{
+ "Name" : "Loop2S1",
+  "Category" : "Transport",
+  "Technology" : "Conveyor",
+  "Description" : "A Segmented Conveyor Loop with limited capacity"
+  "InputPorts" : [
+    {
+	  "value" : "Port2.4"
+	}
+   ],
+  "InputPorts" : [
+    {
+	  "value" : "Port2.OUT"
+	}
+   ],
+  "BufferCapacity": 8,
+  "MiliPerUnit" : 1000,
+  "OfferedServices":[
+      {
+        "name": "TransportPallet",
+        "ontology": "Transport", 
+        "category": "Transport", 
+        "taxonomy": "sometax", 
+        "description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+        "parameters":[
+          {
+		   "DataType" : "String",
+           "name": "StartPort"
+          },
+          {
+		   "DataType" : "String",
+           "name": "FinalPort"
+          }
+        ],
+        "attributes":[
+         {
+		   "DataType" : "Double",
+           "name": "Cmax"
+         },
+         {
+		   "DataType" : "String",
+           "name": "Quality"
+         }
+        ]
+        "ParametersProfile" :[
+		 {
+		  "ProfileParameter":[
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "StartPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port2.4"
+			    }				 
+			  ]
+			 },
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "FinalPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port2.OUT"
+			    }				 
+			  ]
+			 }
+			],
+		    "methods" :[
+			  {
+			    "id" : 1
+			  }
+		    ]
+		  }
+		],
+		"Methods" :[
+		 {
+		  "ProcessType" : "Atomic",
+		  "ID" : 1,
+		  "SetupID" : 1		
+		 }
+	    ],
+  	  }
+    ]
+},
+{
+ "Name" : "Loop1S1",
+  "Category" : "Transport",
+  "Technology" : "Conveyor",
+  "Description" : "A Segmented Conveyor Loop with limited capacity"
+  "InputPorts" : [
+    {
+	  "value" : "Port2.6"
+	}
+   ],
+  "InputPorts" : [
+    {
+	  "value" : "Port2.3"
+	}
+   ],
+  "BufferCapacity": 8,
+  "MiliPerUnit" : 1000,
+  "OfferedServices":[
+      {
+        "name": "TransportPallet",
+        "ontology": "Transport", 
+        "category": "Transport", 
+        "taxonomy": "sometax", 
+        "description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+        "parameters":[
+          {
+		   "DataType" : "String",
+           "name": "StartPort"
+          },
+          {
+		   "DataType" : "String",
+           "name": "FinalPort"
+          }
+        ],
+        "attributes":[
+          {
+		   "DataType" : "Double",
+           "name": "Cmax"
+          },
+          {
+		   "DataType" : "String",
+           "name": "Quality"
+          }
+        ]
+        "ParametersProfile" :[
+		  {
+			"ProfileParameter":[
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "StartPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port2.6"
+			    }				 
+			  ]
+			 },
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "FinalPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port2.3"
+			    }				 
+			  ]
+			 }
+			],
+		    "methods" :[
+			  {
+			    "id" : 1
+			  }
+		    ]
+		  }
+		],
+		"Methods" :[
+		 {
+		  "ProcessType" : "Atomic",
+		  "ID" : 1,
+		  "SetupID" : 1		
+		 }
+	    ],
+  	  }
+    ]
+},
+{
+ "Name" : "Loop3S1",
+  "Category" : "Transport",
+  "Technology" : "Conveyor",
+  "Description" : "A Segmented Conveyor Loop with limited capacity"
+  "InputPorts" : [
+    {
+	  "value" : "Port3.4"
+	}
+   ],
+  "InputPorts" : [
+    {
+	  "value" : "Port3.OUT"
+	}
+   ],
+  "BufferCapacity": 8,
+  "MiliPerUnit" : 1000,
+  "OfferedServices":[
+      {
+        "name": "TransportPallet",
+        "ontology": "Transport", 
+        "category": "Transport", 
+        "taxonomy": "sometax", 
+        "description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+        "parameters":[
+          {
+		   "DataType" : "String",
+           "name": "StartPort"
+          },
+          {
+		   "DataType" : "String",
+           "name": "FinalPort"
+          }
+        ],
+        "attributes":[
+          {
+		   "DataType" : "Double",
+           "name": "Cmax"
+          },
+          {
+		   "DataType" : "String",
+           "name": "Quality"
+          }
+        ]
+        "ParametersProfile" :[
+		  {
+			"ProfileParameter":[
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "StartPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port3.4"
+			    }				 
+			  ]
+			 },
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "FinalPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port3.OUT"
+			    }				 
+			  ]
+			 }
+			],
+		    "methods" :[
+			  {
+			    "id" : 1
+			  }
+		    ]
+		  }
+		],
+		"Methods" :[
+		 {
+		  "ProcessType" : "Atomic",
+		  "ID" : 1,
+		  "SetupID" : 1		
+		 }
+	    ],
+  	  }
+    ]
+},
+{
+ "Name" : "Loop3S2",
+  "Category" : "Transport",
+  "Technology" : "Conveyor",
+  "Description" : "A Segmented Conveyor Loop with limited capacity"
+  "InputPorts" : [
+    {
+	  "value" : "Port3.6"
+	}
+   ],
+  "InputPorts" : [
+    {
+	  "value" : "Port3.3"
+	}
+   ],
+  "BufferCapacity": 8,
+  "MiliPerUnit" : 1000,
+  "OfferedServices":[
+      {
+        "name": "TransportPallet",
+        "ontology": "Transport", 
+        "category": "Transport", 
+        "taxonomy": "sometax", 
+        "description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+        "parameters":[
+          {
+		   "DataType" : "String",
+           "name": "StartPort"
+          },
+          {
+		   "DataType" : "String",
+           "name": "FinalPort"
+          }
+        ],
+        "attributes":[
+          {
+		   "DataType" : "Double",
+           "name": "Cmax"
+          },
+          {
+		   "DataType" : "String",
+           "name": "Quality"
+          }
+        ]
+        "ParametersProfile" :[
+		  {
+			"ProfileParameter":[
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "StartPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port3.6"
+			    }				 
+			  ]
+			 },
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "FinalPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port3.3"
+			    }				 
+			  ]
+			 }
+			],
+		    "methods" :[
+			  {
+			    "id" : 1
+			  }
+		    ]
+		  }
+		],
+		"Methods" :[
+		 {
+		  "ProcessType" : "Atomic",
+		  "ID" : 1,
+		  "SetupID" : 1		
+		 }
+	    ],
+  	  }
+    ]
+},
+{
+ "Name" : "MainS1",
+  "Category" : "Transport",
+  "Technology" : "Conveyor",
+  "Description" : "A Segmented Conveyor Loop with limited capacity"
+  "InputPorts" : [
+    {
+	  "value" : "Port3.2"
+	}
+   ],
+  "InputPorts" : [
+    {
+	  "value" : "Port1.1"
+	}
+   ],
+  "BufferCapacity": 50,
+  "MiliPerUnit" : 1000,
+  "OfferedServices":[
+      {
+        "name": "TransportPallet",
+        "ontology": "Transport", 
+        "category": "Transport", 
+        "taxonomy": "sometax", 
+        "description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+        "parameters":[
+          {
+		   "DataType" : "String",
+           "name": "StartPort"
+          },
+          {
+		   "DataType" : "String",
+           "name": "FinalPort"
+          }
+        ],
+        "attributes":[
+          {
+		   "DataType" : "Double",
+           "name": "Cmax"
+          },
+          {
+		   "DataType" : "String",
+           "name": "Quality"
+          }
+        ]
+        "ParametersProfile" :[
+		  {
+			"ProfileParameter":[
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "StartPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port3.2"
+			    }				 
+			  ]
+			 },
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "FinalPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port1.1"
+			    }				 
+			  ]
+			 }
+			],
+		    "methods" :[
+			  {
+			    "id" : 1
+			  }
+		    ]
+		  }
+		],
+		"Methods" :[
+		 {
+		  "ProcessType" : "Atomic",
+		  "ID" : 1,
+		  "SetupID" : 1		
+		 }
+	    ],
+  	  }
+    ]
+},
+{
+ "Name" : "MainS2",
+  "Category" : "Transport",
+  "Technology" : "Conveyor",
+  "Description" : "A Segmented Conveyor Loop with limited capacity"
+  "InputPorts" : [
+    {
+	  "value" : "Port1.2"
+	}
+   ],
+  "InputPorts" : [
+    {
+	  "value" : "Port2.1"
+	}
+   ],
+  "BufferCapacity": 15,
+  "MiliPerUnit" : 1000,
+  "OfferedServices":[
+      {
+        "name": "TransportPallet",
+        "ontology": "Transport", 
+        "category": "Transport", 
+        "taxonomy": "sometax", 
+        "description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+        "parameters":[
+          {
+		   "DataType" : "String",
+           "name": "StartPort"
+          },
+          {
+		   "DataType" : "String",
+           "name": "FinalPort"
+          }
+        ],
+        "attributes":[
+          {
+		   "DataType" : "Double",
+           "name": "Cmax"
+          },
+          {
+		   "DataType" : "String",
+           "name": "Quality"
+          }
+        ]
+        "ParametersProfile" :[
+		  {
+			"ProfileParameter":[
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "StartPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port1.2"
+			    }				 
+			  ]
+			 },
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "FinalPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port2.1"
+			    }				 
+			  ]
+			 }
+			],
+		    "methods" :[
+			  {
+			    "id" : 1
+			  }
+		    ]
+		  }
+		],
+		"Methods" :[
+		 {
+		  "ProcessType" : "Atomic",
+		  "ID" : 1,
+		  "SetupID" : 1		
+		 }
+	    ],
+  	  }
+    ]
+},
+{
+ "Name" : "MainS3",
+  "Category" : "Transport",
+  "Technology" : "Conveyor",
+  "Description" : "A Segmented Conveyor Loop with limited capacity"
+  "InputPorts" : [
+    {
+	  "value" : "Port2.2"
+	}
+   ],
+  "InputPorts" : [
+    {
+	  "value" : "Port3.1"
+	}
+   ],
+  "BufferCapacity": 15,
+  "MiliPerUnit" : 1000,
+  "OfferedServices":[
+      {
+        "name": "TransportPallet",
+        "ontology": "Transport", 
+        "category": "Transport", 
+        "taxonomy": "sometax", 
+        "description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+        "parameters":[
+          {
+		   "DataType" : "String",
+           "name": "StartPort"
+          },
+          {
+		   "DataType" : "String",
+           "name": "FinalPort"
+          }
+        ],
+        "attributes":[
+          {
+		   "DataType" : "Double",
+           "name": "Cmax"
+          },
+          {
+		   "DataType" : "String",
+           "name": "Quality"
+          }
+        ]
+        "ParametersProfile" :[
+		  {
+			"ProfileParameter":[
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "StartPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port2.2"
+			    }				 
+			  ]
+			 },
+			 {
+			  "RangeType" : "Catalogue",
+			  "DataType"  : "String",
+			  "Name" : "FinalPort",
+			  "RangeValues" : [
+			    {
+                 "value" : "Port3.1"
+			    }				 
+			  ]
+			 }
+			],
+		    "methods" :[
+			  {
+			    "id" : 1
+			  }
+		    ]
+		  }
+		],
+		"Methods" :[
+		 {
+		  "ProcessType" : "Atomic",
+		  "ID" : 1,
+		  "SetupID" : 1		
+		 }
+	    ],
+  	  }
+    ]
+}
+]
+}
