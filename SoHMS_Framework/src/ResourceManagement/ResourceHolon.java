@@ -33,6 +33,7 @@ public class ResourceHolon extends Resource{
 		this.roh = new ROH(); //will be changed
 		this.portSchedules= new ConcurrentHashMap<String, LinkedList<Task_RH>>();
 	}
+ 	
  	public ResourceHolon(String name, String technology, String category, String textDescription,
  			ArrayList<String> inputPorts, ArrayList<String> outputPorts, ArrayList<MServiceImplentation> mservices) {
  		super(name, technology, category, textDescription, inputPorts, outputPorts);

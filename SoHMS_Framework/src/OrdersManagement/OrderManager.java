@@ -46,7 +46,7 @@ public abstract class OrderManager {
 	}
 	
 	//a method that launchs the execution of an order. each order is a psecific to targer domain
-	public void  launchOrder(DirectoryFacilitator df) {
+	public void  launchOrder() {
 	  //1-Ask number of needed resources. (maximum unit specifié dans l'ordre !!!).
 		int resource_num = this.order.getMaxParallelUnits();
 		
@@ -63,7 +63,7 @@ public abstract class OrderManager {
 	        ph.setExploreBehavior(exploreBehavior);
 	    	//Launch its Production
 	        //2-3 launch PH
-			ph.launch(df);
+			ph.launch();
 			//2-4 Add the PH to the active PHs list.
 			synchronized (activePHs) {
 				activePHs.add(ph); 

@@ -24,8 +24,8 @@ public abstract class DirectoryFacilitator{
 	protected Hashtable<MService,ArrayList<ResourceHolon>> rsDirectory;
 	//share the set of resources
 	protected static ArrayList<ResourceHolon> resourcesDirectory;
-	protected LayoutMap workShopMap; 
-    protected ConcurrentHashMap<FromTo, HashSet<TerminalSequence>> exploredRoutes = new ConcurrentHashMap<FromTo, HashSet<TerminalSequence>>();  // (specific) Serves to register the connexions among ports that have been explored to fasten computation
+	protected static LayoutMap workShopMap; 
+	protected ConcurrentHashMap<FromTo, HashSet<TerminalSequence>> exploredRoutes = new ConcurrentHashMap<FromTo, HashSet<TerminalSequence>>();  // (specific) Serves to register the connexions among ports that have been explored to fasten computation
 
 	//Getters and Setters
 	public void setrsDirectory(Hashtable<MService, ArrayList<ResourceHolon>> rsDirectory) {
@@ -42,6 +42,12 @@ public abstract class DirectoryFacilitator{
 	}
 	public void setExploredRoutes(ConcurrentHashMap<FromTo, HashSet<TerminalSequence>> exploredRoutes) {
 		this.exploredRoutes = exploredRoutes;
+	}
+	public static LayoutMap getWorkShopMap() {
+		return workShopMap;
+	}
+	public void setWorkShopMap(LayoutMap workShopMap) {
+		this.workShopMap = workShopMap;
 	}
 	
 	//Methods

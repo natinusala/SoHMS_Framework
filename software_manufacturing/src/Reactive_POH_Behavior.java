@@ -5,15 +5,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import Crosscutting.AutomatIterator;
 import Crosscutting.PathState;
 import Crosscutting.Transition;
 import MService.MServiceSpecification;
 import OrdersManagement.POH;
 import OrdersManagement.POH_Behavior;
 import ProductManagement.ProductHolon;
-import ResourceManagement.Resource;
-import ResourceManagement.ResourceHolon;
+import ResourceManagement.*;
+import ResourceManagement.Transporter;
 import Workshop.LayoutMap;
+
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -43,7 +45,7 @@ public class Reactive_POH_Behavior implements POH_Behavior{
 	public void run() {
 		
 		ProductHolon ph=associatedPOH.associatedPH;
-		ResourceHolon pallet = ph.getAssociatedResource();
+	    Transporter pallet = ph.getAssociatedResource();
 		AutomatIterator planIterator;
 
 		FileWriter out = null;

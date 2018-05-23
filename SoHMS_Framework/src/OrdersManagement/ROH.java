@@ -5,6 +5,7 @@ import MService.MServiceImplentation;
 import MService.MServiceSpecification;
 import ProductManagement.ProductHolon;
 import ResourceManagement.ResourceHolon;
+import ResourceManagement.Transporter;
 
 public class ROH {
 
@@ -69,4 +70,7 @@ public class ROH {
 		this.numOfCurrentExecutions = numOfCurrentExecutions;
 	}
 
+	public String requestDefaultTransfer(Transporter transporter, String port) {
+		return behavior.requestDefaultTransfer(transporter, port);
+	}
 }

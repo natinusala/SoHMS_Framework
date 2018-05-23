@@ -3,14 +3,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import OrdersManagement.ROH;
 import ResourceManagement.ResourceHolon;
 
-/**
- * This class Represents a Resource that has some kind of buffer capacity.
- * It uses this buffer information to accept Service Requests and Manages its contents.
- * @author Francisco
- *
- */
-
-
 public class BufferedRH extends ResourceHolon{
 	
 	//ATTRIBUTS-------------------------------

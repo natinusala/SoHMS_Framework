@@ -26,6 +26,14 @@ public class MServiceImplentation{
 		this.outputs = outputs;
 		this.averageCost = averageCost;
 	}
+	public MServiceImplentation(MService mService, ArrayList<ParametersProfile> parametersProfile,
+			HashSet<ProcessMethod> processMethods, ArrayList<String> inputs, ArrayList<String> outputs) {
+			this.mService = mService;
+			this.parametersProfile = parametersProfile;
+			this.processMethods = processMethods;
+			this.inputs = inputs;
+			this.outputs = outputs;
+		}
 
 	//Getters and Seterrs
 	public MService getmService() {
