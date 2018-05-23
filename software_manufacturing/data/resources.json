@@ -1,6 +1,7 @@
 {
-"BufferedRH" :[
+ "resources" :[
 {
+  "Type" : "BufferedRH",
   "Name" : "Loop1S1",
   "Category" : "Transport",
   "Technology" : "Conveyor",
@@ -86,6 +87,7 @@
     ]
 },
 {
+  "Type" : "BufferedRH",
   "Name" : "Loop1S2",
   "Category" : "Transport",
   "Technology" : "Conveyor",
@@ -171,7 +173,8 @@
     ]
 },
 {
- "Name" : "Loop2S1",
+  "Type" : "BufferedRH",
+  "Name" : "Loop2S1",
   "Category" : "Transport",
   "Technology" : "Conveyor",
   "Description" : "A Segmented Conveyor Loop with limited capacity",
@@ -256,7 +259,8 @@
     ]
 },
 {
- "Name" : "Loop1S1",
+  "Type" : "BufferedRH",
+  "Name" : "Loop1S1",
   "Category" : "Transport",
   "Technology" : "Conveyor",
   "Description" : "A Segmented Conveyor Loop with limited capacity",
@@ -341,7 +345,8 @@
     ]
 },
 {
- "Name" : "Loop3S1",
+  "Type" : "BufferedRH",
+  "Name" : "Loop3S1",
   "Category" : "Transport",
   "Technology" : "Conveyor",
   "Description" : "A Segmented Conveyor Loop with limited capacity",
@@ -426,7 +431,8 @@
     ]
 },
 {
- "Name" : "Loop3S2",
+  "Type" : "BufferedRH",
+  "Name" : "Loop3S2",
   "Category" : "Transport",
   "Technology" : "Conveyor",
   "Description" : "A Segmented Conveyor Loop with limited capacity",
@@ -511,7 +517,8 @@
     ]
 },
 {
- "Name" : "MainS1",
+  "Type" : "BufferedRH",
+  "Name" : "MainS1",
   "Category" : "Transport",
   "Technology" : "Conveyor",
   "Description" : "A Segmented Conveyor Loop with limited capacity",
@@ -596,6 +603,7 @@
     ]
 },
 {
+  "Type" : "BufferedRH",
   "Name" : "MainS2",
   "Category" : "Transport",
   "Technology" : "Conveyor",
@@ -681,6 +689,7 @@
     ]
 },
 {
+  "Type" : "BufferedRH",
   "Name" : "MainS3",
   "Category" : "Transport",
   "Technology" : "Conveyor",
@@ -766,6 +775,7 @@
     ]
 },
 {
+         "Type" : "RH",
 	     "Name" : "Poste1",
 		 "Technology" : "Robot 6 Axis",
 		 "Category" : "Assembler",
@@ -873,6 +883,7 @@
 		 ]
 },
 {
+  "Type" : "RH",
   "Name" : "Poste2",
   "Technology" : "Robot 6 Axis",
   "Category" : "Assembler",
@@ -1313,6 +1324,7 @@
 	]
 },
 {
+  "Type" : "RH", 
   "Name" : "Poste3",
   "Technology" : "Robot 6 Axis",
   "Category" : "Assembler",
@@ -1749,6 +1761,954 @@
 				}
 			  ],
 			  "AverageCost" : 20
+		  }
+	]
+},
+{
+         "Type" : "RouterRH",
+ 	     "Name" : "Exchanger1",
+		 "Technology" : "Exchanger",
+		 "Category" : "Transport",
+		 "Description" : "An Exchanger between Conveyors",
+		 "InputPorts" :[
+		    {
+			  value : "Port1.1"
+			},
+			{
+			  value : "Port1.3"
+			}
+		 ],
+		 "OutputPorts" :[
+		    {
+			  value :  "Port1.2"
+			},
+			{
+			  value :  "Port1.4"
+			}
+		 ],
+		 "OfferedServices" :[ 
+		  {
+		      "name" : "TransportPallet",
+			  "ontology" : "Transport",
+			  "category" : "Transport",
+			  "taxonomy" : "sometax",
+			  "description" : "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+			  "parameters" : [
+			    {
+			     "DataType" : "String" ,
+				 "name" : "StartPort"
+				},
+				{
+			     "DataType" : "String" ,
+				 "name" : "FinalPort"
+				}
+			  ],
+			  "Attributes" : [
+			    {
+				 "DataType" : "Double" ,
+				 "Name" : "Cmax"
+				},
+				{
+				 "DataType" : "String" ,
+				 "Name" : "Quality"
+				} 
+			  ],
+			  "ParametersProfile" :[
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.1"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.2",
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 1
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.1"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.4"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 2
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.3"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.2"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 3
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.3"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.4"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 4
+					  }
+				   ]
+			   }
+			  ],
+		      "Methods" :[
+			    {
+				  "ProcessType" : "Atomic",
+				  "ID" : 1,
+				  "SetupID" : 1
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 2,
+				  "SetupID" : 1	
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 3,
+				  "SetupID" : 2	
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 4,
+				  "SetupID" : 2	
+				}
+			  ]
+		  }
+		 ]
+},
+{
+         "Type" : "RouterRH",
+	     "Name" : "Exchanger2",
+		 "Technology" : "Exchanger",
+		 "Category" : "Transport",
+		 "Description" : "An Exchanger between Conveyors",
+		 "InputPorts" :[
+		    {
+			  value : "Port2.1"
+			},
+			{
+			  value : "Port2.3"
+			}
+		 ],
+		 "OutputPorts" :[
+		    {
+			  value :  "Port2.2"
+			},
+			{
+			  value :  "Port2.4"
+			}
+		 ],
+		 "OfferedServices" :[ 
+		  {
+		      "name" : "TransportPallet",
+			  "ontology" : "Transport",
+			  "category" : "Transport",
+			  "taxonomy" : "sometax",
+			  "description" : "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+			  "parameters" : [
+			    {
+			     "DataType" : "String" ,
+				 "name" : "StartPort"
+				},
+				{
+			     "DataType" : "String" ,
+				 "name" : "FinalPort"
+				}
+			  ],
+			  "Attributes" : [
+			    {
+				 "DataType" : "Double" ,
+				 "Name" : "Cmax"
+				},
+				{
+				 "DataType" : "String" ,
+				 "Name" : "Quality"
+				} 
+			  ],
+			  "ParametersProfile" :[
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.1"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.2",
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 1
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.1"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.4"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 2
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.3"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.2"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 3
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.3"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.4"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 4
+					  }
+				   ]
+			   }
+			  ],
+		      "Methods" :[
+			    {
+				  "ProcessType" : "Atomic",
+				  "ID" : 1,
+				  "SetupID" : 1		
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 2,
+				  "SetupID" : 1		
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 3,
+				  "SetupID" : 2		
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 4,
+				  "SetupID" : 2		
+				}
+			  ]
+		  }
+		 ]
+},
+{
+	     "Type" : "RouterRH",
+   	     "Name" : "Exchanger3",
+		 "Technology" : "Exchanger",
+		 "Category" : "Transport",
+		 "Description" : "An Exchanger between Conveyors",
+		 "InputPorts" :[
+		    {
+			  value : "Port3.1"
+			},
+			{
+			  value : "Port3.3"
+			}
+		 ],
+		 "OutputPorts" :[
+		    {
+			  value :  "Port3.2"
+			},
+			{
+			  value :  "Port3.4"
+			}
+		 ],
+		 "OfferedServices" :[ 
+		  {
+		      "name" : "TransportPallet",
+			  "ontology" : "Transport",
+			  "category" : "Transport",
+			  "taxonomy" : "sometax",
+			  "description" : "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+			  "parameters" : [
+			    {
+			     "DataType" : "String" ,
+				 "name" : "StartPort"
+				},
+				{
+			     "DataType" : "String" ,
+				 "name" : "FinalPort"
+				}
+			  ],
+			  "Attributes" : [
+			    {
+				 "DataType" : "Double" ,
+				 "Name" : "Cmax"
+				},
+				{
+				 "DataType" : "String" ,
+				 "Name" : "Quality"
+				} 
+			  ],
+			  "ParametersProfile" :[
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.1"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.2",
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 1
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.1"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.4"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 2
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.3"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.2"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 3
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.3"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.4"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 4
+					  }
+				   ]
+			   }
+			  ],
+		      "Methods" :[
+			    {
+				  "ProcessType" : "Atomic",
+				  "ID" : 1,
+				  "SetupID" : 1		
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 2,
+				  "SetupID" : 1		
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 3,
+				  "SetupID" : 2		
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 4,
+				  "SetupID" : 2		
+				}
+			  ]
+		  }
+		 ]
+},
+{
+         "Type" : "RouterRH",
+ 	     "Name" : "Feeder1",
+		 "Technology" : "Exchanger",
+		 "Category" : "Transport",
+		 "Description" : "An Exchanger between Conveyors",
+		 "InputPorts" :[
+		    {
+			  value : "Port1.IN"
+			},
+			{
+			  value : "Port1.OUT"
+			}
+		 ],
+		 "OutputPorts" :[
+		    {
+			  value :  "Port1.IN"
+			},
+			{
+			  value :  "Port1.6"
+			}
+		 ],
+		 "OfferedServices" :[ 
+		  {
+		      "name" : "TransportPallet",
+			  "ontology" : "Transport",
+			  "category" : "Transport",
+			  "taxonomy" : "sometax",
+			  "description" : "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+			  "parameters" : [
+			    {
+			     "DataType" : "String" ,
+				 "name" : "StartPort"
+				},
+				{
+			     "DataType" : "String" ,
+				 "name" : "FinalPort"
+				}
+			  ],
+			  "Attributes" : [
+			    {
+				 "DataType" : "Double" ,
+				 "Name" : "Cmax"
+				},
+				{
+				 "DataType" : "String" ,
+				 "Name" : "Quality"
+				} 
+			  ],
+			  "ParametersProfile" :[
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.OUT"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.IN",
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 1
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.IN"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port1.6"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 2
+					  }
+				   ]
+			   }
+			  ],
+		      "Methods" :[
+			    {
+				  "ProcessType" : "Atomic",
+				  "ID" : 1,
+				  "SetupID" : 1		
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 2,
+				  "SetupID" : 2	
+				}
+			  ]
+		  }
+		 ]
+},
+{
+         "Type" : "RouterRH",
+	     "Name" : "Feeder2",
+		 "Technology" : "Exchanger",
+		 "Category" : "Transport",
+		 "Description" : "An Exchanger between Conveyors",
+		 "InputPorts" :[
+		    {
+			  value : "Port2.IN"
+			},
+			{
+			  value : "Port2.OUT"
+			}
+		 ],
+		 "OutputPorts" :[
+		    {
+			  value :  "Port2.IN"
+			},
+			{
+			  value :  "Port2.6"
+			}
+		 ],
+		 "OfferedServices" :[ 
+		  {
+		      "name" : "TransportPallet",
+			  "ontology" : "Transport",
+			  "category" : "Transport",
+			  "taxonomy" : "sometax",
+			  "description" : "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+			  "parameters" : [
+			    {
+			     "DataType" : "String" ,
+				 "name" : "StartPort"
+				},
+				{
+			     "DataType" : "String" ,
+				 "name" : "FinalPort"
+				}
+			  ],
+			  "Attributes" : [
+			    {
+				 "DataType" : "Double" ,
+				 "Name" : "Cmax"
+				},
+				{
+				 "DataType" : "String" ,
+				 "Name" : "Quality"
+				} 
+			  ],
+			  "ParametersProfile" :[
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.OUT"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.IN",
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 1
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.IN"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port2.6"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 2
+					  }
+				   ]
+			   }
+			  ],
+		      "Methods" :[
+			    {
+				  "ProcessType" : "Atomic",
+				  "ID" : 1,
+				  "SetupID" : 1		
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 2,
+				  "SetupID" : 2	
+				}
+			  ]
+		  }
+		 ]
+},
+{
+         "Type" : "RouterRH",
+	     "Name" : "Feeder3",
+		 "Technology" : "Exchanger",
+		 "Category" : "Transport",
+		 "Description" : "An Exchanger between Conveyors",
+		 "InputPorts" :[
+		    {
+			  value : "Port3.IN"
+			},
+			{
+			  value : "Port3.OUT"
+			}
+		 ],
+		 "OutputPorts" :[
+		    {
+			  value :  "Port3.IN"
+			},
+			{
+			  value :  "Port3.6"
+			}
+		 ],
+		 "OfferedServices" :[ 
+		  {
+		      "name" : "TransportPallet",
+			  "ontology" : "Transport",
+			  "category" : "Transport",
+			  "taxonomy" : "sometax",
+			  "description" : "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+			  "parameters" : [
+			    {
+			     "DataType" : "String" ,
+				 "name" : "StartPort"
+				},
+				{
+			     "DataType" : "String" ,
+				 "name" : "FinalPort"
+				}
+			  ],
+			  "Attributes" : [
+			    {
+				 "DataType" : "Double" ,
+				 "Name" : "Cmax"
+				},
+				{
+				 "DataType" : "String" ,
+				 "Name" : "Quality"
+				} 
+			  ],
+			  "ParametersProfile" :[
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.OUT"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.IN",
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 1
+					  }
+				   ]
+			   },
+			   {
+			       "ProfileParameter":[
+				     {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "StartPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.IN"
+                         }						 
+						]
+					 },
+					 {
+					    "RangeType" : "Catalogue",
+						"DataType"  : "String",
+						"Name" : "FinalPort",
+						"RangeValues" : [
+					     {
+                             "value" : "Port3.6"
+                         }						 
+						]
+					 }
+				   ],
+				   "methods" :[
+				      {
+					     "id" : 2
+					  }
+				   ]
+			   }
+			  ],
+		      "Methods" :[
+			    {
+				  "ProcessType" : "Atomic",
+				  "ID" : 1,
+				  "SetupID" : 1		
+				},
+				{
+				  "ProcessType" : "Atomic",
+				  "ID" : 2,
+				  "SetupID" : 2	
+				}
+			  ]
 		  }
 	]
 }

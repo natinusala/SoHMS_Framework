@@ -1,4 +1,5 @@
 import java.io.*;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.concurrent.ConcurrentHashMap;
@@ -12,7 +13,7 @@ import Workshop.LayoutMap;
 
 public class Initialization {
 
-	//Attributes
+	//Attributes  
 	public static ConcurrentHashMap<String,ServiceOntology> servOntologies = new ConcurrentHashMap<String,ServiceOntology>(); // these are synchronized collections better than hashtable
 	public static ConcurrentHashMap<String, OrderManager> orderManagerDict=  new ConcurrentHashMap<String, OrderManager>();
 	public static ArrayList<ResourceHolon> resourceCloud = new ArrayList<ResourceHolon>();
@@ -35,9 +36,8 @@ public class Initialization {
 	}
 	public static void InitializeResources(JSONObject obj) throws JSONException {
 		//Resources
-		JSONArray bufferedRH = obj.getJSONArray("BufferedRH");
+		JSONArray bufferedRH = obj.getJSONArray("resources");
 		for (int m = 0; m < bufferedRH.length(); m++) {
-
 			JSONObject brh = (JSONObject) bufferedRH.get(m);
 			String name = brh.getString("Name");
 			String technology = brh.getString("Technology");
@@ -211,7 +211,7 @@ public class Initialization {
 			System.out.println(TransportService.getName() +" : Done!");
 
 			
-			String rH_resource= readFileJSON("data/loops"
+			String rH_resource= readFileJSON("data/resources"
 					+ ".json");
 			JSONObject obj2 = new JSONObject(rH_resource);
 			InitializeResources(obj2);
