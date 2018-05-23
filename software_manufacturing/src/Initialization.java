@@ -5,11 +5,14 @@ import java.util.HashSet;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.json.*;
+
+import Communication.ServerSocket;
 import MService.*;
 import Ontology.*;
 import OrdersManagement.*;
 import ResourceManagement.*;
 import Workshop.LayoutMap;
+
 
 public class Initialization {
 
@@ -17,6 +20,8 @@ public class Initialization {
 	public static ConcurrentHashMap<String,ServiceOntology> servOntologies = new ConcurrentHashMap<String,ServiceOntology>(); // these are synchronized collections better than hashtable
 	public static ConcurrentHashMap<String, OrderManager> orderManagerDict=  new ConcurrentHashMap<String, OrderManager>();
 	public static ArrayList<ResourceHolon> resourceCloud = new ArrayList<ResourceHolon>();
+	public static final int numberOFPallets= 30;
+
 
 	public static ArrayList<MService> mServices= new ArrayList<>();
 	public static String readFileJSON(String file) {
@@ -219,17 +224,33 @@ public class Initialization {
 			for (int i = 0; i < resourceCloud.size(); i++) {
 				System.out.println(resourceCloud.get(i).getName() +" : Done!");
 			}
+            for(ResourceHolon rh : resourceCloud) {
+            	rh.initPortScheules();
+            }
+			System.out.println("Finished Resources's Ports Intialization");
 			
 			System.out.print("Layout Initiation");
 			LayoutMap layout = new LayoutMap();
 			File f = new File("data/Layout.txt");
 			System.out.println(" : Done !");
 			layout.loadLAyout(f);
+			
+			System.out.print("Transporters Initilization");
+			HashSet<Transporter> transporterCloud = new HashSet<Transporter>();
+			for(int i=1; i<=numberOFPallets; i++){
+				Transporter pallet = new Transporter("Unknown",null, i); 
+				transporterCloud.add(pallet);
+			}
+			System.out.println(" Done!");
+
 		}
 
 
-		public static void main(String[] args) throws JSONException {
+		public static void main(String[] args) throws Exception {
             InitializeSystems();
+            ServerSocket sohms_server = new ServerSocket();
+            sohms_server.start();
+           
 		}
 	}
 
