@@ -4,19 +4,25 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
+import org.json.JSONException;
 
+import Application.Initialization;
 public class ServerSocket extends WebSocketServer{
 
     private static int TCP_PORT = 8003;
     private List<WebSocket> socketsIHM;
+    private List<String> messages;
+
 
 	public ServerSocket() throws IOException
 	{
         super(new InetSocketAddress(TCP_PORT));
         socketsIHM = new ArrayList<WebSocket>();
+        messages = new ArrayList<String>();
         System.out.println("SoHMS Server Runnign Done, Listening to port :"+TCP_PORT);
 	}
 	
@@ -50,9 +56,15 @@ public class ServerSocket extends WebSocketServer{
     }
 
     @Override
-    public void onMessage(WebSocket conn, String message) {
+    public void onMessage(WebSocket conn, String message){
         System.out.println("Message from client: " + message);
         int index = this.socketsIHM.indexOf(conn);
+        	try {
+				Initialization.initializeSystems(message);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     }
 
     @Override

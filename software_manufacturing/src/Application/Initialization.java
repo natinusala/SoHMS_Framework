@@ -1,3 +1,4 @@
+package Application;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -10,20 +11,20 @@ import Communication.ServerSocket;
 import MService.*;
 import Ontology.*;
 import OrdersManagement.*;
+import ProductManagement.ProductionOrder;
 import ResourceManagement.*;
 import Workshop.LayoutMap;
 
 
-public class Initialization {
-
+public  class Initialization {
 	//Attributes  
 	public static ConcurrentHashMap<String,ServiceOntology> servOntologies = new ConcurrentHashMap<String,ServiceOntology>(); // these are synchronized collections better than hashtable
-	public static ConcurrentHashMap<String, OrderManager> orderManagerDict=  new ConcurrentHashMap<String, OrderManager>();
+	public static ConcurrentHashMap<String, OrderManager> orderManagerDict=  new ConcurrentHashMap<String, OrderManager>(); //List of Orders
 	public static ArrayList<ResourceHolon> resourceCloud = new ArrayList<ResourceHolon>();
 	public static final int numberOFPallets= 30;
-
-
 	public static ArrayList<MService> mServices= new ArrayList<>();
+
+	//Methods
 	public static String readFileJSON(String file) {
 		String chaine = "";
 		try {
@@ -39,34 +40,35 @@ public class Initialization {
 		}
 		return chaine;
 	}
-	public static void InitializeResources(JSONObject obj) throws JSONException {
+
+	public static void initializeResources(JSONObject obj) throws JSONException {
 		//Resources
-		JSONArray bufferedRH = obj.getJSONArray("resources");
-		for (int m = 0; m < bufferedRH.length(); m++) {
-			JSONObject brh = (JSONObject) bufferedRH.get(m);
-			String name = brh.getString("Name");
-			String technology = brh.getString("Technology");
-			String category =  brh.getString("Category");
-			String description = brh.getString("Description");
-			JSONArray inputPorts = brh.getJSONArray("InputPorts");
+		JSONArray resources = obj.getJSONArray("Resources");
+		for (int m = 0; m < resources.length(); m++) {
+			JSONObject r = (JSONObject) resources.get(m);
+			String name = r.getString("Name");
+			String technology = r.getString("Technology");
+			String category =  r.getString("Category");
+			String description = r.getString("Description");
+			JSONArray inputPorts = r.getJSONArray("InputPorts");
 			ArrayList<String> inputs = new ArrayList<String>();
 			for (int i = 0; i < inputPorts.length(); i++) {
 				JSONObject inporto = (JSONObject) inputPorts.get(i);
 				String inport = inporto.getString("value");
 				inputs.add(inport);
 			}
-			JSONArray outputPorts = brh.getJSONArray("OutputPorts");
+			JSONArray outputPorts = r.getJSONArray("OutputPorts");
 			ArrayList<String> outputs = new ArrayList<String>();
 			for (int j = 0; j < outputPorts.length(); j++) {
 				JSONObject outporto = (JSONObject) inputPorts.get(j);
 				String outport = outporto.getString("value");
 				outputs.add(outport);
 			}
-			if (brh.has("BufferCapacity")) { int bufferedcapacity = brh.getInt( "BufferCapacity");}
-			if (brh.has("MiliPerUnit")) {long mps = brh.getLong("MiliPerUnit");}
+			if (r.has("BufferCapacity")) { int bufferedcapacity = r.getInt( "BufferCapacity");}
+			if (r.has("MiliPerUnit")) {long mps = r.getLong("MiliPerUnit");}
 
 			//offeredServices
-			JSONArray offeredServices = brh.getJSONArray("OfferedServices");
+			JSONArray offeredServices = r.getJSONArray("OfferedServices");
 			ArrayList<MServiceImplentation> offeredservices = new ArrayList<MServiceImplentation>();
 			MService selfService=null;
 			for (int k = 0; k < offeredServices.length(); k++){
@@ -80,7 +82,7 @@ public class Initialization {
 				}
 				//profile parameters
 				ArrayList<ParametersProfile> parametersProfile = null;
-				
+
 				if(ser_obj.has("ParametersProfile")) {
 					JSONArray pparameters = ser_obj.getJSONArray("ParametersProfile"); 
 					parametersProfile = new ArrayList<ParametersProfile>();
@@ -115,43 +117,59 @@ public class Initialization {
 						ParametersProfile pp = new ParametersProfile(profileParameters, ids);
 						parametersProfile.add(pp);
 					}
-				   }
-					//AssociatedMethods
-					//Methods (Process Methods)
-					JSONArray methods = ser_obj.getJSONArray("Methods"); 
-					HashSet<ProcessMethod> processMethods = new HashSet<ProcessMethod>();
-					for (int k2 = 0; k2 < methods.length(); k2++) {
-						JSONObject method = (JSONObject) methods.get(k2);
-						String processType = method.getString("ProcessType");
-						int mid= method.getInt("ID");
-						int setupID = method.getInt("SetupID");
-						ProcessMethod process_method = new ProcessMethod(processType,mid,setupID);
-						processMethods.add(process_method);
-					}
-				
-					MServiceImplentation mserviceImpl;
-					if(ser_obj.has("AverageCost")){
-						Double averageCost = ser_obj.getDouble("AverageCost");
-						mserviceImpl = new MServiceImplentation(selfService, parametersProfile, processMethods, inputs, outputs, averageCost);
-
-					}
-					else {
-					    mserviceImpl = new MServiceImplentation(selfService, parametersProfile, processMethods, inputs, outputs);
-					}
-					//create MsImplementation
-					offeredservices.add(mserviceImpl);
+				}
+				//AssociatedMethods
+				//Methods (Process Methods)
+				JSONArray methods = ser_obj.getJSONArray("Methods"); 
+				HashSet<ProcessMethod> processMethods = new HashSet<ProcessMethod>();
+				for (int k2 = 0; k2 < methods.length(); k2++) {
+					JSONObject method = (JSONObject) methods.get(k2);
+					String processType = method.getString("ProcessType");
+					int mid= method.getInt("ID");
+					int setupID = method.getInt("SetupID");
+					ProcessMethod process_method = new ProcessMethod(processType,mid,setupID);
+					processMethods.add(process_method);
 				}
 
-				ResourceHolon rh = new ResourceHolon(name, technology, category, description, inputs, outputs, offeredservices);
-				resourceCloud.add(rh);
+				MServiceImplentation mserviceImpl;
+				if(ser_obj.has("AverageCost")){
+					Double averageCost = ser_obj.getDouble("AverageCost");
+					mserviceImpl = new MServiceImplentation(selfService, parametersProfile, processMethods, inputs, outputs, averageCost);
+
+				}
+				else {
+					mserviceImpl = new MServiceImplentation(selfService, parametersProfile, processMethods, inputs, outputs);
+				}
+				//create MsImplementation
+				offeredservices.add(mserviceImpl);
 			}
+
+			ResourceHolon rh = new ResourceHolon(name, technology, category, description, inputs, outputs, offeredservices);
+			resourceCloud.add(rh);
 		}
-		public static ServiceOntology InitializServices(JSONObject obj) throws JSONException {
+	}
+
+	public static void initializeOrders(JSONObject obj) throws JSONException {
+		JSONArray orders = obj.getJSONArray("Orders");
+		for (int i = 0; i < orders.length(); i++) {
+			JSONObject po = (JSONObject) orders.get(i);
+			int po_id = po.getInt("id");
+			int po_numUnit = po.getInt("numOfUnits");
+			String po_priority = po.getString("Priority");
+			int po_max_pu = po.getInt("MaxParallelUnits");
+			String po_state = "WAITING";
+		}
+	}
+
+	public static void initializeServices(JSONObject obj) throws JSONException {
+		JSONArray ontologies = obj.getJSONArray("ServicesOntologies");
+		for (int m = 0; m < ontologies.length(); m++) {
 			ServiceOntology s = new ServiceOntology();
-			String ontology_name= obj.getString("name");
+			JSONObject ont = (JSONObject) ontologies.get(m);
+			String ontology_name= ont.getString("name");
 			s.setName(ontology_name);
 			//Mservice;
-			JSONArray services = obj.getJSONArray("services");
+			JSONArray services = ont.getJSONArray("services");
 			for (int i = 0; i < services.length(); ++i) {
 				JSONObject ser_obj = (JSONObject) services.get(i);
 				String name = ser_obj.getString("name");
@@ -194,63 +212,61 @@ public class Initialization {
 				}
 				mServices.add(service);
 				s.addService(service);
+				servOntologies.put(s.getName(), s);
+
 			}
-			return s;
-		}
-		public static void InitializeOrders(JSONObject obj) {
-		}
-		public static void InitializeProducts(JSONObject obj) {
-		}
-		public static void InitializeSystems() throws JSONException {
-			String serviceLego = readFileJSON("data/LegoServiceOntology.json");
-			JSONObject obj = new JSONObject(serviceLego);
-			System.out.println("Initialize service Ontology");
-			ServiceOntology LegoService = InitializServices(obj);
-			servOntologies.put(LegoService.getName(), LegoService);
-			System.out.println(LegoService.getName() +" : Done!");
-
-			String transportService = readFileJSON("data/TransportServiceOntology.json");
-			JSONObject obj1 = new JSONObject(transportService);
-			ServiceOntology TransportService = InitializServices(obj1);
-			servOntologies.put(TransportService.getName(), TransportService);
-			System.out.println(TransportService.getName() +" : Done!");
-
-			
-			String rH_resource= readFileJSON("data/resources"
-					+ ".json");
-			JSONObject obj2 = new JSONObject(rH_resource);
-			InitializeResources(obj2);
-			System.out.println("Resources  Intialisation");
-			for (int i = 0; i < resourceCloud.size(); i++) {
-				System.out.println(resourceCloud.get(i).getName() +" : Done!");
-			}
-            for(ResourceHolon rh : resourceCloud) {
-            	rh.initPortScheules();
-            }
-			System.out.println("Finished Resources's Ports Intialization");
-			
-			System.out.print("Layout Initiation");
-			LayoutMap layout = new LayoutMap();
-			File f = new File("data/Layout.txt");
-			System.out.println(" : Done !");
-			layout.loadLAyout(f);
-			
-			System.out.print("Transporters Initilization");
-			HashSet<Transporter> transporterCloud = new HashSet<Transporter>();
-			for(int i=1; i<=numberOFPallets; i++){
-				Transporter pallet = new Transporter("Unknown",null, i); 
-				transporterCloud.add(pallet);
-			}
-			System.out.println(" Done!");
-
 		}
 
-
-		public static void main(String[] args) throws Exception {
-            InitializeSystems();
-            ServerSocket sohms_server = new ServerSocket();
-            sohms_server.start();
-           
-		}
 	}
+
+	public static void initializeProducts(JSONObject obj) {
+	}
+
+	public static void initializeSystems(String scenario) throws JSONException {
+		//String scenario = readFileJSON("data/scenario.json");
+		JSONObject obj = new JSONObject(scenario);
+		initializeServices(obj);
+		initializeResources(obj);
+		System.out.println("  **** Ontologies Initialization ****");
+		for(String key : servOntologies.keySet()) {
+			System.out.println(key +" Done!");
+
+		}
+		System.out.println(" *** Resources  Intialisation ****");
+		for (int i = 0; i < resourceCloud.size(); i++) {
+			System.out.println(resourceCloud.get(i).getName() +" : Done!");
+		}
+		for(ResourceHolon rh : resourceCloud) {
+			rh.initPortScheules();
+		}
+		System.out.println("Finished Resources's Ports Intialization");
+
+		System.out.print("Layout Initiation");
+		LayoutMap layout = new LayoutMap();
+		File f = new File("data/Layout.txt");
+		System.out.println(" : Done !");
+		layout.loadLAyout(f);
+
+		System.out.print("Transporters Initilization");
+		HashSet<Transporter> transporterCloud = new HashSet<Transporter>();
+		for(int i=1; i<=numberOFPallets; i++){
+			Transporter pallet = new Transporter("Unknown",null, i); 
+			transporterCloud.add(pallet);
+		}
+		System.out.println(" Done!");
+		System.out.print("Orders Initialization");
+		String po = readFileJSON("data/ProductionOrder"
+				+ ".json");
+		JSONObject po_obj = new JSONObject(scenario);
+		initializeOrders(po_obj);
+		System.out.println(" Done!");
+	}
+
+	//Main
+	public static void main(String[] args) throws Exception {
+   		//initializeSystems();
+		 ServerSocket sohms_server = new ServerSocket();
+		 sohms_server.start();
+	}	
+}
 

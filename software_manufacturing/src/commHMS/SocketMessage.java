@@ -4,8 +4,8 @@ public class SocketMessage {
 	
 //ATTRIBUTS-------------------------------
 	
-		public String sender;
-public String reciever;
+	   public String sender;
+       public String reciever;
 	   public String performative;
 	   public String encoding;
 	   public String contentOntology;		

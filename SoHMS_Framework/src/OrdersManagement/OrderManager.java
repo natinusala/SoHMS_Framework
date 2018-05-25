@@ -24,7 +24,7 @@ import ProductManagement.ProductionOrder;
    *    2-Registers the progress on the products production process.
    */
 
-public abstract class OrderManager {
+public class OrderManager {
 	
 	//Attributes
 	protected ProductionOrder order;

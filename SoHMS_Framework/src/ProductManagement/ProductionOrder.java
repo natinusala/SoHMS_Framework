@@ -10,7 +10,6 @@ public class ProductionOrder{
 	//Attributes
 	private static int orderCount= 0;
 	private static int orderListSize= 1000;
-	
 	private int ProductionOrderID;
 	private int numOfUnits;
 	private double progress;
@@ -19,7 +18,8 @@ public class ProductionOrder{
 	private ProductionOrderReport prodReport;
 	private ProductionOrderState state ;
 	private ProductionProcess productProcess;
-	//Enumeration
+	
+	//Enumération
 	enum ProductionOrderState{
 		FINISHED_FAIL,
 		FINISHED_SUCCESS,
