@@ -2,30 +2,35 @@ package ProductManagement;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 
 import Crosscutting.*;
 import DirectoryFacilitator.DirectoryFacilitator;
 import MService.MService;
+import MService.MServiceSpecification;
 import OrdersManagement.OrderManager;
 import ResourceManagement.Resource;
 import ResourceManagement.ResourceHolon;
 import ResourceManagement.Transporter;
 import Workshop.LayoutMap;
 
+
+
 public  class ProductHolon{
-  
+
 	//Attributes 
 	public  static int phCount= 0;
 	public  static int phListSize= 1000;
-	
-	protected int id;
-	protected OrderManager ordermanager;
-	protected LayoutMap productionPlan;
-	protected ConcurrentHashMap<Integer,State> actionsPlan;
-	protected ProductionProcess recipe;
-	protected PH_Behavior_Planner exploreBehavior;
-	protected Transporter associatedResource; //Palette for example for transport
+
+	private int id;
+	private OrderManager ordermanager;
+	private ProductionProcess recipe;
+	private Transporter associatedResource; //Palette for example for transport
+	private PH_Behavior_Planner exploreBehavior;
+	private LayoutMap productionPlan;
+	private ConcurrentHashMap<Integer,PathState> actionsPlan;
 
 	//Constructor
 	public ProductHolon(){
@@ -38,57 +43,122 @@ public  class ProductHolon{
 		this.ordermanager= orderManager;
 		this.recipe= recipe;
 	}
-	
+
 	//methods
-	public void launch() {
+	public void launch(DirectoryFacilitator df) {
 		//1-Associate this resource to the PH after selecting a free resource
-		associateResourceToPH();
+		associateResourceToPH(df); //this resouce is a Pallet
 		//2-launch the behavior
 		Thread phExploreThread = new Thread(exploreBehavior);
 		phExploreThread.start();
-		
+
 	}
-	public void associateResourceToPH() {
+	
+	public void associateResourceToPH(DirectoryFacilitator df) {
 		/**
 		 * Selectioner la premire resource que arrive au port initial et qui est libre
 		 * Returns an associated Ressource to the PH.
 		 */
 		//1-Select a free resource.
-		Transporter selectedResource= null;
+		Transporter selectedPallet= null;
 		// Do until succesful association
 		do{
 			// Update List of Free Transporters
-			ArrayList<Transporter> listOFResources= null;
-			for (Transporter r : listOFResources) {
-				//if(r.getp== PortPositionStatus.Blocked &&  // La Pallet est stable dans une position
-				if(r.associatedPH==null){ // La Palette n'a pas de PH associï¿½
-					selectedResource= r;
+			ArrayList<Transporter> listOFPallets= df.getFreeTrasporter();
+			for (Transporter t : listOFPallets) {
+				if(t.portStatus== "Blocked" &&  // La Pallet est stable dans une position
+						t.getAssociatedPH()==null){ // La Palette n'a pas de PH associé
+					selectedPallet= t;
 					break;
 				}	
-				//	}
 			}
-		}while(selectedResource==null);
+		}while(selectedPallet==null);
 		//2-Associate this resource to the PH
-		this.associatedResource= selectedResource;
+		this.associatedResource= selectedPallet;
 	}
-	public void associateResource(Transporter s) {
-     //Associate PH to resource
-	  s.setAssociatedPH(this);
-	//Associate resource to PH
-	  this.associatedResource = s;
-	};
+	
 	public void liberateResource() {
-	  //1-liberate Resource from PH
-	  this.associatedResource.liberate();
-	  //2- liberate PH from Resource
-	  this.associatedResource=null;
+		//1-liberate Resource from PH
+		this.associatedResource.liberate();
+		//2- liberate PH from Resource
+		this.associatedResource=null;
 	};
+	
 	public void productTerminated() {
 		ordermanager.phIsFinised(this);
 		this.associatedResource=null;
 	}
-	
-	public void addPathArcToExecutablePlans(ArrayList<PathArc> nextStepPlans) {}
+
+	public void addPathArcToExecutablePlans (ArrayList<PathArc> nextStepPlans, MService transportSer, DirectoryFacilitator df){
+		//For all Alternatives
+		for (int j=0; j<nextStepPlans.size(); j++) {
+			PathArc plan = nextStepPlans.get(j);
+			
+			// TRANSPORT steps
+			if(plan.route!= null){ // If need of transport services
+				
+				for (int i=0; i<plan.route.sequence.size();i++) {
+					String actualPort;
+					String nextPort;
+					if( productionPlan.getEdges().isEmpty()|| i==0){ // it is the first task of the first plan
+						 actualPort= associatedResource.actualPort;
+						 nextPort= plan.route.sequence.get(i).label;
+					
+					}
+					else{
+						 actualPort =plan.route.sequence.get(i-1).label;
+						 nextPort= plan.route.sequence.get(i).label;
+					}
+					//Create Transport Services Instance
+					MServiceSpecification tranServSpecification= new MServiceSpecification(transportSer);
+					//Set Values of Transport Service
+					tranServSpecification.getParameters().get(0).setValue(actualPort); // Take actual position as Starting Point
+					tranServSpecification.getParameters().get(1).setValue(nextPort); // Set the first Port to visit
+					//Get Transport Provider
+					//4 lines of code for get the transport rh provider.
+					HashSet<Pair<ResourceHolon,Double>> transProviders= df.getProviders(tranServSpecification);
+					Iterator<Pair<ResourceHolon, Double>> it = transProviders.iterator();
+					Pair<ResourceHolon,Double> transProvider = it.next();
+					ResourceHolon provider = transProvider.getFirst();
+					//Create PathState
+					PathState planState = new PathState(tranServSpecification,provider,
+							tranServSpecification.getParameters().get(0).getValue(), // InPort of service
+							tranServSpecification.getParameters().get(1).getValue(), // Outport of Service
+							0, // We don't need process index for the Transport Services Plans
+							plan.route.sequence.get(0).weight); // cost of the Transport Service
+					
+					if(!actionsPlan.containsValue(planState)){ // it does not contain the PathState yet
+						//Add to Plan Graph and to Plan Action List
+						//Add edge to Production Plan
+						productionPlan.addEdge(actualPort, //Origin
+								nextPort,//Destination
+								Integer.toString(planState.id), //PlanAction id as label
+								plan.getCost());//cost
+						//Add Corresponding PathState to PlanActions
+						actionsPlan.put(planState.id, planState);
+					}
+				}
+			}
+			 
+			// MANUFACTURING SERVICES
+			PathState manufState= nextStepPlans.get(j).nextPathState;
+			if(!actionsPlan.contains(manufState)){ // it does not contain the PathState yet
+				//Add edge to Production Plan
+				productionPlan.addEdge(manufState.inputPort, //Origin
+						manufState.outputPort,//Destination
+						Integer.toString(manufState.id), //PlanAction id as label
+						plan.getCost());//cost // TODO : redundant
+				//Add Corresponding PathState to PlanActions
+				actionsPlan.put(manufState.id, manufState);
+			}
+
+			/*
+			 * So we have an Automaton with transitions labeled with the
+			 * corresponding PathState and the  transition weight represents the heuristic to the objective path.
+			 */
+		}
+		
+	}
 
 
 	//Setters and Getters
@@ -122,10 +192,10 @@ public  class ProductHolon{
 	public void setProductionPlan(LayoutMap productionPlan) {
 		this.productionPlan = productionPlan;
 	}
-	public ConcurrentHashMap<Integer, State> getActionsPlan() {
+	public ConcurrentHashMap<Integer, PathState> getActionsPlan() {
 		return actionsPlan;
 	}
-	public void setActionsPlan(ConcurrentHashMap<Integer, State> actionsPlan) {
+	public void setActionsPlan(ConcurrentHashMap<Integer, PathState> actionsPlan) {
 		this.actionsPlan = actionsPlan;
 	}
 	public ProductionProcess getRecipe() {

@@ -11,6 +11,7 @@ import MService.MServiceImplentation;
 import MService.MServiceSpecification;
 import ProductManagement.ProductHolon;
 import ResourceManagement.ResourceHolon;
+import ResourceManagement.Transporter;
 import Workshop.LayoutMap;
 import Crosscutting.*;
 import Crosscutting.TerminalSequence;
@@ -127,7 +128,7 @@ public class DirectoryFacilitator{
 		return rsDirectory.get(mService);
 	}
 	
-	protected HashSet<Pair<ResourceHolon, Double>>  getProviders(MServiceSpecification service){
+	public HashSet<Pair<ResourceHolon, Double>>  getProviders(MServiceSpecification service){
 		// Get Providers of Type
 				ArrayList<ResourceHolon> providersOfService = getProviders(service.getMServiceType());
 				//Evaluate Fitness of each resource
@@ -145,7 +146,7 @@ public class DirectoryFacilitator{
 				return providers;
 	}
   
-	public ArrayList<ResourceHolon> getFreeResources() {
+	public static ArrayList<Transporter> getFreeTrasporter() {
 		 return null;
 	}
 	
