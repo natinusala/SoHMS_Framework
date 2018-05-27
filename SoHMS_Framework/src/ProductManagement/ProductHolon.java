@@ -15,7 +15,7 @@ import ResourceManagement.Resource;
 import ResourceManagement.ResourceHolon;
 import ResourceManagement.Transporter;
 import Workshop.LayoutMap;
-
+ 
 
 
 public  class ProductHolon{
@@ -31,6 +31,7 @@ public  class ProductHolon{
 	private PH_Behavior_Planner exploreBehavior;
 	private LayoutMap productionPlan;
 	private ConcurrentHashMap<Integer,PathState> actionsPlan;
+	private MService actualMservice;
 
 	//Constructor
 	public ProductHolon(){
@@ -51,7 +52,6 @@ public  class ProductHolon{
 		//2-launch the behavior
 		Thread phExploreThread = new Thread(exploreBehavior);
 		phExploreThread.start();
-
 	}
 	
 	public void associateResourceToPH(DirectoryFacilitator df) {
@@ -84,11 +84,6 @@ public  class ProductHolon{
 		this.associatedResource=null;
 	};
 	
-	public void productTerminated() {
-		ordermanager.phIsFinised(this);
-		this.associatedResource=null;
-	}
-
 	public void addPathArcToExecutablePlans (ArrayList<PathArc> nextStepPlans, MService transportSer, DirectoryFacilitator df){
 		//For all Alternatives
 		for (int j=0; j<nextStepPlans.size(); j++) {
@@ -160,7 +155,10 @@ public  class ProductHolon{
 		
 	}
 
-
+	public void productTerminated() {
+		ordermanager.phIsFinised(this);
+		this.associatedResource=null;
+	}
 	//Setters and Getters
 	public static int getPhCount() {
 		return phCount;

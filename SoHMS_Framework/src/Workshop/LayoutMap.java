@@ -5,13 +5,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-  /*
-   * Graph will be used as a generic representation for manufacturing workshop layout.
-   */
 import java.util.HashMap;
 import java.util.Hashtable;
 import Crosscutting.*;
 
+/*
+ * Graph will be used as a generic representation for manufacturing workshop layout.
+ */
 
 public class LayoutMap{
 
@@ -384,78 +384,7 @@ public class LayoutMap{
 		}
 		
 	}
-    
-    //InnerClasses
-	class AutomatIterator {
-		//ATTRIBUTS-------------------------------
-			private String stateID;
-			private LayoutMap auto;
-			
-
-		//CONSTRUCTORS-------------------------------
-			public AutomatIterator(LayoutMap automat, String stateName) {
-				stateID= stateName;
-				this.auto= automat;
-			}
-			
-		//PUBLIC METHODS-------------------------------
-
-			/**
-			 * Returns an ArrayList with the transitions that can be executed parting for the State identified by the StateName
-			 * @param stateName
-			 * @return
-			 */
-			public ArrayList<Transition> getNextTransitions(){
-				
-				if(stateID==null){
-					System.out.println("Automaton with no Initial State specified");
-				}
-				
-				ArrayList<Crosscutting.Arc> arcs= auto.getEdges().get(stateID).arcs;
-				ArrayList<Transition> transitions= new ArrayList<Transition>();
-				 for (Arc arc : arcs) {
-					transitions.add(arc.t);
-				}
-				 return transitions;
-			}
-			//----------------------------------------------------------------------------
-			public String getState(){
-				return this.stateID;
-			}
-			//------------------------------------------------------------------
-			public boolean hasNextTransitions(){
-				
-				if(auto.getEdges().get(stateID).arcs.size()>0){
-					return true;
-				}
-				return false;
-			}
-			//----------------------------------------------------------
-			/**
-			 * Returns true if sucessfully evolved the Automaton
-			 * returns false if transition does not exist
-			 * Exception if state not initialized
-			 * @param transitionLabel
-			 * @return
-			 * @throws AutomatonNotInitializedException
-			 */
-			public boolean executeTransition(String transitionLabel){
-				if(stateID==null){
-					System.out.println("Automaton with no Initial State specified");
-				}
-				ArrayList<Arc> arcs= auto.getEdges().get(stateID).arcs;
-				for (Arc arc : arcs) {
-					if(arc.t.label.equalsIgnoreCase(transitionLabel)){
-						stateID=arc.nextState;
-						return true;
-					}
-				}
-				return false;
-			}
-
-		//PRIVATE METHODS-------------------------------
-
-		//GETTERS & SETTERS -----------------------------------
-
-	}
+    public AutomatIterator automatIterator(String stateName){
+ 	   return new AutomatIterator(this, stateName);
+ 	}
 }

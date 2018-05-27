@@ -75,7 +75,20 @@ public class AutomatIterator {
 //PRIVATE METHODS-------------------------------
 
 //GETTERS & SETTERS -----------------------------------
+	public String getStateID() {
+		return stateID;
+	}
 
+	public void setStateID(String stateID) {
+		this.stateID = stateID;
+	}
 
+	public LayoutMap getAuto() {
+		return auto;
+	}
+
+	public void setAuto(LayoutMap auto) {
+		this.auto = auto;
+	}
 
 }

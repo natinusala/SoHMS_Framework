@@ -10,42 +10,29 @@ public class ProductionOrder{
 	//Attributes
 	private static int orderCount= 0;
 	private static int orderListSize= 1000;
+	
 	private int ProductionOrderID;
 	private int numOfUnits;
 	private double progress;
 	private int maxParallelUnits;
 	private String priority;
 	private ProductionOrderReport prodReport;
-	private ProductionOrderState state ;
+	private String state ;
 	private ProductionProcess productProcess;
 	
-	//Enumération
-	enum ProductionOrderState{
-		FINISHED_FAIL,
-		FINISHED_SUCCESS,
-		WAITING,
-		IN_PROGRESS ;
-		
-		public static ProductionOrderState getOrderStateFromString(String state){
-			switch(state){
-			case "FINISHED_FAIL" :
-				return ProductionOrderState.FINISHED_FAIL ;
-			case "FINISHED_SUCCESS" :
-				return ProductionOrderState.FINISHED_SUCCESS ;
-			case "WAITING" :
-				return ProductionOrderState.WAITING ;
-			case "IN_PROGESS" : 
-				return ProductionOrderState.IN_PROGRESS ;
-			default :
-				return null ;		
-			}
-		}
-	}
 	//Constructors
 	public ProductionOrder() {
 		// TODO Auto-generated constructor stub
 		this.ProductionOrderID= (orderCount % orderListSize) +1;
 		orderCount=this.ProductionOrderID;
+	}
+	public ProductionOrder(int units, String priority, int maxParallelUnits, ProductionProcess productProcess, String state){
+		this();
+		this.numOfUnits= units;
+		this.priority= priority;
+		this.maxParallelUnits= maxParallelUnits;
+		this.productProcess = productProcess;
+		this.state = state ;
 	}
 			
 	//Getters and Setters
@@ -104,10 +91,10 @@ public class ProductionOrder{
 	public void setProdReport(ProductionOrderReport prodReport) {
 		this.prodReport = prodReport;
 	}
-	public ProductionOrderState getState() {
+	public String getState() {
 		return state;
 	}
-	public void setState(ProductionOrderState state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 

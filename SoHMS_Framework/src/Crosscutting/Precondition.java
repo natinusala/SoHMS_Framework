@@ -1,4 +1,4 @@
-package ProductManagement;
+package Crosscutting;
 
 public class Precondition {
 

@@ -46,7 +46,7 @@ public class OrderManager {
 	}
 	
 	//a method that launchs the execution of an order. each order is a psecific to targer domain
-	public void  launchOrder() {
+	public void  launchOrder(DirectoryFacilitator df,PH_Behavior_Planner exploreBehavior) {
 	  //1-Ask number of needed resources. (maximum unit specifié dans l'ordre !!!).
 		int resource_num = this.order.getMaxParallelUnits();
 		
@@ -59,11 +59,11 @@ public class OrderManager {
 			//1--launchResource();
 			ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
 			//2-2 Associate a behavior to the PH.
-	        PH_Behavior_Planner exploreBehavior = new PH_Behavior_Planner(ph);
+	      //  PH_Behavior_Planner exploreBehavior = new PH_Behavior_Planner(ph);
 	        ph.setExploreBehavior(exploreBehavior);
 	    	//Launch its Production
 	        //2-3 launch PH
-			ph.launch();
+			ph.launch(df);
 			//2-4 Add the PH to the active PHs list.
 			synchronized (activePHs) {
 				activePHs.add(ph); 
