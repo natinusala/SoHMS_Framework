@@ -87,10 +87,4 @@ public class Task_RH {
 			return false;
 		return true;
 	}
-
-	//PRIVATE METHODS-------------------------------
-
-	//GETTERS & SETTERS -----------------------------------
-
-	
 }

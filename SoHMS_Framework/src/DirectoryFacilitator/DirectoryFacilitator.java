@@ -15,17 +15,17 @@ import Workshop.LayoutMap;
 import Crosscutting.*;
 import Crosscutting.TerminalSequence;
 
-public abstract class DirectoryFacilitator{
+public class DirectoryFacilitator{
 
 	//attributes 
 	/*resource's service directory
 		the set of resources assigned to its own capabilities.
 	 */
-	protected Hashtable<MService,ArrayList<ResourceHolon>> rsDirectory;
+	protected static Hashtable<MService,ArrayList<ResourceHolon>> rsDirectory;
 	//share the set of resources
 	protected static ArrayList<ResourceHolon> resourcesDirectory;
 	protected static LayoutMap workShopMap; 
-	protected ConcurrentHashMap<FromTo, HashSet<TerminalSequence>> exploredRoutes = new ConcurrentHashMap<FromTo, HashSet<TerminalSequence>>();  // (specific) Serves to register the connexions among ports that have been explored to fasten computation
+	protected static ConcurrentHashMap<FromTo, HashSet<TerminalSequence>> exploredRoutes = new ConcurrentHashMap<FromTo, HashSet<TerminalSequence>>();  // (specific) Serves to register the connexions among ports that have been explored to fasten computation
 
 	//Getters and Setters
 	public void setrsDirectory(Hashtable<MService, ArrayList<ResourceHolon>> rsDirectory) {
@@ -51,7 +51,7 @@ public abstract class DirectoryFacilitator{
 	}
 	
 	//Methods
-	abstract void registerResource(File file);
+	//abstract void registerResource(File file);
 
 	protected synchronized void  generateServiceDirectory() { 
 		//Create directory
@@ -146,12 +146,7 @@ public abstract class DirectoryFacilitator{
 	}
   
 	public ArrayList<ResourceHolon> getFreeResources() {
-		
-		ArrayList<ResourceHolon> freeResources= new ArrayList<ResourceHolon>();
-		for (ResourceHolon r : resourcesDirectory) {
-			if(r.getAssociated_PH()==null)freeResources.add(r);
-		}
-		return freeResources;
+		 return null;
 	}
 	
 	public static HashSet<ResourceHolon> getPortOwners(String port) {

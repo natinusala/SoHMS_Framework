@@ -93,6 +93,12 @@ public abstract class Resource {
 		this.outputPorts = outputPorts;
 	}
 	
-	
+	//methods
+	public String toString() {
+		return "Resource [resourceId=" + this.resourceId + ", name=" + this.name
+				+ ", technology=" + this.technology + ", category=" + this.category
+				+ ", textDescription=" +this.textDescription + ", inputPorts="
+				+ inputPorts + ", outputPorts=" + outputPorts + "]";
+	}
 	
 }

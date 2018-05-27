@@ -46,7 +46,7 @@ public class ServerSocket extends WebSocketServer{
 	@Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
         socketsIHM.add(conn);
-        System.out.println("New connection from " + conn.getRemoteSocketAddress().getAddress().getHostAddress());
+        System.out.println("New GUI_Client connection from " + conn.getRemoteSocketAddress().getAddress().getHostAddress());
     }
 
     @Override

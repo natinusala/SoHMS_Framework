@@ -9,7 +9,9 @@ import MService.MService;
 import MService.MServiceImplentation;
 import MService.MServiceProfile;
 import OrdersManagement.ROH;
+import OrdersManagement.Simple_ROH_Behavior;
 import ProductManagement.ProductHolon;
+
 
 
 public class ResourceHolon extends Resource{
@@ -22,7 +24,6 @@ public class ResourceHolon extends Resource{
 	protected  LinkedList<Task_RH> resourceSchedule;
 	protected ConcurrentHashMap<String,LinkedList<Task_RH>> portSchedules;
 	protected RH_SIL sil;
-	protected ProductHolon associated_PH;
 
     
 	//Constructors
@@ -30,16 +31,23 @@ public class ResourceHolon extends Resource{
 		super();
 		this.resourceId= (rhCount % ListSize) +1;
 		rhCount=this.resourceId;
-		this.roh = new ROH(); //will be changed
+		this.roh = new ROH(this,new Simple_ROH_Behavior()); //will be changed this.roh= new R_OH(this, new Simple_ROH_Behavior()); 
 		this.portSchedules= new ConcurrentHashMap<String, LinkedList<Task_RH>>();
 	}
- 	
+ 	public ResourceHolon(String name,String technology, String category, String textDescription) {
+		this();
+		this.name= name;
+		this.technology=technology;
+		this.category=category;
+		this.textDescription=textDescription;
+		initPortScheules();
+	}
  	public ResourceHolon(String name, String technology, String category, String textDescription,
  			ArrayList<String> inputPorts, ArrayList<String> outputPorts, ArrayList<MServiceImplentation> mservices) {
  		super(name, technology, category, textDescription, inputPorts, outputPorts);
  		this.resourceId= (rhCount % ListSize) +1;
 		rhCount=this.resourceId;
-		this.roh = new ROH();
+		this.roh = new ROH(this,new Simple_ROH_Behavior());
 		this.portSchedules= new ConcurrentHashMap<String, LinkedList<Task_RH>>();
 		this.offeredServices = mservices;
  	}
@@ -115,10 +123,7 @@ public class ResourceHolon extends Resource{
     		offeredServices.add(service); // Then simply add the new Service Imp	
     	}
     }	
-    public synchronized void liberateResource(){
-		 this.associated_PH = null;
-		 this.notifyAll();// notify changes
-	}
+   
   //Getters and setters
   	public ArrayList<MServiceImplentation> getOfferedServices() {
   		return offeredServices;
@@ -145,12 +150,6 @@ public class ResourceHolon extends Resource{
   	}
   	public void setSil(RH_SIL sil) {
   		this.sil = sil;
-  	}
-  	public ProductHolon getAssociated_PH() {
-  		return associated_PH;
-  	}
-  	public void setAssociated_PH(ProductHolon associated_PH) {
-  		this.associated_PH = associated_PH;
   	}
   	
 }

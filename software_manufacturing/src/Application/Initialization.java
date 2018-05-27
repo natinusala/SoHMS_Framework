@@ -35,6 +35,7 @@ public  class Initialization {
 			while ((ligne = br.readLine()) != null)
 				chaine += ligne + "\n";
 			br.close();
+			
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}

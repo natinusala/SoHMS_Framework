@@ -4,7 +4,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="/SoHMS_Framework"/>
 	<classpathentry kind="lib" path="C:/Users/tebmed/Documents/SoHMS_Framework/software_manufacturing/org.json.jar" sourcepath="data"/>
-	<classpathentry kind="lib" path="C:/Users/tebmed/Documents/SoHMS_Framework/software_manufacturing/SoHMS.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tebmed/Documents/SoHMS_Framework/software_manufacturing/java_websocket.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tebmed/Documents/SoHMS_Framework/software_manufacturing/SoHMS.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
