@@ -1,7 +1,13 @@
+package Resources;
+import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
 
 import OrdersManagement.ROH;
-import ResourceManagement.ResourceHolon;
+import ResourceManagement.*;
+
+import java.util.LinkedList;
+import java.util.concurrent.ConcurrentHashMap;
+
 
 public class BufferedRH extends ResourceHolon{
 	
@@ -12,8 +18,8 @@ public class BufferedRH extends ResourceHolon{
 	//CONSTRUCTORS-------------------------------
 		public BufferedRH(){
 			super();
-			this.roh= null; 
-			this.portSchedules= null;
+			this.roh= new ROH(this, new ReactiveBuffer_ROH_Behavior()); 
+			this.portSchedules= new ConcurrentHashMap<String, LinkedList<Task_RH>>();
 		}
 		//-----------------------------------------
 		
@@ -27,11 +33,13 @@ public class BufferedRH extends ResourceHolon{
 			initPortScheules();
 			//This type of resource has by default this behaviors
 			@SuppressWarnings("unused")
-			ROH associatedR_OH = null;/// creates and launches the ROH of this Resource
-			
+			ROH associatedR_OH = new ROH(this, new ReactiveBuffer_ROH_Behavior()); ;/// creates and launches the ROH of this Resource
 		}
 		
 //--------------------------------------------------------------------	
+		/**
+		 * RH are identified based on their type not in their Service offer
+		 */
 		/**
 		 * RH are identified based on their type not in their Service offer
 		 */
@@ -55,4 +63,5 @@ public class BufferedRH extends ResourceHolon{
 		public void setMiliPerUnit(int miliPerUnit) {
 			this.miliPerUnit = miliPerUnit;
 		}	
+		
 }

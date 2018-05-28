@@ -1,8 +1,7 @@
+package Protocols;
 
-
-import commHMS.OutBoxSender;
 import commHMS.SocketMessage;
-
+import Crosscutting.*;
 public class Protocol_FieldNotifications {
 
 	//HANDLER--------------------------------------------------------------------

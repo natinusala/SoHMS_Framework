@@ -59,12 +59,22 @@ public class ServerSocket extends WebSocketServer{
     public void onMessage(WebSocket conn, String message){
         System.out.println("Message from client: " + message);
         int index = this.socketsIHM.indexOf(conn);
-        	try {
-				Initialization.initializeSystems(message);
+        if(message.startsWith("init")) {
+        	//remove the head of the message for a good parse
+        	String scenario = message.substring(6, message.length()-1);	
+            try {
+            	System.out.println();
+				Initialization.initializeSystems(scenario);
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+
+        }
+			
     }
 
     @Override

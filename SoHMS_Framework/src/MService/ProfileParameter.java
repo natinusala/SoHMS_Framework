@@ -3,10 +3,6 @@ package MService;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-enum RangeType{
-	Catalogue,
-	Interval;
-}
 public class ProfileParameter extends SParameter{
  
 	//Attributes

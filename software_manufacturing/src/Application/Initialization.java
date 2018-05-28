@@ -1,4 +1,5 @@
 package Application;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -8,21 +9,27 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.*;
 
 import Communication.ServerSocket;
+import DirectoryFacilitator.DirectoryFacilitator;
+import Generation.SILGenerator;
 import MService.*;
 import Ontology.*;
 import OrdersManagement.*;
 import ProductManagement.ProductionOrder;
 import ResourceManagement.*;
 import Workshop.LayoutMap;
-
+import SIL.*;
 
 public  class Initialization {
 	//Attributes  
+	public static boolean isActive= false;
 	public static ConcurrentHashMap<String,ServiceOntology> servOntologies = new ConcurrentHashMap<String,ServiceOntology>(); // these are synchronized collections better than hashtable
 	public static ConcurrentHashMap<String, OrderManager> orderManagerDict=  new ConcurrentHashMap<String, OrderManager>(); //List of Orders
 	public static ArrayList<ResourceHolon> resourceCloud = new ArrayList<ResourceHolon>();
 	public static final int numberOFPallets= 30;
 	public static ArrayList<MService> mServices= new ArrayList<>();
+	public static DirectoryFacilitator df;
+	public static SILConnexion commField;
+	public static SIL sil;
 
 	//Methods
 	public static String readFileJSON(String file) {
@@ -44,7 +51,7 @@ public  class Initialization {
 
 	public static void initializeResources(JSONObject obj) throws JSONException {
 		//Resources
-		JSONArray resources = obj.getJSONArray("Resources");
+		JSONArray resources = obj.getJSONArray("resources");
 		for (int m = 0; m < resources.length(); m++) {
 			JSONObject r = (JSONObject) resources.get(m);
 			String name = r.getString("Name");
@@ -220,10 +227,9 @@ public  class Initialization {
 
 	}
 
-	public static void initializeProducts(JSONObject obj) {
-	}
+	public static void initializeProducts(JSONObject obj) throws JSONException {}
 
-	public static void initializeSystems(String scenario) throws JSONException {
+	public static void initializeSystems(String scenario) throws JSONException, IOException {
 		//String scenario = readFileJSON("data/scenario.json");
 		JSONObject obj = new JSONObject(scenario);
 		initializeServices(obj);
@@ -240,8 +246,10 @@ public  class Initialization {
 		for(ResourceHolon rh : resourceCloud) {
 			rh.initPortScheules();
 		}
-		System.out.println("Finished Resources's Ports Intialization");
-
+		System.out.println(" -----Finished Resources's Ports Intialization ----");
+		System.out.print("  ****  Assciate SIL to resources ");
+		SILGenerator sil_gen = new  SILGenerator(resourceCloud);
+        System.out.println(" Done ! ****");
 		System.out.print("Layout Initiation");
 		LayoutMap layout = new LayoutMap();
 		File f = new File("data/Layout.txt");
@@ -265,9 +273,14 @@ public  class Initialization {
 
 	//Main
 	public static void main(String[] args) throws Exception {
-   		//initializeSystems();
+		
+		String fileContent = readFileJSON("data/scenario.json");
+		initializeSystems(fileContent);
+       
+		/*
 		 ServerSocket sohms_server = new ServerSocket();
 		 sohms_server.start();
+		*/
 	}	
 }
 

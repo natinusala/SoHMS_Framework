@@ -1,10 +1,6 @@
 package MService;
 
-enum ProcessType{
-	Product,
-	Device,
-	Atomic;
-}
+
 public class ProcessMethod {
 	
 	//Attributes

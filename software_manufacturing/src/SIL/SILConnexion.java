@@ -5,17 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.UnknownHostException;
-
-import commHMS.OutBoxSender;
-
+import Crosscutting.*;
 
 
 /**
  * It Requests Connexion with the Field and listens to the commands to add them in the Notifications Inbox.
  * Just as in HMI.comm.ConnexionRequestListener
  * @author Francisco
- *
  */
 public class SILConnexion extends Thread {
 

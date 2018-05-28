@@ -117,14 +117,14 @@ public class DirectoryFacilitator{
 		}
 	}
 
-	protected ResourceHolon getResourceByName(String name) {
+	public ResourceHolon getResourceByName(String name) {
 		for (ResourceHolon rh : resourcesDirectory) {
 			if(rh.getName().equalsIgnoreCase(name)) return rh;
 		}
 		return null;
 	}
    
-	protected ArrayList<ResourceHolon> getProviders(MService mService){
+	public ArrayList<ResourceHolon> getProviders(MService mService){
 		return rsDirectory.get(mService);
 	}
 	

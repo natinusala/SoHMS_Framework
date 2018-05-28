@@ -1,5 +1,5 @@
 {
-	"Resources": [
+	"resources": [
 		{
 			"Type": "BufferedRH",
 			"Name": "Loop1S1",
@@ -2926,6 +2926,79 @@
 			"MaxParallelUnits": 2
 		}
 	],
-	"Products": [],
+	"Products": [
+	  {
+	    "id" : 1,
+		"color" : "Yellow",
+		"x" : 2,
+		"y" : 2
+	  },
+	  {
+	    "id" : 2,
+		"color" :  "Yellow",
+		"x" : 4,
+		"y" : 2
+	  },
+	  {
+	    "id" : 3,
+		"color" :  "Yellow",
+		"x" : 6,
+		"y" : 2
+	  },
+	  {
+	    "id" : 4,
+		"color" :  "Green",
+		"x" : 2,
+		"y" : 2
+	  },
+	  {
+	    "id" :  5,
+		"color" :  "Green",
+		"x" : 4,
+		"y" : 2
+	  },
+	  {
+	    "id" : 6,
+		"color" :  "Green",
+		"x" : 6,
+		"y" : 2
+	  },
+	  {
+	    "id" :  7,
+		"color" :  "Blue",
+		"x" : 2,
+		"y" : 2
+	  },
+	  {
+	    "id" : 8,
+		"color" :  "Blue",
+		"x" : 4,
+		"y" : 2
+	  },
+	  {
+	    "id" : 9,
+		"color" :  "Blue",
+		"x" : 6,
+		"y" : 2
+	  },
+	  {
+	    "id" : 10,
+		"color" : "Red",
+		"x" : 2,
+		"y" : 2
+	  },
+	  {
+	    "id" : 11,
+		"color" : "Red",
+		"x" : 4,
+		"y" : 2
+	  },
+	  {
+	    "id" : 12,
+		"color" : "Red",
+		"x" : 6,
+		"y" : 2
+	  }
+	],
 	"LayoutSpec": []
 }

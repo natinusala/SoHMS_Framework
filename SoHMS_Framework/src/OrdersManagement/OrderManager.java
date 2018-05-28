@@ -13,6 +13,7 @@ import javax.xml.bind.JAXBException;
 
 import Crosscutting.OutBoxSender;
 import DirectoryFacilitator.DirectoryFacilitator;
+import ProductManagement.OnTheGo_Behavior;
 import ProductManagement.PH_Behavior_Planner;
 import ProductManagement.ProductHolon;
 import ProductManagement.ProductionOrder;
@@ -37,16 +38,16 @@ public class OrderManager {
 		finishedPHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
 		activePHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
 	}
-	public OrderManager(ProductionOrder order, OutBoxSender outBoxSender) {
+	public OrderManager(ProductionOrder order, OutBoxSender outBoxSender2) {
 		System.out.println("order");
 		this.order= order;
-		this.outBoxSender= outBoxSender;
+		this.outBoxSender= outBoxSender2;
 		finishedPHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
 		activePHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
 	}
 	
 	//a method that launchs the execution of an order. each order is a psecific to targer domain
-	public void  launchOrder(DirectoryFacilitator df,PH_Behavior_Planner exploreBehavior) {
+	public void  launchOrder(DirectoryFacilitator df) {
 	  //1-Ask number of needed resources. (maximum unit specifié dans l'ordre !!!).
 		int resource_num = this.order.getMaxParallelUnits();
 		
@@ -59,7 +60,7 @@ public class OrderManager {
 			//1--launchResource();
 			ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
 			//2-2 Associate a behavior to the PH.
-	      //  PH_Behavior_Planner exploreBehavior = new PH_Behavior_Planner(ph);
+	        PH_Behavior_Planner exploreBehavior = new OnTheGo_Behavior(ph);
 	        ph.setExploreBehavior(exploreBehavior);
 	    	//Launch its Production
 	        //2-3 launch PH
