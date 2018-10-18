@@ -27,7 +27,7 @@ public class Protocol_RHmodify {
 				
 				
 				
-				//Détermination du poste concerné  
+				//Determination du poste concerne
 				_poste= new ResourceHolon();
 				_poste=Initialization.df.getResourceByName(message.content);
 				
@@ -64,7 +64,7 @@ public class Protocol_RHmodify {
 												
 												xmlOrder2=xmlOrder2+"%%Stock="+_p2.mapBlock.get(new Pair<String, String>(_service.getmServType().getName(), _serviceunit.getValue() ));
 											}
-										//Envoi de la réponse à HMI
+										//Envoi de la reponse e HMI
 										SocketMessage requestOrder = new SocketMessage("HMS", "HMI", "ServicesList", "XML", "Answer", "RH modify", 2, xmlOrder2);
 										//Launch OutboxSender to Send Messages
 										outBoxSender.sendMessage(requestOrder,false);
@@ -77,11 +77,11 @@ public class Protocol_RHmodify {
 					break;
 			case "StockModify":
 				
-				//Décomposition du message
+				//Decomposition du message
 				String[] _elements=message.content.split("%%");
 				
 				
-				//Détermination du poste concerné  
+				//Determination du poste concerne
 				_poste= new ResourceHolon();
 				_poste=Initialization.df.getResourceByName(_elements[0].replace("Poste=", "Poste"));
 				String _stock=_elements[1].split("=")[1];
@@ -105,10 +105,10 @@ public class Protocol_RHmodify {
 										Unit _serviceunit= (Unit) _serviceparamrangevalue;
 										//xmlOrder=xmlOrder+"%%Width=" +_serviceunit.getValue();
 										
-										System.out.println("%%Width%%Trouvé="+_serviceunit.getValue()+", cherché="+_width);
+										System.out.println("%%Width%%Trouve="+_serviceunit.getValue()+", cherche="+_width);
 										
 										if (_serviceunit.getValue().equals(_width)){
-											System.out.println("%%Width%%Trouvé!");
+											System.out.println("%%Width%%Trouve!");
 											ok=true;
 										}
 									}
@@ -125,9 +125,9 @@ public class Protocol_RHmodify {
 												//xmlOrder2=xmlOrder2+"%%Stock="+_p2.mapBlock.get(new Pair<String, String>(_service.getmServType().getName(), _serviceunit.getValue() ));
 												if (_p2.mapBlock.get(new Pair<String, String>(_service.getmServType().getName(), _serviceunit.getValue() )).equals(_stock)){
 													
-													//Mise à jour du service
+													//Mise e jour du service
 													_serviceunit.setValue(_color);
-													//Mise à jour du SIL
+													//Mise e jour du SIL
 													_p2.mapBlock.put(new Pair<String, String>(_service.getmServType().getName(), _serviceunit.getValue() ), _stock);
 													
 												}
@@ -138,9 +138,9 @@ public class Protocol_RHmodify {
 												
 												if (_p2.mapBlock.get(new Pair<String, String>(_service.getmServType().getName(), _serviceunit.getValue() )).equals(_stock)){
 													
-													//Mise à jour du service
+													//Mise e jour du service
 													_serviceunit.setValue(_color);
-													//Mise à jour du SIL
+													//Mise e jour du SIL
 													_p2.mapBlock.put(new Pair<String, String>(_service.getmServType().getName(), _serviceunit.getValue() ), _stock);
 													
 												}

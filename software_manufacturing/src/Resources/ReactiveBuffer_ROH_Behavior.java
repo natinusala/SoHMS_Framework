@@ -39,7 +39,7 @@ public class ReactiveBuffer_ROH_Behavior extends ROH_Behavior {
 		String finalPort =prodTask.service.getParameterByName("FinalPort").getValue();
 		client.getAssociatedResource().declareInTransition(startport, finalPort);
 		if (rh.getRoh().getAssociatedRH() instanceof BufferedRH){
-			//System.out.println("== ROH_Behavior Transfert par défaut demandé palette "+transporter._RFID+" à ressource "+rh.getName()+", considéré BufferedRH");
+			//System.out.println("== ROH_Behavior Transfert par defaut demande palette "+transporter._RFID+" e ressource "+rh.getName()+", considere BufferedRH");
 		   BufferedRH rh2 = (BufferedRH)(rh.getRoh().getAssociatedRH());
 		//check capacity
 			while(!(rh.getRoh().getNumOfCurrentExecutions()<rh2.getCapacity())){
@@ -51,10 +51,10 @@ public class ReactiveBuffer_ROH_Behavior extends ROH_Behavior {
 			}
 			}
 		}else{
-			//System.out.println("== ROH_Behavior Transfert par défaut demandé palette "+transporter._RFID+" à ressource "+rh.getName()+", considéré RH normal");
+			//System.out.println("== ROH_Behavior Transfert par defaut demande palette "+transporter._RFID+" e ressource "+rh.getName()+", considere RH normal");
 			while(!(rh.getRoh().getNumOfCurrentExecutions()<=0)){
 			try {
-				//System.out.println("== ROH_Behavior Transfert par défaut demandé palette "+transporter._RFID+" à ressource "+rh.getName()+", numOfCurrentExecutions+"+rh.roh.numOfCurrentExecutions);						
+				//System.out.println("== ROH_Behavior Transfert par defaut demande palette "+transporter._RFID+" e ressource "+rh.getName()+", numOfCurrentExecutions+"+rh.roh.numOfCurrentExecutions);
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

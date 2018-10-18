@@ -80,7 +80,7 @@ public  class Initialization {
 			ArrayList<MServiceImplentation> offeredservices = new ArrayList<MServiceImplentation>();
 			MService selfService=null;
 			for (int k = 0; k < offeredServices.length(); k++){
-				//le representation d'un service est deja declaré.
+				//le representation d'un service est deja declare.
 				JSONObject ser_obj = (JSONObject) offeredServices.get(k);
 				String sname = ser_obj.getString("name");
 				for (int k1 = 0; k1 < mServices.size(); k1++) {

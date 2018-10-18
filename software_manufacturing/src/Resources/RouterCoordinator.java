@@ -50,7 +50,7 @@ public class RouterCoordinator extends Thread{
 			//NOTIFICATION RECIEVED THAT THERE ARE NEW REQUESTS
 			//Read and handle all requests
 			while (!requestInbox.isEmpty()){ // While there are requests in the Inbox  //TODO this can be optimized
-				//System.out.println("-- RouterCoordinator "+rh.getName()+" Requestinbox trouvée");
+				//System.out.println("-- RouterCoordinator "+rh.getName()+" Requestinbox trouvee");
 				//System.out.println("-- RouterCoordinator "+rh.getName()+"  Requestbox size="+requestInbox.size());
 				try {
 					Thread.sleep(100);
@@ -80,7 +80,7 @@ public class RouterCoordinator extends Thread{
 
 							
 							if (rh.getRoh().getAssociatedRH() instanceof BufferedRH){
-								//System.out.println("== ROH_Behavior Transfert par défaut demandé palette "+transporter._RFID+" à ressource "+rh.getName()+", considéré BufferedRH");
+								//System.out.println("== ROH_Behavior Transfert par defaut demande palette "+transporter._RFID+" e ressource "+rh.getName()+", considere BufferedRH");
 							BufferedRH rh2 = (BufferedRH)(rh.getRoh().getAssociatedRH());
 							//check capacity
 								while(!(rh.getRoh().getNumOfCurrentExecutions()<rh2.getCapacity())){
@@ -92,10 +92,10 @@ public class RouterCoordinator extends Thread{
 								}
 								}
 							}else{
-								//System.out.println("== ROH_Behavior Transfert par défaut demandé palette "+transporter._RFID+" à ressource "+rh.getName()+", considéré RH normal");
+								//System.out.println("== ROH_Behavior Transfert par defaut demande palette "+transporter._RFID+" e ressource "+rh.getName()+", considere RH normal");
 								while(!(rh.getRoh().getNumOfCurrentExecutions()<=0)){
 								try {
-									//System.out.println("== ROH_Behavior Transfert par défaut demandé palette "+transporter._RFID+" à ressource "+rh.getName()+", numOfCurrentExecutions+"+rh.roh.numOfCurrentExecutions);						
+									//System.out.println("== ROH_Behavior Transfert par defaut demande palette "+transporter._RFID+" e ressource "+rh.getName()+", numOfCurrentExecutions+"+rh.roh.numOfCurrentExecutions);
 									Thread.sleep(100);
 								} catch (InterruptedException e) {
 									// TODO Auto-generated catch block
@@ -128,7 +128,7 @@ public class RouterCoordinator extends Thread{
 //							// TODO Auto-generated catch block
 //							e.printStackTrace();
 //						} // wait for notification of good reception to continue with another request	
-						 //System.out.println("-- RouterCoordinator "+rh.getName()+"  notifié");
+						 //System.out.println("-- RouterCoordinator "+rh.getName()+"  notifie");
 
 					}else{
 						((ReactiveRouter_ROH_Behavior)(rh.getRoh().getBehavior())).requestResult= false;
@@ -143,7 +143,7 @@ public class RouterCoordinator extends Thread{
 							e1.printStackTrace();
 						}
 						// wait for notification of good reception to continue with another request
-						 //System.out.println("-- RouterCoordinator "+rh.getName()+"  notifié");
+						 //System.out.println("-- RouterCoordinator "+rh.getName()+"  notifie");
 					}
 					//request.getFirst().service.notifyAll();
 					//System.out.println("-- RouterCoordinator "+rh.getName()+"  end synchronized");
