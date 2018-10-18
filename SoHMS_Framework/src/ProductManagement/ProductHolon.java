@@ -67,7 +67,7 @@ public  class ProductHolon{
 			ArrayList<Transporter> listOFPallets= df.getFreeTrasporter();
 			for (Transporter t : listOFPallets) {
 				if(t.portStatus== "Blocked" &&  // La Pallet est stable dans une position
-						t.getAssociatedPH()==null){ // La Palette n'a pas de PH associé
+						t.getAssociatedPH()==null){ // La Palette n'a pas de PH associe
 					selectedPallet= t;
 					break;
 				}	
