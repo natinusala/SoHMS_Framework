@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="software_manufacturing">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/software_manufacturing/SoHMS.jar!/" />
+      <root url="jar://$PROJECT_DIR$/software_manufacturing/org.json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/software_manufacturing/java_websocket.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
