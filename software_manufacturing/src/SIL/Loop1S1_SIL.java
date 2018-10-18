@@ -6,7 +6,7 @@ import OrdersManagement.*;
 import ProductManagement.*;
 import ResourceManagement.*;
 
-public class Loop2S2 implements RH_SIL{
+public class Loop1S1_SIL implements RH_SIL{
 
 @Override
 public boolean sendServiceToField(MServiceSpecification service, ProductHolon client, int method) {

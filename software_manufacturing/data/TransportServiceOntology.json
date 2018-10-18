@@ -1,0 +1,28 @@
+{
+    "name":"TransportServiceOntology",
+    "services":[
+      {
+        "name": "TransportPallet",
+        "ontology": "Transport", 
+        "category": "Transport", 
+        "taxonomy": "sometax", 
+        "description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
+        "parameters":[
+          {
+           "name": "StartPort"
+          },
+          {
+           "name": "FinalPort"
+          }
+        ],
+        "attributes":[
+          {
+           "name": "Cmax"
+          },
+          {
+           "name": "Quality"
+          }
+        ]
+      }
+    ]
+}

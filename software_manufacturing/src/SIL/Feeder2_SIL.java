@@ -6,7 +6,7 @@ import OrdersManagement.*;
 import ProductManagement.*;
 import ResourceManagement.*;
 
-public class Exchanger1 implements RH_SIL{
+public class Feeder2_SIL implements RH_SIL{
 
 @Override
 public boolean sendServiceToField(MServiceSpecification service, ProductHolon client, int method) {

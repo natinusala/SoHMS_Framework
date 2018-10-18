@@ -272,7 +272,7 @@ public  class Initialization {
 	}
 
 	//Main
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception{
 		
 		String fileContent = readFileJSON("data/scenario.json");
 		initializeSystems(fileContent);

@@ -1,785 +1,91 @@
 {
+	"ServicesOntologies": [
+		{
+			"name": "Assembling",
+			"services": [
+				{
+					"name": "peindre",
+					"ontology": "ontology",
+					"category": "paint",
+					"taxonomy": "sometax",
+					"description": "paint a product",
+					"parameters": [],
+					"attributes": []
+				},
+				{
+					"name": "souder",
+					"ontology": "ontology",
+					"category": "Assembly",
+					"taxonomy": "sometax",
+					"description": "Assembles a block of size 2x2",
+					"parameters": [
+						{
+							"DataType": "String",
+							"name": "Color"
+						},
+						{
+							"DataType": "Integer",
+							"name": "X"
+						},
+						{
+							"DataType": "Integer",
+							"name": "Y"
+						},
+						{
+							"DataType": "Integer",
+							"name": "Z"
+						},
+						{
+							"DataType": "Integer",
+							"name": "W"
+						},
+						{
+							"DataType": "Integer",
+							"name": "Width"
+						}
+					],
+					"attributes": [
+						{
+							"DataType": "Double",
+							"name": "Cmax"
+						},
+						{
+							"DataType": "String",
+							"name": "Quality"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Transport",
+			"services": [
+				{
+					"name": "Transporter",
+					"ontology": "Transport",
+					"category": "Transport",
+					"taxonomy": "",
+					"description": "Takes a porduct from an Initial Port to a Final Port in the System's Layout Map",
+					"parameters": [
+						{
+							"name": "StartPort"
+						},
+						{
+							"name": "FinalPort"
+						}
+					],
+					"attributes": []
+				}
+			]
+		}
+	],
 	"resources": [
 		{
-			"Type": "BufferedRH",
-			"Name": "Loop1S1",
-			"Category": "Transport",
-			"Technology": "Conveyor",
-			"Description": "A Segmented Conveyor Loop with limited capacity",
-			"InputPorts": [
-				{
-					"value": "Port1.4"
-				}
-			],
-			"OutputPorts": [
-				{
-					"value": "Port1.OUT"
-				}
-			],
-			"BufferCapacity": 8,
-			"MiliPerUnit": 1000,
-			"OfferedServices": [
-				{
-					"name": "TransportPallet",
-					"ontology": "Transport",
-					"category": "Transport",
-					"taxonomy": "sometax",
-					"description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "StartPort"
-						},
-						{
-							"DataType": "String",
-							"name": "FinalPort"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					],
-					"ParametersProfile": [
-						{
-							"ProfileParameter": [
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "StartPort",
-									"RangeValues": [
-										{
-											"value": "Port1.4"
-										}
-									]
-								},
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "FinalPort",
-									"RangeValues": [
-										{
-											"value": "Port1.OUT"
-										}
-									]
-								}
-							],
-							"methods": [
-								{
-									"id": 1
-								}
-							]
-						}
-					],
-					"Methods": [
-						{
-							"ProcessType": "Atomic",
-							"ID": 1,
-							"SetupID": 1
-						}
-					]
-				}
-			]
-		},
-		{
-			"Type": "BufferedRH",
-			"Name": "Loop1S2",
-			"Category": "Transport",
-			"Technology": "Conveyor",
-			"Description": "A Segmented Conveyor Loop with limited capacity",
-			"InputPorts": [
-				{
-					"value": "Port1.6"
-				}
-			],
-			"OutputPorts": [
-				{
-					"value": "Port1.3"
-				}
-			],
-			"BufferCapacity": 8,
-			"MiliPerUnit": 1000,
-			"OfferedServices": [
-				{
-					"name": "TransportPallet",
-					"ontology": "Transport",
-					"category": "Transport",
-					"taxonomy": "sometax",
-					"description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "StartPort"
-						},
-						{
-							"DataType": "String",
-							"name": "FinalPort"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					],
-					"ParametersProfile": [
-						{
-							"ProfileParameter": [
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "StartPort",
-									"RangeValues": [
-										{
-											"value": "Port1.6"
-										}
-									]
-								},
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "FinalPort",
-									"RangeValues": [
-										{
-											"value": "Port1.3"
-										}
-									]
-								}
-							],
-							"methods": [
-								{
-									"id": 1
-								}
-							]
-						}
-					],
-					"Methods": [
-						{
-							"ProcessType": "Atomic",
-							"ID": 1,
-							"SetupID": 1
-						}
-					]
-				}
-			]
-		},
-		{
-			"Type": "BufferedRH",
-			"Name": "Loop2S1",
-			"Category": "Transport",
-			"Technology": "Conveyor",
-			"Description": "A Segmented Conveyor Loop with limited capacity",
-			"InputPorts": [
-				{
-					"value": "Port2.4"
-				}
-			],
-			"OutputPorts": [
-				{
-					"value": "Port2.OUT"
-				}
-			],
-			"BufferCapacity": 8,
-			"MiliPerUnit": 1000,
-			"OfferedServices": [
-				{
-					"name": "TransportPallet",
-					"ontology": "Transport",
-					"category": "Transport",
-					"taxonomy": "sometax",
-					"description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "StartPort"
-						},
-						{
-							"DataType": "String",
-							"name": "FinalPort"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					],
-					"ParametersProfile": [
-						{
-							"ProfileParameter": [
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "StartPort",
-									"RangeValues": [
-										{
-											"value": "Port2.4"
-										}
-									]
-								},
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "FinalPort",
-									"RangeValues": [
-										{
-											"value": "Port2.OUT"
-										}
-									]
-								}
-							],
-							"methods": [
-								{
-									"id": 1
-								}
-							]
-						}
-					],
-					"Methods": [
-						{
-							"ProcessType": "Atomic",
-							"ID": 1,
-							"SetupID": 1
-						}
-					]
-				}
-			]
-		},
-		{
-			"Type": "BufferedRH",
-			"Name": "Loop2S2",
-			"Category": "Transport",
-			"Technology": "Conveyor",
-			"Description": "A Segmented Conveyor Loop with limited capacity",
-			"InputPorts": [
-				{
-					"value": "Port2.6"
-				}
-			],
-			"OutputPorts": [
-				{
-					"value": "Port2.3"
-				}
-			],
-			"BufferCapacity": 8,
-			"MiliPerUnit": 1000,
-			"OfferedServices": [
-				{
-					"name": "TransportPallet",
-					"ontology": "Transport",
-					"category": "Transport",
-					"taxonomy": "sometax",
-					"description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "StartPort"
-						},
-						{
-							"DataType": "String",
-							"name": "FinalPort"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					],
-					"ParametersProfile": [
-						{
-							"ProfileParameter": [
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "StartPort",
-									"RangeValues": [
-										{
-											"value": "Port2.6"
-										}
-									]
-								},
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "FinalPort",
-									"RangeValues": [
-										{
-											"value": "Port2.3"
-										}
-									]
-								}
-							],
-							"methods": [
-								{
-									"id": 1
-								}
-							]
-						}
-					],
-					"Methods": [
-						{
-							"ProcessType": "Atomic",
-							"ID": 1,
-							"SetupID": 1
-						}
-					]
-				}
-			]
-		},
-		{
-			"Type": "BufferedRH",
-			"Name": "Loop3S1",
-			"Category": "Transport",
-			"Technology": "Conveyor",
-			"Description": "A Segmented Conveyor Loop with limited capacity",
-			"InputPorts": [
-				{
-					"value": "Port3.4"
-				}
-			],
-			"OutputPorts": [
-				{
-					"value": "Port3.OUT"
-				}
-			],
-			"BufferCapacity": 8,
-			"MiliPerUnit": 1000,
-			"OfferedServices": [
-				{
-					"name": "TransportPallet",
-					"ontology": "Transport",
-					"category": "Transport",
-					"taxonomy": "sometax",
-					"description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "StartPort"
-						},
-						{
-							"DataType": "String",
-							"name": "FinalPort"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					],
-					"ParametersProfile": [
-						{
-							"ProfileParameter": [
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "StartPort",
-									"RangeValues": [
-										{
-											"value": "Port3.4"
-										}
-									]
-								},
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "FinalPort",
-									"RangeValues": [
-										{
-											"value": "Port3.OUT"
-										}
-									]
-								}
-							],
-							"methods": [
-								{
-									"id": 1
-								}
-							]
-						}
-					],
-					"Methods": [
-						{
-							"ProcessType": "Atomic",
-							"ID": 1,
-							"SetupID": 1
-						}
-					]
-				}
-			]
-		},
-		{
-			"Type": "BufferedRH",
-			"Name": "Loop3S2",
-			"Category": "Transport",
-			"Technology": "Conveyor",
-			"Description": "A Segmented Conveyor Loop with limited capacity",
-			"InputPorts": [
-				{
-					"value": "Port3.6"
-				}
-			],
-			"OutputPorts": [
-				{
-					"value": "Port3.3"
-				}
-			],
-			"BufferCapacity": 8,
-			"MiliPerUnit": 1000,
-			"OfferedServices": [
-				{
-					"name": "TransportPallet",
-					"ontology": "Transport",
-					"category": "Transport",
-					"taxonomy": "sometax",
-					"description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "StartPort"
-						},
-						{
-							"DataType": "String",
-							"name": "FinalPort"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					],
-					"ParametersProfile": [
-						{
-							"ProfileParameter": [
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "StartPort",
-									"RangeValues": [
-										{
-											"value": "Port3.6"
-										}
-									]
-								},
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "FinalPort",
-									"RangeValues": [
-										{
-											"value": "Port3.3"
-										}
-									]
-								}
-							],
-							"methods": [
-								{
-									"id": 1
-								}
-							]
-						}
-					],
-					"Methods": [
-						{
-							"ProcessType": "Atomic",
-							"ID": 1,
-							"SetupID": 1
-						}
-					]
-				}
-			]
-		},
-		{
-			"Type": "BufferedRH",
-			"Name": "MainS1",
-			"Category": "Transport",
-			"Technology": "Conveyor",
-			"Description": "A Segmented Conveyor Loop with limited capacity",
-			"InputPorts": [
-				{
-					"value": "Port3.2"
-				}
-			],
-			"OutputPorts": [
-				{
-					"value": "Port1.1"
-				}
-			],
-			"BufferCapacity": 50,
-			"MiliPerUnit": 1000,
-			"OfferedServices": [
-				{
-					"name": "TransportPallet",
-					"ontology": "Transport",
-					"category": "Transport",
-					"taxonomy": "sometax",
-					"description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "StartPort"
-						},
-						{
-							"DataType": "String",
-							"name": "FinalPort"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					],
-					"ParametersProfile": [
-						{
-							"ProfileParameter": [
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "StartPort",
-									"RangeValues": [
-										{
-											"value": "Port3.2"
-										}
-									]
-								},
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "FinalPort",
-									"RangeValues": [
-										{
-											"value": "Port1.1"
-										}
-									]
-								}
-							],
-							"methods": [
-								{
-									"id": 1
-								}
-							]
-						}
-					],
-					"Methods": [
-						{
-							"ProcessType": "Atomic",
-							"ID": 1,
-							"SetupID": 1
-						}
-					]
-				}
-			]
-		},
-		{
-			"Type": "BufferedRH",
-			"Name": "MainS2",
-			"Category": "Transport",
-			"Technology": "Conveyor",
-			"Description": "A Segmented Conveyor Loop with limited capacity",
-			"InputPorts": [
-				{
-					"value": "Port1.2"
-				}
-			],
-			"OutputPorts": [
-				{
-					"value": "Port2.1"
-				}
-			],
-			"BufferCapacity": 15,
-			"MiliPerUnit": 1000,
-			"OfferedServices": [
-				{
-					"name": "TransportPallet",
-					"ontology": "Transport",
-					"category": "Transport",
-					"taxonomy": "sometax",
-					"description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "StartPort"
-						},
-						{
-							"DataType": "String",
-							"name": "FinalPort"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					],
-					"ParametersProfile": [
-						{
-							"ProfileParameter": [
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "StartPort",
-									"RangeValues": [
-										{
-											"value": "Port1.2"
-										}
-									]
-								},
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "FinalPort",
-									"RangeValues": [
-										{
-											"value": "Port2.1"
-										}
-									]
-								}
-							],
-							"methods": [
-								{
-									"id": 1
-								}
-							]
-						}
-					],
-					"Methods": [
-						{
-							"ProcessType": "Atomic",
-							"ID": 1,
-							"SetupID": 1
-						}
-					]
-				}
-			]
-		},
-		{
-			"Type": "BufferedRH",
-			"Name": "MainS3",
-			"Category": "Transport",
-			"Technology": "Conveyor",
-			"Description": "A Segmented Conveyor Loop with limited capacity",
-			"InputPorts": [
-				{
-					"value": "Port2.2"
-				}
-			],
-			"OutputPorts": [
-				{
-					"value": "Port3.1"
-				}
-			],
-			"BufferCapacity": 15,
-			"MiliPerUnit": 1000,
-			"OfferedServices": [
-				{
-					"name": "TransportPallet",
-					"ontology": "Transport",
-					"category": "Transport",
-					"taxonomy": "sometax",
-					"description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "StartPort"
-						},
-						{
-							"DataType": "String",
-							"name": "FinalPort"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					],
-					"ParametersProfile": [
-						{
-							"ProfileParameter": [
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "StartPort",
-									"RangeValues": [
-										{
-											"value": "Port2.2"
-										}
-									]
-								},
-								{
-									"RangeType": "Catalogue",
-									"DataType": "String",
-									"Name": "FinalPort",
-									"RangeValues": [
-										{
-											"value": "Port3.1"
-										}
-									]
-								}
-							],
-							"methods": [
-								{
-									"id": 1
-								}
-							]
-						}
-					],
-					"Methods": [
-						{
-							"ProcessType": "Atomic",
-							"ID": 1,
-							"SetupID": 1
-						}
-					]
-				}
-			]
-		},
-		{
 			"Type": "RH",
-			"Name": "Poste1",
-			"Technology": "Robot 6 Axis",
+			"Name": "machine1",
+			"Technology": "T1",
 			"Category": "Assembler",
-			"Description": "Robotic arm with 6 axis and equipped of a pneumatic clamp",
+			"Description": "do something",
 			"InputPorts": [
 				{
 					"value": "Port1.IN"
@@ -792,22 +98,13 @@
 			],
 			"OfferedServices": [
 				{
-					"name": "DispatchProduct",
-					"ontology": "LegoBlocks",
-					"category": "Dispatch",
+					"name": "peindre",
+					"ontology": "ontology",
+					"category": "paint",
 					"taxonomy": "sometax",
-					"description": "Dispatch the Finish Product to a Stock of Finished Products",
+					"description": "paint a product",
 					"parameters": [],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"Name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"Name": "Quality"
-						}
-					],
+					"attributes": [],
 					"Methods": [
 						{
 							"ProcessType": "Atomic",
@@ -2713,211 +2010,6 @@
 			]
 		}
 	],
-	"ServicesOntologies": [
-		{
-			"name": "Lego ServiceOntology",
-			"services": [
-				{
-					"name": "DispatchProduct",
-					"ontology": "LegoBlocks",
-					"category": "Dispatch",
-					"taxonomy": "sometax",
-					"description": "Dispatch the Finish Product to a Stock of Finished Products",
-					"parameters": [],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					]
-				},
-				{
-					"name": "SupplyBase",
-					"ontology": "LegoBlocks",
-					"category": "Supply",
-					"taxonomy": "sometax",
-					"description": "Supply Lego Base of a certain color to Pallet",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "Color"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					]
-				},
-				{
-					"name": "Service A",
-					"ontology": "LegoBlocks",
-					"category": "Assembly",
-					"taxonomy": "sometax",
-					"description": "Assembles a block of size 2x2",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "Color"
-						},
-						{
-							"DataType": "Integer",
-							"name": "X"
-						},
-						{
-							"DataType": "Integer",
-							"name": "Y"
-						},
-						{
-							"DataType": "Integer",
-							"name": "Z"
-						},
-						{
-							"DataType": "Integer",
-							"name": "W"
-						},
-						{
-							"DataType": "Integer",
-							"name": "Width"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					]
-				},
-				{
-					"name": "Service B",
-					"ontology": "LegoBlocks",
-					"category": "Assembly",
-					"taxonomy": "sometax",
-					"description": "Assembles a block of size 2x4",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "Color"
-						},
-						{
-							"DataType": "Interger",
-							"name": "X"
-						},
-						{
-							"DataType": "Interger",
-							"name": "Y"
-						},
-						{
-							"DataType": "Interger",
-							"name": "Z"
-						},
-						{
-							"DataType": "Interger",
-							"name": "W"
-						},
-						{
-							"DataType": "Interger",
-							"name": "Width"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					]
-				},
-				{
-					"name": "Service C",
-					"ontology": "LegoBlocks",
-					"category": "Assembly",
-					"taxonomy": "sometax",
-					"description": "Assembles a block of size 2x6",
-					"parameters": [
-						{
-							"DataType": "String",
-							"name": "Color"
-						},
-						{
-							"DataType": "Interger",
-							"name": "X"
-						},
-						{
-							"DataType": "Interger",
-							"name": "Y"
-						},
-						{
-							"DataType": "Interger",
-							"name": "Z"
-						},
-						{
-							"DataType": "Interger",
-							"name": "W"
-						},
-						{
-							"DataType": "Interger",
-							"name": "Width"
-						}
-					],
-					"attributes": [
-						{
-							"DataType": "Double",
-							"name": "Cmax"
-						},
-						{
-							"DataType": "String",
-							"name": "Quality"
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Transport ServiceOntology",
-			"services": [
-				{
-					"name": "TransportPallet",
-					"ontology": "Transport",
-					"category": "Transport",
-					"taxonomy": "sometax",
-					"description": "Takes a pallet from an Initial Port to a Final Port in the System's Layout Map",
-					"parameters": [
-						{
-							"name": "StartPort"
-						},
-						{
-							"name": "FinalPort"
-						}
-					],
-					"attributes": [
-						{
-							"name": "Cmax"
-						},
-						{
-							"name": "Quality"
-						}
-					]
-				}
-			]
-		}
-	],
 	"Orders": [
 		{
 			"id": 1,
@@ -2927,78 +2019,78 @@
 		}
 	],
 	"Products": [
-	  {
-	    "id" : 1,
-		"color" : "Yellow",
-		"x" : 2,
-		"y" : 2
-	  },
-	  {
-	    "id" : 2,
-		"color" :  "Yellow",
-		"x" : 4,
-		"y" : 2
-	  },
-	  {
-	    "id" : 3,
-		"color" :  "Yellow",
-		"x" : 6,
-		"y" : 2
-	  },
-	  {
-	    "id" : 4,
-		"color" :  "Green",
-		"x" : 2,
-		"y" : 2
-	  },
-	  {
-	    "id" :  5,
-		"color" :  "Green",
-		"x" : 4,
-		"y" : 2
-	  },
-	  {
-	    "id" : 6,
-		"color" :  "Green",
-		"x" : 6,
-		"y" : 2
-	  },
-	  {
-	    "id" :  7,
-		"color" :  "Blue",
-		"x" : 2,
-		"y" : 2
-	  },
-	  {
-	    "id" : 8,
-		"color" :  "Blue",
-		"x" : 4,
-		"y" : 2
-	  },
-	  {
-	    "id" : 9,
-		"color" :  "Blue",
-		"x" : 6,
-		"y" : 2
-	  },
-	  {
-	    "id" : 10,
-		"color" : "Red",
-		"x" : 2,
-		"y" : 2
-	  },
-	  {
-	    "id" : 11,
-		"color" : "Red",
-		"x" : 4,
-		"y" : 2
-	  },
-	  {
-	    "id" : 12,
-		"color" : "Red",
-		"x" : 6,
-		"y" : 2
-	  }
+		{
+			"id": 1,
+			"color": "Yellow",
+			"x": 2,
+			"y": 2
+		},
+		{
+			"id": 2,
+			"color": "Yellow",
+			"x": 4,
+			"y": 2
+		},
+		{
+			"id": 3,
+			"color": "Yellow",
+			"x": 6,
+			"y": 2
+		},
+		{
+			"id": 4,
+			"color": "Green",
+			"x": 2,
+			"y": 2
+		},
+		{
+			"id": 5,
+			"color": "Green",
+			"x": 4,
+			"y": 2
+		},
+		{
+			"id": 6,
+			"color": "Green",
+			"x": 6,
+			"y": 2
+		},
+		{
+			"id": 7,
+			"color": "Blue",
+			"x": 2,
+			"y": 2
+		},
+		{
+			"id": 8,
+			"color": "Blue",
+			"x": 4,
+			"y": 2
+		},
+		{
+			"id": 9,
+			"color": "Blue",
+			"x": 6,
+			"y": 2
+		},
+		{
+			"id": 10,
+			"color": "Red",
+			"x": 2,
+			"y": 2
+		},
+		{
+			"id": 11,
+			"color": "Red",
+			"x": 4,
+			"y": 2
+		},
+		{
+			"id": 12,
+			"color": "Red",
+			"x": 6,
+			"y": 2
+		}
 	],
 	"LayoutSpec": []
-}  
+}

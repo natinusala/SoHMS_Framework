@@ -28,7 +28,7 @@ public class SILGenerator {
 	//methods
 	public void generateSIL() throws IOException {
 		for (int i = 0; i < resources.size(); i++) {
-		    File f = new File("src/SIL/"+resources.get(i).getName()+".java");
+		    File f = new File("src/SIL/"+resources.get(i).getName()+"_SIL.java");
 		    f.createNewFile();
 		    String content = 
 			    	"package SIL;\n"
@@ -39,7 +39,7 @@ public class SILGenerator {
 			    	+ "import ProductManagement.*;\n"
 			    	+ "import ResourceManagement.*;\n"
 			    	+ "\n"			    	
-			    	+ "public class "+resources.get(i).getName()+" implements RH_SIL{\n"
+			    	+ "public class "+resources.get(i).getName()+"_SIL implements RH_SIL{\n"
 			    			+ "\n"
 			    			+ "@Override\r\n" + 
 			    			"public boolean sendServiceToField(MServiceSpecification service, ProductHolon client, int method) {\r\n" + 
