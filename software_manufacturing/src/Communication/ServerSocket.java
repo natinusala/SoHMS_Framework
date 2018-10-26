@@ -8,9 +8,7 @@ import java.util.List;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
-import org.json.JSONException;
 
-import Application.Initialization;
 public class ServerSocket extends WebSocketServer{
 
     private static int TCP_PORT = 8003;
@@ -59,22 +57,7 @@ public class ServerSocket extends WebSocketServer{
     public void onMessage(WebSocket conn, String message){
         System.out.println("Message from client: " + message);
         int index = this.socketsIHM.indexOf(conn);
-        if(message.startsWith("init")) {
-        	//remove the head of the message for a good parse
-        	String scenario = message.substring(6, message.length()-1);	
-            try {
-            	System.out.println();
-				Initialization.initializeSystems(scenario);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-        }
-			
+        //TODO Handle message
     }
 
     @Override

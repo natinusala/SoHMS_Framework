@@ -1,10 +1,10 @@
 package Protocols;
 
-import Application.Initialization;
+import Crosscutting.OutBoxSender;
 import OrdersManagement.OrderManager;
 import ProductManagement.ProductionOrder;
 import commHMS.SocketMessage;
-import Crosscutting.*;
+import Application.Application;
 
 public class Protocol_OrderLaunching {
 
@@ -32,8 +32,8 @@ public static void handleMessage(SocketMessage message, OutBoxSender outBoxSende
 				//Launch Order Manager
 				OrderManager orderManager = new OrderManager(order, outBoxSender);
 			
-				Initialization.orderManagerDict.put(orderManager.getOrderManagerName(), orderManager);
-				orderManager.launchOrder(Initialization.df); 
+				Application.orderManagerDict.put(orderManager.getOrderManagerName(), orderManager);
+				orderManager.launchOrder(Application.df);
 				
 				//Send back confirmation
 				SocketMessage confirmation = new SocketMessage(

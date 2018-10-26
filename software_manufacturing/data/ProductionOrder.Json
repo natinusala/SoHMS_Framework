@@ -1,263 +1,265 @@
 {
  "orders" : [
-   "id" : 1,
-   "numOfUnits" : 5,
-   "Priority" : "NORMAL_PRIORITY",
-   "MaxParallelUnits" : 2,
-   "Product" :[
-    {
-      "id" : 1,
-      "ProcessModel" : [
-         {
-             "recipe" : [
-                {
-                   "MServiceSpecifications" :[
-                     {
-                       "id" : 1,
-                       "Mservice" : {
-                          "Name" : "SupplyBase",
-                          "Ontology" : "LegoBlocks",
-                          "Category" : "Supply",
-                          "Taxonomy" : "sometax",
-                          "Description" : "Supply Lego Base of a certain color to Pallet",
-                          "Parameters" :[
-                             {
-                                 "Name" : "color",
-                                 "Type" : "String",
-								 "Value": "Red"
-                             }
-                          ], 
-                          "Attributes" :[
-                             {
-                                 "Name" : "Cmax",
-                                 "Type" : "Double"
-                             },
-                             {
-                                 "Name" : "Quality",
-                                 "Type" : "String"
-                             }
-                          ], 
-                       },
-                       "Parameters" : [
-                          {
-                             "Name" : "color",
-                             "Type" : "String",
-                             "Value" : "red"
-                          }
+   {
+     "id": 1,
+     "numOfUnits": 5,
+     "Priority": "NORMAL_PRIORITY",
+     "MaxParallelUnits": 2,
+     "Product": [
+       {
+         "id": 1,
+         "ProcessModel": [
+           {
+             "recipe": [
+               {
+                 "MServiceSpecifications": [
+                   {
+                     "id": 1,
+                     "Mservice": {
+                       "Name": "SupplyBase",
+                       "Ontology": "LegoBlocks",
+                       "Category": "Supply",
+                       "Taxonomy": "sometax",
+                       "Description": "Supply Lego Base of a certain color to Pallet",
+                       "Parameters": [
+                         {
+                           "Name": "color",
+                           "Type": "String",
+                           "Value": "Red"
+                         }
                        ],
-                       "Attributes" : [
+                       "Attributes": [
+                         {
+                           "Name": "Cmax",
+                           "Type": "Double"
+                         },
+                         {
+                           "Name": "Quality",
+                           "Type": "String"
+                         }
                        ]
                      },
-                     {
-                       "id" : 2,
-                       "Mservice" : {
-                          "Name" : "ServiceA",
-                          "Ontology" : "LegoBlocks",
-                          "Category" : "Assembly",
-                          "Taxonomy" : "sometax",
-                          "Description" : "Assembles a block of size 2x2",
-                          "Parameters" :[
-                             {
-                                 "Name" : "color",
-                                 "Type" : "String"
-                             },
-							 {
-                                 "Name" : "X",
-                                 "Type" : "Integer"
-                             },
-							 {
-                                 "Name" : "Y",
-                                 "Type" : "Integer"
-                             },
-							 {
-                                 "Name" : "Z",
-                                 "Type" : "Integer"
-                             }
-                          ], 
-                          "Attributes" :[
-                             {
-                                 "Name" : "Cmax",
-                                 "Type" : "Double"
-                             },
-                             {
-                                 "Name" : "Quality",
-                                 "Type" : "String"
-                             }
-                          ], 
-                       },
-                       "Parameters" : [
-                          {
-                             "Name" : "color",
-                             "Type" : "String",
-                             "Value" : "red"
-                          },
-						  {
-                             "Name" : "X",
-                             "Type" : "Integer",
-                             "Value" : 0
-                          },
-						  {
-                             "Name" : "Y",
-                             "Type" : "Integer",
-                             "Value" : 0
-                          },
-						  {
-                             "Name" : "Z",
-                             "Type" : "Integer",
-                             "Value" : 1
-                          }
+                     "Parameters": [
+                       {
+                         "Name": "color",
+                         "Type": "String",
+                         "Value": "red"
+                       }
+                     ],
+                     "Attributes": [
+                     ]
+                   },
+                   {
+                     "id": 2,
+                     "Mservice": {
+                       "Name": "ServiceA",
+                       "Ontology": "LegoBlocks",
+                       "Category": "Assembly",
+                       "Taxonomy": "sometax",
+                       "Description": "Assembles a block of size 2x2",
+                       "Parameters": [
+                         {
+                           "Name": "color",
+                           "Type": "String"
+                         },
+                         {
+                           "Name": "X",
+                           "Type": "Integer"
+                         },
+                         {
+                           "Name": "Y",
+                           "Type": "Integer"
+                         },
+                         {
+                           "Name": "Z",
+                           "Type": "Integer"
+                         }
                        ],
-                       "Attributes" : [
+                       "Attributes": [
+                         {
+                           "Name": "Cmax",
+                           "Type": "Double"
+                         },
+                         {
+                           "Name": "Quality",
+                           "Type": "String"
+                         }
                        ]
                      },
-                     {
-                       "id" : 3,
-                       "Mservice" : {
-                          "Name" : "ServiceB",
-                          "Ontology" : "LegoBlocks",
-                          "Category" : "Assembly",
-                          "Taxonomy" : "sometax",
-                          "Description" : "Assembles a block of size 2x4",
-                          "Parameters" :[
-                             {
-                                 "Name" : "color",
-                                 "Type" : "String"
-                             },
-							 {
-                                 "Name" : "X",
-                                 "Type" : "Integer"
-                             },
-							 {
-                                 "Name" : "Y",
-                                 "Type" : "Integer"
-                             },
-							 {
-                                 "Name" : "Z",
-                                 "Type" : "Integer"
-                             },
-							 {
-                                 "Name" : "W",
-                                 "Type" : "Integer"
-                             }
-                          ], 
-                          "Attributes" :[
-                             {
-                                 "Name" : "Cmax",
-                                 "Type" : "Double"
-                             },
-                             {
-                                 "Name" : "Quality",
-                                 "Type" : "String"
-                             }
-                          ], 
+                     "Parameters": [
+                       {
+                         "Name": "color",
+                         "Type": "String",
+                         "Value": "red"
                        },
-                       "Parameters" : [
-                          {
-                             "Name" : "color",
-                             "Type" : "String",
-                             "Value" : "red"
-                          },
-						  {
-                             "Name" : "X",
-                             "Type" : "Integer",
-                             "Value" : 0
-                          },
-						  {
-                             "Name" : "Y",
-                             "Type" : "Integer",
-                             "Value" : 0
-                          },
-						  {
-                             "Name" : "Z",
-                             "Type" : "Integer",
-                             "Value" : 1
-                          },
-						  {
-                             "Name" : "W",
-                             "Type" : "Integer",
-                             "Value" : 90
-                          }
+                       {
+                         "Name": "X",
+                         "Type": "Integer",
+                         "Value": 0
+                       },
+                       {
+                         "Name": "Y",
+                         "Type": "Integer",
+                         "Value": 0
+                       },
+                       {
+                         "Name": "Z",
+                         "Type": "Integer",
+                         "Value": 1
+                       }
+                     ],
+                     "Attributes": [
+                     ]
+                   },
+                   {
+                     "id": 3,
+                     "Mservice": {
+                       "Name": "ServiceB",
+                       "Ontology": "LegoBlocks",
+                       "Category": "Assembly",
+                       "Taxonomy": "sometax",
+                       "Description": "Assembles a block of size 2x4",
+                       "Parameters": [
+                         {
+                           "Name": "color",
+                           "Type": "String"
+                         },
+                         {
+                           "Name": "X",
+                           "Type": "Integer"
+                         },
+                         {
+                           "Name": "Y",
+                           "Type": "Integer"
+                         },
+                         {
+                           "Name": "Z",
+                           "Type": "Integer"
+                         },
+                         {
+                           "Name": "W",
+                           "Type": "Integer"
+                         }
                        ],
-                       "Attributes" : [
+                       "Attributes": [
+                         {
+                           "Name": "Cmax",
+                           "Type": "Double"
+                         },
+                         {
+                           "Name": "Quality",
+                           "Type": "String"
+                         }
                        ]
                      },
-                     {
-                       "id" : 4,
-                       "Mservice" : {
-                          "Name" : "ServiceC",
-                          "Ontology" : "LegoBlocks",
-                          "Category" : "Assembly",
-                          "Taxonomy" : "sometax",
-                          "Description" : "Assembles a block of size 2x6",
-                          "Parameters" :[
-                             {
-                                 "Name" : "color",
-                                 "Type" : "String"
-                             },
-							 {
-                                 "Name" : "X",
-                                 "Type" : "Integer"
-                             },
-							 {
-                                 "Name" : "Y",
-                                 "Type" : "Integer"
-                             },
-							 {
-                                 "Name" : "Z",
-                                 "Type" : "Integer"
-                             },
-							 {
-                                 "Name" : "W",
-                                 "Type" : "Integer"
-                             }
-                          ], 
-                          "Attributes" :[
-                             {
-                                 "Name" : "Cmax",
-                                 "Type" : "Double"
-                             },
-                             {
-                                 "Name" : "Quality",
-                                 "Type" : "String"
-                             }
-                          ], 
+                     "Parameters": [
+                       {
+                         "Name": "color",
+                         "Type": "String",
+                         "Value": "red"
                        },
-                       "Parameters" : [
-                          {
-                             "Name" : "color",
-                             "Type" : "String",
-                             "Value" : "red"
-                          },
-						  {
-                             "Name" : "X",
-                             "Type" : "Integer",
-                             "Value" : 0
-                          },
-						  {
-                             "Name" : "Y",
-                             "Type" : "Integer",
-                             "Value" : 0
-                          },
-						  {
-                             "Name" : "Z",
-                             "Type" : "Integer",
-                             "Value" : 1
-                          },
-						  {
-                             "Name" : "W",
-                             "Type" : "Integer",
-                             "Value" : 90
-                          }
+                       {
+                         "Name": "X",
+                         "Type": "Integer",
+                         "Value": 0
+                       },
+                       {
+                         "Name": "Y",
+                         "Type": "Integer",
+                         "Value": 0
+                       },
+                       {
+                         "Name": "Z",
+                         "Type": "Integer",
+                         "Value": 1
+                       },
+                       {
+                         "Name": "W",
+                         "Type": "Integer",
+                         "Value": 90
+                       }
+                     ],
+                     "Attributes": [
+                     ]
+                   },
+                   {
+                     "id": 4,
+                     "Mservice": {
+                       "Name": "ServiceC",
+                       "Ontology": "LegoBlocks",
+                       "Category": "Assembly",
+                       "Taxonomy": "sometax",
+                       "Description": "Assembles a block of size 2x6",
+                       "Parameters": [
+                         {
+                           "Name": "color",
+                           "Type": "String"
+                         },
+                         {
+                           "Name": "X",
+                           "Type": "Integer"
+                         },
+                         {
+                           "Name": "Y",
+                           "Type": "Integer"
+                         },
+                         {
+                           "Name": "Z",
+                           "Type": "Integer"
+                         },
+                         {
+                           "Name": "W",
+                           "Type": "Integer"
+                         }
                        ],
-                       "Attributes" : [
+                       "Attributes": [
+                         {
+                           "Name": "Cmax",
+                           "Type": "Double"
+                         },
+                         {
+                           "Name": "Quality",
+                           "Type": "String"
+                         }
                        ]
-                     }
-                   ]
-                }
-             ],
-         }
-      ],
-    }  
-   ]
+                     },
+                     "Parameters": [
+                       {
+                         "Name": "color",
+                         "Type": "String",
+                         "Value": "red"
+                       },
+                       {
+                         "Name": "X",
+                         "Type": "Integer",
+                         "Value": 0
+                       },
+                       {
+                         "Name": "Y",
+                         "Type": "Integer",
+                         "Value": 0
+                       },
+                       {
+                         "Name": "Z",
+                         "Type": "Integer",
+                         "Value": 1
+                       },
+                       {
+                         "Name": "W",
+                         "Type": "Integer",
+                         "Value": 90
+                       }
+                     ],
+                     "Attributes": [
+                     ]
+                   }
+                 ]
+               }
+             ]
+           }
+         ]
+       }
+     ]
+   }
  ]
 }

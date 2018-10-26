@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
-import Application.Initialization;
+import Application.Application;
 import ResourceManagement.*;
 import ProductManagement.*;
 import OrdersManagement.*;
@@ -31,7 +31,7 @@ public class RouterCoordinator extends Thread{
 		@Override
 	public void run(){
 			
-			while(Initialization.isActive){
+			while(Application.isActive){
 				//WAIT IF NO MESSAGES IN THE LIST
 				 // This is to avoid excessive consumption of resources
 				synchronized (requestInbox) {
@@ -173,7 +173,7 @@ public class RouterCoordinator extends Thread{
 				 if(task.setup.equals(String.valueOf(roh.getCurrentSetup()))){  
 					//ASK FOR PERMIT OF PORT TO DESTINATION
 						String finalPort=task.service.getParameterByName("FinalPort").getValue();
-						portOwners = Initialization.df.getPortOwners(finalPort);
+						portOwners = Application.df.getPortOwners(finalPort);
 						 for (ResourceHolon owner : portOwners) {
 								if(!owner.getRoh().requestPortPermition(task.client,finalPort,0)){
 									it.remove(); // remove request from inbox
@@ -191,7 +191,7 @@ public class RouterCoordinator extends Thread{
 				 Task_RH task= it.next();
 				//ASK FOR PERMIT OF PORT TO DESTINATION
 					String finalPort=task.service.getParameterByName("FinalPort").getValue();
-					portOwners = Initialization.df.getPortOwners(finalPort);
+					portOwners = Application.df.getPortOwners(finalPort);
 					 for (ResourceHolon owner : portOwners) {
 							if(!owner.getRoh().requestPortPermition(task.client,finalPort,0)){
 								it.remove(); // remove request from inbox

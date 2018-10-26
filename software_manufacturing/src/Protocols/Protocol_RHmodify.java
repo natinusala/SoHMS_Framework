@@ -4,7 +4,6 @@ package Protocols;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import Application.Initialization;
 import MService.MServiceImplentation;
 import MService.ParametersProfile;
 import MService.ProfileParameter;
