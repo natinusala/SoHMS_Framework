@@ -21,7 +21,7 @@ public class ServerSocket extends WebSocketServer{
         super(new InetSocketAddress(TCP_PORT));
         socketsIHM = new ArrayList<WebSocket>();
         messages = new ArrayList<String>();
-        System.out.println("SoHMS Server Runnign Done, Listening to port :"+TCP_PORT);
+        System.out.println("SoHMS Server Running Done, Listening to port :"+TCP_PORT);
 	}
 	
 	@Deprecated

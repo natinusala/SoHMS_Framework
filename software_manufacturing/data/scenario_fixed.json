@@ -5,7 +5,6 @@
       "services": {
         "S1": {
           "id": 1,
-          "name": "S10",
           "ontology": "ontology",
           "category": "paint",
           "taxonomy": "sometax",
@@ -15,7 +14,6 @@
         },
         "S2": {
           "id": 2,
-          "name": "S15",
           "ontology": "ontology",
           "category": "solder",
           "taxonomy": "sometax",
@@ -25,7 +23,6 @@
         },
         "S3": {
           "id": 3,
-          "name": "S11",
           "ontology": "ontology",
           "category": "assemble",
           "taxonomy": "sometax",
@@ -47,9 +44,12 @@
           "description": "Takes a product from an Initial Port to a Final Port in the System's Layout Map",
           "parameters": [
             {
+              "dataType": "String",
               "name": "StartPort"
             },
             {
+
+              "dataType": "String",
               "name": "FinalPort"
             }
           ],
