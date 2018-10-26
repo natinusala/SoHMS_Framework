@@ -189,8 +189,6 @@
           "value":"Port1.2"
         }
       ],
-      "bufferCapacity":8,
-      "miliPerUnit":1000,
       "offeredServices":[
         {
           "service": "S4",
