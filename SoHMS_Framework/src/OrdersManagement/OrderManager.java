@@ -1,22 +1,15 @@
 package OrdersManagement;
 
-import java.io.PrintWriter;
-import java.net.SocketAddress;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-
 import Crosscutting.OutBoxSender;
 import DirectoryFacilitator.DirectoryFacilitator;
 import ProductManagement.OnTheGo_Behavior;
 import ProductManagement.PH_Behavior_Planner;
 import ProductManagement.ProductHolon;
 import ProductManagement.ProductionOrder;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
  
   /* 

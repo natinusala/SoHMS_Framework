@@ -23,24 +23,24 @@ public class ServerSocket extends WebSocketServer{
         messages = new ArrayList<String>();
         System.out.println("SoHMS Server Running Done, Listening to port :"+TCP_PORT);
 	}
-	
+
 	@Deprecated
 	public WebSocket getSocketIHM()
 	{
 		if(socketsIHM.isEmpty())
 			return null;
-		else	
+		else
 			return socketsIHM.get(0);
 	}
-	
+
 	public void send(String data) {
 		this.send(data, 0);
 	}
-	
+
 	public void send(String data, int socketIndex) {
 		this.socketsIHM.get(0).send(data);
 	}
-	
+
 	@Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
         socketsIHM.add(conn);

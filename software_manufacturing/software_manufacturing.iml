@@ -10,5 +10,7 @@
     <orderEntry type="library" name="software_manufacturing" level="project" />
     <orderEntry type="module" module-name="SoHMS_Framework" />
     <orderEntry type="library" name="gson-2.8.2" level="project" />
+    <orderEntry type="library" name="jaxb-impl-2.3.1 (2)" level="project" />
+    <orderEntry type="library" name="jaxb-api-2.4.0-b180830.0359 (2)" level="project" />
   </component>
 </module>

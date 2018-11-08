@@ -1,6 +1,7 @@
 package Application;
 
 import Application.model.*;
+import Communication.ComFlexsim;
 import DirectoryFacilitator.DirectoryFacilitator;
 import MService.MService;
 import Ontology.ServiceOntology;
@@ -9,10 +10,7 @@ import ResourceManagement.ResourceHolon;
 import com.google.gson.Gson;
 import MService.*;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
@@ -241,8 +239,7 @@ public class Application {
         }
     }
 
-    public static void main(String... args)
-    {
+    public static void main(String... args) throws IOException {
         final String SCENARIO_PATH = "data/scenario_fixed.json";
 
         ScenarioModel scenario = gson.fromJson(readTextFile(SCENARIO_PATH), ScenarioModel.class);
@@ -254,7 +251,8 @@ public class Application {
         initProducts(scenario);
         initOrders(scenario);
 
-        //TODO Initialize socket connection to flexsim
-        //TODO Start server and roll on
+        //TODO Start SoHMS server
+
+        ComFlexsim comFlexsim = new ComFlexsim();
     }
 }
