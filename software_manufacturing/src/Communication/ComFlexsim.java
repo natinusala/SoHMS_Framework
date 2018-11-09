@@ -17,13 +17,10 @@ public class ComFlexsim {
 
         System.out.println("Waiting for Flexsim connection on port " + port + "...");
 
-        while (true)
-        {
-            this.socket = connection.accept();
-            this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            this.writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            System.out.println("New Flexsim instance connected!");
-        }
+        this.socket = connection.accept();
+        this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        this.writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+        System.out.println("Flexsim connected!");
     }
 
     private boolean execute(String message) throws IOException {

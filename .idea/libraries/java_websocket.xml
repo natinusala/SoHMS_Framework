@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="jaxb-impl-2.3.1">
+  <library name="java_websocket">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/SoHMS_Framework/jaxb-impl-2.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SoHMS_Framework/java_websocket.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

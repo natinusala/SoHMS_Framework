@@ -1,7 +1,6 @@
 <component name="libraryTable">
-  <library name="software_manufacturing">
+  <library name="java_websocket (2)">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/software_manufacturing/SoHMS.jar!/" />
       <root url="jar://$PROJECT_DIR$/software_manufacturing/java_websocket.jar!/" />
     </CLASSES>
     <JAVADOC />

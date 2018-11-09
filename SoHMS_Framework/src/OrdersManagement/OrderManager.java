@@ -32,7 +32,6 @@ public class OrderManager {
 		activePHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
 	}
 	public OrderManager(ProductionOrder order, OutBoxSender outBoxSender2) {
-		System.out.println("order");
 		this.order= order;
 		this.outBoxSender= outBoxSender2;
 		finishedPHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated

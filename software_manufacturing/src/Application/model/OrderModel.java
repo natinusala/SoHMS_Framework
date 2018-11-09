@@ -2,8 +2,8 @@ package Application.model;
 
 public class OrderModel {
     public int id;
-    public int numberOfUnits;
+    public int numOfUnits;
     public String priority;
-    public String maxParallelUnits;
+    public int maxParallelUnits;
     public int product;
 }

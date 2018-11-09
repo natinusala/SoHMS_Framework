@@ -2,10 +2,13 @@ package Application;
 
 import Application.model.*;
 import Communication.ComFlexsim;
+import Communication.ServerSocket;
 import DirectoryFacilitator.DirectoryFacilitator;
 import MService.MService;
 import Ontology.ServiceOntology;
 import OrdersManagement.OrderManager;
+import ProductManagement.ProductionOrder;
+import ProductManagement.ProductionProcess;
 import ResourceManagement.ResourceHolon;
 import com.google.gson.Gson;
 import MService.*;
@@ -233,10 +236,32 @@ public class Application {
     {
         System.out.println("Found " + scenario.orders.size() + " order(s)");
 
-        for (OrderModel order : scenario.orders)
+        for (OrderModel orderModel : scenario.orders)
         {
-            System.out.println("    - Product #" + order.product);
+            System.out.println("    - Order #" + orderModel.id + " -> Product #" + orderModel.product + " x" + orderModel.numOfUnits);
+
+            ProductionProcess process = null; //TODO Initialize / implement this ?
+
+            ProductionOrder order = new ProductionOrder(
+                    orderModel.numOfUnits,
+                    orderModel.priority,
+                    orderModel.maxParallelUnits,
+                    process,
+                    "" //Unused
+                );
+
+            OrderManager manager = new OrderManager(order, null); //outBoxSender unused
+
+            orderManagerDict.put(Integer.toString(orderModel.id), manager);
         }
+    }
+
+    private static void initializeSystems(ScenarioModel scenario)
+    {
+        initServices(scenario);
+        initResources(scenario);
+        initProducts(scenario);
+        initOrders(scenario);
     }
 
     public static void main(String... args) throws IOException {
@@ -246,13 +271,10 @@ public class Application {
 
         System.out.println("Initialization...");
 
-        initServices(scenario);
-        initResources(scenario);
-        initProducts(scenario);
-        initOrders(scenario);
-
-        //TODO Start SoHMS server
+        initializeSystems(scenario); //TODO Replace this by a ServerSocket to wait for the GUI?
 
         ComFlexsim comFlexsim = new ComFlexsim();
+
+        orderManagerDict.get("1").launchOrder(df);
     }
 }
