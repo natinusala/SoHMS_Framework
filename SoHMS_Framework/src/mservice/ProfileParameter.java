@@ -1,7 +1,6 @@
-package MService;
+package mservice;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class ProfileParameter extends SParameter{
  

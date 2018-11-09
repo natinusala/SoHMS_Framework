@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MS" nsURI="MS" nsPrefix="MS">
-  <eClassifiers xsi:type="ecore:EClass" name="MService">
+  <eClassifiers xsi:type="ecore:EClass" name="mservice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ontology" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Category" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -46,25 +46,25 @@
   <eClassifiers xsi:type="ecore:EClass" name="MServiceSpecification">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mservice" upperBound="-1"
-        eType="#//MService.1"/>
+        eType="#//mservice.1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter.1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profileparameterset" upperBound="-1"
         eType="#//ProfileParameterSet.1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="mservice"/>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProfileParameterSet"/>
   <eClassifiers xsi:type="ecore:EClass" name="MServiceImplementation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mservice" upperBound="-1"
-        eType="#//MService.2"/>
+        eType="#//mservice.2"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profileparameterset" upperBound="-1"
         eType="#//ProfileParameterSet.2"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="averageCost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="methodprocess" upperBound="-1"
         eType="#//ProcessType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="mservice"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProfileParameterSet"/>
   <eClassifiers xsi:type="ecore:EClass" name="MServiceSpecification">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -72,25 +72,25 @@
   <eClassifiers xsi:type="ecore:EClass" name="MServiceImplementation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ListProcessMethods"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="MethodsSpecification" upperBound="-1"
-        eType="#//MService.3"/>
+        eType="#//mservice.3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProcessType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MService">
+  <eClassifiers xsi:type="ecore:EClass" name="mservice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Strcuture"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MServiceProfile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ParameterProfileSet"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttributeSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CapabilitiesSpecefication"
-        upperBound="-1" eType="#//MService.3"/>
+        upperBound="-1" eType="#//mservice.3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MServiceSpecefication">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="InstanceID"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Parameters"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ValuesSpecefication" upperBound="-1"
-        eType="#//MService.3"/>
+        eType="#//mservice.3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResourceHolon">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Publish" upperBound="-1"

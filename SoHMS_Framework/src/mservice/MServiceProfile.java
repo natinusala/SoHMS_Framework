@@ -1,4 +1,4 @@
-package MService;
+package mservice;
 
 import java.util.ArrayList;
 

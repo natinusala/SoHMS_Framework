@@ -1,15 +1,13 @@
 package DirectoryFacilitator;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.concurrent.ConcurrentHashMap;
 
-import MService.MService;
-import MService.MServiceImplentation;
-import MService.MServiceSpecification;
-import ProductManagement.ProductHolon;
+import mservice.MService;
+import mservice.MServiceImplentation;
+import mservice.MServiceSpecification;
 import ResourceManagement.ResourceHolon;
 import ResourceManagement.Transporter;
 import Workshop.LayoutMap;
@@ -146,7 +144,7 @@ public class DirectoryFacilitator{
 				return providers;
 	}
   
-	public static ArrayList<Transporter> getFreeTrasporter() {
+	public static ArrayList<Transporter> getFreeTransporter() {
 		 return null;
 	}
 	

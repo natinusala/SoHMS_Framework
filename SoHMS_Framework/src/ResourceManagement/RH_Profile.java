@@ -2,7 +2,7 @@ package ResourceManagement;
 
 import java.util.ArrayList;
 
-import MService.MServiceProfile;
+import mservice.MServiceProfile;
 
 
 public class RH_Profile extends Resource {

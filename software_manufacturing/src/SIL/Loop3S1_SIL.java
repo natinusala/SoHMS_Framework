@@ -1,7 +1,7 @@
 package SIL;
 
 import Crosscutting.*;
-import MService.*;
+import mservice.*;
 import OrdersManagement.*;
 import ProductManagement.*;
 import ResourceManagement.*;

@@ -675,9 +675,9 @@
         </edges>
       </data>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_BzvwIE2TEeiDV7YpGphMJA" name="MService" tooltipText="" outgoingEdges="_kUBGQE2TEeiDV7YpGphMJA _2zU6ME2TEeiDV7YpGphMJA" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="SoHMS.ecore#//MService"/>
-      <semanticElements xmi:type="ecore:EClass" href="SoHMS.ecore#//MService"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_BzvwIE2TEeiDV7YpGphMJA" name="mservice" tooltipText="" outgoingEdges="_kUBGQE2TEeiDV7YpGphMJA _2zU6ME2TEeiDV7YpGphMJA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="SoHMS.ecore#//mservice"/>
+      <semanticElements xmi:type="ecore:EClass" href="SoHMS.ecore#//mservice"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -686,32 +686,32 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_NV16UE2TEeiDV7YpGphMJA" name="name : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="SoHMS.ecore#//MService/name"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="SoHMS.ecore#//MService/name"/>
+        <target xmi:type="ecore:EAttribute" href="SoHMS.ecore#//mservice/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="SoHMS.ecore#//mservice/name"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_OdTRoE2TEeiDV7YpGphMJA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Phq4sE2TEeiDV7YpGphMJA" name="Ontology : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="SoHMS.ecore#//MService/Ontology"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="SoHMS.ecore#//MService/Ontology"/>
+        <target xmi:type="ecore:EAttribute" href="SoHMS.ecore#//mservice/Ontology"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="SoHMS.ecore#//mservice/Ontology"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Su0KIE2TEeiDV7YpGphMJA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_T388cE2TEeiDV7YpGphMJA" name="Category : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="SoHMS.ecore#//MService/Category"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="SoHMS.ecore#//MService/Category"/>
+        <target xmi:type="ecore:EAttribute" href="SoHMS.ecore#//mservice/Category"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="SoHMS.ecore#//mservice/Category"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_V4IrgE2TEeiDV7YpGphMJA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_apCOsE2TEeiDV7YpGphMJA" name="Description : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="SoHMS.ecore#//MService/Description"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="SoHMS.ecore#//MService/Description"/>
+        <target xmi:type="ecore:EAttribute" href="SoHMS.ecore#//mservice/Description"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="SoHMS.ecore#//mservice/Description"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_cYMfME2TEeiDV7YpGphMJA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -754,8 +754,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_kUBGQE2TEeiDV7YpGphMJA" name="[0..*] parameters" sourceNode="_BzvwIE2TEeiDV7YpGphMJA" targetNode="_f_NpME2TEeiDV7YpGphMJA">
-      <target xmi:type="ecore:EReference" href="SoHMS.ecore#//MService/parameters"/>
-      <semanticElements xmi:type="ecore:EReference" href="SoHMS.ecore#//MService/parameters"/>
+      <target xmi:type="ecore:EReference" href="SoHMS.ecore#//mservice/parameters"/>
+      <semanticElements xmi:type="ecore:EReference" href="SoHMS.ecore#//mservice/parameters"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_kUC7cE2TEeiDV7YpGphMJA" description="_kUCUYE2TEeiDV7YpGphMJA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_kUC7cU2TEeiDV7YpGphMJA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -794,8 +794,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2zU6ME2TEeiDV7YpGphMJA" name="[0..*] attributes" sourceNode="_BzvwIE2TEeiDV7YpGphMJA" targetNode="_0Jo7IE2TEeiDV7YpGphMJA">
-      <target xmi:type="ecore:EReference" href="SoHMS.ecore#//MService/attributes"/>
-      <semanticElements xmi:type="ecore:EReference" href="SoHMS.ecore#//MService/attributes"/>
+      <target xmi:type="ecore:EReference" href="SoHMS.ecore#//mservice/attributes"/>
+      <semanticElements xmi:type="ecore:EReference" href="SoHMS.ecore#//mservice/attributes"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_2zVhQE2TEeiDV7YpGphMJA" description="_kUCUYE2TEeiDV7YpGphMJA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_2zVhQU2TEeiDV7YpGphMJA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -970,9 +970,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_eJ3s0E3CEeibVLO_0WDwNQ" name="MService" tooltipText="" incomingEdges="_ufpBYE3CEeibVLO_0WDwNQ" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="SoHMS.ecore#//MService.1"/>
-      <semanticElements xmi:type="ecore:EClass" href="SoHMS.ecore#//MService.1"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_eJ3s0E3CEeibVLO_0WDwNQ" name="mservice" tooltipText="" incomingEdges="_ufpBYE3CEeibVLO_0WDwNQ" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="SoHMS.ecore#//mservice.1"/>
+      <semanticElements xmi:type="ecore:EClass" href="SoHMS.ecore#//mservice.1"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1064,9 +1064,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_MgfrQE3WEeiqNb9HudhWCw" name="MService" tooltipText="" incomingEdges="_vZlKAE3WEeiqNb9HudhWCw" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="SoHMS.ecore#//MService.2"/>
-      <semanticElements xmi:type="ecore:EClass" href="SoHMS.ecore#//MService.2"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_MgfrQE3WEeiqNb9HudhWCw" name="mservice" tooltipText="" incomingEdges="_vZlKAE3WEeiqNb9HudhWCw" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="SoHMS.ecore#//mservice.2"/>
+      <semanticElements xmi:type="ecore:EClass" href="SoHMS.ecore#//mservice.2"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1181,17 +1181,17 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_v2d5gE4GEeiHlI3sMLpv6A" name="MService" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'EAttribute{platform:/resource/SoHMS_Manufacturing_Software/Models/SoHMS.ecore#//MService.3/Strcuture}' must be set&#xA;ERROR : The typed element must have a type" incomingEdges="_Uqh3ME4HEeiHlI3sMLpv6A _i14ioE4HEeiHlI3sMLpv6A _VNEuIE4IEeiHlI3sMLpv6A" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="SoHMS.ecore#//MService.3"/>
-      <semanticElements xmi:type="ecore:EClass" href="SoHMS.ecore#//MService.3"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_v2d5gE4GEeiHlI3sMLpv6A" name="mservice" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'EAttribute{platform:/resource/SoHMS_Manufacturing_Software/Models/SoHMS.ecore#//mservice.3/Strcuture}' must be set&#xA;ERROR : The typed element must have a type" incomingEdges="_Uqh3ME4HEeiHlI3sMLpv6A _i14ioE4HEeiHlI3sMLpv6A _VNEuIE4IEeiHlI3sMLpv6A" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="SoHMS.ecore#//mservice.3"/>
+      <semanticElements xmi:type="ecore:EClass" href="SoHMS.ecore#//mservice.3"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_yO9a4E4GEeiHlI3sMLpv6A" labelColor="239,41,41" description="_kxLnIE4GEeiHlI3sMLpv6A" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_yO37UE4GEeiHlI3sMLpv6A" name="Strcuture" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'EAttribute{platform:/resource/SoHMS_Manufacturing_Software/Models/SoHMS.ecore#//MService.3/Strcuture}' must be set&#xA;ERROR : The typed element must have a type">
-        <target xmi:type="ecore:EAttribute" href="SoHMS.ecore#//MService.3/Strcuture"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="SoHMS.ecore#//MService.3/Strcuture"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_yO37UE4GEeiHlI3sMLpv6A" name="Strcuture" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'EAttribute{platform:/resource/SoHMS_Manufacturing_Software/Models/SoHMS.ecore#//mservice.3/Strcuture}' must be set&#xA;ERROR : The typed element must have a type">
+        <target xmi:type="ecore:EAttribute" href="SoHMS.ecore#//mservice.3/Strcuture"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="SoHMS.ecore#//mservice.3/Strcuture"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_yO4iYE4GEeiHlI3sMLpv6A" labelColor="239,41,41" labelAlignment="LEFT" description="_kxDrUE4GEeiHlI3sMLpv6A" borderColor="239,41,41"/>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>

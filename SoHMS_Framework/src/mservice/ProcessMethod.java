@@ -1,4 +1,4 @@
-package MService;
+package mservice;
 
 
 public class ProcessMethod {

@@ -2,16 +2,15 @@ package Application;
 
 import Application.model.*;
 import Communication.ComFlexsim;
-import Communication.ServerSocket;
 import DirectoryFacilitator.DirectoryFacilitator;
-import MService.MService;
+import mservice.MService;
 import Ontology.ServiceOntology;
 import OrdersManagement.OrderManager;
 import ProductManagement.ProductionOrder;
 import ProductManagement.ProductionProcess;
 import ResourceManagement.ResourceHolon;
 import com.google.gson.Gson;
-import MService.*;
+import mservice.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -242,7 +241,34 @@ public class Application {
         {
             System.out.println("    - Order #" + orderModel.id + " -> Product #" + orderModel.product + " x" + orderModel.numOfUnits);
 
-            ProductionProcess process = null; //TODO Initialize / implement this?
+            ArrayList<MServiceSpecification> serviceSpecifications = new ArrayList<>();
+
+            ProductModel p = null;
+            for (ProductModel tmp : scenario.products) {
+                if (tmp.id == orderModel.product) {
+                    p = tmp;
+                    break;
+                }
+            }
+
+            if (p == null) {
+                System.out.println("Product " + orderModel.product+ " not found!");
+                return;
+            }
+
+            for (String s : p.services)
+            {
+                for (MService service : mServices) {
+                    if (service.getName().equals(s)) {
+                        MServiceSpecification spec = new MServiceSpecification(service);
+                        spec.setMService(service);
+                        spec.setParameters(service.getParameters());
+                        serviceSpecifications.add(spec);
+                    }
+                }
+            }
+
+            ProductionProcess process = new ProductionProcessImpl(serviceSpecifications);
 
             ProductionOrder order = new ProductionOrder(
                     orderModel.numOfUnits,
@@ -250,7 +276,7 @@ public class Application {
                     orderModel.maxParallelUnits,
                     process,
                     "" //Unused
-                );
+            );
 
             OrderManager manager = new OrderManager(order, null); //outBoxSender unused
 
@@ -275,8 +301,8 @@ public class Application {
 
         initializeSystems(scenario); //TODO Replace this by a ServerSocket to wait for the GUI?
 
-        ComFlexsim comFlexsim = new ComFlexsim();
+        //ComFlexsim comFlexsim = new ComFlexsim(); //TODO this
 
-        orderManagerDict.get("1").launchOrder(df);
+        orderManagerDict.get("1").launchOrder(df, resourceCloud);
     }
 }

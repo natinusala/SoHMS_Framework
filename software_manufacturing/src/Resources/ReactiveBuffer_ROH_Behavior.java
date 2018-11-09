@@ -1,7 +1,7 @@
 package Resources;
 import Crosscutting.PathState;
 import DirectoryFacilitator.DirectoryFacilitator;
-import MService.MServiceSpecification;
+import mservice.MServiceSpecification;
 import OrdersManagement.ROH;
 import OrdersManagement.ROH_Behavior;
 import ProductManagement.ProductHolon;

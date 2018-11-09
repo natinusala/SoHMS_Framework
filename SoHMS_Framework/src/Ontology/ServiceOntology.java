@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import MService.MService;
+import mservice.MService;
 
 public class ServiceOntology{
 	

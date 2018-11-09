@@ -1,5 +1,6 @@
 package ProductManagement;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -7,9 +8,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import Crosscutting.*;
 import DirectoryFacilitator.DirectoryFacilitator;
-import MService.*;
+import mservice.*;
 import OrdersManagement.*;
-import ProductManagement.*;
 import ResourceManagement.*;
 import Workshop.LayoutMap;
 
@@ -27,10 +27,12 @@ public class OnTheGo_Behavior implements PH_Behavior_Planner, Runnable {
 	//ATTRIBUTS---------------------------------------------
 	public ProductHolon ph;
 	public POH p_oh;
+	private ArrayList<ResourceHolon> resourceCloud;
 
 	//CONSTRUCTORS---------------------------------------------
-	public OnTheGo_Behavior(ProductHolon ph) {
+	public OnTheGo_Behavior(ProductHolon ph, ArrayList<ResourceHolon> resourceCloud) {
 		this.ph= ph;
+		this.resourceCloud = resourceCloud;
 	}
 
 	//PUBLIC METHODS---------------------------------------
@@ -40,7 +42,7 @@ public class OnTheGo_Behavior implements PH_Behavior_Planner, Runnable {
 		System.out.println("PH Reactive Behavior Launched");
 
 		//Wait until Locate Pallet in the System
-		while(ph.getAssociatedResource().getPortStatus() == "Unknown"){
+		while(ph.getAssociatedResource().getPortStatus() == Transporter.TransporterState.UNKNOWN){
 			Thread.yield(); // wait until the Pallet has been located in the System.
 		}
 
@@ -73,7 +75,8 @@ public class OnTheGo_Behavior implements PH_Behavior_Planner, Runnable {
 	@Override
 	public void setNewPlan(String actualPort, int stateID,MService ServiceType, DirectoryFacilitator df) {
 		// Reset plans to zero
-	    this.ph.setProductionPlan(new LayoutMap());
+		LayoutMap map = new LayoutMap();
+	    this.ph.setProductionPlan(map);
 		this.ph.setActionsPlan(new ConcurrentHashMap<Integer, PathState>());
     	//Get PathArcs to all possible Alternatives
 		ArrayList<PathArc> nextStepProductionPlans= getNextPathArcs(ph.getRecipe(), stateID, actualPort); 
@@ -128,8 +131,19 @@ public class OnTheGo_Behavior implements PH_Behavior_Planner, Runnable {
 
 		// NEXT SERVICE?
 		for (int i = 0; i < altServ.size(); i++) {
+			MServiceSpecification serviceSpecification = altServ.get(i);
 			//PROVIDERS OF NEXT SERVICE?
-			HashSet<Pair<ResourceHolon,Double>> providers=null;
+			HashSet<Pair<ResourceHolon,Double>> providers=new HashSet<>();
+
+			for (ResourceHolon resourceHolon : resourceCloud)
+			{
+				for (MServiceImplentation s : resourceHolon.getOfferedServices())
+				{
+					if (s.matchService(serviceSpecification))
+						providers.add(new Pair<>(resourceHolon, 1.0)); //Everything has a cost of 1 for now
+				}
+			}
+
 			//=AppSOHMS.df.getProviders(altServ.get(i));				 
 			//------------------------------------------------------------------------
 			//Print Providers

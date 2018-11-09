@@ -33,7 +33,7 @@ public static void handleMessage(SocketMessage message, OutBoxSender outBoxSende
 				OrderManager orderManager = new OrderManager(order, outBoxSender);
 			
 				Application.orderManagerDict.put(orderManager.getOrderManagerName(), orderManager);
-				orderManager.launchOrder(Application.df);
+				//orderManager.launchOrder(Application.df); ???
 				
 				//Send back confirmation
 				SocketMessage confirmation = new SocketMessage(

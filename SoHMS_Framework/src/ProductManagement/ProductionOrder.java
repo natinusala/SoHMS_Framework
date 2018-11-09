@@ -2,7 +2,8 @@ package ProductManagement;
 
 import java.util.ArrayList;
 import java.util.Date;
-import MService.MServiceImplentation;
+
+import mservice.MServiceSpecification;
 
 
 public class ProductionOrder{
@@ -19,6 +20,8 @@ public class ProductionOrder{
 	private ProductionOrderReport prodReport;
 	private String state ;
 	private ProductionProcess productProcess;
+
+	private ArrayList<MServiceSpecification> services;
 	
 	//Constructors
 	public ProductionOrder() {
@@ -40,6 +43,8 @@ public class ProductionOrder{
 			return productProcess;
 	}
 
+
+	public void setServices(ArrayList<MServiceSpecification> services) { this.services = services;}
 	public void setProductProcess(ProductionProcess productProcess) {
 			this.productProcess = productProcess;
 	}

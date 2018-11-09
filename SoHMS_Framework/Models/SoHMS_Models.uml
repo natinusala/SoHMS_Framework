@@ -83,8 +83,8 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_kUhL0U2vEeibVLO_0WDwNQ" name="mservicespecificatio" type="_S7UrYE2vEeibVLO_0WDwNQ" association="_kUeIgE2vEeibVLO_0WDwNQ"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Package" xmi:id="_2F-t8EbuEei-I6XYtqsRTw" name="MService">
-    <packagedElement xmi:type="uml:Class" xmi:id="_7wTIQESEEeiC87LiLS-S1w" name="MService"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_2F-t8EbuEei-I6XYtqsRTw" name="mservice">
+    <packagedElement xmi:type="uml:Class" xmi:id="_7wTIQESEEeiC87LiLS-S1w" name="mservice"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_PCzX4EbvEei-I6XYtqsRTw" name="MServiceProfile">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Z8OiUE2vEeibVLO_0WDwNQ" name="mservice" type="_7wTIQESEEeiC87LiLS-S1w" association="_Z7dtUE2vEeibVLO_0WDwNQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Z8SzwE2vEeibVLO_0WDwNQ"/>

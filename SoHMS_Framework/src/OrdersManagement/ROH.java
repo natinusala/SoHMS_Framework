@@ -2,8 +2,7 @@ package OrdersManagement;
 
 import Crosscutting.PathState;
 import DirectoryFacilitator.DirectoryFacilitator;
-import MService.MServiceImplentation;
-import MService.MServiceSpecification;
+import mservice.MServiceSpecification;
 import ProductManagement.ProductHolon;
 import ResourceManagement.ResourceHolon;
 import ResourceManagement.Transporter;

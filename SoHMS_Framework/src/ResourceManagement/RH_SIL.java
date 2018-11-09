@@ -1,8 +1,8 @@
 package ResourceManagement;
 
 import Crosscutting.Pair;
-import MService.MServiceImplentation;
-import MService.MServiceSpecification;
+import mservice.MServiceImplentation;
+import mservice.MServiceSpecification;
 import OrdersManagement.ROH;
 import ProductManagement.ProductHolon;
 

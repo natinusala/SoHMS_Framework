@@ -11,7 +11,7 @@ import ResourceManagement.*;
 import ProductManagement.*;
 import OrdersManagement.*;
 import Crosscutting.*;
-import MService.MServiceSpecification;
+import mservice.MServiceSpecification;
 
 
 

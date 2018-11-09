@@ -1,8 +1,6 @@
-package MService;
+package mservice;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
 
 
 public class MServiceSpecification{

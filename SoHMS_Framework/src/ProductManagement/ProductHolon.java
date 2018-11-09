@@ -1,6 +1,5 @@
 package ProductManagement;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -8,10 +7,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import Crosscutting.*;
 import DirectoryFacilitator.DirectoryFacilitator;
-import MService.MService;
-import MService.MServiceSpecification;
+import mservice.MService;
+import mservice.MServiceSpecification;
 import OrdersManagement.OrderManager;
-import ResourceManagement.Resource;
 import ResourceManagement.ResourceHolon;
 import ResourceManagement.Transporter;
 import Workshop.LayoutMap;
@@ -32,6 +30,8 @@ public  class ProductHolon{
 	private LayoutMap productionPlan;
 	private ConcurrentHashMap<Integer,PathState> actionsPlan;
 	private MService actualMservice;
+
+	private Transporter transporter = new Transporter(Transporter.TransporterState.IDLE, this, 0);;
 
 	//Constructor
 	public ProductHolon(){
@@ -54,17 +54,17 @@ public  class ProductHolon{
 		phExploreThread.start();
 	}
 	
-	public void associateResourceToPH(DirectoryFacilitator df) {
-		/**
-		 * Selectioner la premire resource que arrive au port initial et qui est libre
-		 * Returns an associated Ressource to the PH.
-		 */
+	/*public void associateResourceToPH(DirectoryFacilitator df) {
+		//
+		// * Selectioner la premire resource que arrive au port initial et qui est libre
+		// * Returns an associated Ressource to the PH.
+		//
 		//1-Select a free resource.
 		Transporter selectedPallet= null;
 		// Do until succesful association
 		do{
 			// Update List of Free Transporters
-			ArrayList<Transporter> listOFPallets= df.getFreeTrasporter();
+			ArrayList<Transporter> listOFPallets= df.getFreeTransporter();
 			for (Transporter t : listOFPallets) {
 				if(t.portStatus== "Blocked" &&  // La Pallet est stable dans une position
 						t.getAssociatedPH()==null){ // La Palette n'a pas de PH associe
@@ -75,6 +75,13 @@ public  class ProductHolon{
 		}while(selectedPallet==null);
 		//2-Associate this resource to the PH
 		this.associatedResource= selectedPallet;
+	}*/
+
+	public void associateResourceToPH(DirectoryFacilitator df)
+	{
+		//For now we only have one transporter
+		this.associatedResource = transporter;
+		System.out.println("Transporter associated to PH " + this.getId());
 	}
 	
 	public void liberateResource() {
@@ -82,6 +89,7 @@ public  class ProductHolon{
 		this.associatedResource.liberate();
 		//2- liberate PH from Resource
 		this.associatedResource=null;
+		System.out.println("Resources freed from PH " + getId());
 	};
 	
 	public void addPathArcToExecutablePlans (ArrayList<PathArc> nextStepPlans, MService transportSer, DirectoryFacilitator df){

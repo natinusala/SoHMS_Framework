@@ -2,7 +2,7 @@ package ProductManagement;
 
 import java.util.ArrayList;
 
-import MService.MServiceSpecification;
+import mservice.MServiceSpecification;
 
 public interface ProductionProcess extends Process_Inst{
 	/**
@@ -11,18 +11,18 @@ public interface ProductionProcess extends Process_Inst{
 	 */
 	public ArrayList<MServiceSpecification> getStateHist();
 	/**
-	 * Returns a list with all the MService instances that can be executed according to the CURRENT state.
-	 * @return ArrayList<MService>
+	 * Returns a list with all the mservice instances that can be executed according to the CURRENT state.
+	 * @return ArrayList<mservice>
 	 */
 	public ArrayList<MServiceSpecification>  getAlternatives();
 	/**
-	 * Returns a list with all the MService instances that can be executed according to the state indicated.
+	 * Returns a list with all the mservice instances that can be executed according to the state indicated.
 	 * The state is specified by a list of MServices that have been executed.
-	 * @return ArrayList<MService>
+	 * @return ArrayList<mservice>
 	 */
 	public ArrayList<MServiceSpecification>  getAlternatives(ArrayList<MServiceSpecification> stateHist );
 	/**
-	 * Returns a list with all the MService instances that can be executed according to the state indicated.
+	 * Returns a list with all the mservice instances that can be executed according to the state indicated.
 	 * The state is specified by an integer ( the class uses an integer to track the state of the product)
 	 * @return int
 	 */

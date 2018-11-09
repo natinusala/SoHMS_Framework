@@ -26,12 +26,13 @@ public class AutomatIterator {
 
 	/**
 	 * Returns an ArrayList with the transitions that can be executed parting for the State identified by the StateName
-	 * @param stateName
-	 * @return
 	 */
 	public ArrayList<Transition> getNextTransitions() {
 		
-		ArrayList<Arc> arcs= auto.getEdges().get(stateID).arcs;
+		ArrayList<Arc> arcs= auto
+				.getEdges()
+				.get(stateID)
+				.arcs;
 		ArrayList<Transition> transitions= new ArrayList<Transition>();
 		 for (Arc arc : arcs) {
 			transitions.add(arc.t);
@@ -53,9 +54,6 @@ public class AutomatIterator {
 	 * Returns true if sucessfully evolved the LayoutMap
 	 * returns false if transition does not exist
 	 * Exception if state not initialized
-	 * @param transitionLabel
-	 * @return
-	 * @throws LayoutMapNotInitializedException
 	 */
 	public boolean executeTransition(String transitionLabel){
 		

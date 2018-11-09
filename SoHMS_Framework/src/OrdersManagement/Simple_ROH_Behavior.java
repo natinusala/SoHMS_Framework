@@ -5,9 +5,9 @@ import java.util.ListIterator;
 
 import Crosscutting.PathState;
 import DirectoryFacilitator.DirectoryFacilitator;
-import MService.MServiceImplentation;
-import MService.MServiceSpecification;
-import MService.ProcessMethod;
+import mservice.MServiceImplentation;
+import mservice.MServiceSpecification;
+import mservice.ProcessMethod;
 import ProductManagement.ProductHolon;
 import ResourceManagement.ResourceHolon;
 import ResourceManagement.Task_RH;

@@ -1,17 +1,14 @@
 package ResourceManagement;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
 
-import MService.MService;
-import MService.MServiceImplentation;
-import MService.MServiceProfile;
+import mservice.MService;
+import mservice.MServiceImplentation;
+import mservice.MServiceProfile;
 import OrdersManagement.ROH;
 import OrdersManagement.Simple_ROH_Behavior;
-import ProductManagement.ProductHolon;
-
 
 
 public class ResourceHolon extends Resource{

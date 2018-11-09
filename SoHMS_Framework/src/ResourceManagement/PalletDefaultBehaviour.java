@@ -36,7 +36,7 @@ public class PalletDefaultBehaviour extends Thread {
 				//System.out.println("== PalletDefaultBehavior Pallet "+ pallet._RFID+ " BIP 4");
 
 				//Request Actions while Blocked
-				if(pallet.portStatus== "Blocked"){
+				if(pallet.portStatus== Transporter.TransporterState.BLOCKED){
 					//System.out.println("== PalletDefaultBehavior Pallet "+ pallet._RFID+ " BIP 5");
 					requestDefaultAction(pallet.actualPort);
 				}

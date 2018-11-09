@@ -6,7 +6,9 @@ import ProductManagement.OnTheGo_Behavior;
 import ProductManagement.PH_Behavior_Planner;
 import ProductManagement.ProductHolon;
 import ProductManagement.ProductionOrder;
+import ResourceManagement.ResourceHolon;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -39,7 +41,7 @@ public class OrderManager {
 	}
 	
 	//a method that launchs the execution of an order. each order is a psecific to targer domain
-	public void  launchOrder(DirectoryFacilitator df) {
+	public void  launchOrder(DirectoryFacilitator df, ArrayList<ResourceHolon> resourceCloud) {
 	  //1-Ask number of needed resources. (maximum unit specifié dans l'ordre !!!).
 		int resource_num = this.order.getMaxParallelUnits();
 		
@@ -52,7 +54,7 @@ public class OrderManager {
 			//1--launchResource();
 			ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
 			//2-2 Associate a behavior to the PH.
-	        PH_Behavior_Planner exploreBehavior = new OnTheGo_Behavior(ph);
+	        PH_Behavior_Planner exploreBehavior = new OnTheGo_Behavior(ph, resourceCloud);
 	        ph.setExploreBehavior(exploreBehavior);
 	    	//Launch its Production
 	        //2-3 launch PH

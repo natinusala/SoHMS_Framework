@@ -4,31 +4,34 @@ import DirectoryFacilitator.DirectoryFacilitator;
 import ProductManagement.ProductHolon;
 
 public class Transporter {
+
+	public enum TransporterState
+	{
+		UNKNOWN,
+		IDLE,
+		INTRANSIT,
+		BLOCKED
+	}
 	
-//ATTRIBUTS-------------------------------
 	public String lastPort;
 	public String nextPort;
 	public String actualPort;
-	public String portStatus;
+	public TransporterState portStatus;
 	public ProductHolon associatedPH;
 	public PalletDefaultBehaviour defaultBehavior;
 	public int _RFID; 
 	
-//CONSTRUCTORS-------------------------------
 	public Transporter(){
 	//Associate a  Default behavior to the pallet 
 		defaultBehavior = new PalletDefaultBehaviour(this);
 		defaultBehavior.start();
 	}
-//------------------------------------------------
-	public Transporter(String portStatus,ProductHolon associatedPH, int _RFID) {
+	public Transporter(TransporterState portStatus,ProductHolon associatedPH, int _RFID) {
 		this();
 		this.portStatus = portStatus;
 		this.associatedPH = associatedPH;
 		this._RFID = _RFID;
-		
-}
-//METHODS---------------------------------------------
+	}
 
 @Override
 public int hashCode() {
@@ -57,7 +60,7 @@ public synchronized void upDatePosition(String port) {
 	this.actualPort= port;
 	this.nextPort=null;
 	this.lastPort= null;
-	this.portStatus= "Blocked";
+	this.portStatus= TransporterState.BLOCKED;
 	this.defaultBehavior.getPallet().notify();
 	this.notifyAll(); 
 	String initPort = DirectoryFacilitator.getWorkShopMap().getInitialStateName();
@@ -78,14 +81,14 @@ public synchronized void upDatePosition(String port) {
 		this.actualPort= null;
 		this.lastPort=lastPort;
 		this.nextPort= nextPort;
-		this.portStatus= "InTransit";
+		this.portStatus= TransporterState.INTRANSIT;
 	
 	}
 //--------------------------------------------------------	
 	 public synchronized void waitArrivalToPort(String port){
 		boolean arrival= false;		
 		while(!arrival){
-		 if(portStatus=="Blocked"){
+		 if(portStatus==TransporterState.BLOCKED){
 			if(actualPort.equalsIgnoreCase(port)){
 			  arrival= true;
 			  break;
@@ -138,10 +141,10 @@ public synchronized void upDatePosition(String port) {
 		public void setActualPort(String actualPort) {
 			this.actualPort = actualPort;
 		}
-		public String getPortStatus() {
+		public TransporterState getPortStatus() {
 			return portStatus;
 		}
-		public void setPortStatus(String portStatus) {
+		public void setPortStatus(TransporterState portStatus) {
 			this.portStatus = portStatus;
 		}
 		public ProductHolon getAssociatedPH() {

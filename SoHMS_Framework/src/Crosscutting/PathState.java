@@ -2,8 +2,7 @@ package Crosscutting;
 
 import java.util.Date;
 
-import MService.MServiceImplentation;
-import MService.MServiceSpecification;
+import mservice.MServiceSpecification;
 import ResourceManagement.ResourceHolon;
 
 public class PathState {

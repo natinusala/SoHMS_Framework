@@ -6,13 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Crosscutting.Pair;
-import MService.MServiceImplentation;
-import MService.MServiceSpecification;
-import OrdersManagement.ROH;
-import ProductManagement.ProductHolon;
 import ResourceManagement.ResourceHolon;
-import ResourceManagement.Transporter;
 
 public class SILGenerator {
 
@@ -34,7 +28,7 @@ public class SILGenerator {
 			    	"package SIL;\n"
 			    	+ "\n"
 			    	+ "import Crosscutting.*;\n"
-			    	+ "import MService.*;\r\n" 
+			    	+ "import mservice.*;\r\n"
 			    	+ "import OrdersManagement.*;\n"
 			    	+ "import ProductManagement.*;\n"
 			    	+ "import ResourceManagement.*;\n"

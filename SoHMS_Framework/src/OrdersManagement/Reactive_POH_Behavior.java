@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import Crosscutting.AutomatIterator;
 import Crosscutting.PathState;
 import Crosscutting.Transition;
-import MService.MServiceSpecification;
+import mservice.MServiceSpecification;
 import ProductManagement.ProductHolon;
 import ResourceManagement.Transporter;
 import Workshop.LayoutMap;
@@ -40,11 +40,11 @@ public class Reactive_POH_Behavior implements POH_Behavior, Runnable{
 		
 		try {
 			
-			PrintWriter writer = new PrintWriter("data/INDIN2016POHlog"+ph.getId()+".txt", "UTF-8");
+			PrintWriter writer = new PrintWriter("data/INDIN2016POHlog"+ph.getId()+".log", "UTF-8");
 			writer.println("POH " +ph.getId() + " log:");
 			writer.close();
 
-			out = new FileWriter("data/INDIN2016POHlog"+ph.getId()+".txt", true);
+			out = new FileWriter("data/INDIN2016POHlog"+ph.getId()+".log", true);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -117,6 +117,7 @@ public class Reactive_POH_Behavior implements POH_Behavior, Runnable{
 						//prodTask=ph.planActions.get(taskID); //Get the Task
 						//prodTask.provider.roh.behavior.requestDefaultTransfer(pallet, planIterator.getState());
 						//break;
+						continue;
 					}
 					Integer taskID = Integer.parseInt(alternatives.get(i).label); // get the reference of the Task
 					prodTask=ph.getActionsPlan().get(taskID); //Get the Task
@@ -156,7 +157,7 @@ public class Reactive_POH_Behavior implements POH_Behavior, Runnable{
 							//pallet.actualPort=prodTask.service.getParameters()[1].getValue();
 							this.planState= planIterator.getStateID(); // update the planState of the POH
 				
-						}else { // If it was an MService
+						}else { // If it was an mservice
 							
 							// The plan was completed successfully for this step, re-plan and restart process
 							planIterator.executeTransition(String.valueOf(prodTask.id)); // evolve according to destination of service
@@ -174,7 +175,8 @@ public class Reactive_POH_Behavior implements POH_Behavior, Runnable{
 				
 			 } // End else
 			} catch (Exception e) {
-				System.out.println("Reactive POH Behavior Exception:"+e.getMessage());
+				//System.out.println("Reactive POH Behavior Exception:"+e.getMessage()); pls dont
+				e.printStackTrace(); //please and thank you
 			}
 		}
 }

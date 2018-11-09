@@ -1,7 +1,7 @@
 package OrdersManagement;
 
 import java.util.*;
-import MService.*;
+import mservice.*;
 import ProductManagement.ProductHolon;
 import ResourceManagement.*;
 import Crosscutting.*;
@@ -68,8 +68,6 @@ public abstract class ROH_Behavior{
 	 *  the task TIME if yes in milliseconds
 	 *  -1 if no time to execute but can negotiate
 	 *  -2 if no time to negotiate;
-	 * @param task
-	 * @param associatedRH
 	 * @return
 	 */
 	protected long haveTimeToDoIT(PathState prodTask, ROH roh) {

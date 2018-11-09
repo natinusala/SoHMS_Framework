@@ -55,7 +55,7 @@ public class LayoutMap{
 		this.initialStateName = initialStateName;
 	}
 	//Methods
-	public void loadLAyout(File f) {
+	public void loadLayout(File f) {
 		this.edges= new HashMap<String,State>();//Create the hashtable with the states
 		String textLine=null;
 		String[] splitLine;

@@ -1,14 +1,11 @@
 package Resources;
 import Crosscutting.PathState;
 import DirectoryFacilitator.DirectoryFacilitator;
-import MService.MServiceImplentation;
-import MService.MServiceSpecification;
-import MService.ProcessMethod;
+import mservice.MServiceSpecification;
 import OrdersManagement.ROH;
 import OrdersManagement.ROH_Behavior;
 import ProductManagement.ProductHolon;
 import ResourceManagement.ResourceHolon;
-import ResourceManagement.Task_RH;
 import ResourceManagement.Transporter;
 /**
  * This behavior represents a router  exchanging product among input and output ports.

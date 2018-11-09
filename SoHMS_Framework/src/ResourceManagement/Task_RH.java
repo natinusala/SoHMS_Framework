@@ -2,7 +2,7 @@ package ResourceManagement;
 
 import java.util.Date;
 
-import MService.MServiceSpecification;
+import mservice.MServiceSpecification;
 import ProductManagement.ProductHolon;
 
 public class Task_RH {
