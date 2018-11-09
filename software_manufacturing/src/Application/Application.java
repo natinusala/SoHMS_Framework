@@ -230,6 +230,8 @@ public class Application {
                 System.out.println("        - " + service);
             }
         }
+
+        //TODO Init products?
     }
 
     private static void initOrders(ScenarioModel scenario)
@@ -240,7 +242,7 @@ public class Application {
         {
             System.out.println("    - Order #" + orderModel.id + " -> Product #" + orderModel.product + " x" + orderModel.numOfUnits);
 
-            ProductionProcess process = null; //TODO Initialize / implement this ?
+            ProductionProcess process = null; //TODO Initialize / implement this?
 
             ProductionOrder order = new ProductionOrder(
                     orderModel.numOfUnits,
