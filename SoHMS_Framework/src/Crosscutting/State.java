@@ -2,7 +2,7 @@ package Crosscutting;
 
 import java.util.ArrayList;
 
-import Workshop.LayoutMap;
+import Workshop.GraphLayoutMap;
 
 
 public class State{
@@ -23,7 +23,6 @@ public class State{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + getOuterType().hashCode();
 		result = prime * result + ((arcs == null) ? 0 : arcs.hashCode());
 		return result;
 	}
@@ -37,17 +36,11 @@ public class State{
 		if (getClass() != obj.getClass())
 			return false;
 		State other = (State) obj;
-		if (!getOuterType().equals(other.getOuterType()))
-			return false;
 		if (arcs == null) {
 			if (other.arcs != null)
 				return false;
 		} else if (!arcs.equals(other.arcs))
 			return false;
 		return true;
-	}
-
-	private LayoutMap getOuterType() {
-		return null;
 	}
 }

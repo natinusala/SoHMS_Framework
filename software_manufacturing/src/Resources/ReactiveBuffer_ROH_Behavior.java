@@ -69,7 +69,7 @@ public class ReactiveBuffer_ROH_Behavior extends ROH_Behavior {
 		rh.getRoh().setNumOfCurrentExecutions(rh.getRoh().getNumOfCurrentExecutions()-1);
 		System.out.println("++ "+client.getAssociatedResource()._RFID + " ReactiveBuffer_ROH_Behavior2 "+rh.getName()+" rh.roh.numOfCurrentExecutions="+rh.getRoh().getNumOfCurrentExecutions());
 			// Update new position of the Pallet ( confirmed by the SIL)
-			//client.associatedPallet.upDatePosition(finalPort); 
+			//client.associatedPallet.updatePosition(finalPort);
 		return prodTask.service;
 	}
 

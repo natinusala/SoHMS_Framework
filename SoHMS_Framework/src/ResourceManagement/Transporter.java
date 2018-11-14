@@ -15,7 +15,7 @@ public class Transporter {
 	
 	public String lastPort;
 	public String nextPort;
-	public String actualPort;
+	public String actualPort = "SOURCE"; //TODO Un-hardcode this
 	public TransporterState portStatus;
 	public ProductHolon associatedPH;
 	public PalletDefaultBehaviour defaultBehavior;
@@ -55,8 +55,7 @@ public boolean equals(Object obj) {
 	return true;
 }
 //-------------------------------------------------------------
-public synchronized void upDatePosition(String port) {
-	
+public synchronized void updatePosition(String port) {
 	this.actualPort= port;
 	this.nextPort=null;
 	this.lastPort= null;

@@ -97,7 +97,7 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 							// Update new position of the Pallet 
 					 		 String finalPort =prodTask.service.getParameterByName("FinalPort").getValue();
 					 		 System.out.println("Simple_ROH_Behavior "+client.getAssociatedResource());
-					 		 client.getAssociatedResource().upDatePosition(finalPort); //associatedResource
+					 		 client.getAssociatedResource().updatePosition(finalPort); //associatedResource
 					 	}
 
 				return prodTask.service;

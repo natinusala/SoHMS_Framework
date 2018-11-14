@@ -7,13 +7,14 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import Crosscutting.*;
 import DirectoryFacilitator.DirectoryFacilitator;
+import Workshop.GraphLayoutMap;
+import Workshop.LayoutMap;
+import Workshop.SimpleLayoutMap;
 import mservice.MService;
 import mservice.MServiceSpecification;
 import OrdersManagement.OrderManager;
 import ResourceManagement.ResourceHolon;
 import ResourceManagement.Transporter;
-import Workshop.LayoutMap;
- 
 
 
 public  class ProductHolon{
@@ -37,7 +38,7 @@ public  class ProductHolon{
 	public ProductHolon(){
 		this.id= (phCount % phListSize) +1;
 		phCount=this.id;
-		productionPlan= new LayoutMap();
+		productionPlan= new SimpleLayoutMap();
 		actionsPlan= new ConcurrentHashMap<>(); //A terminer
 	}
 	public ProductHolon(OrderManager orderManager, ProductionProcess recipe){

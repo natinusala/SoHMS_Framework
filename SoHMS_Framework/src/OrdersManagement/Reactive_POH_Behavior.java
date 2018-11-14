@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import Crosscutting.AutomatIterator;
 import Crosscutting.PathState;
 import Crosscutting.Transition;
+import Workshop.LayoutMap;
 import mservice.MServiceSpecification;
 import ProductManagement.ProductHolon;
 import ResourceManagement.Transporter;
-import Workshop.LayoutMap;
 
 /**
  * Class with the function run that executes Production plans of a PH
@@ -153,7 +153,7 @@ public class Reactive_POH_Behavior implements POH_Behavior, Runnable{
 							
 					 		 //System.out.println("** "+"Reactive_POH_Behavior Transport "+pallet);
 
-							//pallet.upDatePosition(prodTask.service.getParameters()[1].getValue());
+							//pallet.updatePosition(prodTask.service.getParameters()[1].getValue());
 							//pallet.actualPort=prodTask.service.getParameters()[1].getValue();
 							this.planState= planIterator.getStateID(); // update the planState of the POH
 				
@@ -164,7 +164,7 @@ public class Reactive_POH_Behavior implements POH_Behavior, Runnable{
 							this.planState= planIterator.getStateID(); // update the planState of the POH
 							if(!ph.getRecipe().isTerminated()) this.associatedPOH.associatedPH.getRecipe().evolve(result); // Advance the recipe iterator
 					 		 //System.out.println("** "+"Reactive_POH_Behavior NotTransport "+pallet);
-					 		 pallet.upDatePosition(prodTask.outputPort);
+					 		 pallet.updatePosition(prodTask.outputPort);
 							//pallet.actualPort=prodTask.outputPort;
 							break;// finishes and goes back
 						}

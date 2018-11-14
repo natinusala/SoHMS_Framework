@@ -10,7 +10,7 @@ import mservice.MServiceImplentation;
 import mservice.MServiceSpecification;
 import ResourceManagement.ResourceHolon;
 import ResourceManagement.Transporter;
-import Workshop.LayoutMap;
+import Workshop.GraphLayoutMap;
 import Crosscutting.*;
 import Crosscutting.TerminalSequence;
 
@@ -23,7 +23,7 @@ public class DirectoryFacilitator{
 	protected static Hashtable<MService,ArrayList<ResourceHolon>> rsDirectory;
 	//share the set of resources
 	protected static ArrayList<ResourceHolon> resourcesDirectory;
-	protected static LayoutMap workShopMap; 
+	protected static GraphLayoutMap workShopMap;
 	protected static ConcurrentHashMap<FromTo, HashSet<TerminalSequence>> exploredRoutes = new ConcurrentHashMap<FromTo, HashSet<TerminalSequence>>();  // (specific) Serves to register the connexions among ports that have been explored to fasten computation
 
 	//Getters and Setters
@@ -42,10 +42,10 @@ public class DirectoryFacilitator{
 	public void setExploredRoutes(ConcurrentHashMap<FromTo, HashSet<TerminalSequence>> exploredRoutes) {
 		this.exploredRoutes = exploredRoutes;
 	}
-	public static LayoutMap getWorkShopMap() {
+	public static GraphLayoutMap getWorkShopMap() {
 		return workShopMap;
 	}
-	public void setWorkShopMap(LayoutMap workShopMap) {
+	public void setWorkShopMap(GraphLayoutMap workShopMap) {
 		this.workShopMap = workShopMap;
 	}
 	

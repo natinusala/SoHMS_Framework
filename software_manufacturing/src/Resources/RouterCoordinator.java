@@ -118,7 +118,7 @@ public class RouterCoordinator extends Thread{
 																			
 							// Update new position of the Pallet ( confirmed by the SIL)
 						 //System.out.println("-- RouterCoordinator "+rh.getName()+"  "+client.associatedPallet);
-						 client.getAssociatedResource().upDatePosition(finalPort); 
+						 client.getAssociatedResource().updatePosition(finalPort);
 						 //System.out.println("-- RouterCoordinator "+rh.getName()+"  getsecond true service notify");
 						
 						request.getFirst().service.notify(); // notify product thread that it is finished

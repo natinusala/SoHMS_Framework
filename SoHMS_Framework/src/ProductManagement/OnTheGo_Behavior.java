@@ -1,6 +1,5 @@
 package ProductManagement;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -8,11 +7,12 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import Crosscutting.*;
 import DirectoryFacilitator.DirectoryFacilitator;
+import Workshop.GraphLayoutMap;
+import Workshop.LayoutMap;
+import Workshop.SimpleLayoutMap;
 import mservice.*;
 import OrdersManagement.*;
 import ResourceManagement.*;
-import Workshop.LayoutMap;
-
 
 
 /**
@@ -75,7 +75,7 @@ public class OnTheGo_Behavior implements PH_Behavior_Planner, Runnable {
 	@Override
 	public void setNewPlan(String actualPort, int stateID,MService ServiceType, DirectoryFacilitator df) {
 		// Reset plans to zero
-		LayoutMap map = new LayoutMap();
+		LayoutMap map = new SimpleLayoutMap();
 	    this.ph.setProductionPlan(map);
 		this.ph.setActionsPlan(new ConcurrentHashMap<Integer, PathState>());
     	//Get PathArcs to all possible Alternatives
@@ -102,7 +102,7 @@ public class OnTheGo_Behavior implements PH_Behavior_Planner, Runnable {
 	@Override
 	public void setDispatchPlan(String actualPort, int stateID, MService dispatchServ_Type, DirectoryFacilitator df) {
 		// Reset plans to zero
-		this.ph.setProductionPlan(new LayoutMap());
+		this.ph.setProductionPlan(new SimpleLayoutMap());
 		this.ph.setActionsPlan(new ConcurrentHashMap<Integer, PathState>());
 
 		MServiceSpecification dispatchService = new MServiceSpecification(dispatchServ_Type);

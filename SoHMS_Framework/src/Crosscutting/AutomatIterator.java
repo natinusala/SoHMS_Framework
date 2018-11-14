@@ -3,8 +3,7 @@ package Crosscutting;
 
 import java.util.ArrayList;
 
-import Crosscutting.Arc;
-import Crosscutting.Transition;
+import Workshop.GraphLayoutMap;
 import Workshop.LayoutMap;
 
 
@@ -28,8 +27,7 @@ public class AutomatIterator {
 	 * Returns an ArrayList with the transitions that can be executed parting for the State identified by the StateName
 	 */
 	public ArrayList<Transition> getNextTransitions() {
-		
-		ArrayList<Arc> arcs= auto
+		ArrayList<Arc> arcs = auto
 				.getEdges()
 				.get(stateID)
 				.arcs;
@@ -51,14 +49,14 @@ public class AutomatIterator {
 	}
 	//----------------------------------------------------------
 	/**
-	 * Returns true if sucessfully evolved the LayoutMap
+	 * Returns true if sucessfully evolved the GraphLayoutMap
 	 * returns false if transition does not exist
 	 * Exception if state not initialized
 	 */
 	public boolean executeTransition(String transitionLabel){
 		
 		if(stateID==null){
-			
+
 		}
 		ArrayList<Arc> arcs= auto.getEdges().get(stateID).arcs;
 		for (Arc arc : arcs) {
