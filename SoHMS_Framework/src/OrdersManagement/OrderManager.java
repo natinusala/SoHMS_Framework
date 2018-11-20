@@ -1,11 +1,8 @@
 package OrdersManagement;
 
 import Crosscutting.OutBoxSender;
-import DirectoryFacilitator.DirectoryFacilitator;
-import ProductManagement.OnTheGo_Behavior;
-import ProductManagement.PH_Behavior_Planner;
-import ProductManagement.ProductHolon;
-import ProductManagement.ProductionOrder;
+import ProductManagement.*;
+import directoryFacilitator.DirectoryFacilitator;
 import ResourceManagement.ResourceHolon;
 
 import java.util.ArrayList;
@@ -54,7 +51,7 @@ public class OrderManager {
 			//1--launchResource();
 			ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
 			//2-2 Associate a behavior to the PH.
-	        PH_Behavior_Planner exploreBehavior = new OnTheGo_Behavior(ph, resourceCloud);
+	        PH_Behavior_Planner exploreBehavior = new PH_Simple_Behavior();
 	        ph.setExploreBehavior(exploreBehavior);
 	    	//Launch its Production
 	        //2-3 launch PH

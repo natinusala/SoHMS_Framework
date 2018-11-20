@@ -5,7 +5,7 @@ import mservice.*;
 import ProductManagement.ProductHolon;
 import ResourceManagement.*;
 import Crosscutting.*;
-import DirectoryFacilitator.DirectoryFacilitator;
+import directoryFacilitator.DirectoryFacilitator;
 
 public abstract class ROH_Behavior{
 

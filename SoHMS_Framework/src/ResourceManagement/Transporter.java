@@ -1,6 +1,6 @@
 package ResourceManagement;
 
-import DirectoryFacilitator.DirectoryFacilitator;
+import directoryFacilitator.DirectoryFacilitator;
 import ProductManagement.ProductHolon;
 
 public class Transporter {

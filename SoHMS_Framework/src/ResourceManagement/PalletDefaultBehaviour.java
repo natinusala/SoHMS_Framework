@@ -2,7 +2,7 @@ package ResourceManagement;
 
 import java.util.HashSet;
 
-import DirectoryFacilitator.DirectoryFacilitator;
+import directoryFacilitator.DirectoryFacilitator;
 
 
 public class PalletDefaultBehaviour extends Thread {

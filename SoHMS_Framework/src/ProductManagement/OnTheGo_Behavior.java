@@ -6,8 +6,7 @@ import java.util.HashSet;
 import java.util.concurrent.ConcurrentHashMap;
 
 import Crosscutting.*;
-import DirectoryFacilitator.DirectoryFacilitator;
-import Workshop.GraphLayoutMap;
+import directoryFacilitator.DirectoryFacilitator;
 import Workshop.LayoutMap;
 import Workshop.SimpleLayoutMap;
 import mservice.*;
@@ -80,7 +79,7 @@ public class OnTheGo_Behavior implements PH_Behavior_Planner, Runnable {
 		this.ph.setActionsPlan(new ConcurrentHashMap<Integer, PathState>());
     	//Get PathArcs to all possible Alternatives
 		ArrayList<PathArc> nextStepProductionPlans= getNextPathArcs(ph.getRecipe(), stateID, actualPort); 
-		//Classify Results 
+		//Classify Results
 		Collections.sort(nextStepProductionPlans, new PathArcComparator());
 			//Print Sorted List	
 			for (PathArc pathArc : nextStepProductionPlans) {

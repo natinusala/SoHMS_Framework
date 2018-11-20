@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.ListIterator;
 
 import Crosscutting.PathState;
-import DirectoryFacilitator.DirectoryFacilitator;
+import directoryFacilitator.DirectoryFacilitator;
 import mservice.MServiceImplentation;
 import mservice.MServiceSpecification;
 import mservice.ProcessMethod;

@@ -1,7 +1,7 @@
 package ProductManagement;
 
 import OrdersManagement.POH;
-import DirectoryFacilitator.DirectoryFacilitator;
+import directoryFacilitator.DirectoryFacilitator;
 import mservice.MService;
 
 

@@ -1,8 +1,7 @@
 package Application;
 
 import Application.model.*;
-import Communication.ComFlexsim;
-import DirectoryFacilitator.DirectoryFacilitator;
+import directoryFacilitator.DirectoryFacilitator;
 import mservice.MService;
 import Ontology.ServiceOntology;
 import OrdersManagement.OrderManager;
@@ -149,7 +148,7 @@ public class Application {
                 if (service.parametersProfile != null) {
                     for (ParameterProfileModel parametersProfileModel : service.parametersProfile) {
                         //Parameters profile
-                        ArrayList<ProfileParameter> profileParameters = new ArrayList<ProfileParameter>();
+                        ArrayList<ProfileParameter> profileParameters = new ArrayList<>();
 
                         if (parametersProfileModel.profileParameters != null)
                         {
@@ -275,7 +274,7 @@ public class Application {
                     orderModel.priority,
                     orderModel.maxParallelUnits,
                     process,
-                    "" //Unused
+                    "" //Unused TODO Move that to framework
             );
 
             OrderManager manager = new OrderManager(order, null); //outBoxSender unused
@@ -303,6 +302,6 @@ public class Application {
 
         //ComFlexsim comFlexsim = new ComFlexsim(); //TODO this
 
-        orderManagerDict.get("1").launchOrder(df, resourceCloud);
+        orderManagerDict.get("1").launchOrder(df, resourceCloud); //TODO Launch all orders at once
     }
 }

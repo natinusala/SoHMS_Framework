@@ -1,6 +1,6 @@
 package Resources;
 import Crosscutting.PathState;
-import DirectoryFacilitator.DirectoryFacilitator;
+import directoryFacilitator.DirectoryFacilitator;
 import mservice.MServiceSpecification;
 import OrdersManagement.ROH;
 import OrdersManagement.ROH_Behavior;

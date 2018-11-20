@@ -6,8 +6,7 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 
 import Crosscutting.*;
-import DirectoryFacilitator.DirectoryFacilitator;
-import Workshop.GraphLayoutMap;
+import directoryFacilitator.DirectoryFacilitator;
 import Workshop.LayoutMap;
 import Workshop.SimpleLayoutMap;
 import mservice.MService;
@@ -55,7 +54,7 @@ public  class ProductHolon{
 		phExploreThread.start();
 	}
 	
-	/*public void associateResourceToPH(DirectoryFacilitator df) {
+	/*public void associateResourceToPH(directoryFacilitator df) {
 		//
 		// * Selectioner la premire resource que arrive au port initial et qui est libre
 		// * Returns an associated Ressource to the PH.

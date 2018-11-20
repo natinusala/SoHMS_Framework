@@ -2015,7 +2015,7 @@
 			"id": 1,
 			"numOfUnits": 5,
 			"Priority": "NORMAL_PRIORITY",
-			"MaxParallelUnits": 2
+			"MaxParallelUnits": 1
 		}
 	],
 	"Products": [

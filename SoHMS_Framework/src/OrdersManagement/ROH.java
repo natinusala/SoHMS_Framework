@@ -1,7 +1,7 @@
 package OrdersManagement;
 
 import Crosscutting.PathState;
-import DirectoryFacilitator.DirectoryFacilitator;
+import directoryFacilitator.DirectoryFacilitator;
 import mservice.MServiceSpecification;
 import ProductManagement.ProductHolon;
 import ResourceManagement.ResourceHolon;
