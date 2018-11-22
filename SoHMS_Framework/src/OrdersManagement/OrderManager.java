@@ -51,7 +51,7 @@ public class OrderManager {
 			//1--launchResource();
 			ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
 			//2-2 Associate a behavior to the PH.
-	        PH_Behavior_Planner exploreBehavior = new PH_Simple_Behavior();
+	        PH_Behavior_Planner exploreBehavior = new PH_Simple_Behavior(ph);
 	        ph.setExploreBehavior(exploreBehavior);
 	    	//Launch its Production
 	        //2-3 launch PH
@@ -61,11 +61,13 @@ public class OrderManager {
 				activePHs.add(ph); 
 			}
 		}
+
+		/*
 		// 2-5 Once Finished  Send a notification
 		if(finishedPHs.size()>= order.getNumOfUnits()){
 			//Send back confirmation
 			System.out.println("Notification de la fin d'éxecution de l'ordre");
-		}
+		}*/
 
 			
 	}
