@@ -39,5 +39,7 @@ public class PH_Simple_Behavior implements PH_Behavior_Planner {
             Thread.yield(); // wait until the transporter has been located in the System.
         }
         System.out.println("[PH] Transporter found!");
+
+
     }
 }

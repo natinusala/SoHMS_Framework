@@ -158,6 +158,7 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
         if (nextService == null)
         {
             System.out.println("[ROH] TODO No next service - product is finished");
+            return;
         }
         else
         {
@@ -168,13 +169,24 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 
         HashSet<Pair<ResourceHolon, Double>> providers = df.getProviders(nextService);
 
+        ResourceHolon rh = null;
+
         System.out.println("[ROH] " + providers.size() + " resources returned");
         System.out.println("[ROH] List of resources implementing S" + + nextService.getId());
         for (Pair<ResourceHolon, Double> pair : providers)
         {
-            ResourceHolon rh = pair.getFirst();
+            rh = pair.getFirst();
             System.out.println("    - " + rh.getName());
         }
+
+        if (rh == null)
+        {
+            System.out.println("[ROH] No resource can do S" + nextService.getId() + ", what ?");
+            return;
+        }
+
+
+
 	}
 }
 
