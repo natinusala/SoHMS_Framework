@@ -62,6 +62,7 @@ public class ProductionProcessImpl implements ProductionProcess {
 
     @Override
     public ProductionProcess clone() {
+        System.out.println("[PP] Cloning");
         ProductionProcessImpl p = new ProductionProcessImpl((ArrayList<MServiceSpecification>) services.clone());
         p.setState(state);
         return p;

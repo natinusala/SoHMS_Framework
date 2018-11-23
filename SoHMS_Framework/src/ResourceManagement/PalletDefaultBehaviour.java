@@ -30,6 +30,9 @@ public class PalletDefaultBehaviour extends Thread {
 	// METHODS
 	@Override
 	public void run() {
+    	if (true) //TODO Bring the transporter back to life
+    		return;
+
 		while(pallet!= null){  // condition to eliminate thread
 			//Take charge of Pallet trajectory
 			while(pallet.associatedPH==null){

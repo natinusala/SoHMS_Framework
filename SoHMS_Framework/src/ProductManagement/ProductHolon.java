@@ -41,8 +41,8 @@ public  class ProductHolon{
 		actionsPlan= new ConcurrentHashMap<>(); //A terminer
 	}
 	public ProductHolon(OrderManager orderManager, ProductionProcess recipe){
-		this.ordermanager= orderManager;
-		this.recipe= recipe;
+		this.ordermanager = orderManager;
+		this.recipe = recipe;
 	}
 
 	//methods

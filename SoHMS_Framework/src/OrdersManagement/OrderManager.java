@@ -39,8 +39,9 @@ public class OrderManager {
 		activePHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
 	}
 
-	public void  launchOrder(DirectoryFacilitator df, ArrayList<ResourceHolon> resourceCloud) {
+	public void launchOrder(DirectoryFacilitator df, ArrayList<ResourceHolon> resourceCloud) {
 		//PH
+		System.out.println("[OH] Launching order " + getOrderManagerName());
 		ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
 		PH_Behavior_Planner exploreBehavior = new PH_Simple_Behavior(ph);
 		ph.setExploreBehavior(exploreBehavior);
@@ -69,6 +70,8 @@ public class OrderManager {
 			rohs.add(roh);
 			pohs.add(poh);
 		}
+
+		System.out.println("[OH] Order finished " + getOrderManagerName());
 	}
 	
 	//a method that launchs the execution of an order. each order is a psecific to targer domain

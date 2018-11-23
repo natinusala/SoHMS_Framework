@@ -277,7 +277,7 @@ public class Application {
                     "" //Unused TODO Move that to framework
             );
 
-            OrderManager manager = new OrderManager(order, null); //outBoxSender unused
+            OrderManager manager = new OrderManager(order, null);
 
             orderManagerDict.put(Integer.toString(orderModel.id), manager);
         }
@@ -296,11 +296,13 @@ public class Application {
 
         ScenarioModel scenario = gson.fromJson(readTextFile(SCENARIO_PATH), ScenarioModel.class);
 
-        System.out.println("Initialization...");
+        System.out.println("[APP] Initialization...");
 
         initializeSystems(scenario); //TODO Replace this by a ServerSocket to wait for the GUI?
 
         //ComFlexsim comFlexsim = new ComFlexsim(); //TODO this
+
+        System.out.println("[APP] Running system...");
 
         System.out.println("[DF] Initializing with " + resourceCloud.size() + " resources");
         df = new DirectoryFacilitator();
@@ -309,5 +311,7 @@ public class Application {
         df.generateServiceDirectory();
 
         orderManagerDict.get("1").launchOrder(df, resourceCloud); //TODO Launch all orders at once
+
+        System.out.println("[APP] Main thread exiting...");
     }
 }
