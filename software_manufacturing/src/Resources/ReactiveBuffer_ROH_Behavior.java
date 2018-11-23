@@ -98,8 +98,12 @@ public class ReactiveBuffer_ROH_Behavior extends ROH_Behavior {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
+
+	@Override
+	public void run() {
+		//TODO
+	}
 }
 		
 		

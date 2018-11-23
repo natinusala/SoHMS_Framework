@@ -5,6 +5,7 @@ import java.util.ListIterator;
 
 import Crosscutting.PathState;
 import directoryFacilitator.DirectoryFacilitator;
+import mservice.MService;
 import mservice.MServiceImplentation;
 import mservice.MServiceSpecification;
 import mservice.ProcessMethod;
@@ -24,8 +25,9 @@ import ResourceManagement.Transporter;
  *
  */
 public class Simple_ROH_Behavior extends ROH_Behavior {
-	
-	
+
+    public ROH associatedROH;
+    public DirectoryFacilitator df;
 
 //PUBLIC METHODS----------------------------------------------
 	@Override
@@ -144,8 +146,28 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
+	@Override
+	public void run() {
+		System.out.println("Simple ROH Behavior running...");
+
+        System.out.println("Asking POH for next service");
+        MServiceSpecification nextService = associatedROH.poh.getNextService();
+
+        if (nextService == null)
+        {
+            System.out.println("TODO No next service - product is finished");
+        }
+        else
+        {
+            System.out.println("POH answered me S" + nextService.getId());
+        }
+
+        System.out.println("Asking DF for resource");
+
+        
+
+	}
 }
 
 

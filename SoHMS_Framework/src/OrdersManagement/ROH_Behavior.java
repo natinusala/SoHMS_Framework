@@ -7,7 +7,7 @@ import ResourceManagement.*;
 import Crosscutting.*;
 import directoryFacilitator.DirectoryFacilitator;
 
-public abstract class ROH_Behavior{
+public abstract class ROH_Behavior implements Runnable {
 
 	//Attributes
 	protected ResourceHolon rh;

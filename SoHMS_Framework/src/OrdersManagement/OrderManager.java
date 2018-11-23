@@ -10,8 +10,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
- 
-  /* 
+
+  /*
    * A generic Order Manager that :
    *    1-launches the PH to treat the products.
    *    2-Registers the progress on the products production process.
@@ -24,7 +24,9 @@ public class OrderManager {
 	protected OutBoxSender outBoxSender;
 	protected Set<ProductHolon> finishedPHs;
 	protected Set<ProductHolon> activePHs;
-	
+	protected Set<ROH> rohs = new HashSet<>();
+	protected Set<POH> pohs = new HashSet<>();
+
 	//Constructors
 	public OrderManager() {
 		finishedPHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
@@ -36,9 +38,41 @@ public class OrderManager {
 		finishedPHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
 		activePHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
 	}
+
+	public void  launchOrder(DirectoryFacilitator df, ArrayList<ResourceHolon> resourceCloud) {
+		//PH
+		ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
+		PH_Behavior_Planner exploreBehavior = new PH_Simple_Behavior(ph);
+		ph.setExploreBehavior(exploreBehavior);
+		ph.launch(df);
+
+		//ROH & POH
+		for (int i = 0; i < this.order.getMaxParallelUnits(); i++)
+		{
+			//ROH
+			Simple_ROH_Behavior roh_behavior = new Simple_ROH_Behavior();
+			roh_behavior.df = df;
+			ROH roh = new ROH(null, roh_behavior);
+			roh_behavior.associatedROH = roh;
+
+			//POH
+			Simple_POH_Behavior poh_behavior = new Simple_POH_Behavior();
+			POH poh = new POH(ph, poh_behavior);
+			poh_behavior.associatedPOH = poh;
+
+			roh.setPOH(poh);
+			poh.setROH(roh);
+
+			roh.launch();
+			poh.launch();
+
+			rohs.add(roh);
+			pohs.add(poh);
+		}
+	}
 	
 	//a method that launchs the execution of an order. each order is a psecific to targer domain
-	public void  launchOrder(DirectoryFacilitator df, ArrayList<ResourceHolon> resourceCloud) {
+	/*public void  launchOrder(DirectoryFacilitator df, ArrayList<ResourceHolon> resourceCloud) {
 	  //1-Ask number of needed resources. (maximum unit specifié dans l'ordre !!!).
 		int resource_num = this.order.getMaxParallelUnits();
 		
@@ -67,12 +101,11 @@ public class OrderManager {
 		if(finishedPHs.size()>= order.getNumOfUnits()){
 			//Send back confirmation
 			System.out.println("Notification de la fin d'éxecution de l'ordre");
-		}*/
+		}
 
 			
-	}
-	
-	
+	}*/
+
     public synchronized void  phIsFinised(ProductHolon ph){	
     	//Add the PH to the finished PHs list.
 		finishedPHs.add(ph);

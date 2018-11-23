@@ -13,11 +13,18 @@ public class ROH {
 	protected ResourceHolon associatedRH;
 	protected long negociationTime;
 	protected int currentSetup;
-	protected ROH_Behavior  behavior;	
+	protected ROH_Behavior behavior;
 	protected Integer numOfCurrentExecutions;
 
+	protected POH poh;
+
+	public void setPOH(POH poh)
+	{
+		this.poh = poh;
+	}
+
 	//Constructors
-	public ROH() {};
+	public ROH() {}
 
 	public ROH(ResourceHolon rh, ROH_Behavior behavior ) {
 		this.associatedRH= rh;
@@ -28,6 +35,10 @@ public class ROH {
 		this.currentSetup= 1;				// initialize all RH with setup 1
 	}
 
+	public void launch()
+	{
+		new Thread(behavior).start();
+	}
 
 	//Methods
 	public  MServiceSpecification requestServiceExe(ProductHolon client,PathState prodTask, DirectoryFacilitator df) {

@@ -15,10 +15,13 @@ public class ProductionProcessImpl implements ProductionProcess {
     {
         this.services = s;
         state = 0;
+
+        System.out.println("ProductionProcessImpl initialized with " + s.size() + " services");
     }
 
     public void setState(int state)
     {
+        System.out.println("ProductionProcessImpl: Set state " + state);
         this.state = state;
     }
 
@@ -29,7 +32,9 @@ public class ProductionProcessImpl implements ProductionProcess {
 
     @Override
     public ArrayList<MServiceSpecification> getAlternatives() {
-        return services;
+        ArrayList<MServiceSpecification> list = new ArrayList();
+        list.add(services.get(state));
+        return list;
     }
 
     @Override
