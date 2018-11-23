@@ -150,26 +150,26 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 
 	@Override
 	public void run() {
-		System.out.println("Simple ROH Behavior running...");
+		System.out.println("[ROH] Simple ROH Behavior running...");
 
-        System.out.println("Asking POH for next service");
+        System.out.println("[ROH] Asking POH for next service");
         MServiceSpecification nextService = associatedROH.poh.getNextService();
 
         if (nextService == null)
         {
-            System.out.println("TODO No next service - product is finished");
+            System.out.println("[ROH] TODO No next service - product is finished");
         }
         else
         {
-            System.out.println("POH answered me S" + nextService.getId());
+            System.out.println("[ROH] POH answered me S" + nextService.getId());
         }
 
-        System.out.println("Asking DF for resource");
+        System.out.println("[ROH] Asking DF for resource");
 
         HashSet<Pair<ResourceHolon, Double>> providers = df.getProviders(nextService);
 
-        System.out.println(providers.size() + " resources returned");
-        System.out.println("List of resources implementing S" + + nextService.getId());
+        System.out.println("[ROH] " + providers.size() + " resources returned");
+        System.out.println("[ROH] List of resources implementing S" + + nextService.getId());
         for (Pair<ResourceHolon, Double> pair : providers)
         {
             ResourceHolon rh = pair.getFirst();

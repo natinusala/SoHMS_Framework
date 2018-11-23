@@ -302,10 +302,10 @@ public class Application {
 
         //ComFlexsim comFlexsim = new ComFlexsim(); //TODO this
 
-        System.out.println("Initializing DF with " + resourceCloud.size() + " resources");
+        System.out.println("[DF] Initializing with " + resourceCloud.size() + " resources");
         df = new DirectoryFacilitator();
         df.setResourcesDirectory(resourceCloud);
-        System.out.println("All " + resourceCloud.size() + " resources registered");
+        System.out.println("[DF] All " + resourceCloud.size() + " resources registered");
         df.generateServiceDirectory();
 
         orderManagerDict.get("1").launchOrder(df, resourceCloud); //TODO Launch all orders at once

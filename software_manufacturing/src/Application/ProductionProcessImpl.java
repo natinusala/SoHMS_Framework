@@ -16,12 +16,12 @@ public class ProductionProcessImpl implements ProductionProcess {
         this.services = s;
         state = 0;
 
-        System.out.println("ProductionProcessImpl initialized with " + s.size() + " services");
+        System.out.println("[PP] New ProductionProcess initialized with " + s.size() + " services");
     }
 
     public void setState(int state)
     {
-        System.out.println("ProductionProcessImpl: Set state " + state);
+        System.out.println("[PP] ProductionProcess: Set state " + state);
         this.state = state;
     }
 

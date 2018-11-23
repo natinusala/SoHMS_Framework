@@ -25,6 +25,6 @@ public class Simple_POH_Behavior implements POH_Behavior, Runnable{
 
     @Override
     public void run() {
-        System.out.println("Simple POH Behavior running...");
+        System.out.println("[POH] Simple POH Behavior running...");
     }
 }

@@ -34,10 +34,10 @@ public class PH_Simple_Behavior implements PH_Behavior_Planner {
 
     @Override
     public void run() {
-        System.out.println("PH_Simple_Behavior running...");
+        System.out.println("[PH] PH_Simple_Behavior running...");
         while(ph.getAssociatedResource().getPortStatus() == Transporter.TransporterState.UNKNOWN){
             Thread.yield(); // wait until the transporter has been located in the System.
         }
-        System.out.println("Transporter found!");
+        System.out.println("[PH] Transporter found!");
     }
 }
