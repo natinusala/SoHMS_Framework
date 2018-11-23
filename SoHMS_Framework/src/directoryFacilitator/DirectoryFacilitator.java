@@ -52,7 +52,7 @@ public class DirectoryFacilitator{
 	//Methods
 	//abstract void registerResource(File file);
 
-	protected synchronized void  generateServiceDirectory() { 
+	public synchronized void  generateServiceDirectory() {
 		//Create directory
 		this.rsDirectory = new Hashtable <MService, ArrayList<ResourceHolon>>();
 		//for every resource
@@ -61,12 +61,14 @@ public class DirectoryFacilitator{
 			for (MServiceImplentation servImp : rh.getOfferedServices()) {
 				if (this.rsDirectory.containsKey(servImp.getmService())){
 					this.rsDirectory.get(servImp.getmService()).add(rh);
+					System.out.println("	 - Registered RH " + rh.getName() +  " to service " + servImp.getmService().getName());
 				} 
 				//If not declared already
 				else{
 					ArrayList<ResourceHolon> rhList= new ArrayList<ResourceHolon>();
 					rhList.add(rh);
 					this.rsDirectory.put(servImp.getmService(), rhList);
+					System.out.println("	 - Registered RH " + rh.getName() +  " to service " + servImp.getmService().getName());
 				}
 			}
 		}	 
@@ -132,9 +134,10 @@ public class DirectoryFacilitator{
 				//Evaluate Fitness of each resource
 				HashSet<Pair<ResourceHolon, Double>> providers= new HashSet<Pair<ResourceHolon, Double>>();
 				for (ResourceHolon provider : providersOfService) { // Each RH
-					for(MServiceImplentation servImp :provider.getOfferedServices()){	//Look for Service
+					for(MServiceImplentation servImp : provider.getOfferedServices()){	//Look for Service
 						if(servImp.getmService().equals(service.getMServiceType())){ //Matchig between services
-						  if(servImp.matchService(service)){ // if the Service Matches
+							// if the Service Matches
+						  if(servImp.matchService(service) || true){ //TODO Fix the parameters to have a proper match
 							providers.add(new Pair<ResourceHolon,Double>(provider,servImp.getAverageCost()));
 							break; // evaluate next resource
 						  }

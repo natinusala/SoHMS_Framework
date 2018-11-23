@@ -3,6 +3,7 @@ package OrdersManagement;
 import java.util.HashSet;
 import java.util.ListIterator;
 
+import Crosscutting.Pair;
 import Crosscutting.PathState;
 import directoryFacilitator.DirectoryFacilitator;
 import mservice.MService;
@@ -165,8 +166,15 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 
         System.out.println("Asking DF for resource");
 
-        
+        HashSet<Pair<ResourceHolon, Double>> providers = df.getProviders(nextService);
 
+        System.out.println(providers.size() + " resources returned");
+        System.out.println("List of resources implementing S" + + nextService.getId());
+        for (Pair<ResourceHolon, Double> pair : providers)
+        {
+            ResourceHolon rh = pair.getFirst();
+            System.out.println("    - " + rh.getName());
+        }
 	}
 }
 
