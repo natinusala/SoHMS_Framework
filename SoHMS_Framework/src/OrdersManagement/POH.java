@@ -13,7 +13,14 @@ public class POH{
 
 	//Attributes
 	public POH_Behavior behavior;
-	public ProductHolon associatedPH ;
+	public ProductHolon associatedPH;
+
+	public String productPosition = "SOURCE";
+
+	public void setProductPosition(String productPosition)
+	{
+		this.productPosition = productPosition;
+	}
 
 	protected ROH roh;
 
@@ -41,7 +48,7 @@ public class POH{
 		new Thread(behavior).start();
 	}
 
-	public MServiceSpecification getNextService()
+	public synchronized MServiceSpecification getNextService()
 	{
 		ArrayList<MServiceSpecification> alternatives = services.getAlternatives();
 		return alternatives.size() > 0 ? alternatives.get(0) : null; //Return the first service to do next

@@ -22,6 +22,29 @@ public class ResourceHolon extends Resource{
 	protected ConcurrentHashMap<String,LinkedList<Task_RH>> portSchedules;
 	protected RH_SIL sil;
 
+	private String position;
+
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
+	private boolean available = true;
+
+	public synchronized boolean takeAvailability()
+	{
+		if (available)
+		{
+			available = false;
+			return true;
+		}
+		else
+			return false;
+	}
+
     
 	//Constructors
  	public ResourceHolon(){

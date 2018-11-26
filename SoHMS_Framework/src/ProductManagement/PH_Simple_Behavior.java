@@ -1,5 +1,7 @@
 package ProductManagement;
 
+import OrdersManagement.ROH;
+import OrdersManagement.ThreadCommunicationChannel;
 import ResourceManagement.ResourceHolon;
 import ResourceManagement.Transporter;
 import directoryFacilitator.DirectoryFacilitator;
@@ -7,6 +9,7 @@ import OrdersManagement.POH;
 import mservice.MService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PH_Simple_Behavior implements PH_Behavior_Planner {
 

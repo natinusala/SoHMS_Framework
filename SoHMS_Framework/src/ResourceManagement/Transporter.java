@@ -1,9 +1,50 @@
 package ResourceManagement;
 
+import Crosscutting.Pair;
+import OrdersManagement.ComInterface;
+import OrdersManagement.ThreadCommunicationChannel;
 import directoryFacilitator.DirectoryFacilitator;
 import ProductManagement.ProductHolon;
 
-public class Transporter {
+public class Transporter extends Thread {
+
+	@Override
+	public void run() {
+		while (true)
+		{
+			try
+			{
+				if (toFlexsim == null)
+				{
+					Thread.sleep(100);
+					return;
+				}
+
+				ThreadCommunicationChannel.Message message = toFlexsim.readA();
+				if (message != null)
+				{
+					switch (message.getType())
+					{
+						case FLEXSIM_END:
+							System.out.println("[TR] Finished moving");
+							this.portStatus = TransporterState.IDLE;
+							break;
+						default:
+							System.out.println("[TR] Got unknown message " + message.toString());
+							break;
+					}
+				}
+
+				Thread.sleep(100);
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+				System.out.println("[TR] Oh no");
+			}
+
+		}
+	}
 
 	public enum TransporterState
 	{
@@ -19,18 +60,39 @@ public class Transporter {
 	public TransporterState portStatus;
 	public ProductHolon associatedPH;
 	public PalletDefaultBehaviour defaultBehavior;
-	public int _RFID; 
-	
-	public Transporter(){
-	//Associate a  Default behavior to the pallet 
-		defaultBehavior = new PalletDefaultBehaviour(this);
-		defaultBehavior.start();
+	public int _RFID;
+
+	ThreadCommunicationChannel toFlexsim; //We are A
+
+	public boolean move(String from, String to)
+	{
+		if (portStatus != TransporterState.IDLE)
+			return false;
+
+		Pair<String, String> data = new Pair<>(from, to);
+
+		toFlexsim.sendToB(new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.FLEXSIM_MOVE, data));
+
+		this.portStatus = TransporterState.INTRANSIT;
+
+		System.out.println("[TR] Moving...");
+
+		return true;
 	}
-	public Transporter(TransporterState portStatus,ProductHolon associatedPH, int _RFID) {
-		this();
+	
+	public Transporter(ComInterface comInterface){
+	//Associate a  Default behavior to the pallet
+		this.toFlexsim = comInterface.requestChannel();
+		/*defaultBehavior = new PalletDefaultBehaviour(this);
+		defaultBehavior.start();*/
+		start();
+	}
+	public Transporter(ComInterface comInterface, TransporterState portStatus,ProductHolon associatedPH, int _RFID) {
+		this.toFlexsim = comInterface.requestChannel();
 		this.portStatus = portStatus;
 		this.associatedPH = associatedPH;
 		this._RFID = _RFID;
+		start();
 	}
 
 @Override
@@ -140,7 +202,7 @@ public synchronized void updatePosition(String port) {
 		public void setActualPort(String actualPort) {
 			this.actualPort = actualPort;
 		}
-		public TransporterState getPortStatus() {
+		public synchronized TransporterState getPortStatus() {
 			return portStatus;
 		}
 		public void setPortStatus(TransporterState portStatus) {

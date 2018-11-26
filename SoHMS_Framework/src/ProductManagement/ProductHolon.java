@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 
 import Crosscutting.*;
+import OrdersManagement.ComInterface;
 import directoryFacilitator.DirectoryFacilitator;
 import Workshop.LayoutMap;
 import Workshop.SimpleLayoutMap;
@@ -31,16 +32,18 @@ public  class ProductHolon{
 	private ConcurrentHashMap<Integer,PathState> actionsPlan;
 	private MService actualMservice;
 
-	private Transporter transporter = new Transporter(Transporter.TransporterState.IDLE, this, 0);;
+	private Transporter transporter;
 
 	//Constructor
-	public ProductHolon(){
+	public ProductHolon(ComInterface comInterface){
+		transporter = new Transporter(comInterface, Transporter.TransporterState.IDLE, this, 0);
 		this.id= (phCount % phListSize) +1;
 		phCount=this.id;
 		productionPlan= new SimpleLayoutMap();
 		actionsPlan= new ConcurrentHashMap<>(); //A terminer
 	}
 	public ProductHolon(OrderManager orderManager, ProductionProcess recipe){
+		transporter = new Transporter(orderManager.comInterface, Transporter.TransporterState.IDLE, this, 0);
 		this.ordermanager = orderManager;
 		this.recipe = recipe;
 	}

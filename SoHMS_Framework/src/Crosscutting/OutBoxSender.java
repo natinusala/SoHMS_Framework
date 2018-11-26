@@ -9,7 +9,7 @@ public class OutBoxSender extends Thread {
 
 	//ATTRIBUTS-------------------------------
 		public List<String> outBoxBuffer = Collections.synchronizedList(new ArrayList<String>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
-		private Boolean connexion ;
+		private Boolean connexion;
 		private PrintWriter output;
 		public boolean init= false;
 		

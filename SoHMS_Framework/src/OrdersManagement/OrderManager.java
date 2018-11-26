@@ -5,19 +5,16 @@ import ProductManagement.*;
 import directoryFacilitator.DirectoryFacilitator;
 import ResourceManagement.ResourceHolon;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 
-  /*
+/*
    * A generic Order Manager that :
    *    1-launches the PH to treat the products.
    *    2-Registers the progress on the products production process.
    */
 
-public class OrderManager {
+public class OrderManager extends Thread {
 	
 	//Attributes
 	protected ProductionOrder order;
@@ -39,6 +36,9 @@ public class OrderManager {
 		activePHs = Collections.synchronizedSet(new HashSet<ProductHolon>()); // Synchronizes the acces to  this ArrayList. Must synchronize if iterated
 	}
 
+	public HashMap<ROH, ThreadCommunicationChannel> toRohCommunicationChannel = new HashMap<>(); // we are B
+	public ComInterface comInterface;
+
 	public void launchOrder(DirectoryFacilitator df, ArrayList<ResourceHolon> resourceCloud) {
 		//PH
 		System.out.println("[OH] Launching order " + getOrderManagerName());
@@ -50,11 +50,16 @@ public class OrderManager {
 		//ROH & POH
 		for (int i = 0; i < this.order.getMaxParallelUnits(); i++)
 		{
+			ThreadCommunicationChannel channel = new ThreadCommunicationChannel();
+
 			//ROH
 			Simple_ROH_Behavior roh_behavior = new Simple_ROH_Behavior();
 			roh_behavior.df = df;
+			roh_behavior.toOhCommunicationChannel = channel;
+
 			ROH roh = new ROH(null, roh_behavior);
 			roh_behavior.associatedROH = roh;
+			toRohCommunicationChannel.put(roh, channel);
 
 			//POH
 			Simple_POH_Behavior poh_behavior = new Simple_POH_Behavior();
@@ -71,9 +76,75 @@ public class OrderManager {
 			pohs.add(poh);
 		}
 
+		//Start our thread
+		this.start();
+
 		System.out.println("[OH] Order finished " + getOrderManagerName());
 	}
-	
+
+	private void processRohMessage(ROH roh, ThreadCommunicationChannel.Message message)
+	{
+		if (message == null)
+			return;
+
+		System.out.println("[OH] Got message " + message.toString() + " from ROH");
+
+		switch(message.getType())
+		{
+			case START_NEGOCIATION:
+				ArrayList<ResourceHolon> resourceHolons = (ArrayList<ResourceHolon>) message.getData();
+
+				System.out.println("[OH] Starting negociation");
+
+				ResourceHolon neo = null;
+
+				while (neo == null)
+				{
+					for (ResourceHolon rh : resourceHolons)
+					{
+						if (rh.takeAvailability())
+						{
+							neo = rh;
+							break;
+						}
+					}
+
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+
+
+				ThreadCommunicationChannel.Message answer
+						= new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.NEGOCIATION_FINISHED, neo);
+				toRohCommunicationChannel.get(roh).sendToA(answer);
+				break;
+			default:
+				System.out.println("[OH] Got unknown message " + message.getType());
+				break;
+		}
+	}
+
+	@Override
+	public void run()
+	{
+		while (true)
+		{
+			for (ROH roh : toRohCommunicationChannel.keySet())
+			{
+				processRohMessage(roh, toRohCommunicationChannel.get(roh).readB());
+			}
+
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	//a method that launchs the execution of an order. each order is a psecific to targer domain
 	/*public void  launchOrder(DirectoryFacilitator df, ArrayList<ResourceHolon> resourceCloud) {
 	  //1-Ask number of needed resources. (maximum unit specifié dans l'ordre !!!).

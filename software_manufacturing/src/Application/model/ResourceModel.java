@@ -10,6 +10,7 @@ public class ResourceModel {
     public String category;
     public String description;
     public String technology;
+    public String position;
 
     public List<PortModel> inputPorts;
     public List<PortModel> outputPorts;

@@ -1,6 +1,8 @@
 package Application;
 
 import Application.model.*;
+import Communication.ComFlexsim;
+import OrdersManagement.ComInterface;
 import directoryFacilitator.DirectoryFacilitator;
 import mservice.MService;
 import Ontology.ServiceOntology;
@@ -27,6 +29,8 @@ public class Application {
     public static DirectoryFacilitator df;
     public static ArrayList<MService> mServices = new ArrayList<>();
     public static ArrayList<ResourceHolon> resourceCloud = new ArrayList<>();
+
+    private static ComInterface comFlexsim;
 
     @SuppressWarnings("SameParameterValue")
     private static String readTextFile(String file) {
@@ -212,6 +216,7 @@ public class Application {
                     outputs,
                     offeredServices
             );
+            rh.setPosition(resource.position);
             resourceCloud.add(rh);
         }
     }
@@ -278,6 +283,7 @@ public class Application {
             );
 
             OrderManager manager = new OrderManager(order, null);
+            manager.comInterface = comFlexsim;
 
             orderManagerDict.put(Integer.toString(orderModel.id), manager);
         }
@@ -296,11 +302,10 @@ public class Application {
 
         ScenarioModel scenario = gson.fromJson(readTextFile(SCENARIO_PATH), ScenarioModel.class);
 
+        comFlexsim = new ComFlexsim();
+
         System.out.println("[APP] Initialization...");
-
         initializeSystems(scenario); //TODO Replace this by a ServerSocket to wait for the GUI?
-
-        //ComFlexsim comFlexsim = new ComFlexsim(); //TODO this
 
         System.out.println("[APP] Running system...");
 

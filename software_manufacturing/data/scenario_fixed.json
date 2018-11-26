@@ -83,6 +83,7 @@
       "technology":"T1",
       "category":"Painter",
       "description":"do something",
+      "position": "3",
       "inputPorts":[
         {
           "value":"Port1.IN"
@@ -115,6 +116,7 @@
       "technology":"T1",
       "category":"Solderer",
       "description":"do something",
+      "position": "4",
       "inputPorts":[
         {
           "value":"Port2.IN"
@@ -147,6 +149,7 @@
       "technology":"T1",
       "category":"Assembler",
       "description":"do something",
+      "position": "5",
       "inputPorts":[
         {
           "value":"Port3.IN"
