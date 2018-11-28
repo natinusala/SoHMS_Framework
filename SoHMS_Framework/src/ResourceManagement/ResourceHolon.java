@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
 
+import Crosscutting.Pair;
+import OrdersManagement.ComInterface;
+import OrdersManagement.ThreadCommunicationChannel;
 import mservice.MService;
 import mservice.MServiceImplentation;
 import mservice.MServiceProfile;
@@ -11,7 +14,8 @@ import OrdersManagement.ROH;
 import OrdersManagement.Simple_ROH_Behavior;
 
 
-public class ResourceHolon extends Resource{
+public class ResourceHolon extends Resource implements Runnable
+{
 	
 	//attribute
 	protected static int rhCount= 0;
@@ -32,12 +36,29 @@ public class ResourceHolon extends Resource{
 		this.position = position;
 	}
 
+	ThreadCommunicationChannel toFlexsim; //We are A
+
 	private boolean available = true;
+
+	public synchronized void process()
+	{
+		int dummyTime = 30; // Unused by flexsim ?
+		//We assume that availability is taken care of
+		System.out.println("[RH] Processing...");
+		Pair<Integer, String> data = new Pair(this.name, dummyTime);
+		toFlexsim.sendToB(new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.COM_PROCESS, data));
+	}
+
+	public synchronized boolean isAvailable()
+	{
+		return available;
+	}
 
 	public synchronized boolean takeAvailability()
 	{
 		if (available)
 		{
+			System.out.println("[RH] Availability taken");
 			available = false;
 			return true;
 		}
@@ -47,29 +68,32 @@ public class ResourceHolon extends Resource{
 
     
 	//Constructors
- 	public ResourceHolon(){
+ 	public ResourceHolon(ComInterface comInterface){
 		super();
+		this.toFlexsim = comInterface.requestChannel();
 		this.resourceId= (rhCount % ListSize) +1;
 		rhCount=this.resourceId;
 		this.roh = new ROH(this,new Simple_ROH_Behavior()); //will be changed this.roh= new R_OH(this, new Simple_ROH_Behavior()); 
 		this.portSchedules= new ConcurrentHashMap<String, LinkedList<Task_RH>>();
 	}
- 	public ResourceHolon(String name,String technology, String category, String textDescription) {
-		this();
+ 	public ResourceHolon(ComInterface comInterface, String name,String technology, String category, String textDescription) {
+		this(comInterface);
 		this.name= name;
 		this.technology=technology;
 		this.category=category;
 		this.textDescription=textDescription;
 		initPortScheules();
 	}
- 	public ResourceHolon(String name, String technology, String category, String textDescription,
+ 	public ResourceHolon(ComInterface comInterface, String name, String technology, String category, String textDescription,
  			ArrayList<String> inputPorts, ArrayList<String> outputPorts, ArrayList<MServiceImplentation> mservices) {
  		super(name, technology, category, textDescription, inputPorts, outputPorts);
+ 		this.toFlexsim = comInterface.requestChannel();
  		this.resourceId= (rhCount % ListSize) +1;
 		rhCount=this.resourceId;
 		this.roh = new ROH(this,new Simple_ROH_Behavior());
 		this.portSchedules= new ConcurrentHashMap<String, LinkedList<Task_RH>>();
 		this.offeredServices = mservices;
+		new Thread(this).start();
  	}
 	
 	//methods
@@ -171,5 +195,32 @@ public class ResourceHolon extends Resource{
   	public void setSil(RH_SIL sil) {
   		this.sil = sil;
   	}
-  	
+
+	@Override
+	public void run() {
+		System.out.println("[RH] Thread running");
+		//Treat incoming messages from com
+		while (true)
+		{
+			ThreadCommunicationChannel.Message message = toFlexsim.readA();
+			if (message != null)
+			{
+				switch(message.getType())
+				{
+					case COM_END:
+						available = true;
+						System.out.println("[RH] Processing ended");
+						System.out.println("[RH] Releasing availability");
+						//TODO Release availability when the transporter takes the product from the machine instead
+						break;
+				}
+			}
+
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

@@ -21,7 +21,8 @@ public class OrderManager extends Thread {
 	protected OutBoxSender outBoxSender;
 	protected Set<ProductHolon> finishedPHs;
 	protected Set<ProductHolon> activePHs;
-	protected Set<ROH> rohs = new HashSet<>();
+	protected Set<ROH> activeRohs = new HashSet<>();
+	protected Set<ROH> finishedRohs = new HashSet<>();
 	protected Set<POH> pohs = new HashSet<>();
 
 	//Constructors
@@ -38,51 +39,67 @@ public class OrderManager extends Thread {
 
 	public HashMap<ROH, ThreadCommunicationChannel> toRohCommunicationChannel = new HashMap<>(); // we are B
 	public ComInterface comInterface;
+	private DirectoryFacilitator df;
 
-	public void launchOrder(DirectoryFacilitator df, ArrayList<ResourceHolon> resourceCloud) {
-		//PH
-		System.out.println("[OH] Launching order " + getOrderManagerName());
-		ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
-		PH_Behavior_Planner exploreBehavior = new PH_Simple_Behavior(ph);
-		ph.setExploreBehavior(exploreBehavior);
-		ph.launch(df);
-
-		//ROH & POH
-		for (int i = 0; i < this.order.getMaxParallelUnits(); i++)
-		{
-			ThreadCommunicationChannel channel = new ThreadCommunicationChannel();
-
-			//ROH
-			Simple_ROH_Behavior roh_behavior = new Simple_ROH_Behavior();
-			roh_behavior.df = df;
-			roh_behavior.toOhCommunicationChannel = channel;
-
-			ROH roh = new ROH(null, roh_behavior);
-			roh_behavior.associatedROH = roh;
-			toRohCommunicationChannel.put(roh, channel);
-
-			//POH
-			Simple_POH_Behavior poh_behavior = new Simple_POH_Behavior();
-			POH poh = new POH(ph, poh_behavior);
-			poh_behavior.associatedPOH = poh;
-
-			roh.setPOH(poh);
-			poh.setROH(roh);
-
-			roh.launch();
-			poh.launch();
-
-			rohs.add(roh);
-			pohs.add(poh);
-		}
+	public void launch(DirectoryFacilitator df)
+	{
+		this.df = df;
+		launchOrder();
 
 		//Start our thread
 		this.start();
-
-		System.out.println("[OH] Order finished " + getOrderManagerName());
 	}
 
-	private void processRohMessage(ROH roh, ThreadCommunicationChannel.Message message)
+	private void launchOrder() {
+		synchronized (this)
+		{
+			//PH
+			System.out.println("[OH] Launching order " + getOrderManagerName());
+			ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
+			PH_Behavior_Planner exploreBehavior = new PH_Simple_Behavior(ph);
+			ph.setExploreBehavior(exploreBehavior);
+			ph.launch(df);
+
+			//ROH & POH
+            int remainingPOHs = this.order.getNumOfUnits() - activeRohs.size() - finishedRohs.size();
+            int currentParallelUnits = activeRohs.size();
+            int toStart = min(order.getMaxParallelUnits() - currentParallelUnits, remainingPOHs);
+			for (int i = 0; i < toStart; i++)
+			{
+                System.out.println("[OH] Starting new production");
+				ThreadCommunicationChannel channel = new ThreadCommunicationChannel();
+
+				//ROH
+				Simple_ROH_Behavior roh_behavior = new Simple_ROH_Behavior();
+				roh_behavior.df = df;
+				roh_behavior.toOhCommunicationChannel = channel;
+
+				ROH roh = new ROH(null, roh_behavior);
+				roh_behavior.associatedROH = roh;
+				toRohCommunicationChannel.put(roh, channel);
+
+				//POH
+				Simple_POH_Behavior poh_behavior = new Simple_POH_Behavior();
+				POH poh = new POH(ph, poh_behavior);
+				poh_behavior.associatedPOH = poh;
+
+				roh.setPOH(poh);
+				poh.setROH(roh);
+
+				roh.launch();
+				poh.launch();
+
+				activeRohs.add(roh);
+				pohs.add(poh);
+			}
+		}
+	}
+
+    private int min(int i, int j) {
+        return i <= j ? i : j;
+    }
+
+    private void processRohMessage(ROH roh, ThreadCommunicationChannel.Message message)
 	{
 		if (message == null)
 			return;
@@ -116,7 +133,6 @@ public class OrderManager extends Thread {
 					}
 				}
 
-
 				ThreadCommunicationChannel.Message answer
 						= new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.NEGOCIATION_FINISHED, neo);
 				toRohCommunicationChannel.get(roh).sendToA(answer);
@@ -130,8 +146,10 @@ public class OrderManager extends Thread {
 	@Override
 	public void run()
 	{
+		System.out.println("[OH] Thread running");
 		while (true)
 		{
+			//Process messages
 			for (ROH roh : toRohCommunicationChannel.keySet())
 			{
 				processRohMessage(roh, toRohCommunicationChannel.get(roh).readB());
@@ -142,6 +160,39 @@ public class OrderManager extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+
+			//Finish any ROH where the product is in the SINK
+			//TODO Use a proper iterator
+			synchronized (this)
+			{
+				ArrayList<ROH> toMove = new ArrayList<>();
+				for (ROH roh : activeRohs)
+				{
+					if (roh.poh.getProductPosition().equals("SINK"))
+					{
+						toMove.add(roh);
+					}
+				}
+
+				for (ROH roh : toMove)
+				{
+					activeRohs.remove(roh);
+					finishedRohs.add(roh);
+
+					if (finishedRohs.size() == order.getNumOfUnits())
+					{
+						System.out.println("[OH] All products finished");
+						System.out.println("[OH] My job here is done");
+						//TODO Broadcast something ?
+						return;
+					}
+					else
+					{
+						launchOrder();
+					}
+				}
+			}
+
 		}
 	}
 

@@ -25,7 +25,7 @@ public class Transporter extends Thread {
 				{
 					switch (message.getType())
 					{
-						case FLEXSIM_END:
+						case COM_END:
 							System.out.println("[TR] Finished moving");
 							this.portStatus = TransporterState.IDLE;
 							break;
@@ -71,7 +71,7 @@ public class Transporter extends Thread {
 
 		Pair<String, String> data = new Pair<>(from, to);
 
-		toFlexsim.sendToB(new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.FLEXSIM_MOVE, data));
+		toFlexsim.sendToB(new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.COM_MOVE, data));
 
 		this.portStatus = TransporterState.INTRANSIT;
 

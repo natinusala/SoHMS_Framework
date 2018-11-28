@@ -80,7 +80,7 @@ public class ComFlexsim implements ComInterface {
                                 }
                                 else
                                 {
-                                    channel.sendToA(new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.FLEXSIM_END, null));
+                                    channel.sendToA(new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.COM_END, null));
                                     waitingForAnAnswer.remove(channel);
                                 }
                             }
@@ -112,18 +112,25 @@ public class ComFlexsim implements ComInterface {
                         ThreadCommunicationChannel.Message message = channel.readB();
                         if (message != null)
                         {
+                            String command;
                             switch (message.getType())
                             {
-                                case FLEXSIM_MOVE:
-                                    System.out.println("[COM] Got MOVE message");
-                                    Pair<String, String> data = (Pair<String, String>) message.getData();
-                                    String command = move(data.getFirst(), data.getSecond());
+                                case COM_MOVE:
+                                    Pair<String, String> move_data = (Pair<String, String>) message.getData();
+                                    command = move(move_data.getFirst(), move_data.getSecond());
+                                    synchronized (this) {
+                                        waitingForAnAnswer.put(command, channel);
+                                    }
+                                    break;
+                                case COM_PROCESS:
+                                    Pair< String, Integer> process_data = (Pair<String, Integer>) message.getData();
+                                    command = process(process_data.getFirst(), process_data.getSecond());
                                     synchronized (this) {
                                         waitingForAnAnswer.put(command, channel);
                                     }
                                     break;
                                 default:
-                                    System.out.println("[COM] Got unknown message " + message.getType());
+                                    System.out.println("[COM] Unknown message " + message.getType());
                                     break;
                             }
                         }
@@ -143,7 +150,7 @@ public class ComFlexsim implements ComInterface {
 
 
     private void execute(String message) throws IOException {
-        System.out.println("[COM] Executing " + message);
+        System.out.println("[COM] Sending " + message);
         writer.write(message +"\r\n");
         writer.flush();
     }
@@ -154,8 +161,8 @@ public class ComFlexsim implements ComInterface {
         return msg;
     }
 
-    public String process(String machine) throws IOException {
-        String msg = "PROCESS " + machine;
+    public String process(String machine, int dummyTime) throws IOException {
+        String msg = "PROCESS " + machine + " " + dummyTime;
         execute(msg);
         return msg;
     }

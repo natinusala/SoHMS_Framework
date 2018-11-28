@@ -17,7 +17,7 @@ public class POH{
 
 	public String productPosition = "SOURCE";
 
-	public void setProductPosition(String productPosition)
+	public synchronized void setProductPosition(String productPosition)
 	{
 		this.productPosition = productPosition;
 	}
@@ -67,5 +67,8 @@ public class POH{
 	public void setAssociatedPH(ProductHolon associatedPH) {
 		this.associatedPH = associatedPH;
 	}
-	
+
+	public synchronized String getProductPosition() {
+		return productPosition;
+	}
 }

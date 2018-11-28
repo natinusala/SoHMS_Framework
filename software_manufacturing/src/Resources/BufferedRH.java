@@ -17,7 +17,7 @@ public class BufferedRH extends ResourceHolon{
 		
 	//CONSTRUCTORS-------------------------------
 		public BufferedRH(){
-			super();
+			super(null);
 			this.roh= new ROH(this, new ReactiveBuffer_ROH_Behavior()); 
 			this.portSchedules= new ConcurrentHashMap<String, LinkedList<Task_RH>>();
 		}

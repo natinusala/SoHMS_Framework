@@ -208,6 +208,7 @@ public class Application {
 
             //Resource holon
             ResourceHolon rh = new ResourceHolon(
+                    comFlexsim,
                     resource.name,
                     resource.technology,
                     resource.category,
@@ -315,7 +316,7 @@ public class Application {
         System.out.println("[DF] All " + resourceCloud.size() + " resources registered");
         df.generateServiceDirectory();
 
-        orderManagerDict.get("1").launchOrder(df, resourceCloud); //TODO Launch all orders at once
+        orderManagerDict.get("1").launch(df); //TODO Launch all orders at once
 
         System.out.println("[APP] Main thread exiting...");
     }

@@ -33,7 +33,11 @@ public class ProductionProcessImpl implements ProductionProcess {
     @Override
     public ArrayList<MServiceSpecification> getAlternatives() {
         ArrayList<MServiceSpecification> list = new ArrayList();
-        list.add(services.get(state));
+        if (state < services.size())
+        {
+            list.add(services.get(state));
+        }
+
         return list;
     }
 

@@ -18,8 +18,9 @@ public class ThreadCommunicationChannel
     {
         START_NEGOCIATION,
         NEGOCIATION_FINISHED,
-        FLEXSIM_MOVE,
-        FLEXSIM_END
+        COM_MOVE,
+        COM_END,
+        COM_PROCESS
     }
 
     public static class Message

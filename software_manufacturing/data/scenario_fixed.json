@@ -79,7 +79,7 @@
     },
     {
       "type":"RH",
-      "name":"machine1",
+      "name":"M1",
       "technology":"T1",
       "category":"Painter",
       "description":"do something",
@@ -112,7 +112,7 @@
     },
     {
       "type":"RH",
-      "name":"machine2",
+      "name":"M2",
       "technology":"T1",
       "category":"Solderer",
       "description":"do something",
@@ -145,7 +145,7 @@
     },
     {
       "type":"RH",
-      "name":"machine3",
+      "name":"M3",
       "technology":"T1",
       "category":"Assembler",
       "description":"do something",

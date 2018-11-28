@@ -6,7 +6,7 @@ import ResourceManagement.*;
 public class RouterRH extends ResourceHolon {
 	
    public RouterRH() {
-	 super();
+	 super(null);
 	 this.roh.setAssociatedRH(this);
 		this.roh.setBehavior(new ReactiveRouter_ROH_Behavior(this));
 	  //this.associatedROH= new R_OH(this, new ReactiveRouter_ROH_Behavior(this)); 
