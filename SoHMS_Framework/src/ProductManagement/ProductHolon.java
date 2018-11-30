@@ -93,7 +93,7 @@ public  class ProductHolon{
 		//2- liberate PH from Resource
 		this.associatedResource=null;
 		System.out.println("[PH] Resources freed from PH " + getId());
-	};
+	}
 	
 	public void addPathArcToExecutablePlans (ArrayList<PathArc> nextStepPlans, MService transportSer, DirectoryFacilitator df){
 		//For all Alternatives

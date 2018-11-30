@@ -128,21 +128,21 @@ public class DirectoryFacilitator{
 		return rsDirectory.get(mService);
 	}
 	
-	public HashSet<Pair<ResourceHolon, Double>>  getProviders(MServiceSpecification service){
+	public HashSet<Pair<ResourceHolon, Double>> getProviders(MServiceSpecification service){
 		// Get Providers of Type
 				ArrayList<ResourceHolon> providersOfService = getProviders(service.getMServiceType());
 				//Evaluate Fitness of each resource
 				HashSet<Pair<ResourceHolon, Double>> providers= new HashSet<Pair<ResourceHolon, Double>>();
 				for (ResourceHolon provider : providersOfService) { // Each RH
 					for(MServiceImplentation servImp : provider.getOfferedServices()){	//Look for Service
-						if(servImp.getmService().equals(service.getMServiceType())){ //Matchig between services
+						if(servImp.getmService().equals(service.getMServiceType())){ //Matching between services
 							// if the Service Matches
 						  if(servImp.matchService(service) || true){ //TODO Fix the parameters to have a proper match
 							providers.add(new Pair<ResourceHolon,Double>(provider,servImp.getAverageCost()));
 							break; // evaluate next resource
 						  }
 						}
-				}
+					}
 				}
 				return providers;
 	}
