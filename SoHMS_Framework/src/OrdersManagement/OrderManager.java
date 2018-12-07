@@ -41,9 +41,18 @@ public class OrderManager extends Thread {
 	public ComInterface comInterface;
 	private DirectoryFacilitator df;
 
-	public void launch(DirectoryFacilitator df)
+	public void setComInterface(ComInterface com)
+	{
+		this.comInterface = com;
+	}
+
+	public void setDf(DirectoryFacilitator df)
 	{
 		this.df = df;
+	}
+
+	public void launch()
+	{
 		launchOrder();
 
 		//Start our thread

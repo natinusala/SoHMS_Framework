@@ -1,10 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="software_manufacturing:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cee5d54c-7af8-48d8-9b83-b2cdf685de9e" name="Default Changelist" comment="">
+    <list default="true" id="cee5d54c-7af8-48d8-9b83-b2cdf685de9e" name="Default Changelist" comment="Init refactor (app -&gt; framework)">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/software_manufacturing_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_8_2__2_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Init.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software_manufacturing/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_8_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductHolon.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductHolon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/directoryFacilitator/DirectoryFacilitator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/directoryFacilitator/DirectoryFacilitator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoHMS_Framework/SoHMS_Framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/SoHMS_Framework.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/data/Layout.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/data/LineSequence.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/data/ProductionOrder.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/data/TransportServiceOntology.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/data/new_scenario.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/data/scenario.json" beforeDir="false" afterPath="$PROJECT_DIR$/software_manufacturing/data/scenario.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/data/scenario_fixed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/gson-2.8.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/gson-2.8.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/software_manufacturing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/software_manufacturing/software_manufacturing.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/software_manufacturing/src/Application/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/ProductionProcessImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcessImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/AttributeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/AttributeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/MethodModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/MethodModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/OfferedServiceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/OfferedServiceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/OrderModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/OrderModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/ParameterModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ParameterModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/ParameterProfileModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ParameterProfileModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/PortModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/PortModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/ProductModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ProductModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/ProfileParameterModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ProfileParameterModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/RangeValueModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/RangeValueModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/ResourceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ResourceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/ScenarioModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ScenarioModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/ServiceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ServiceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/model/ServiceOntologyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ServiceOntologyModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Communication/ComArena.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Communication/ComFlexsim.java" beforeDir="false" afterPath="$PROJECT_DIR$/software_manufacturing/src/Application/ComFlexsim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Communication/ServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/ServerSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Generation/SILGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Mock/MockArena.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Protocols/Protocol_FieldNotifications.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Protocols/Protocol_OrderLaunching.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Protocols/Protocol_RHmodify.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Resources/BufferedRH.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Resources/ReactiveBuffer_ROH_Behavior.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Resources/ReactiveRouter_ROH_Behavior.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Resources/RouterCoordinator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Resources/RouterRH.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/AGV_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Exchanger1_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Exchanger2_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Exchanger3_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Feeder1_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Feeder2_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Feeder3_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Loop1S1_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Loop1S2_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Loop2S1_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Loop2S2_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Loop3S1_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Loop3S2_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/MainS1_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/MainS2_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/MainS3_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/NotificationReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Poste1_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Poste2_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/Poste3_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/SILConnexion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/SINK_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/SOURCE_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/machine1_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/machine2_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/SIL/machine3_SIL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/commHMS/Comm_Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/commHMS/INDINlog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/commHMS/InBoxReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/commHMS/SocketMessage.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -106,11 +184,11 @@
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.40" value="1" />
-          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.5" value="4" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -120,8 +198,8 @@
           <entry key="gitignore" value="2" />
           <entry key="h" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="223" />
-          <entry key="json" value="15" />
+          <entry key="java" value="237" />
+          <entry key="json" value="16" />
           <entry key="log" value="1" />
           <entry key="prefs" value="2" />
           <entry key="project" value="1" />
@@ -134,26 +212,26 @@
           <entry key="CLASS" value="1" />
           <entry key="Eclipse" value="2" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="223" />
-          <entry key="JSON" value="15" />
+          <entry key="JAVA" value="237" />
+          <entry key="JSON" value="16" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="XML" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="49" />
+          <entry key="dummy" value="53" />
           <entry key="gitignore" value="9" />
-          <entry key="java" value="16663" />
-          <entry key="json" value="63" />
-          <entry key="txt" value="521" />
+          <entry key="java" value="17165" />
+          <entry key="json" value="65" />
+          <entry key="txt" value="568" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="16663" />
-          <entry key="JSON" value="63" />
-          <entry key="PLAIN_TEXT" value="579" />
+          <entry key="JAVA" value="17165" />
+          <entry key="JSON" value="65" />
+          <entry key="PLAIN_TEXT" value="630" />
         </counts>
       </usages-collector>
     </session>
@@ -163,92 +241,56 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="111" column="55" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="55" />
+            <state relative-caret-position="350">
+              <caret line="82" column="37" lean-forward="true" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+              <folding>
+                <element signature="e#1722#1723#0" expanded="true" />
+                <element signature="e#1752#1753#0" expanded="true" />
+                <element signature="e#1720#1721#0" expanded="true" />
+                <element signature="e#1739#1740#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/software_manufacturing/data/scenario_fixed.json">
+        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Init.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="281" column="35" lean-forward="true" selection-start-line="281" selection-start-column="35" selection-end-line="281" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/Transporter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+            <state relative-caret-position="136">
+              <caret line="53" column="96" selection-start-line="53" selection-start-column="96" selection-end-line="53" selection-end-column="96" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1361#1362#0" expanded="true" />
+                <element signature="e#1382#1383#0" expanded="true" />
+                <element signature="e#1409#1448#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/directoryFacilitator/DirectoryFacilitator.java">
+        <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="137" column="112" lean-forward="true" selection-start-line="137" selection-start-column="112" selection-end-line="137" selection-end-column="112" />
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/PH_Simple_Behavior.java">
+        <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/ComFlexsim.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductHolon.java">
+        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/ServerSocket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_POH_Behavior.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#183#184#0" expanded="true" />
-                <element signature="e#224#225#0" expanded="true" />
-                <element signature="e#490#491#0" expanded="true" />
-                <element signature="e#564#565#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/POH.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/ProductionProcessImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="13" column="68" lean-forward="true" selection-start-line="13" selection-start-column="68" selection-end-line="13" selection-end-column="68" />
+            <state relative-caret-position="68">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -256,8 +298,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-428">
-              <caret line="160" column="83" lean-forward="true" selection-start-line="160" selection-start-column="83" selection-end-line="160" selection-end-column="83" />
+            <state relative-caret-position="210">
+              <caret line="205" selection-start-line="205" selection-end-line="205" />
             </state>
           </provider>
         </entry>
@@ -274,10 +316,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>PORC</find>
-      <find>actualPort</find>
-      <find>actionsPlan.put</find>
-      <find>setplanstate</find>
       <find>maxPa</find>
       <find>activePHs</find>
       <find>P</find>
@@ -304,6 +342,10 @@
       <find>process(</find>
       <find>|| true</find>
       <find>getnextser</find>
+      <find>launchor</find>
+      <find>laun</find>
+      <find>df</find>
+      <find>new Order</find>
     </findStrings>
     <replaceStrings>
       <replace>e</replace>
@@ -315,9 +357,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/software_manufacturing/src/Protocols/Protocol_RHmodify.java" />
-        <option value="$PROJECT_DIR$/software_manufacturing/src/Resources/RouterCoordinator.java" />
-        <option value="$PROJECT_DIR$/software_manufacturing/src/Application/ScenarioModel.java" />
         <option value="$PROJECT_DIR$/software_manufacturing/src/Application/model/ServiceModel.java" />
         <option value="$PROJECT_DIR$/software_manufacturing/src/Application/model/OfferedServiceModel.java" />
         <option value="$PROJECT_DIR$/software_manufacturing/.idea/libraries/software_manufacturing.xml" />
@@ -359,13 +398,16 @@
         <option value="$PROJECT_DIR$/software_manufacturing/src/Communication/ComFlexsim.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/ResourceHolon.java" />
         <option value="$PROJECT_DIR$/software_manufacturing/src/Application/ProductionProcessImpl.java" />
-        <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/POH.java" />
-        <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java" />
-        <option value="$PROJECT_DIR$/software_manufacturing/src/Application/Application.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductHolon.java" />
-        <option value="$PROJECT_DIR$/software_manufacturing/data/scenario_fixed.json" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/directoryFacilitator/DirectoryFacilitator.java" />
+        <option value="$PROJECT_DIR$/software_manufacturing/data/scenario_fixed.json" />
+        <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Initialization.java" />
+        <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Init.java" />
+        <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java" />
+        <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java" />
+        <option value="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Init.java" />
+        <option value="$PROJECT_DIR$/software_manufacturing/src/Application/Application.java" />
       </list>
     </option>
   </component>
@@ -382,10 +424,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="793" />
-    <option name="y" value="-18" />
+    <option name="x" value="813" />
+    <option name="y" value="-20" />
     <option name="width" value="974" />
-    <option name="height" value="815" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -396,6 +438,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SoHMS_Framework" type="58d84e3e:PackageViewProjectNode" />
+              <item name="software_manufacturing" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -421,19 +475,18 @@
             </path>
             <path>
               <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="software_manufacturing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="SoHMS_Framework" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="SoHMS_Framework" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoHMS_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Initialization" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
@@ -443,25 +496,7 @@
             </path>
             <path>
               <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SoHMS_Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductManagement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SoHMS_Framework" type="58d84e3e:PackageViewProjectNode" />
-              <item name="software_manufacturing" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
@@ -473,10 +508,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540568500938" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/SoHMS_Framework/src" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/software_manufacturing" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.36206895" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -484,6 +520,9 @@
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Workshop" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ProductManagement" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\natinusala\IdeaProjects\SoHMS_Framework\SoHMS_Framework" />
@@ -513,7 +552,7 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/software_manufacturing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Application.*" />
+          <option name="PATTERN" value="ProductManagement.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -614,7 +653,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543401440973</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Cleanup">
+      <created>1543584234461</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1543584234461</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -633,23 +679,23 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13006397" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13272922" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.35995623" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.26435536" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.35969663" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.26218852" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934355" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4989059" weight="0.32827735" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4989059" weight="0.32932165" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4989059" weight="0.32827735" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50159913" side_tool="true" weight="0.26435536" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.4989059" weight="0.32827735" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49840087" weight="0.33041576" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49840087" weight="0.32936078" />
       <window_info anchor="right" id="JSON Viewer" order="0" weight="0.32977587" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -679,7 +725,8 @@
     <MESSAGE value="Take down Transporter to prevent hang (it will be put back up once implemented)" />
     <MESSAGE value="Ground work for ROH&lt;-&gt;PH communication" />
     <MESSAGE value="Working simple scenario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working simple scenario" />
+    <MESSAGE value="Cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -704,38 +751,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Workshop/LayoutMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Workshop/GraphLayoutMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="e#15509#15510#0" expanded="true" />
-            <element signature="e#15563#15564#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Crosscutting/Arc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Workshop/SimpleLayoutMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/software_manufacturing/data/ProductionOrder.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -754,24 +769,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/model/ServiceOntologyModel.java">
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ServiceOntologyModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/model/ServiceModel.java">
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ServiceModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/model/ScenarioModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -785,20 +793,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Resources/ReactiveBuffer_ROH_Behavior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="104" column="14" selection-start-line="104" selection-start-column="14" selection-end-line="104" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Resources/ReactiveRouter_ROH_Behavior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Resources/ReactiveBuffer_ROH_Behavior.java" />
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Resources/ReactiveRouter_ROH_Behavior.java" />
     <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionOrder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-17">
@@ -866,13 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/PalletDefaultBehaviour.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -915,20 +904,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/model/ResourceModel.java">
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ResourceModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Communication/ComArena.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Communication/ComArena.java" />
     <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/io/BufferedReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-20">
@@ -943,30 +926,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/ThreadCommunicationChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/ComInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Resources/BufferedRH.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Resources/BufferedRH.java" />
     <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/ResourceHolon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -992,34 +952,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Communication/ComFlexsim.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="152" column="41" selection-start-line="152" selection-start-column="41" selection-end-line="152" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Resources/RouterRH.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="301" column="64" lean-forward="true" selection-start-line="301" selection-start-column="64" selection-end-line="301" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="111" column="55" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Resources/RouterRH.java" />
     <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/PH_Simple_Behavior.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1041,12 +974,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#224#225#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#564#565#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1057,27 +984,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/ProductionProcessImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="68" lean-forward="true" selection-start-line="13" selection-start-column="68" selection-end-line="13" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-428">
-          <caret line="160" column="83" lean-forward="true" selection-start-line="160" selection-start-column="83" selection-end-line="160" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/data/scenario_fixed.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="281" column="35" lean-forward="true" selection-start-line="281" selection-start-column="35" selection-end-line="281" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1095,16 +1001,119 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/commHMS/InBoxReader.java" />
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/commHMS/SocketMessage.java" />
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/data/scenario.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4709">
+          <caret line="277" column="12" selection-start-line="277" selection-start-column="12" selection-end-line="277" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/ComInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcessImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ScenarioModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/ThreadCommunicationChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="82" column="37" lean-forward="true" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+          <folding>
+            <element signature="e#1722#1723#0" expanded="true" />
+            <element signature="e#1752#1753#0" expanded="true" />
+            <element signature="e#1720#1721#0" expanded="true" />
+            <element signature="e#1739#1740#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="205" selection-start-line="205" selection-end-line="205" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Init.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="53" column="96" selection-start-line="53" selection-start-column="96" selection-end-line="53" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1361#1362#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1409#1448#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/ServerSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/ComFlexsim.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>software_manufacturing:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.36206895" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1147,11 +1156,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>software_manufacturing</last-edited>
+          <last-edited>SoHMS_Framework</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.36206895" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1171,7 +1181,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>gson-2.8.2</last-edited>
+          <last-edited>gson-2.8.2 (2)</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
