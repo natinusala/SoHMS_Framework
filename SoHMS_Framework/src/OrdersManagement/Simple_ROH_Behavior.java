@@ -153,19 +153,19 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 
 	@Override
 	public void run() {
-		System.out.println("[ROH] Simple ROH Behavior running...");
+		HistoryManager.post("[ROH] Simple ROH Behavior running...");
 
 		while (true)
 		{
-			System.out.println("[ROH] Asking POH for next service");
+			HistoryManager.post("[ROH] Asking POH for next service");
 			MServiceSpecification nextService = associatedROH.poh.getNextService();
 
 			if (nextService == null)
 			{
-				System.out.println("[ROH] No next service - product is finished");
-				System.out.println("[ROH] Moving to SINK");
+				HistoryManager.post("[ROH] No next service - product is finished");
+				HistoryManager.post("[ROH] Moving to SINK");
 
-				System.out.println("[ROH] Waiting for transporter availability...");
+				HistoryManager.post("[ROH] Waiting for transporter availability...");
 				Transporter transporter = associatedROH.poh.associatedPH.getAssociatedResource();
 				while (transporter.getPortStatus() != Transporter.TransporterState.IDLE)
 				{
@@ -176,10 +176,10 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 					}
 				}
 
-				System.out.println("[ROH] Transporter ready, moving it");
+				HistoryManager.post("[ROH] Transporter ready, moving it");
 				transporter.move(associatedROH.poh.productPosition, "SINK");
 
-				System.out.println("[ROH] Waiting for transporter to move");
+				HistoryManager.post("[ROH] Waiting for transporter to move");
 				while (transporter.getPortStatus() != Transporter.TransporterState.IDLE)
 				{
 					try {
@@ -189,29 +189,29 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 					}
 				}
 
-				System.out.println("[ROH] Transporter moved");
+				HistoryManager.post("[ROH] Transporter moved");
 
 				this.associatedROH.poh.setProductPosition("SINK");
 
-				System.out.println("[ROH] My job here is done");
+				HistoryManager.post("[ROH] My job here is done");
 				return;
 			}
 			else
 			{
-				System.out.println("[ROH] POH answered me S" + nextService.getId());
+				HistoryManager.post("[ROH] POH answered me S" + nextService.getId());
 			}
 
-			System.out.println("[ROH] Asking DF for resource");
+			HistoryManager.post("[ROH] Asking DF for resource");
 
 			HashSet<Pair<ResourceHolon, Double>> providers = df.getProviders(nextService);
 			ArrayList<ResourceHolon> resourceHolons = new ArrayList<>();
 
-			System.out.println("[ROH] " + providers.size() + " resources returned");
-			System.out.println("[ROH] List of resources implementing S" + + nextService.getId());
+			HistoryManager.post("[ROH] " + providers.size() + " resources returned");
+			System.out.println("[ROH] List of resources implementing S" + nextService.getId());
 
 			if (providers.size() == 0)
 			{
-				System.out.println("[ROH] No resource can do S" + nextService.getId() + ", what ?");
+				HistoryManager.post("[ROH] No resource can do S" + nextService.getId() + ", what ?");
 				return;
 			}
 
@@ -224,7 +224,7 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 
 			//Ask OH to negociate for us
 			//TODO Make this non blocking otherwise what's the point of using threads
-			System.out.println("[ROH] Requesting negociation");
+			HistoryManager.post("[ROH] Requesting negociation");
 			ThreadCommunicationChannel.Message negociationMessage
 					= new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.START_NEGOCIATION, resourceHolons);
 
@@ -241,16 +241,16 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 				answer = toOhCommunicationChannel.readA();
 			}
 
-			System.out.println("[ROH] Got message " + answer.toString() + " from OH");
+			HistoryManager.post("[ROH] Got message " + answer.toString() + " from OH");
 
 			ResourceHolon neo = (ResourceHolon) answer.getData();
 
-			System.out.println("[ROH] Using RH " + neo.getName());
+			HistoryManager.post("[ROH] Using RH " + neo.getName());
 
 			//Wait for transporter availability
 			//TODO Negociate with transporter instead of waiting for it
 			//TODO Use the Transporter class and its thread better than this (waitPalletLiberation())
-			System.out.println("[ROH] Waiting for transporter availability...");
+			HistoryManager.post("[ROH] Waiting for transporter availability...");
 			Transporter transporter = associatedROH.poh.associatedPH.getAssociatedResource();
 			while (transporter.getPortStatus() != Transporter.TransporterState.IDLE)
 			{
@@ -261,10 +261,10 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 				}
 			}
 
-			System.out.println("[ROH] Transporter is ready, moving it");
+			HistoryManager.post("[ROH] Transporter is ready, moving it");
 			transporter.move(associatedROH.poh.productPosition, neo.getPosition());
 
-			System.out.println("[ROH] Waiting for transporter to move");
+			HistoryManager.post("[ROH] Waiting for transporter to move");
 			while (transporter.getPortStatus() != Transporter.TransporterState.IDLE)
 			{
 				try {
@@ -274,15 +274,15 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 				}
 			}
 
-			System.out.println("[ROH] Transporter moved");
+			HistoryManager.post("[ROH] Transporter moved");
 
 			this.associatedROH.poh.setProductPosition(neo.getPosition());
 
-			System.out.println("[ROH] Sending process command to ressource");
+			HistoryManager.post("[ROH] Sending process command to ressource");
 
 			neo.process();
 
-			System.out.println("[ROH] Waiting for processing to be over");
+			HistoryManager.post("[ROH] Waiting for processing to be over");
 
 			while (!neo.isAvailable())
 			{
@@ -293,9 +293,9 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 				}
 			}
 
-			System.out.println("[ROH] Processing over");
+			HistoryManager.post("[ROH] Processing over");
 
-			System.out.println("[ROH] Evolving POH");
+			HistoryManager.post("[ROH] Evolving POH");
 			this.associatedROH.poh.evolve(nextService);
 		}
 	}

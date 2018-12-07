@@ -2,6 +2,7 @@ package Application;
 
 import Crosscutting.Pair;
 import OrdersManagement.ComInterface;
+import OrdersManagement.HistoryManager;
 import OrdersManagement.ThreadCommunicationChannel;
 
 import java.io.*;
@@ -50,7 +51,7 @@ public class ComFlexsim implements ComInterface {
             new Thread(writeRunnable).start();
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("[COM] Oh no");
+            System.out.println("[COM] Oh no : " + e.getMessage());
         }
     }
 
@@ -66,7 +67,7 @@ public class ComFlexsim implements ComInterface {
                     String clientmsg = in.readLine();
                     if (clientmsg != null)
                     {
-                        System.out.println("[COM] Got " + clientmsg);
+                        HistoryManager.post("[COM] Got " + clientmsg);
 
                         if (clientmsg.startsWith("END "))
                         {
@@ -76,7 +77,7 @@ public class ComFlexsim implements ComInterface {
                                 ThreadCommunicationChannel channel = waitingForAnAnswer.get(identifier);
                                 if (channel == null)
                                 {
-                                    System.out.println("[COM] Recieved message doesn't belong to anyone");
+                                    HistoryManager.post("[COM] Recieved message doesn't belong to anyone");
                                 }
                                 else
                                 {
@@ -88,12 +89,9 @@ public class ComFlexsim implements ComInterface {
                     }
 
                     Thread.sleep(100);
-                } catch (IOException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
-                    System.out.println("[COM] Oh no");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    System.out.println("[COM] Oh no");
+                    HistoryManager.post("[COM] Oh no : " + e.getMessage());
                 }
             }
         }
@@ -130,19 +128,16 @@ public class ComFlexsim implements ComInterface {
                                     }
                                     break;
                                 default:
-                                    System.out.println("[COM] Unknown message " + message.getType());
+                                    HistoryManager.post("[COM] Unknown message " + message.getType());
                                     break;
                             }
                         }
                     }
 
                     Thread.sleep(100);
-                } catch (IOException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
-                    System.out.println("[COM] Oh no");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    System.out.println("[COM] Oh no");
+                    HistoryManager.post("[COM] Oh no : " + e.getMessage());
                 }
             }
         }
@@ -150,7 +145,7 @@ public class ComFlexsim implements ComInterface {
 
 
     private void execute(String message) throws IOException {
-        System.out.println("[COM] Sending " + message);
+        HistoryManager.post("[COM] Sending " + message);
         writer.write(message +"\r\n");
         writer.flush();
     }

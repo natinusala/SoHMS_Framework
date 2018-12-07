@@ -3,6 +3,7 @@ package Initialization;
 import Initialization.Model.*;
 import Ontology.ServiceOntology;
 import OrdersManagement.ComInterface;
+import OrdersManagement.HistoryManager;
 import OrdersManagement.OrderManager;
 import ProductManagement.ProductionOrder;
 import ProductManagement.ProductionProcess;
@@ -46,11 +47,14 @@ public class Init {
         return orderManagerDict;
     }
 
-    public static void initializeSystems(ComInterface comInterface, String scenarioPath)
+    public static void initializeSystems(ComInterface comInterface, String scenarioPath, Runnable finishedRunnable)
     {
-        System.out.println("[INIT] Initialization...");
+        HistoryManager.init();
+
+        HistoryManager.post("[INIT] Initialization...");
 
         Init.comInterface = comInterface;
+        OrderManager.setFinishedRunnable(finishedRunnable);
         ScenarioModel scenario = gson.fromJson(readTextFile(scenarioPath), ScenarioModel.class);
         df = new DirectoryFacilitator();
 
@@ -59,11 +63,11 @@ public class Init {
         initProducts(scenario);
         initOrders(scenario);
 
-        System.out.println("[INIT] Running system...");
+        HistoryManager.post("[INIT] Running system...");
 
-        System.out.println("[DF] Initializing with " + resourceCloud.size() + " resources");
+        HistoryManager.post("[DF] Initializing with " + resourceCloud.size() + " resources");
         df.setResourcesDirectory(resourceCloud);
-        System.out.println("[DF] All " + resourceCloud.size() + " resources registered");
+        HistoryManager.post("[DF] All " + resourceCloud.size() + " resources registered");
         df.generateServiceDirectory();
     }
 

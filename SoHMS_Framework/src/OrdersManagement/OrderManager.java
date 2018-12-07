@@ -1,11 +1,13 @@
 package OrdersManagement;
 
 import Crosscutting.OutBoxSender;
+import Initialization.Init;
 import ProductManagement.*;
 import directoryFacilitator.DirectoryFacilitator;
 import ResourceManagement.ResourceHolon;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 /*
@@ -63,7 +65,7 @@ public class OrderManager extends Thread {
 		synchronized (this)
 		{
 			//PH
-			System.out.println("[OH] Launching order " + getOrderManagerName());
+			HistoryManager.post("[OH] Launching order " + getOrderManagerName());
 			ProductHolon ph = new ProductHolon(this, this.order.getProductProcess().clone());
 			PH_Behavior_Planner exploreBehavior = new PH_Simple_Behavior(ph);
 			ph.setExploreBehavior(exploreBehavior);
@@ -75,7 +77,7 @@ public class OrderManager extends Thread {
             int toStart = min(order.getMaxParallelUnits() - currentParallelUnits, remainingPOHs);
 			for (int i = 0; i < toStart; i++)
 			{
-                System.out.println("[OH] Starting new production");
+				HistoryManager.post("[OH] Starting new production");
 				ThreadCommunicationChannel channel = new ThreadCommunicationChannel();
 
 				//ROH
@@ -113,14 +115,14 @@ public class OrderManager extends Thread {
 		if (message == null)
 			return;
 
-		System.out.println("[OH] Got message " + message.toString() + " from ROH");
+		HistoryManager.post("[OH] Got message " + message.toString() + " from ROH");
 
 		switch(message.getType())
 		{
 			case START_NEGOCIATION:
 				ArrayList<ResourceHolon> resourceHolons = (ArrayList<ResourceHolon>) message.getData();
 
-				System.out.println("[OH] Starting negociation");
+				HistoryManager.post("[OH] Starting negociation");
 
 				ResourceHolon neo = null;
 
@@ -147,15 +149,17 @@ public class OrderManager extends Thread {
 				toRohCommunicationChannel.get(roh).sendToA(answer);
 				break;
 			default:
-				System.out.println("[OH] Got unknown message " + message.getType());
+				HistoryManager.post("[OH] Got unknown message " + message.getType());
 				break;
 		}
 	}
 
+	private static AtomicInteger finishedOrders = new AtomicInteger(0);
+
 	@Override
 	public void run()
 	{
-		System.out.println("[OH] Thread running");
+		HistoryManager.post("[OH] Thread running");
 		while (true)
 		{
 			//Process messages
@@ -188,11 +192,14 @@ public class OrderManager extends Thread {
 					activeRohs.remove(roh);
 					finishedRohs.add(roh);
 
+					HistoryManager.post("[OH] Finished " + finishedRohs.size() + " of " + order.getNumOfUnits() + " products");
+
 					if (finishedRohs.size() == order.getNumOfUnits())
 					{
-						System.out.println("[OH] All products finished");
-						System.out.println("[OH] My job here is done");
-						//TODO Broadcast something ?
+						HistoryManager.post("[OH] All products finished");
+						HistoryManager.post("[OH] My job here is done");
+						finishedOrders.addAndGet(1);
+						checkFinished();
 						return;
 					}
 					else
@@ -202,6 +209,21 @@ public class OrderManager extends Thread {
 				}
 			}
 
+		}
+	}
+
+	private static Runnable finishedRunnable = null; //simple observer pattern
+
+	public static void setFinishedRunnable(Runnable runnable)
+	{
+		finishedRunnable = runnable;
+	}
+
+	private static synchronized void checkFinished()
+	{
+		if (finishedOrders.get() >= Init.getOrderManagers().size() && finishedRunnable != null)
+		{
+			finishedRunnable.run();
 		}
 	}
 

@@ -1,6 +1,7 @@
 package ProductManagement;
 
 import Crosscutting.Precondition;
+import OrdersManagement.HistoryManager;
 import mservice.MServiceSpecification;
 
 import java.util.ArrayList;
@@ -14,12 +15,12 @@ public class ProductionProcessImpl implements ProductionProcess {
         this.services = s;
         state = 0;
 
-        System.out.println("[PP] New ProductionProcess initialized with " + s.size() + " services");
+        HistoryManager.post("[PP] New ProductionProcess initialized with " + s.size() + " services");
     }
 
     public void setState(int state)
     {
-        System.out.println("[PP] ProductionProcess: Set state " + state);
+        HistoryManager.post("[PP] ProductionProcess: Set state " + state);
         this.state = state;
     }
 
@@ -64,7 +65,7 @@ public class ProductionProcessImpl implements ProductionProcess {
 
     @Override
     public ProductionProcess clone() {
-        System.out.println("[PP] Cloning");
+        HistoryManager.post("[PP] Cloning");
         ProductionProcessImpl p = new ProductionProcessImpl((ArrayList<MServiceSpecification>) services.clone());
         p.setState(state);
         return p;

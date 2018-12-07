@@ -7,6 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import Crosscutting.*;
 import OrdersManagement.ComInterface;
+import OrdersManagement.HistoryManager;
 import directoryFacilitator.DirectoryFacilitator;
 import Workshop.LayoutMap;
 import Workshop.SimpleLayoutMap;
@@ -84,7 +85,7 @@ public  class ProductHolon{
 	{
 		//For now we only have one transporter
 		this.associatedResource = transporter;
-		System.out.println("[PH] Transporter associated to PH " + this.getId());
+		HistoryManager.post("[PH] Transporter associated to PH " + this.getId());
 	}
 	
 	public void liberateResource() {
@@ -92,7 +93,7 @@ public  class ProductHolon{
 		this.associatedResource.liberate();
 		//2- liberate PH from Resource
 		this.associatedResource=null;
-		System.out.println("[PH] Resources freed from PH " + getId());
+		HistoryManager.post("[PH] Resources freed from PH " + getId());
 	}
 	
 	public void addPathArcToExecutablePlans (ArrayList<PathArc> nextStepPlans, MService transportSer, DirectoryFacilitator df){

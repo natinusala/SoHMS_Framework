@@ -5,13 +5,10 @@ import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
 
 import Crosscutting.Pair;
-import OrdersManagement.ComInterface;
-import OrdersManagement.ThreadCommunicationChannel;
+import OrdersManagement.*;
 import mservice.MService;
 import mservice.MServiceImplentation;
 import mservice.MServiceProfile;
-import OrdersManagement.ROH;
-import OrdersManagement.Simple_ROH_Behavior;
 
 
 public class ResourceHolon extends Resource implements Runnable
@@ -44,7 +41,7 @@ public class ResourceHolon extends Resource implements Runnable
 	{
 		int dummyTime = 30; // Unused by flexsim ?
 		//We assume that availability is taken care of
-		System.out.println("[RH] Processing...");
+		HistoryManager.post("[RH] Processing...");
 		Pair<Integer, String> data = new Pair(this.name, dummyTime);
 		toFlexsim.sendToB(new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.COM_PROCESS, data));
 	}
@@ -58,7 +55,7 @@ public class ResourceHolon extends Resource implements Runnable
 	{
 		if (available)
 		{
-			System.out.println("[RH] Availability taken");
+			HistoryManager.post("[RH] Availability taken");
 			available = false;
 			return true;
 		}
@@ -198,7 +195,7 @@ public class ResourceHolon extends Resource implements Runnable
 
 	@Override
 	public void run() {
-		System.out.println("[RH] Thread running");
+		HistoryManager.post("[RH] Thread running");
 		//Treat incoming messages from com
 		while (true)
 		{
@@ -209,8 +206,8 @@ public class ResourceHolon extends Resource implements Runnable
 				{
 					case COM_END:
 						available = true;
-						System.out.println("[RH] Processing ended");
-						System.out.println("[RH] Releasing availability");
+						HistoryManager.post("[RH] Processing ended");
+						HistoryManager.post("[RH] Releasing availability");
 						//TODO Release availability when the transporter takes the product from the machine instead
 						break;
 				}

@@ -2,6 +2,7 @@ package ResourceManagement;
 
 import Crosscutting.Pair;
 import OrdersManagement.ComInterface;
+import OrdersManagement.HistoryManager;
 import OrdersManagement.ThreadCommunicationChannel;
 import directoryFacilitator.DirectoryFacilitator;
 import ProductManagement.ProductHolon;
@@ -26,11 +27,11 @@ public class Transporter extends Thread {
 					switch (message.getType())
 					{
 						case COM_END:
-							System.out.println("[TR] Finished moving");
+							HistoryManager.post("[TR] Finished moving");
 							this.portStatus = TransporterState.IDLE;
 							break;
 						default:
-							System.out.println("[TR] Got unknown message " + message.toString());
+							HistoryManager.post("[TR] Got unknown message " + message.toString());
 							break;
 					}
 				}
@@ -40,7 +41,7 @@ public class Transporter extends Thread {
 			catch (Exception ex)
 			{
 				ex.printStackTrace();
-				System.out.println("[TR] Oh no");
+				HistoryManager.post("[TR] Oh no : " + ex.getMessage());
 			}
 
 		}
@@ -75,7 +76,7 @@ public class Transporter extends Thread {
 
 		this.portStatus = TransporterState.INTRANSIT;
 
-		System.out.println("[TR] Moving...");
+		HistoryManager.post("[TR] Moving...");
 
 		return true;
 	}

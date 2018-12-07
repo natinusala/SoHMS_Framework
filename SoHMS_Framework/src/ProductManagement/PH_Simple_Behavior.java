@@ -1,5 +1,6 @@
 package ProductManagement;
 
+import OrdersManagement.HistoryManager;
 import OrdersManagement.ROH;
 import OrdersManagement.ThreadCommunicationChannel;
 import ResourceManagement.ResourceHolon;
@@ -37,12 +38,10 @@ public class PH_Simple_Behavior implements PH_Behavior_Planner {
 
     @Override
     public void run() {
-        System.out.println("[PH] PH Simple Behavior running...");
+        HistoryManager.post("[PH] PH Simple Behavior running...");
         while(ph.getAssociatedResource().getPortStatus() == Transporter.TransporterState.UNKNOWN){
             Thread.yield(); // wait until the transporter has been located in the System.
         }
-        System.out.println("[PH] Transporter found!");
-
-
+        HistoryManager.post("[PH] Transporter found!");
     }
 }
