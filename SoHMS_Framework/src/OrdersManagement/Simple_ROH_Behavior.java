@@ -6,6 +6,7 @@ import java.util.ListIterator;
 
 import Crosscutting.Pair;
 import Crosscutting.PathState;
+import Initialization.Init;
 import ResourceManagement.Resource;
 import directoryFacilitator.DirectoryFacilitator;
 import mservice.MService;
@@ -297,6 +298,8 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 
 			HistoryManager.post("[ROH] Evolving POH");
 			this.associatedROH.poh.evolve(nextService);
+
+			Init.serviceFinished();
 		}
 	}
 }

@@ -49,5 +49,7 @@ public interface ProductionProcess extends Process_Inst{
 	 * The last Service has been confirmed to be executed.
 	 * @return
 	 */
-	public boolean isTerminated();	
+	public boolean isTerminated();
+
+	public int getServicesCount(); /* get total number of services to execute for this product */
 }

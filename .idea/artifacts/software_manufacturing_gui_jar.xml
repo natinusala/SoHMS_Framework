@@ -1,12 +1,12 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="software_manufacturing:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/software_manufacturing_jar</output-path>
+  <artifact type="jar" name="software_manufacturing_gui:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
     <root id="archive" name="software_manufacturing.jar">
       <element id="module-output" name="software_manufacturing" />
       <element id="module-output" name="SoHMS_Framework" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/SoHMS_Framework/gson-2.8.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/software_manufacturing/java_websocket.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/SoHMS_Framework/java_websocket.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/SoHMS_Framework/gson-2.8.2.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

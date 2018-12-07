@@ -77,6 +77,11 @@ public class ProductionProcessImpl implements ProductionProcess {
     }
 
     @Override
+    public int getServicesCount() {
+        return services.size();
+    }
+
+    @Override
     public int getProcessID() {
         return 0; //Unused
     }

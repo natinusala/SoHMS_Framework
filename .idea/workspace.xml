@@ -2,25 +2,23 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="software_manufacturing:jar" />
+      <artifact name="software_manufacturing_gui:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cee5d54c-7af8-48d8-9b83-b2cdf685de9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/HistoryManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software_manufacturing/src/Application/gui/GUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software_manufacturing/src/Application/gui/GUIPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/software_manufacturing_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/software_manufacturing_gui_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Init.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Init.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_POH_Behavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_POH_Behavior.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/PH_Simple_Behavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/PH_Simple_Behavior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductHolon.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductHolon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcessImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcessImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/ResourceHolon.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/ResourceHolon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/Transporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/Transporter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/software_manufacturing/src/Application/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/Application/ComFlexsim.java" beforeDir="false" afterPath="$PROJECT_DIR$/software_manufacturing/src/Application/ComFlexsim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software_manufacturing/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/software_manufacturing/src/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -118,32 +116,33 @@
     <session id="-1985505004">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.5" value="5" />
-          <entry key="project.open.time.6" value="3" />
-          <entry key="project.open.time.7" value="4" />
+          <entry key="project.open.time.6" value="4" />
+          <entry key="project.open.time.7" value="5" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="19" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="MF" value="4" />
           <entry key="class" value="1" />
           <entry key="classpath" value="1" />
           <entry key="csv" value="2" />
-          <entry key="gitignore" value="3" />
+          <entry key="gitignore" value="4" />
           <entry key="h" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="252" />
+          <entry key="java" value="269" />
           <entry key="json" value="16" />
           <entry key="log" value="1" />
           <entry key="prefs" value="2" />
           <entry key="project" value="1" />
           <entry key="txt" value="4" />
-          <entry key="xml" value="10" />
+          <entry key="xml" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -152,26 +151,29 @@
           <entry key="CSV" value="1" />
           <entry key="Eclipse" value="2" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="252" />
+          <entry key="JAVA" value="269" />
           <entry key="JSON" value="16" />
-          <entry key="PLAIN_TEXT" value="12" />
-          <entry key="XML" value="10" />
+          <entry key="Manifest" value="4" />
+          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="XML" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="53" />
-          <entry key="gitignore" value="13" />
-          <entry key="java" value="19677" />
+          <entry key="MF" value="9" />
+          <entry key="dummy" value="64" />
+          <entry key="gitignore" value="17" />
+          <entry key="java" value="22799" />
           <entry key="json" value="65" />
-          <entry key="txt" value="568" />
+          <entry key="txt" value="592" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="19677" />
+          <entry key="JAVA" value="22799" />
           <entry key="JSON" value="65" />
-          <entry key="PLAIN_TEXT" value="634" />
+          <entry key="Manifest" value="9" />
+          <entry key="PLAIN_TEXT" value="673" />
         </counts>
       </usages-collector>
     </session>
@@ -179,46 +181,47 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3043">
-              <caret line="194" column="127" selection-start-line="194" selection-start-column="127" selection-end-line="194" selection-end-column="127" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/ROH.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4505">
-              <caret line="280" column="59" selection-start-line="280" selection-start-column="59" selection-end-line="280" selection-end-column="59" />
+            <state relative-caret-position="85">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/HistoryManager.java">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="73" column="54" selection-start-line="73" selection-start-column="54" selection-end-line="73" selection-end-column="54" />
+            <state relative-caret-position="51">
+              <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/software_manufacturing/.idea/misc.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/software_manufacturing/.idea/modules.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/software_manufacturing/.idea/libraries/software_manufacturing.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Init.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="53" column="40" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -227,10 +230,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/ComFlexsim.java">
+        <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/gui/GUIPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2329">
-              <caret line="147" column="27" selection-start-line="147" selection-start-column="27" selection-end-line="147" selection-end-column="27" />
+            <state relative-caret-position="3213">
+              <caret line="212" column="65" selection-start-line="212" selection-start-column="65" selection-end-line="212" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1521#1522#0" expanded="true" />
+                <element signature="e#1574#1575#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/javax/swing/JFileChooser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10149">
+              <caret line="666" column="38" selection-start-line="666" selection-start-column="11" selection-end-line="666" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -247,10 +264,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rsDirectory</find>
-      <find>Transporter Ass</find>
-      <find>a</find>
-      <find>outbo</find>
       <find>outboxs</find>
       <find>extends Thread</find>
       <find>launchorder</find>
@@ -277,6 +290,10 @@
       <find>Oh no</find>
       <find>System.out.println(&quot;[</find>
       <find>Sending</find>
+      <find>maximize</find>
+      <find>taa</find>
+      <find>setstringp</find>
+      <find>artif</find>
     </findStrings>
     <replaceStrings>
       <replace>e</replace>
@@ -289,12 +306,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/software_manufacturing/src/Communication/ServerSocket.java" />
-        <option value="$PROJECT_DIR$/software_manufacturing/src/Application/model/OrderModel.java" />
-        <option value="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionOrder.java" />
-        <option value="$PROJECT_DIR$/SoHMS_Framework/src/mservice/MService.java" />
-        <option value="$PROJECT_DIR$/SoHMS_Framework/src/mservice/MServiceSpecification.java" />
-        <option value="$PROJECT_DIR$/software_manufacturing/src/Protocols/Protocol_OrderLaunching.java" />
         <option value="$PROJECT_DIR$/software_manufacturing/data/Layout_fixed.txt" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/Workshop/FileLayoutMap.java" />
         <option value="$PROJECT_DIR$/software_manufacturing/bin/.gitignore" />
@@ -310,7 +321,6 @@
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/ROH_Behavior.java" />
         <option value="$PROJECT_DIR$/software_manufacturing/src/Resources/ReactiveBuffer_ROH_Behavior.java" />
         <option value="$PROJECT_DIR$/software_manufacturing/src/Resources/ReactiveRouter_ROH_Behavior.java" />
-        <option value="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcess.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/PalletDefaultBehaviour.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/Crosscutting/OutBoxSender.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/SynchronizedChannel.java" />
@@ -327,19 +337,26 @@
         <option value="$PROJECT_DIR$/software_manufacturing/data/scenario_fixed.json" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Initialization.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Init.java" />
-        <option value="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Init.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_POH_Behavior.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/PH_Simple_Behavior.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductHolon.java" />
-        <option value="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcessImpl.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/Transporter.java" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/ResourceHolon.java" />
-        <option value="$PROJECT_DIR$/software_manufacturing/src/Application/Application.java" />
         <option value="$PROJECT_DIR$/software_manufacturing/src/Application/ComFlexsim.java" />
-        <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java" />
-        <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/HistoryManager.java" />
+        <option value="$PROJECT_DIR$/software_manufacturing/src/Application/GUI.java" />
+        <option value="$PROJECT_DIR$/software_manufacturing/src/Application/gui/Panel0.java" />
+        <option value="$PROJECT_DIR$/software_manufacturing/src/Application/Application.java" />
+        <option value="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcess.java" />
+        <option value="$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcessImpl.java" />
+        <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java" />
+        <option value="$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java" />
+        <option value="$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Init.java" />
+        <option value="$PROJECT_DIR$/software_manufacturing/src/Application/gui/GUI.java" />
+        <option value="$PROJECT_DIR$/software_manufacturing/src/Application/gui/GUIPanel.java" />
+        <option value="$PROJECT_DIR$/software_manufacturing/manifests/cli/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/software_manufacturing/src/META-INF/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -356,8 +373,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="844" />
-    <option name="y" value="-17" />
+    <option name="x" value="150" />
+    <option name="y" value="235" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -370,17 +387,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SoHMS_Framework" type="58d84e3e:PackageViewProjectNode" />
-              <item name="software_manufacturing" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -388,27 +394,6 @@
             <path>
               <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="software_manufacturing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="software_manufacturing" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="software_manufacturing" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="software_manufacturing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="software_manufacturing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SoHMS_Framework" type="b2602c69:ProjectViewProjectNode" />
@@ -422,6 +407,17 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SoHMS_Framework" type="58d84e3e:PackageViewProjectNode" />
+              <item name="software_manufacturing" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -429,10 +425,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540568500938" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/SoHMS_Framework/src" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/software_manufacturing" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/software_manufacturing/manifests/cli/MANIFEST.MF" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.36206895" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -444,13 +440,15 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ProductManagement" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\natinusala\IdeaProjects\SoHMS_Framework\SoHMS_Framework" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\natinusala\IdeaProjects\SoHMS_Framework\software_manufacturing\manifests\gui" />
+      <recent name="C:\Users\natinusala\IdeaProjects\SoHMS_Framework\software_manufacturing\manifests\cli" />
+      <recent name="C:\Users\natinusala\IdeaProjects\SoHMS_Framework\software_manufacturing\src\META-INF" />
       <recent name="C:\Users\natinusala\IdeaProjects\SoHMS_Framework\software_manufacturing" />
       <recent name="C:\Users\natinusala\IdeaProjects\SoHMS_Framework\SoHMS_Framework" />
-      <recent name="$PROJECT_DIR$/software_manufacturing" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\natinusala\IdeaProjects\SoHMS_Framework\SoHMS_Framework" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -465,8 +463,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.GUI">
+    <configuration name="CLI" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Application.Application" />
       <module name="software_manufacturing" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/software_manufacturing" />
@@ -480,6 +478,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GUI" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Application.gui.GUI" />
+      <module name="software_manufacturing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/software_manufacturing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ProductManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.CLI" />
+      <item itemvalue="Application.GUI" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -587,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544188836015</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Export history to csv">
+      <created>1544194311096</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1544194311096</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -604,15 +627,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13859275" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14179105" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.3632385" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840087" weight="0.26148796" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3632385" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840087" weight="0.2611051" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934355" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -653,7 +677,8 @@
     <MESSAGE value="Working simple scenario" />
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Init refactor (app -&gt; framework)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init refactor (app -&gt; framework)" />
+    <MESSAGE value="Export history to csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="Export history to csv" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -678,113 +703,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Model/ServiceModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Crosscutting/PathState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="50" lean-forward="true" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Resources/ReactiveBuffer_ROH_Behavior.java" />
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Resources/ReactiveRouter_ROH_Behavior.java" />
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/PH_Behavior_Planner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="280" column="30" selection-start-line="280" selection-start-column="30" selection-end-line="280" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Reactive_POH_Behavior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/POH_Behavior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/mservice/MServiceImplentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="130" column="63" lean-forward="true" selection-start-line="130" selection-start-column="63" selection-end-line="130" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/concurrent/ConcurrentHashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="933" column="13" selection-start-line="933" selection-start-column="13" selection-end-line="933" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/mservice/MServiceSpecification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/mservice/MService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ResourceManagement/PalletDefaultBehaviour.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="32" column="59" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Crosscutting/OutBoxSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="192" column="6" selection-start-line="192" selection-start-column="6" selection-end-line="192" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/concurrent/BlockingQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1801">
-          <caret line="178" column="17" selection-start-line="178" selection-start-column="17" selection-end-line="178" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/concurrent/LinkedBlockingQueue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2763">
@@ -843,13 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -923,61 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcessImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Init.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="53" column="27" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1361#1362#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#1409#1448#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3043">
-          <caret line="194" column="127" selection-start-line="194" selection-start-column="127" selection-end-line="194" selection-end-column="127" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/ROH.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4505">
-          <caret line="280" column="59" selection-start-line="280" selection-start-column="59" selection-end-line="280" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/ComFlexsim.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2329">
@@ -986,21 +842,190 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/software_manufacturing/logs/history.csv">
-      <provider editor-type-id="csv-text-editor" />
       <provider selected="true" editor-type-id="csv-table-editor">
         <state showInfoPanel="false" rowLines="3">
           <column index="0" width="100" />
           <column index="1" width="100" />
         </state>
       </provider>
+      <provider editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/javax/swing/JFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="379" column="25" lean-forward="true" selection-start-line="379" selection-start-column="25" selection-end-line="379" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/java/awt/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-419">
+          <caret line="817" column="16" selection-start-line="817" selection-start-column="16" selection-end-line="817" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="762">
+          <caret line="2660" column="16" selection-start-line="2660" selection-start-column="16" selection-end-line="2660" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/java/awt/Dimension.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="169" column="5" lean-forward="true" selection-start-line="169" selection-start-column="5" selection-end-line="169" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/io/OutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="108" column="25" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/javax/swing/WindowConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="82" column="28" lean-forward="true" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/ROH.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/HistoryManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
+        <state relative-caret-position="498">
           <caret line="73" column="54" selection-start-line="73" selection-start-column="54" selection-end-line="73" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcessImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/ProductManagement/ProductionProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="53" column="97" selection-start-line="53" selection-start-column="97" selection-end-line="53" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/Simple_ROH_Behavior.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="301" column="12" lean-forward="true" selection-start-line="301" selection-start-column="12" selection-end-line="301" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/gui/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#127#128#0" expanded="true" />
+            <element signature="e#151#152#0" expanded="true" />
+            <element signature="e#1142#1143#0" expanded="true" />
+            <element signature="e#1182#1183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/OrdersManagement/OrderManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2890">
+          <caret line="185" column="40" selection-start-line="185" selection-start-column="40" selection-end-line="185" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="77" column="57" selection-start-line="77" selection-start-column="57" selection-end-line="77" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/META-INF/MANIFEST_CLI.MF" />
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/manifests/cli/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/manifests/gui/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/.idea/libraries/software_manufacturing.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoHMS_Framework/src/Initialization/Init.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="53" column="40" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/gui/GUIPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3213">
+          <caret line="212" column="65" selection-start-line="212" selection-start-column="65" selection-end-line="212" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1521#1522#0" expanded="true" />
+            <element signature="e#1574#1575#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/javax/swing/JFileChooser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10149">
+          <caret line="666" column="38" selection-start-line="666" selection-start-column="11" selection-end-line="666" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/software_manufacturing/src/Application/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1010,7 +1035,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>software_manufacturing:jar</last-edited>
+          <last-edited>software_manufacturing_gui:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1027,7 +1052,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.36206895" />
               </list>
             </option>
           </splitter-proportions>
@@ -1058,7 +1083,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>SoHMS_Framework</last-edited>
+          <last-edited>software_manufacturing</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

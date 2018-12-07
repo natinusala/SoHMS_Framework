@@ -6,7 +6,7 @@ import OrdersManagement.HistoryManager;
 
 import java.io.IOException;
 
-public class Application implements Runnable, HistoryManager.HistoryListener {
+public class Application implements Runnable {
     public static void main(String... args) {
         new Application();
     }
@@ -14,8 +14,6 @@ public class Application implements Runnable, HistoryManager.HistoryListener {
     public Application()
     {
         final String SCENARIO_PATH = "data/scenario.json";
-
-        HistoryManager.addListener(this);
 
         ComInterface comFlexsim = new ComFlexsim();
 
@@ -32,10 +30,5 @@ public class Application implements Runnable, HistoryManager.HistoryListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void messagePosted(HistoryManager.HistoryEntry entry) {
-        //TODO Put this in GUI
     }
 }

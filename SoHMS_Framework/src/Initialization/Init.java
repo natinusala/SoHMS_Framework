@@ -24,6 +24,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Init {
 
+    public interface ServiceFinishedListener
+    {
+        void serviceFinished(int finished, int total);
+    }
+
     private static Gson gson = new Gson();
 
     private static ConcurrentHashMap<String,ServiceOntology> servOntologies = new ConcurrentHashMap<>(); // these are synchronized collections better than hashtable
@@ -31,6 +36,23 @@ public class Init {
     private static DirectoryFacilitator df;
     private static ArrayList<MService> mServices = new ArrayList<>();
     private static ArrayList<ResourceHolon> resourceCloud = new ArrayList<>();
+
+    private static int servicesCount = 0; //total number of services to be executed before all products are finished (for each order -> #products * #services)
+    private static int finishedServices = 0; //total number of services finished out of servicesCount
+
+    private static ArrayList<ServiceFinishedListener> serviceFinishedListeners = new ArrayList<>();
+
+    public static synchronized void serviceFinished()
+    {
+        finishedServices++;
+        for (ServiceFinishedListener serviceFinishedListener : serviceFinishedListeners)
+            serviceFinishedListener.serviceFinished(finishedServices, servicesCount);
+    }
+
+    public static void addServiceFinishedListener(ServiceFinishedListener l)
+    {
+        serviceFinishedListeners.add(l);
+    }
 
     private static ComInterface comInterface;
 
@@ -325,6 +347,8 @@ public class Init {
             OrderManager manager = new OrderManager(order, null);
             manager.setComInterface(comInterface);
             manager.setDf(df);
+
+            servicesCount += process.getServicesCount() * order.getNumOfUnits();
 
             orderManagerDict.put(Integer.toString(orderModel.id), manager);
         }
