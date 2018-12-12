@@ -20,7 +20,9 @@ public class ThreadCommunicationChannel
         NEGOCIATION_FINISHED,
         COM_MOVE,
         COM_END,
-        COM_PROCESS
+        COM_START,
+        COM_PROCESS,
+        COM_KO
     }
 
     public static class Message

@@ -36,20 +36,19 @@ public class ResourceHolon extends Resource implements Runnable
 	ThreadCommunicationChannel toFlexsim; //We are A
 
 	private boolean available = true;
+	private boolean working = false;
 
 	public synchronized void process()
 	{
-		int dummyTime = 30; // Unused by flexsim ?
+		working = true;
+		int dummyTime = 10; //TODO Actual (random) processing time
 		//We assume that availability is taken care of
 		HistoryManager.post("[RH] Processing...");
 		Pair<Integer, String> data = new Pair(this.name, dummyTime);
 		toFlexsim.sendToB(new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.COM_PROCESS, data));
 	}
 
-	public synchronized boolean isAvailable()
-	{
-		return available;
-	}
+	public synchronized boolean isWorking() { return working; }
 
 	public synchronized boolean takeAvailability()
 	{
@@ -205,10 +204,9 @@ public class ResourceHolon extends Resource implements Runnable
 				switch(message.getType())
 				{
 					case COM_END:
-						available = true;
+						working = false;
 						HistoryManager.post("[RH] Processing ended");
-						HistoryManager.post("[RH] Releasing availability");
-						//TODO Release availability when the transporter takes the product from the machine instead
+						HistoryManager.post("[RH] Waiting for transporter to take the product");
 						break;
 				}
 			}
@@ -219,5 +217,11 @@ public class ResourceHolon extends Resource implements Runnable
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public synchronized void releaseAvailability()
+	{
+		available = true;
+		HistoryManager.post("[RH] Releasing availability");
 	}
 }

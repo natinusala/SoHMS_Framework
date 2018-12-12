@@ -1,6 +1,7 @@
 package OrdersManagement;
 
 import Crosscutting.OutBoxSender;
+import Crosscutting.Pair;
 import Initialization.Init;
 import ProductManagement.*;
 import directoryFacilitator.DirectoryFacilitator;
@@ -110,6 +111,40 @@ public class OrderManager extends Thread {
         return i <= j ? i : j;
     }
 
+    private ArrayList<Pair<ROH, ThreadCommunicationChannel.Message>> pendingNegociations = new ArrayList<>();
+
+	private void processNegociations()
+	{
+		for (Iterator<Pair<ROH, ThreadCommunicationChannel.Message>> iterator = pendingNegociations.iterator(); iterator.hasNext();)
+		{
+			Pair<ROH, ThreadCommunicationChannel.Message> messagePair = iterator.next();
+			ThreadCommunicationChannel.Message message = messagePair.getSecond();
+			ArrayList<ResourceHolon> resourceHolons = (ArrayList<ResourceHolon>) message.getData();
+
+			ResourceHolon neo = null;
+
+			for (ResourceHolon rh : resourceHolons)
+			{
+				if (rh.takeAvailability())
+				{
+					neo = rh;
+					break;
+				}
+			}
+
+			if (neo != null)
+			{
+				ThreadCommunicationChannel.Message answer
+						= new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.NEGOCIATION_FINISHED, neo);
+				toRohCommunicationChannel.get(messagePair.getFirst()).sendToA(answer);
+				iterator.remove();
+
+				HistoryManager.post("[OH] Negociation finished");
+			}
+		}
+
+	}
+
     private void processRohMessage(ROH roh, ThreadCommunicationChannel.Message message)
 	{
 		if (message == null)
@@ -120,33 +155,8 @@ public class OrderManager extends Thread {
 		switch(message.getType())
 		{
 			case START_NEGOCIATION:
-				ArrayList<ResourceHolon> resourceHolons = (ArrayList<ResourceHolon>) message.getData();
-
-				HistoryManager.post("[OH] Starting negociation");
-
-				ResourceHolon neo = null;
-
-				while (neo == null)
-				{
-					for (ResourceHolon rh : resourceHolons)
-					{
-						if (rh.takeAvailability())
-						{
-							neo = rh;
-							break;
-						}
-					}
-
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-
-				ThreadCommunicationChannel.Message answer
-						= new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.NEGOCIATION_FINISHED, neo);
-				toRohCommunicationChannel.get(roh).sendToA(answer);
+				HistoryManager.post("[OH] Starting new negociation");
+				pendingNegociations.add(new Pair(roh, message));
 				break;
 			default:
 				HistoryManager.post("[OH] Got unknown message " + message.getType());
@@ -168,6 +178,9 @@ public class OrderManager extends Thread {
 				processRohMessage(roh, toRohCommunicationChannel.get(roh).readB());
 			}
 
+			//Negociate
+			processNegociations();
+
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -181,7 +194,7 @@ public class OrderManager extends Thread {
 				ArrayList<ROH> toMove = new ArrayList<>();
 				for (ROH roh : activeRohs)
 				{
-					if (roh.poh.getProductPosition().equals("SINK"))
+					if (roh.poh.productPosition != null && roh.poh.productPosition.equals("SINK"))
 					{
 						toMove.add(roh);
 					}

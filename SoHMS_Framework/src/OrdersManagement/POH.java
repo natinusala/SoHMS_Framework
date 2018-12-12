@@ -2,6 +2,7 @@ package OrdersManagement;
 
 import ProductManagement.ProductHolon;
 import ProductManagement.ProductionProcess;
+import ResourceManagement.ResourceHolon;
 import mservice.MService;
 import mservice.MServiceSpecification;
 
@@ -15,10 +16,18 @@ public class POH{
 	public POH_Behavior behavior;
 	public ProductHolon associatedPH;
 
-	public String productPosition = "SOURCE";
+	public String productPosition = "SOURCE"; //Having it at NULL means position of productPositionResource
+	public ResourceHolon productPositionResource = null;
+
+	public synchronized void setProductPosition(ResourceHolon productPosition)
+	{
+		this.productPositionResource = productPosition;
+		this.productPosition = null;
+	}
 
 	public synchronized void setProductPosition(String productPosition)
 	{
+		this.productPositionResource = null;
 		this.productPosition = productPosition;
 	}
 
@@ -66,9 +75,5 @@ public class POH{
 	}
 	public void setAssociatedPH(ProductHolon associatedPH) {
 		this.associatedPH = associatedPH;
-	}
-
-	public synchronized String getProductPosition() {
-		return productPosition;
 	}
 }

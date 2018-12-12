@@ -9,6 +9,9 @@ import ProductManagement.ProductHolon;
 
 public class Transporter extends Thread {
 
+	private ResourceHolon target;
+	private ResourceHolon destination;
+
 	@Override
 	public void run() {
 		while (true)
@@ -28,7 +31,19 @@ public class Transporter extends Thread {
 					{
 						case COM_END:
 							HistoryManager.post("[TR] Finished moving");
-							this.portStatus = TransporterState.IDLE;
+							setPortStatus(TransporterState.IDLE);
+							break;
+						case COM_START:
+							if (target != null)
+							{
+								HistoryManager.post("[TR] Releasing availability of " + target.getName());
+								target.releaseAvailability();
+							}
+							else
+							{
+								HistoryManager.post("[TR] No ResourceHolon needs to be made available");
+							}
+
 							break;
 						default:
 							HistoryManager.post("[TR] Got unknown message " + message.toString());
@@ -51,6 +66,7 @@ public class Transporter extends Thread {
 	{
 		UNKNOWN,
 		IDLE,
+		RESERVED,
 		INTRANSIT,
 		BLOCKED
 	}
@@ -67,7 +83,15 @@ public class Transporter extends Thread {
 
 	public boolean move(String from, String to)
 	{
-		if (portStatus != TransporterState.IDLE)
+		target = null;
+		destination= null;
+
+		return moveInternal(from, to);
+	}
+
+	private boolean moveInternal(String from, String to)
+	{
+		if (portStatus != TransporterState.RESERVED)
 			return false;
 
 		Pair<String, String> data = new Pair<>(from, to);
@@ -79,6 +103,51 @@ public class Transporter extends Thread {
 		HistoryManager.post("[TR] Moving...");
 
 		return true;
+	}
+
+	public boolean move(ResourceHolon from, String to)
+	{
+		if (portStatus != TransporterState.RESERVED)
+			return false;
+
+		this.target = from;
+		this.destination = null;
+
+		return moveInternal(from.getPosition(), to);
+	}
+
+	public boolean move(ResourceHolon from, ResourceHolon to)
+	{
+		if (portStatus != TransporterState.RESERVED)
+			return false;
+
+		this.target = from;
+		this.destination = to;
+
+		return moveInternal(from.getPosition(), to.getPosition());
+	}
+
+	public boolean move(String from, ResourceHolon to)
+	{
+		if (portStatus != TransporterState.RESERVED)
+			return false;
+
+		this.target = null;
+		this.destination = to;
+
+		return moveInternal(from, to.getPosition());
+	}
+
+	public synchronized void waitForIdle()
+	{
+		while (getPortStatus() != TransporterState.IDLE)
+		{
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public Transporter(ComInterface comInterface){
@@ -162,6 +231,20 @@ public synchronized void updatePosition(String port) {
 				e.printStackTrace();
 			}
 		}// At this point the pallet is at the port requested and returns. 
+	 }
+
+	 public synchronized void reserveTransporter()
+	 {
+	 	while (getPortStatus() != TransporterState.IDLE)
+		{
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
+		setPortStatus(TransporterState.RESERVED);
 	 }
  //---------------------------------------------------
 	/**

@@ -86,6 +86,43 @@ public class ComFlexsim implements ComInterface {
                                 }
                             }
                         }
+                        else if (clientmsg.startsWith("START "))
+                        {
+                            String identifier = clientmsg.substring(6);
+                            synchronized (this)
+                            {
+                                ThreadCommunicationChannel channel = waitingForAnAnswer.get(identifier);
+                                if (channel == null)
+                                {
+                                    HistoryManager.post("[COM] Recieved message doesn't belong to anyone");
+                                }
+                                else
+                                {
+                                    channel.sendToA(new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.COM_START, null));
+                                }
+                            }
+                        }
+                        else if (clientmsg.startsWith("KO "))
+                        {
+                            String identifier = clientmsg.substring(3);
+                            synchronized (this)
+                            {
+                                ThreadCommunicationChannel channel = waitingForAnAnswer.get(identifier);
+                                if (channel == null)
+                                {
+                                    HistoryManager.post("[COM] Recieved message doesn't belong to anyone");
+                                }
+                                else
+                                {
+                                    channel.sendToA(new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.COM_KO, null));
+                                    waitingForAnAnswer.remove(channel);
+                                }
+                            }
+                        }
+                        else if (!clientmsg.startsWith("OK "))
+                        {
+                            HistoryManager.post("[COM] I don't know what to do with " + clientmsg);
+                        }
                     }
 
                     Thread.sleep(100);
@@ -121,7 +158,7 @@ public class ComFlexsim implements ComInterface {
                                     }
                                     break;
                                 case COM_PROCESS:
-                                    Pair< String, Integer> process_data = (Pair<String, Integer>) message.getData();
+                                    Pair<String, Integer> process_data = (Pair<String, Integer>) message.getData();
                                     command = process(process_data.getFirst(), process_data.getSecond());
                                     synchronized (this) {
                                         waitingForAnAnswer.put(command, channel);

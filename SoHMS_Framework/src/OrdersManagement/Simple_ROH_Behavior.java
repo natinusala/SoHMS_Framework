@@ -168,17 +168,13 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 
 				HistoryManager.post("[ROH] Waiting for transporter availability...");
 				Transporter transporter = associatedROH.poh.associatedPH.getAssociatedResource();
-				while (transporter.getPortStatus() != Transporter.TransporterState.IDLE)
-				{
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
+				transporter.reserveTransporter();
 
 				HistoryManager.post("[ROH] Transporter ready, moving it");
-				transporter.move(associatedROH.poh.productPosition, "SINK");
+				if (associatedROH.poh.productPosition == null)
+					transporter.move(associatedROH.poh.productPositionResource, "SINK");
+				else
+					transporter.move(associatedROH.poh.productPosition, "SINK");
 
 				HistoryManager.post("[ROH] Waiting for transporter to move");
 				while (transporter.getPortStatus() != Transporter.TransporterState.IDLE)
@@ -250,34 +246,22 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 
 			//Wait for transporter availability
 			//TODO Negociate with transporter instead of waiting for it
-			//TODO Use the Transporter class and its thread better than this (waitPalletLiberation())
 			HistoryManager.post("[ROH] Waiting for transporter availability...");
 			Transporter transporter = associatedROH.poh.associatedPH.getAssociatedResource();
-			while (transporter.getPortStatus() != Transporter.TransporterState.IDLE)
-			{
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
+			transporter.reserveTransporter();
 
 			HistoryManager.post("[ROH] Transporter is ready, moving it");
-			transporter.move(associatedROH.poh.productPosition, neo.getPosition());
+			if (associatedROH.poh.productPosition == null)
+				transporter.move(associatedROH.poh.productPositionResource, neo);
+			else
+				transporter.move(associatedROH.poh.productPosition, neo);
 
 			HistoryManager.post("[ROH] Waiting for transporter to move");
-			while (transporter.getPortStatus() != Transporter.TransporterState.IDLE)
-			{
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
+			transporter.waitForIdle();
 
 			HistoryManager.post("[ROH] Transporter moved");
 
-			this.associatedROH.poh.setProductPosition(neo.getPosition());
+			this.associatedROH.poh.setProductPosition(neo);
 
 			HistoryManager.post("[ROH] Sending process command to ressource");
 
@@ -285,7 +269,7 @@ public class Simple_ROH_Behavior extends ROH_Behavior {
 
 			HistoryManager.post("[ROH] Waiting for processing to be over");
 
-			while (!neo.isAvailable())
+			while (neo.isWorking())
 			{
 				try {
 					Thread.sleep(100);
