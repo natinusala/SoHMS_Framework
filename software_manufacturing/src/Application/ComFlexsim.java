@@ -25,7 +25,7 @@ public class ComFlexsim implements ComInterface {
     @Override
     public ThreadCommunicationChannel requestChannel()
     {
-        synchronized (this)
+        synchronized (activeChannels)
         {
             ThreadCommunicationChannel channel = new ThreadCommunicationChannel();
 
@@ -72,7 +72,7 @@ public class ComFlexsim implements ComInterface {
                         if (clientmsg.startsWith("END "))
                         {
                             String identifier = clientmsg.substring(4);
-                            synchronized (this)
+                            synchronized (waitingForAnAnswer)
                             {
                                 ThreadCommunicationChannel channel = waitingForAnAnswer.get(identifier);
                                 if (channel == null)
@@ -89,7 +89,7 @@ public class ComFlexsim implements ComInterface {
                         else if (clientmsg.startsWith("START "))
                         {
                             String identifier = clientmsg.substring(6);
-                            synchronized (this)
+                            synchronized (waitingForAnAnswer)
                             {
                                 ThreadCommunicationChannel channel = waitingForAnAnswer.get(identifier);
                                 if (channel == null)
@@ -105,7 +105,7 @@ public class ComFlexsim implements ComInterface {
                         else if (clientmsg.startsWith("KO "))
                         {
                             String identifier = clientmsg.substring(3);
-                            synchronized (this)
+                            synchronized (waitingForAnAnswer)
                             {
                                 ThreadCommunicationChannel channel = waitingForAnAnswer.get(identifier);
                                 if (channel == null)
@@ -142,27 +142,31 @@ public class ComFlexsim implements ComInterface {
                 try
                 {
                     //Send pending messages
-                    for (ThreadCommunicationChannel channel : activeChannels)
-                    {
+                    ArrayList<ThreadCommunicationChannel> channels = null;
+                    synchronized (activeChannels) {
+                        channels = new ArrayList<>(activeChannels);
+                    }
+
+                    for (ThreadCommunicationChannel channel : channels) {
                         ThreadCommunicationChannel.Message message = channel.readB();
-                        if (message != null)
-                        {
+                        if (message != null) {
                             String command;
-                            switch (message.getType())
-                            {
+                            switch (message.getType()) {
                                 case COM_MOVE:
                                     Pair<String, String> move_data = (Pair<String, String>) message.getData();
-                                    command = move(move_data.getFirst(), move_data.getSecond());
-                                    synchronized (this) {
+                                    command = createMove(move_data.getFirst(), move_data.getSecond());
+                                    synchronized (waitingForAnAnswer) {
                                         waitingForAnAnswer.put(command, channel);
                                     }
+                                    execute(command);
                                     break;
                                 case COM_PROCESS:
                                     Pair<String, Integer> process_data = (Pair<String, Integer>) message.getData();
-                                    command = process(process_data.getFirst(), process_data.getSecond());
-                                    synchronized (this) {
+                                    command = createProcess(process_data.getFirst(), process_data.getSecond());
+                                    synchronized (waitingForAnAnswer) {
                                         waitingForAnAnswer.put(command, channel);
                                     }
+                                    execute(command);
                                     break;
                                 default:
                                     HistoryManager.post("[COM] Unknown message " + message.getType());
@@ -170,6 +174,7 @@ public class ComFlexsim implements ComInterface {
                             }
                         }
                     }
+
 
                     Thread.sleep(100);
                 } catch (Exception e) {
@@ -180,22 +185,24 @@ public class ComFlexsim implements ComInterface {
         }
     };
 
-
     private void execute(String message) throws IOException {
         HistoryManager.post("[COM] Sending " + message);
         writer.write(message +"\r\n");
         writer.flush();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    public String move(String origin, String destination) throws IOException {
+    public String createMove(String origin, String destination) throws IOException {
         String msg = "MOVE " + origin + " " + destination;
-        execute(msg);
         return msg;
     }
 
-    public String process(String machine, int dummyTime) throws IOException {
+    public String createProcess(String machine, int dummyTime) throws IOException {
         String msg = "PROCESS " + machine + " " + dummyTime;
-        execute(msg);
         return msg;
     }
 

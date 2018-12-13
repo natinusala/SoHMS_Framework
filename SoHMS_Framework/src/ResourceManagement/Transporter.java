@@ -31,6 +31,7 @@ public class Transporter extends Thread {
 					{
 						case COM_END:
 							HistoryManager.post("[TR] Finished moving");
+							HistoryManager.post("[TR] New state is IDLE");
 							setPortStatus(TransporterState.IDLE);
 							break;
 						case COM_START:
@@ -98,6 +99,7 @@ public class Transporter extends Thread {
 
 		toFlexsim.sendToB(new ThreadCommunicationChannel.Message(ThreadCommunicationChannel.MessageType.COM_MOVE, data));
 
+		HistoryManager.post("[TR] New state is INTRANSIT");
 		this.portStatus = TransporterState.INTRANSIT;
 
 		HistoryManager.post("[TR] Moving...");
@@ -150,14 +152,16 @@ public class Transporter extends Thread {
 		}
 	}
 	
-	public Transporter(ComInterface comInterface){
+	/*public Transporter(ComInterface comInterface){
 	//Associate a  Default behavior to the pallet
 		this.toFlexsim = comInterface.requestChannel();
 		/*defaultBehavior = new PalletDefaultBehaviour(this);
-		defaultBehavior.start();*/
+		defaultBehavior.start();
 		start();
-	}
+	}*/
+
 	public Transporter(ComInterface comInterface, TransporterState portStatus,ProductHolon associatedPH, int _RFID) {
+		HistoryManager.post("[TR] New transporter resource created");
 		this.toFlexsim = comInterface.requestChannel();
 		this.portStatus = portStatus;
 		this.associatedPH = associatedPH;
@@ -244,6 +248,7 @@ public synchronized void updatePosition(String port) {
 			}
 		}
 
+		HistoryManager.post("[TR] New state is RESERVED");
 		setPortStatus(TransporterState.RESERVED);
 	 }
  //---------------------------------------------------

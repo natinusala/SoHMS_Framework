@@ -280,7 +280,7 @@
       "id":1,
       "numOfUnits":5,
       "priority":"NORMAL_PRIORITY",
-      "maxParallelUnits":2,
+      "maxParallelUnits":3,
       "product":1
     }
   ],
